@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "Peyvok",
+    "slug": "peyvok",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#2b2249",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2b2249"
+    },
+    "android": {
+      "package": "com.okuyanstudio.peyvok",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2b2249"
+      },
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.VIBRATE"
+      ],
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.okuyanstudio.peyvok",
+      "supportsTablet": false
+    },
+    "plugins": [
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 220,
+          "backgroundColor": "#2b2249"
+        }
+      ],
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "PORTRAIT_UP"
+        }
+      ]
+    ],
+    "owner": "gaffardevs-team",
+    "extra": {
+      "eas": {
+        "projectId": "b3f473a8-4eae-4cf5-83e0-1adc102f1828"
+      }
+    }
+  }
+}
