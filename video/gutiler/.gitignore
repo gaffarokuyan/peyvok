@@ -8,3 +8,8 @@ film/seg/
 film/stills/
 film/sheet_*.jpg
 film/out/
+film3/seg/
+film3/stills/
+film3/sheet_*.jpg
+film3/out/
+film3/audio/*.wav

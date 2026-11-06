@@ -1,0 +1,82 @@
+// ================= FILM SHOT LISTS v2 (Mezopotamya odaklı) — cue = anlatımdaki kelime =================
+const E2200=['akad','gut','lul','hur','elam'];
+const CIT_SUMER=[['Akad',44.1,33.1,null,true],['Kiş',44.6,32.54],['Nippur',45.23,32.13],['Uruk',45.64,31.32],['Ur',46.1,30.96],['Lagaş',46.4,31.41]];
+const G={guti:{name:'GUTİLER',sub:'Gutium ordusu',pal:PAL.guti,helmet:'cone',shield:'round'},akad:{name:'AKAD',sub:'İmparatorluk ordusu',pal:PAL.akad,helmet:'dome',shield:'rect'},
+ lullu:{name:'LULLUBİLER',sub:'Şehrizor',pal:PAL.lullu,helmet:'cone',shield:'round'},uruk:{name:'URUK',sub:'Kral Utu-hengal',pal:PAL.sumer,helmet:'dome',shield:'rect'},ur:{name:'UR',sub:'Kral Ur-Nammu',pal:PAL.sumer,helmet:'dome',shield:'rect'}};
+const SHOTS={
+ ch00:[
+  {at:0,type:'map',p:{year:'MÖ 2200',cam:[[0,42.5,35.2,24],['gutiler',46.0,34.2,10]],show:E2200,glow:[['gut','gutiler']],labels:[['gutiler',47.7,33.5,'GUTİLER','Mezopotamya’nın doğusu','','sümer']],
+    armies:[['dünyanın',[46.4,34.9],[44.3,33.3],'#e3322b','#3a0805',2.2]],cities:CIT_SUMER,fall:[['Akad','çöktürdüler']],spread:['mezopotamyaya','rule'],badges:[['asır','100 YIL','MEZOPOTAMYA GUTİLERİN ELİNDE']]}},
+  {at:'sümer',type:'duel',p:{clash:'ejderhası',quote:['“DAĞLARIN EJDERHASI”','— Sümer yazıcıları']}},
+  {at:'peki',type:'lineage',p:{hl:['gut'],cues:{kurd:'kürtlerin'}}},
+  {at:'dîroka',type:'scenic',p:{warm:.2,lines:[['dîroka','DÎROK',170,.38]]}}],
+ ch01:[
+  {at:0,type:'map',p:{cam:[[0,43,34,15]],rivers:0.1,labels:[['dicle',42.9,37.0,'DİCLE','','',null,'#7fe0ff'],['fırat',39.4,35.6,'FIRAT','','',null,'#7fe0ff']],text:[['topraklar','MEZOPOTAMYA',null,140]]}},
+  {at:'ilk',type:'list',p:{title:'MEZOPOTAMYA’DA DOĞDU',items:[['şehirler','İlk şehirler'],['yazı','Yazı'],['tekerlek','Tekerlek'],['kanunlar','Yazılı kanunlar']]}},
+  {at:'uruk',type:'map',p:{year:'MÖ 3000',cam:[['uruk',45.5,31.7,7.5]],cities:[['Uruk',45.64,31.32,'uruk',true],['Ur',46.1,30.96,'lagaş@-0.5',true],['Lagaş',46.4,31.41,'lagaş'],['Nippur',45.23,32.13,'nippur']],text:[['sümer','SÜMER',null,140]]}},
+  {at:'milattan',type:'map',p:{year:'MÖ 2334',cam:[['milattan',41,34.2,25]],show:E2200,glow:[['akad','akadlı']],labels:[['akadlı',39.6,33.4,'AKAD','İmparatorluğu','KRAL SARGON']],cities:[['Akad',44.1,33.1,null,true]],badges:[['dünyanın','DÖRT BUCAĞIN KRALI','Naram-Sin’in unvanı']]}},
+  {at:'ama',type:'map',p:{cam:[['ama',45.2,34,12]],show:['akad','gut'],glow:[['gut','doğudan']],arrows:[['doğudan',[46.6,34.8],[44.3,33.3],'#e3322b']]}}],
+ ch02:[
+  {at:0,type:'map',p:{year:'MÖ 2200',cam:[[0,45,34.8,12],['burası',46.2,34.6,8]],show:['lul','gut','akad'],glow:[['gut','gutium']],rivers:'küçük',
+    labels:[['küçük',44.5,35.6,'KÜÇÜK ZAP','','',null,'#7fe0ff'],['diyala',45.0,33.9,'DİYALA','','',null,'#7fe0ff'],['burası',47.6,33.6,'GUTİUM','Gutilerin yurdu','']],arrows:[['yollar',[46.0,35.2],[44.6,33.4],'#e3322b']]}},
+  {at:'naram-sinin',type:'battle',p:{left:G.guti,right:G.akad,vs:true,year:'MÖ ~2200'}},
+  {at:'tabletlerinde',type:'tablet',p:{seed:5,title:'AKAD YIL ADI',sub:'Şar-kali-şarri dönemi',quotes:[['şar-kali-şarrinin','Şar-kali-şarri’nin, Gutium kralı Şarlag’ı esir aldığı yıl']],hl:'şar-kali-şarrinin'}},
+  {at:'ama',type:'scenic',p:{warm:.65,lines:[['ama','KURAKLIK VE KITLIK',110,.33],['isyanlarla','İsyanlar · Taht kavgaları',62,.5,'corm']]}},
+  {at:'ölümünden@-1.4',type:'quote',p:{text:'Kim kraldı?\nKim kral değildi?',src:'— SÜMER KRAL LİSTESİ · AKAD’IN SON GÜNLERİ',colors:['#e8f8ff','#8fd0ff','#5a7fe0']}},
+  {at:'agadenin',type:'tablet',p:{title:'AGADE’NİN LANETİ',sub:'Sümer metni',quotes:[['kontrol','Kontrol edilemeyen bir halk']],hl:'kontrol'}},
+  {at:'milattan',type:'map',p:{year:'MÖ 2150',cam:[['milattan',45.3,33.6,10.5]],show:E2200,armies:[['milattan',[46.4,34.9],[44.3,33.3],'#e3322b','#3a0805',2.4],['milattan@0.3',[47.0,34.3],[45.2,32.3],'#e3322b','#3a0805',2.4]],
+    cities:CIT_SUMER,fall:[['Akad','çöktü']],spread:['mezopotamyanın','rule'],text:[['çöktü','AKAD YIKILDI!','mezopotamyanın',150]]}}],
+ ch03:[
+  {at:0,type:'tablet',p:{title:'SÜMER KRAL LİSTESİ',sub:'Mezopotamya hanedanları',quotes:[['krallık','Krallık, Gutium ordusuna geçti.']],hl:'krallık'}},
+  {at:'ilginç@-1.5',type:'quote',p:{title:'SÜMER KRAL LİSTESİ',text:'“Gutium ordusunda başta bilinen bir kral yoktu;\nkendi kendilerinin kralıydılar.”',src:'— ORTAK YÖNETİM, AŞİRET MECLİSİ',size:60}},
+  {at:'listeye',type:'tablet',p:{seed:7,title:'GUTİ KRALLARI',sub:'Sümer Kral Listesi',names:[['yirmi','İNKİŞUŞ'],['yirmi@0.3','ZARLAGAB'],['yirmi@0.6','ŞULME'],['yirmi@0.9','ELULUMEŞ'],['yirmi@1.2','YARLAGAB'],['yirmi@1.5','Sİ’UM'],['yirmi@1.8','TİRİGAN']],badges:[['krallarının','21 KRAL','~100 YIL · KISA SALTANATLAR']]}},
+  {at:'valiler@-2.2',type:'map',p:{year:'MÖ ~2120',cam:[['valiler@-2.2',45.7,31.9,7]],show:['akad'],spread:['valiler@-2.2','rule'],cities:[['Umma',45.88,31.67,'umma',true],['Uruk',45.64,31.32],['Lagaş',46.4,31.41],['Nippur',45.23,32.13],['Ur',46.1,30.96]],
+    labels:[['lugal-annatum',47.0,32.3,'LUGAL-ANNATUM','Umma valisi','“GUTİUM KRALI Sİ’UM ZAMANINDA”']],badges:[['yani','YEREL VALİLER','Şehirler özerk · Guti kralı egemen']]}},
+  {at:'akadın',type:'quote',p:{title:'LA’ERABUM’UN TOPUZU',text:'“Gutium’un güçlü kralı”',src:'— TOPUZ BAŞLIĞI YAZITI · AKADCA',colors:['#fff6d8','#ffcf7a','#d27a3a']}},
+  {at:'erridupizirdir@-2.2',type:'map',p:{cam:[['erridupizirdir@-2.2',45.2,32.4,7.5]],show:['akad'],spread:['erridupizirdir@-2.2','rule'],cities:[['Nippur',45.23,32.13,null,true],['Uruk',45.64,31.32],['Lagaş',46.4,31.41]],labels:[['erridupizirdir',44.3,31.6,'ERRİDUPİZİR','Guti kralı','NİPPUR YAZITLARI']]}},
+  {at:'gutiumun#2@-0.3',type:'quote',p:{text:'Gutium’un kralı,\ndünyanın dört bucağının kralı',src:'— ERRİDUPİZİR YAZITI, NİPPUR'}},
+  {at:'isyan@-1',type:'map',p:{cam:[['isyan@-1',45.4,33.8,13]],show:['gut','lul','akad'],glow:[['gut','isyan']],arrows:[['isyan',[45.6,34.2],[45.8,35.8],'#e3322b'],['isyan@0.4',[46.2,34.0],[47.6,34.9],'#e3322b'],['enlilin',[45.8,34.6],[45.25,32.2],'#ffcf3a']],
+    cities:[['Nippur',45.23,32.13,'enlilin',true]],labels:[['enlilin',44.0,31.9,'ENLİL TAPINAĞI','Nippur','GANİMETLER ADANDI']]}},
+  {at:'döneminde',type:'gudea',p:{}},
+  {at:'yani#2',type:'scenic',p:{lines:[['yani#2','İMPARATORLUK MİRASÇILARI',100,.33],['hükümdarlardı','Akıncı değil, hükümdar',66,.5,'corm']]}},
+  {at:'meclisle',type:'compare',p:{left:['GUTİLER','Meclisle seçilen liderler','Aşiret konfederasyonu','Yerel özerklik'],right:['KÜRT GELENEĞİ','Aşiret meclisi','Aşiret birlikleri','Yerel özerklik'],cues:['meclisle','aşiret#3','yerel#2'],link:'tablo'}}],
+ ch04:[
+  {at:0,type:'battle',p:{left:G.guti,right:G.uruk,vs:true,year:'MÖ ~2050'}},
+  {at:'zafer',type:'duel',p:{b:'sumer',clash:'ejderhası',quote:['“DAĞLARIN EJDERHASI”','— Utu-hengal’in zafer yazıtı']}},
+  {at:'sırada',type:'tablet',p:{seed:9,title:'SON GUTİ KRALI',sub:'Sümer Kral Listesi',names:[['tirigan','TİRİGAN']],badges:[['kırk','40 GÜN','Tirigan’ın saltanatı']]}},
+  {at:'ordusuyla',type:'map',p:{year:'MÖ ~2050',cam:[['ordusuyla',45.6,32.6,9]],show:['gut','akad'],cities:[['Uruk',45.64,31.32,null,true],['Ur',46.1,30.96],['Lagaş',46.4,31.41],['Nippur',45.23,32.13]],
+    armies:[['ordusuyla',[45.64,31.32],[45.3,33.1],'#2d8a6a','#0f3a2a',3.0]],labels:[['komutanı',44.2,32.4,'2 GUTİ KOMUTANI','Esir alındı','','dubrum'],['dubrum',45.9,33.9,'DUBRUM','Tirigan’ın kaçtığı şehir','']],arrows:[['kaçtı',[45.0,33.4],[45.75,33.75],'#e3322b',1]]}},
+  {at:'kısa',type:'tablet',p:{seed:13,title:'UR-NAMMU',sub:'Ur · MÖ ~2100',sub2:'YENİ HANEDAN',quotes:[['hanedan','Ur-Nammu yeni bir hanedan kurdu']]}},
+  {at:'bazı',type:'battle',p:{left:G.guti,right:G.ur,vs:true}},
+  {at:'gutilerin',type:'map',p:{cam:[['gutilerin',45.2,33.8,12]],show:['gut','lul'],glow:[['gut','yok']],arrows:[['gutilerin',[44.5,32.6],[46.4,34.7],'#e3322b',1.6],['gutilerin@0.3',[45.4,32.0],[47.0,34.2],'#e3322b',1.6]],text:[['yok','GUTİLER YOK OLMADI',null,110]]}}],
+ ch05:[
+  {at:0,type:'timeline',p:{title:'GUTİUM ADININ YOLCULUĞU',bars:[['GUTİUM · Akad ve Sümer',-2300,-2050,'#e3322b',0.2],['HAMMURABİ · Gutium ordusu',-1800,-1700,'#f0582a','hammurabi'],['ASUR · Qutu ülkesi',-1300,-700,'#ff8a3a','asur'],['KİROS · Gutium valisi',-600,-520,'#d9533a','milattan']]}},
+  {at:'kiros#2@-0.5',type:'cylinder',p:{hl:'gutiumu',quotes:[['gutiumu','“... Gutium ülkesi ...”'],['ugbaruydu','Gutium valisi Ugbaru Babil’e girdi']]}},
+  {at:'yani',type:'scenic',p:{lines:[['yani','GUTİUM',150,.32],['yedi','1.700 YIL',90,.5]]}}],
+ ch06:[
+  {at:0,type:'map',p:{cam:[[0,43.6,35.8,22]],show:['gut',['lul','lullubiler'],['hur','hurriler'],['mit','hurriler'],['kasO','kassitler'],['med','medler']],tags:[['gut'],['lul','lullubiler'],['hur','hurriler',41.4,38.2],['kasO','kassitler'],['med','medler',50.5,37.5]],
+    glow:[['lul','lullubiler'],['hur','hurriler'],['kasO','kassitler'],['med','medler']]}},
+  {at:'pek',type:'lineage',p:{cues:{kurd:'katmanlardır'}}},
+  {at:'bağı',type:'scenic',p:{lines:[['bağı','YABANCI KAYNAKLAR',120,.34],['tarihçiler','Tarihçiler ve şarkiyatçılar',62,.5,'corm']]}},
+  {at:'ingilterede',type:'authors',p:{list:[['ARŞAK SAFRASTİAN','Kurds and Kurdistan','LONDRA · 1948','Gutileri doğrudan\nKürtlerin ataları sayar']]}},
+  {at:'isim',type:'etym',p:{chain:[['GUTİ','Sümer · Akad','isim'],['QURTİ','Asur kayıtları','qurti'],['KARDUKH','Ksenofon · MÖ 401','kardukhlardan'],['KORDUENE','Roma dönemi','korduene'],['KÜRT','Bugün','korduene@1.4']]}},
+  {at:'oxford',type:'authors',p:{list:[['G. R. DRIVER','The Name Kurd','OXFORD · JRAS · 1923','Kürt adının\nkadim kökleri','oxford'],['V. MINORSKY','Kurds','ENC. OF ISLAM · 1927','Medlerin\nbelirleyici rolü','vladimir']]}},
+  {at:'ephraim',type:'authors',p:{list:[['E. A. SPEISER','Mesopotamian Origins','ABD · 1930','Gutiler: Mezopotamya’nın\ndoğusunun yerli halkı','ephraim'],['MEHRDAD R. İZADY','The Kurds: A Concise Handbook','WASHINGTON · 1992','Kadim halklar,\nKürtlerin temeli','mehrdad']]}},
+  {at:'kürt tarihçi',type:'authors',p:{list:[['MUHAMMED EMİN ZEKİ BEG','Xulasey Tarîxî Kurd û Kurdistan','BAĞDAT · 1931','Aynı görüşte']]}},
+  {at:'elbette',type:'quote',p:{title:'KARŞIT GÖRÜŞLER',text:'Gutilerin dilinden\ngünümüze çok az belge kaldı',src:'— ELİMİZDE YALNIZCA BİRKAÇ KRAL ADI VAR',colors:['#e8f8ff','#8fd0ff','#5a7fe0']}}],
+ ch07:[
+  {at:0,type:'nineveh',p:{noArmy:true,title:'OVALAR SAVUNMASIZDI',sub:'İMPARATORLUKLAR GELDİ, ŞEHİRLER YAKILDI'}},
+  {at:'moğollar@-1.2',type:'nineveh',p:{noArmy:true,title:'BAĞDAT · 1258',sub:'MOĞOL İSTİLASI'}},
+  {at:'stratejik@-1.5',type:'scenic',p:{warm:.15,hero:true,lines:[['stratejik','STRATEJİK AVANTAJ',100,.24]]}},
+  {at:'sözü@-1.5',type:'scenic',p:{warm:.3,lines:[['ji','Ji çiyan pê ve, hevalên me tune',96,.36],['dağlardan','Dağlardan başka dostumuz yok',66,.53,'corm']]}},
+  {at:'gutiler',type:'city',p:{title:'MEZOPOTAMYA',sub:'Medeniyetin beşiği',sub2:'KÜRT TARİHİNİN İLK SAYFALARI'}},
+  {at:'videoyu@-0.3',type:'scenic',p:{warm:.2,lines:[['videoyu','ABONE OL',140,.38],['yorumlarda','Görüşlerinizi yorumlarda paylaşın',62,.55,'corm']]}}]
+};
+window.CREDITS=['# Birincil Kaynaklar','Sümer Kral Listesi — T. Jacobsen, The Sumerian King List, Chicago, 1939','Agade’nin Laneti — J. S. Cooper, The Curse of Agade, 1983',
+ 'Akad ve Guti dönemi yazıtları — D. Frayne, Sargonic and Gutian Periods, RIME 2, 1993','Ur-Nammu ve Ur III dönemi — D. Frayne, Ur III Period, RIME 3/2, 1997',
+ 'Amarna Mektupları — W. L. Moran, The Amarna Letters, 1992','Kiros Silindiri, Nabonid Kroniği — A. K. Grayson, 1975','Herodot, Tarih · Ksenofon, Anabasis',
+ '# Yabancı Araştırmacılar','Arshak Safrastian — Kurds and Kurdistan, London, 1948','G. R. Driver — The Name Kurd and Its Philological Connexions, JRAS, 1923','V. Minorsky — Kurds, Encyclopaedia of Islam, 1927',
+ 'E. A. Speiser — Mesopotamian Origins, 1930','Basil Nikitine — Les Kurdes, Paris, 1956','Mehrdad R. Izady — The Kurds: A Concise Handbook, 1992',
+ '# Kürt Tarihçiler','Muhammed Emin Zeki Beg — Xulasey Tarîxî Kurd û Kurdistan, Bağdat, 1931','Cemal Reşîd Ehmed — Dirasat Kurdiyya fi Bilad Subartu, Bağdat, 1984',
+ '# Akademik Arka Plan','W. W. Hallo — Gutium, Reallexikon der Assyriologie, 1971','M. Van De Mieroop — A History of the Ancient Near East, 2015','G. Wilhelm — The Hurrians, 1989','I. M. Diakonoff — Media, Cambridge History of Iran, 1985',
+ '# Yapım','Animasyon ve harita: kodla üretildi · Yükseklik verisi: AWS Terrain Tiles','Müzik: ElevenLabs','DÎROK'];
