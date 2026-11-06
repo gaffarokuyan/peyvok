@@ -654,10 +654,36 @@ def scene_06():
     e = S1(s) + 0.3
     chapter(s, "05", "LEHÇELER")
     t_cl = T(s, "Bu lehçe çeşitliliği") - 0.2
-    cx, cy = 960, 470
-    add(pill("KÜRTÇE", GOLD, INK, size=46, padx=50, pady=22), cx, cy, S0(s) + 0.3, t_cl)
-    D = [("Kurmancî", ["Kuzey Kürtçesi", "Türkiye · Suriye · Irak · İran · Kafkasya"], (430, 250), "Kurmancî,"),
-         ("Soranî", ["Orta Kürtçe", "Irak Kürdistanı · İran"], (1490, 250), "Soranî,"),
+
+    # Kurdistan cografyasi: dort parca
+    t_dl = T(s, "Kürtçenin başlıca") - 0.2
+    cx, cy = 960, 500
+    add(text_img("Kürdistan coğrafyası", "serif_i", 58, CREAM), cx, 112, S0(s) + 0.2, t_dl)
+
+    def compass(fr, d, t, a):
+        col = lerp(BGC, GOLD_D, a)
+        r = 175
+        d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=col, width=2)
+        d.ellipse((cx - r + 14, cy - r + 14, cx + r - 14, cy + r - 14), outline=lerp(BGC, GOLD_D, a * 0.5), width=1)
+        for k in range(4):
+            ang = math.radians(k * 90 + (t - S0(s)) * 3)
+            x1, y1 = cx + math.cos(ang) * (r - 30), cy + math.sin(ang) * (r - 30)
+            x2, y2 = cx + math.cos(ang + 0.12) * 40, cy + math.sin(ang + 0.12) * 40
+            x3, y3 = cx + math.cos(ang - 0.12) * 40, cy + math.sin(ang - 0.12) * 40
+            d.polygon([(x1, y1), (x2, y2), (x3, y3)], outline=col)
+    fx(compass, S0(s) + 0.2, t_dl)
+    add(pill("KÜRDİSTAN", GOLD, INK, size=34, padx=40, pady=16), cx, cy, S0(s) + 0.6, t_dl)
+    Rg = [("Bakur", "kuzey", (cx, cy - 268), "Bakur,"), ("Başûr", "güney", (cx, cy + 268), "Başûr,"),
+          ("Rojava", "batı", (cx - 470, cy), "Rojava"), ("Rojhilat", "doğu", (cx + 470, cy), "Rojhilat.")]
+    for nm, yon, (x, y), k in Rg:
+        c = card(stack([text_img(nm, "serif_b", 60, GOLD, shadow=False),
+                        text_img(yon, "sans_r", 26, MUTED, shadow=False)], gap=-14), w=300, h=140)
+        add(c, x, y, T(s, k), t_dl, dy=0, scale_in=0.85)
+
+    add(pill("KÜRTÇE", GOLD, INK, size=46, padx=50, pady=22), cx, 470, T(s, "Kürtçenin başlıca"), t_cl)
+    cy = 470
+    D = [("Kurmancî", ["Kuzey Kürtçesi", "Bakur · Rojava · Başûr · Rojhilat · Kafkasya"], (430, 250), "Kurmancî,"),
+         ("Soranî", ["Orta Kürtçe", "Başûr · Rojhilat"], (1490, 250), "Soranî,"),
          ("Güney Kürtçesi", ["Kelhurî · Feylî · Lekî"], (1500, 600), "Güney Kürtçesi."),
          ("Zazakî", ["Kirmanckî · Dimilî", "Dersim · Bingöl · Elazığ · Diyarbakır · Siverek"], (420, 620), "Zazakî,"),
          ("Goranî", ["Hewramî", "Erdelan ve Baban sarayları"], (960, 760), "Goranî,")]
