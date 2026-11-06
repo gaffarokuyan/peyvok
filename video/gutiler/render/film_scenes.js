@@ -15,17 +15,18 @@ function sTitle(T,p){const lt=T-SH.t0;landscape(lt,lt*30,.25);sparkles(lt,80);
   X.font='italic 600 50px Corm';X.letterSpacing='2px';X.lineWidth=6;X.strokeText('Kürtlerin ataları',W/2,H*.42+185);X.fillStyle='#ffe9a8';X.fillText('Kürtlerin ataları',W/2,H*.42+185);X.restore();
   if(LOGO.complete){X.save();X.globalAlpha=ss(1.2,1.8,lt);X.beginPath();X.arc(W/2,H*.83,85,0,TAU);X.clip();X.drawImage(LOGO,W/2-90,H*.83-90,180,180);X.restore()}}
 // ---- battles
-function sBattle(T,p){const lt=T-SH.t0;const cam=lt*60;landscape(lt,cam,p.warm||0);dust(lt,700,.25);
+function sBattle(T,p){const lt=T-SH.t0;const cam=Math.min(lt,6)*30;landscape(lt,cam,p.warm||0);dust(lt,700,.25);
   const L=p.left,Rr=p.right;const AXc=AX;AXc.clearRect(0,0,W,H);const prog=lt/(SH.t1-SH.t0+.5);
-  for(const s of SOLD){const depth=[.45,.6,.8,1.1][s.row],h=250*depth,gy=[800,850,915,1000][s.row];const base=-180+s.off*760+s.row*25;const x=(s.side>0?base+230*lt:W-base-230*lt)-cam*depth*.4;
-    if(lt>3.4){}const ph=lt*10*s.sp+s.ph;const side=s.side>0?L:Rr;const pr=runPose(x,gy,s.side,h,ph,.34);
-    if(s.typ>.5&&side.sword!==false){pr.ua=[2.6+.15*Math.sin(ph),.5];warriorC(AXc,pr,side.pal,{helmet:side.helmet,shield:side.shield,sword:'sickle',wind:lt*2})}
+  for(const s of SOLD){const depth=[.45,.6,.8,1.1][s.row],h=250*depth,gy=[800,850,915,1000][s.row];const base=-180+s.off*760+s.row*25;const front=W/2-40-s.off*520-s.row*18;const dist=front-base;const arr=Math.max(0,lt-dist/230);const xx=Math.min(base+230*lt,front)+(arr>0?Math.sin(arr*3+s.ph)*14:0);
+    const x=(s.side>0?xx:W-xx)-cam*depth*.4+(cam*depth*.4);const fight=arr>0;const ph=fight?s.ph+arr*2:lt*10*s.sp+s.ph;const side=s.side>0?L:Rr;const pr=runPose(x,gy,s.side,h,ph,fight?.18:.34);
+    if(fight){pr.fl=[.55,-.35];pr.bl=[-.5,-.1];ground(pr,gy)}
+    if(s.typ>.5&&side.sword!==false){pr.ua=fight?[2.2+1.1*Math.max(0,Math.sin(arr*4+s.ph)),.3]:[2.6+.15*Math.sin(ph),.5];warriorC(AXc,pr,side.pal,{helmet:side.helmet,shield:side.shield,sword:'sickle',wind:lt*2})}
     else{pr.ua=[1.3,-.5];warriorC(AXc,pr,side.pal,{helmet:side.helmet,shield:side.shield,spear:.15,wind:lt*2})}}
-  for(let i=0;i<4;i++){const sd=i<2?1:-1;const side=sd>0?L:Rr;const x=(sd>0?120+(i%2)*300+220*lt:W-120-(i%2)*300-220*lt)-cam*.6;AXc.fillStyle='#4a2a12';AXc.fillRect(x,500,10,440);
+  for(let i=0;i<4;i++){const sd=i<2?1:-1;const side=sd>0?L:Rr;const bx=Math.min(120+(i%2)*300+220*lt,W/2-380-(i%2)*260);const x=(sd>0?bx:W-bx);AXc.fillStyle='#4a2a12';AXc.fillRect(x,500,10,440);
     AXc.beginPath();AXc.moveTo(x+5,505);for(let k=0;k<=10;k++)AXc.lineTo(x+5-sd*k*18,505+Math.sin(lt*7+k*.7)*10*k/10);for(let k=10;k>=0;k--)AXc.lineTo(x+5-sd*k*18,600+Math.sin(lt*7+k*.7+.5)*10*k/10);AXc.fillStyle=side.pal.tunic;AXc.fill();AXc.strokeStyle='#fff';AXc.lineWidth=3;AXc.stroke()}
   X.save();X.shadowColor='rgba(40,20,0,.35)';X.shadowBlur=10;X.shadowOffsetY=6;X.drawImage(ARMY,0,0);X.restore();dust(lt,820,.3);
-  const ta=ss(.3,.8,lt);labelBoxB(330,180,L.name,L.sub||'','',ta,'#ff6a4a',clamp((lt-.3)/.5));labelBoxB(W-330,180,Rr.name,Rr.sub||'','',ta,'#ffd36a',clamp((lt-.3)/.5));
-  if(p.vs){X.save();X.globalAlpha=ta;X.font='900 90px CinzelH';X.textAlign='center';X.lineWidth=12;X.lineJoin='round';X.strokeStyle='#2a1206';X.strokeText('VS',W/2,210);X.fillStyle=goldGrad(X,150,220);X.fillText('VS',W/2,210);X.restore()}
+  const ta=ss(.3,.8,lt);labelBoxB(330,250,L.name,L.sub||'','',ta,'#ff6a4a',clamp((lt-.3)/.5));labelBoxB(W-330,250,Rr.name,Rr.sub||'','',ta,'#ffd36a',clamp((lt-.3)/.5));
+  if(p.vs){X.save();X.globalAlpha=ta;X.font='900 90px CinzelH';X.textAlign='center';X.lineWidth=12;X.lineJoin='round';X.strokeStyle='#2a1206';X.strokeText('VS',W/2,280);X.fillStyle=goldGrad(X,220,290);X.fillText('VS',W/2,280);X.restore()}
   if(p.year)yearBadge(p.year,ss(0,.5,lt))}
 function sDuel(T,p){const lt=T-SH.t0;const CL=p.clash!=null?R(p.clash)-SH.t0:1.2;const tt=lt<CL?lt:CL+(lt-CL)*.25;landscape(tt*.5,tt*20,p.warm||.15);
   const zoom=1+.05*ss(0,CL,lt)+.08*(lt>CL?eout((lt-CL)/.25):0);const shake=lt>CL?Math.exp(-(lt-CL)*6)*24:0;
@@ -145,7 +146,7 @@ function sEclipse(T,p){const lt=T-SH.t0;const ek=ss(R(p.dark)-SH.t0-.5,R(p.dark)
   X.save();X.globalCompositeOperation='lighter';const cg=X.createRadialGradient(sx,sy,80,sx,sy,300+200*ek);cg.addColorStop(0,`rgba(255,250,220,${.6+.4*ek})`);cg.addColorStop(1,'rgba(255,220,150,0)');X.fillStyle=cg;X.fillRect(0,0,W,H);
   if(ek>.3){const rr=rng(9);for(let i=0;i<70;i++){const a=rr()*TAU,L=110+rr()*300*ek;X.strokeStyle=`rgba(255,250,230,${.3+rr()*.5})`;X.lineWidth=1+rr()*3;X.beginPath();X.moveTo(sx+Math.cos(a)*100,sy+Math.sin(a)*100);X.lineTo(sx+Math.cos(a)*L,sy+Math.sin(a)*L);X.stroke()}}X.restore();
   X.fillStyle='#fffbe0';X.beginPath();X.arc(sx,sy,100,0,TAU);X.fill();X.fillStyle='#0a0a14';X.beginPath();X.arc(sx+lerp(220,0,ek),sy+lerp(-40,0,ek),102,0,TAU);X.fill();
-  AX.clearRect(0,0,W,H);for(const s of SOLD){if(s.row<2)continue;const h=[0,0,200,260][s.row],gy=[0,0,930,1010][s.row];const base=-120+s.off*620;const x=s.side>0?base+80*lt*(1-ek):W-base-80*lt*(1-ek);const pr=runPose(x,gy,s.side,h,lt*10*(1-ek)+s.ph,.3*(1-ek));
+  AX.clearRect(0,0,W,H);for(const s of SOLD){if(s.row<2)continue;const h=[0,0,200,260][s.row],gy=[0,0,930,1010][s.row];const base=-120+s.off*620;const adv=Math.min(80*lt,Math.max(0,W/2-90-s.off*300-base));const x=s.side>0?base+adv:W-base-adv;const pr=runPose(x,gy,s.side,h,lt*10*(1-ek)+s.ph,.3*(1-ek));
     pr.ua=[1.3,-.5];warriorC(AX,pr,s.side>0?PAL.med:PAL.lidya,{helmet:s.side>0?'cap':'dome',shield:s.side>0?'round':'rect',spear:.15})}
   X.save();X.filter=`brightness(${1-.55*ek})`;X.drawImage(ARMY,0,0);X.restore();
   labelBoxB(330,H*.5,'MEDLER','Kral Kyaksares','',ss(.3,.7,lt),'#2fe0a0',clamp((lt-.3)/.5));labelBoxB(W-330,H*.5,'LİDYA','Kral Alyattes','',ss(.3,.7,lt),'#c98aff',clamp((lt-.3)/.5));
@@ -155,7 +156,7 @@ function sNineveh(T,p){const lt=T-SH.t0;landscape(lt,0,.55);const fire=ss(.5,2,l
   X.save();X.globalCompositeOperation='lighter';for(let i=0;i<30;i++){const x=hash(i)*W,h=120+hash(i+3)*260*fire;const fl=X.createLinearGradient(0,wy-h,0,wy+40);fl.addColorStop(0,'rgba(255,240,120,0)');fl.addColorStop(.5,`rgba(255,140,40,${.6*fire})`);fl.addColorStop(1,`rgba(255,60,20,${.8*fire})`);
     X.fillStyle=fl;X.beginPath();X.moveTo(x-40,wy+40);X.quadraticCurveTo(x+Math.sin(lt*6+i)*30,wy-h,x+40,wy+40);X.fill()}X.restore();
   X.save();X.globalAlpha=.6*fire;X.globalCompositeOperation='multiply';X.drawImage(SMOKE,-200+lt*40,0,2600,800);X.restore();
-  AX.clearRect(0,0,W,H);for(const s of SOLD){if(s.row<2||s.side<0)continue;const h=[0,0,220,280][s.row],gy=[0,0,960,1040][s.row];const x=-200+s.off*1400+lt*120;const pr=runPose(x,gy,1,h,lt*9+s.ph,.3);pr.ua=[2.6,.5];warriorC(AX,pr,PAL.med,{helmet:'cap',shield:'round',sword:'sickle'})}
+  AX.clearRect(0,0,W,H);for(const s of SOLD){if(s.row<2||s.side<0)continue;const h=[0,0,220,280][s.row],gy=[0,0,960,1040][s.row];const x=((s.off*1400+lt*120)%(W+400))-200;const pr=runPose(x,gy,1,h,lt*9+s.ph,.3);pr.ua=[2.6,.5];warriorC(AX,pr,PAL.med,{helmet:'cap',shield:'round',sword:'sickle'})}
   X.drawImage(ARMY,0,0);const ta=ss(.8,1.3,lt);if(ta>0){X.save();X.globalAlpha=ta;X.translate(W/2,H*.2);goldHeadB('NİNOVA DÜŞTÜ',0,0,120);X.font='700 44px Cinzel';X.letterSpacing='8px';X.textAlign='center';X.fillStyle='#fff';X.lineWidth=6;X.strokeStyle='#2a1206';X.strokeText('MÖ 612 · MEDLER VE BABİL',0,70);X.fillText('MÖ 612 · MEDLER VE BABİL',0,70);X.restore()}}
 function sVan(T,p){const lt=T-SH.t0;skyDay(lt,0);const z=1+.03*lt;X.save();X.translate(W/2,H/2);X.scale(z,z);X.translate(-W/2,-H/2);X.drawImage(DAY[0],-200,60);
   const lg=X.createLinearGradient(0,620,0,H);lg.addColorStop(0,'#3fa8e0');lg.addColorStop(1,'#1f6fb0');X.fillStyle=lg;X.fillRect(0,640,W,H);X.save();X.globalAlpha=.25;X.globalCompositeOperation='screen';X.drawImage(SMOKE,-lt*30,700,2600,300);X.restore();
