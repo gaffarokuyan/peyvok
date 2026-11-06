@@ -3,11 +3,11 @@ import { spawn } from 'child_process';
 import path from 'path';
 const [,, mode='video', a='0', b='30', out='../out/demo_silent.mp4'] = process.argv;
 const browser = await chromium.launch({ args:['--allow-file-access-from-files'] });
-const page = await browser.newPage({ viewport:{width:1920,height:1080}, deviceScaleFactor:1 });
+const page = await browser.newPage({ viewport:{width:+(process.env.VW||1920),height:+(process.env.VH||1080)}, deviceScaleFactor:1 });
 page.on('console', m=>console.log('PAGE', m.text())); page.on('pageerror', e=>console.log('ERR', e.message));
-await page.goto('file://'+path.resolve('index.html')); await page.evaluate(()=>window.ready);
+await page.goto('file://'+path.resolve(process.env.PAGE||'index.html')); await page.evaluate(()=>window.ready);
 const grab = async T => { const d = await page.evaluate(T=>{renderFrame(T);return document.getElementById('c').toDataURL('image/jpeg',.97)}, T); return Buffer.from(d.split(',')[1],'base64'); };
-if (mode==='stills') { const fs=await import('fs'); for (const T of a.split(',').map(Number)) { fs.writeFileSync(`../out/still_${T}.jpg`, await grab(T)); } }
+if (mode==='stills') { const fs=await import('fs'); for (const T of a.split(',').map(Number)) { fs.writeFileSync(`${process.env.STILLDIR||'../out'}/still_${T}.jpg`, await grab(T)); } }
 else {
   const FPS=30, N=Math.round((+b - +a)*FPS);
   const ff = spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate',String(FPS),'-c:v','mjpeg','-i','-','-c:v','libx264','-preset','medium','-crf','15','-pix_fmt','yuv420p',out],{stdio:['pipe','inherit','inherit']});
