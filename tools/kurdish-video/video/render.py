@@ -494,8 +494,8 @@ def scene_02():
         "Güneybatı İrani": ((1090, 590), T(s, "Farsça aynı"), "İrani diller"),
         "Farsça": ((1090, 740), T(s, "Güneybatı İrani grubuna"), "Güneybatı İrani"),
         "Doğu İrani": ((1520, 590), T(s, "Peştuca"), "İrani diller"),
-        "Peştuca": ((1420, 740), T(s, "Peştuca") + 0.3, "Doğu İrani"),
-        "Osetçe": ((1620, 740), T(s, "Osetçe"), "Doğu İrani"),
+        "Peştuca": ((1400, 740), T(s, "Peştuca") + 0.3, "Doğu İrani"),
+        "Osetçe": ((1650, 850), T(s, "Osetçe"), "Doğu İrani"),
     }
     for name, ((x, y), t0, par) in N.items():
         add(node(name, hl=(name == "Kürtçe")), x, y, t0, t_end, dy=14)
@@ -503,6 +503,14 @@ def scene_02():
             px, py = N[par][0]
             my = (py + y) / 2
             line([(px, py + 30), (px, my), (x, my), (x, y - 30)], t0 - 0.35, t_end, color=GOLD_D, width=3, dur=0.5)
+    # Iskitce: Dogu Irani ile Osetce arasina, tarihi dil olarak yerlesir
+    t_sk = T(s, "İskitlerdir.")
+    sk = rich_img([("İskitçe", CREAM), ("  tarihî", MUTED)], "sans_b", 28, shadow=False)
+    sk = card(sk, pad=(10, 0), fill=(22, 26, 40, 255), border=MUTED, radius=40, bw=2)
+    add(sk, 1650, 752, t_sk, t_end, dy=14)
+    add(rich_img([("Türk değil", RED), ("  ·  Doğu İrani", GOLD)], "sans_b", 26), 1340, 815,
+        T(s, "desteklenmez."), t_end, dy=8)
+    add(text_img("İskit → Sarmat → Alan → Oset", "sans", 24, GOLD), 1340, 862, T(s, "Osetçe, İskit"), t_end, dy=0)
     tk = T(s, "kuzen")
     add(text_img("kuzen", "serif_i", 44, GOLD), 735, 840, tk, t_end, dy=10)
     line(bezier((380, 790), (500, 880), (980, 880), (1090, 790)), tk - 0.2, t_end, color=GOLD, width=2, dur=0.8)

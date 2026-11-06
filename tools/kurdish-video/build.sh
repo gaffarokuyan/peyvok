@@ -17,6 +17,7 @@ for s in $SECS; do
   [ "$s" != "10_kapanis" ] && echo "file '$PWD/$B/sil.mp3'" >> $B/list.txt
 done
 ffmpeg -v error -y -f concat -safe 0 -i $B/list.txt -ac 1 -ar 44100 -c:a libmp3lame -b:a 192k $B/narration.mp3
+[ "${1:-}" = "narration" ] && { echo "Hazir: $B/narration.mp3"; exit 0; }
 
 # 2) Video: 4 paralel parca halinde render
 N=$(python3 video/render.py nframes)

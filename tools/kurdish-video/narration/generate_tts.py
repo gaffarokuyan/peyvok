@@ -11,7 +11,9 @@ OUT = os.path.join(HERE, "..", "build", "tts")
 os.makedirs(OUT, exist_ok=True)
 HEADERS = {"xi-api-key": os.environ["ELEVENLABS_API_KEY"]} if os.environ.get("ELEVENLABS_API_KEY") else {}
 S=[(n, re.sub(r'\s*<break[^>]*/>', '', t)) for n,t in SECTIONS]
+ONLY = sys.argv[1:]  # ornek: python3 generate_tts.py 02_dil_ailesi
 for i,(n,t) in enumerate(S):
+    if ONLY and n not in ONLY: continue
     body={"text":t,"model_id":"eleven_v4","language_code":"tr",
           "previous_text":S[i-1][1][-300:] if i else None,
           "next_text":S[i+1][1][:300] if i+1<len(S) else None}
