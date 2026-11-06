@@ -1,12 +1,19 @@
-# Dîrok — Gutiler videosu
+# Dîrok — Gutiler ve Zagros'un Kadim Halkları
 
-- `SENARYO.md` — 15–20 dk'lık videonun tam anlatım metni, sahne notları ve kaynakça
-- `out/dirok_gutiler_demo.mp4` — 30 sn demo (1080p30)
-- `audio/` — Yunus C seslendirmesi (ElevenLabs), müzik ve ses efektleri
-- `render/` — kodla üretilen animasyonlar (Canvas + Playwright + ffmpeg)
+| Dosya | Açıklama |
+|---|---|
+| `SENARYO.md` | ~19 dakikalık uzun videonun tam metni ve kaynakçası |
+| `film/` | Uzun video: bölüm sesleri (Yunus C), müzikler, zaman çizelgesi, miksaj betiği |
+| `render/film*.js` | Uzun videonun animasyon motoru (harita, savaşlar, eserler, soy ağacı…) |
+| `short/` | 40 sn dikey Short |
+| `out/` | 30 sn ilk demo + dikey kapak görseli |
 
-Yeniden render:
+## Uzun videoyu yeniden üretmek
 ```bash
 cd render && npm install && node prep.mjs
-node render.mjs video 0 30 ../out/demo_silent.mp4
+python3 relief.py <terrarium-tiles-dir>          # kabartma harita (relief.jpg)
+cd ../film && python3 build_timeline.py           # zaman çizelgesi + anlatım
+cd ../render && node probe.mjs                     # sahne/cue kontrolü
+PAGE=film.html FPS=25 node render.mjs video 0 1127 ../film/out/film_silent.mp4
+cd ../film && python3 mix_audio.py                 # müzik + efekt + anlatım miksajı
 ```

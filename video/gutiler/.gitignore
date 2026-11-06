@@ -3,3 +3,8 @@ out/demo_silent.mp4
 short/out/short_silent.mp4
 audio/*.wav
 short/audio/*.wav
+film/audio/*.wav
+film/seg/
+film/stills/
+film/sheet_*.jpg
+film/out/
