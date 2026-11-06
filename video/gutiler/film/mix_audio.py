@@ -1,7 +1,7 @@
 import json, subprocess
-tl=json.loads(open('timeline.js').read()[len('window.TL='):-1]); T=1127.0
+tl=json.loads(open('timeline.js').read()[len('window.TL='):-1]); T=round(tl['total'],2)
 cards={c['id']:c.get('card') for c in tl['chapters']}
-MUS=[('m1_mystic',0,cards['ch03']),('m2_war',cards['ch03'],cards['ch05s']),('m3_royal',cards['ch05s'],cards['ch08']),('m4_empire',cards['ch08'],cards['ch09']),('m5_reflect',cards['ch09'],T)]
+MUS=[('m1_mystic',0,cards['ch03']),('m3_royal',cards['ch03'],cards['ch04']),('m2_war',cards['ch04'],cards['ch07']),('m4_empire',cards['ch07'],cards['ch09']),('m5_reflect',cards['ch09'],T)]
 sfx=json.load(open('shots.json'))['sfx']
 VOL={'whoosh':.35,'boom':.45,'clash':.85,'army':.22,'shimmer':.4}
 inp=['-i','audio/narration_master.wav'];f=[];k=1;mus=[]

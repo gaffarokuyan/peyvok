@@ -1,8 +1,7 @@
 import json, subprocess
-CH=[('ch00','',''),('ch01','ZAGROS','Kürdistan’ın Dağ Kalesi'),('ch02','LULLUBİLER','Şehrizor’un Savaşçıları'),('ch03','GUTİUM','Akad’ın Çöküşü'),
- ('ch04','GUTİ KRALLARI','Mezopotamya’ya Hükmeden Dağlılar'),('ch05','UTU-HENGAL','Büyük Savaş'),('ch05s','SUBARTU','Kuzeyin Unutulmuş Ülkesi'),
- ('ch06','HURRİLER VE MİTANNİ','Kuzeyin Büyük Krallığı'),('ch07','KASSİTLER','Babil’i Yöneten Dağlılar'),('ch08','MEDLER','Gutium’dan Medya’ya'),
- ('ch09','TARİHÇİLER','Kaynaklar Ne Diyor?'),('ch10','MİRAS','Dağlarda Yaşayan Ruh'),('ch11','','')]
+CH=[('ch00','',''),('ch01','MEZOPOTAMYA','Medeniyetin Beşiği'),('ch02','SÜMER ŞEHİRLERİ','Dünyanın İlk Şehirlerinde Hayat'),('ch03','AKAD','Dünyanın İlk İmparatorluğu'),
+ ('ch04','GUTİUM','Akad’ın Çöküşü'),('ch05','GUTİ DEVLETİ','Yönetim ve Seferler'),('ch06','UTU-HENGAL','Büyük Savaş'),('ch07','GUTİUM','Kaybolmayan Bir İsim'),
+ ('ch08','KATMANLAR','Kürtlerin Ataları'),('ch09','YABANCI KAYNAKLAR','Tarihçiler Ne Diyor?'),('ch10','HAYATTA KALMAK','Çetin Coğrafyanın Gücü'),('ch11','','')]
 def dur(f): return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f]).decode())
 def words(f):
   a=json.load(open(f)); out=[]; w='';s=e=0

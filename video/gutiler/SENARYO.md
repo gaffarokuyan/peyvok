@@ -86,7 +86,8 @@ Gutiler, bu topraklarda yaşayan tek kadim halk değildi. Mezopotamya'nın kuzey
 Lullubiler, Gutilerin kuzeyindeki Şehrizor ovasında yaşadı. Akad kralı Naram-Sin'e karşı savaştılar ve kralları Anubanini'nin zafer kabartması bugün hâlâ Sarpol-e Zahab'daki kayalarda durmaktadır.
 Hurriler, Yukarı Mezopotamya'nın kadim halkıydı. Merkezleri Urkeş'ti ve daha sonra büyük Mitanni Krallığı'nı kurdular. Mitanni kralları Mısır firavunlarıyla eşit şartlarda mektuplaştı ve krallarının kızı firavunla evlendi.
 Kassitler, Babil'i yaklaşık dört yüz yıl boyunca yönetti. Bu, Babil tarihinin en uzun hanedanıdır.
-Ve Medler, milattan önce altı yüz on ikide Babil ile birlikte Asur'un başkenti Ninova'yı yıktı ve büyük bir imparatorluk kurdu. Başkentleri Ekbatana, yedi renkli surlarıyla antik dünyanın en göz alıcı şehirlerinden biriydi.
+Ve Medler, milattan önce altı yüz on ikide Babil ile birlikte Asur'un başkenti Ninova'yı yıktı ve büyük bir imparatorluk kurdu. Başkentleri Ekbatana, yedi renkli surlarıyla antik dünyanın en göz alıcı şehirlerinden biriydi. Büyük Med kralı Kyaksares, Kürt kaynaklarında Keyxusrew olarak anılır.
+Kürtler için Medler o kadar önemlidir ki, Kürt ulusal marşı "Ey Reqîb"te şu dize geçer: "Em xortên Medya û Keyxusrew in." Yani: "Biz Medya'nın ve Keyxusrew'in gençleriyiz."
 Gutiler, Lullubiler, Hurriler, Kassitler ve Medler... Hepsi Mezopotamya medeniyetinin içinde yaşadı, onu besledi ve onu dönüştürdü. Ve hepsi, bugünkü Kürtlerin atalarıdır.
 
 ## 9. YABANCI KAYNAKLAR NE DİYOR?
@@ -107,6 +108,9 @@ Peki bu halklar, binlerce yıl boyunca nasıl varlığını sürdürebildi?
 Cevabın bir kısmı coğrafyada saklıdır. Mezopotamya'nın ovaları zengin ama savunmasızdı. İmparatorluklar geldi, şehirler yakıldı, halklar sürgün edildi.
 Ovaya hâkim olan sarp yaylalar ve dağ geçitleri ise bu çetin coğrafyada hayatta kalmanın anahtarıydı. Ordular bu geçitlerde dağıldı, işgaller bu vadilerde durdu.
 On üçüncü yüzyılda Moğollar, Bağdat'ı ve bütün Mezopotamya'yı yerle bir etti. Ama dağların sağladığı stratejik avantaj sayesinde Kürtler, bu yıkımdan ovadaki halklar kadar etkilenmedi.
+Sümer yazıcısının "kontrol edilemeyen halk" diye korkuyla andığı o ruh; Ksenofon'un "krala boyun eğmeyen Kardukhlar"ında, Roma'nın Korduene'sinde ve bugün aynı topraklarda yaşayan Kürtlerin hikâyesinde yaşamaya devam etti.
+Kürtlerin kadim bir sözü vardır: "Ji çiyan pê ve, hevalên me tune." Dağlardan başka dostumuz yok.
+Belki de bu söz, ilk kez dört bin yıl önce, Mezopotamya ovasına bakan bir Guti savaşçısının içinden geçmişti.
 
 ## 11. KAPANIŞ
 
@@ -128,7 +132,7 @@ Ben Dîrok.
 - Herodot, *Tarih*, I. kitap · Ksenofon, *Anabasis*.
 
 **Yabancı araştırmacılar**
-- Arshak Safrastian — London: Harvill Press, 1948.
+- Arshak Safrastian, *Kurds and Kurdistan*, London: Harvill Press, 1948.
 - G. R. Driver, "The Name Kurd and Its Philological Connexions", *Journal of the Royal Asiatic Society*, 1923.
 - Vladimir Minorsky, "Kurds", *Encyclopaedia of Islam*, 1927.
 - Ephraim A. Speiser, *Mesopotamian Origins*, 1930.
@@ -136,7 +140,7 @@ Ben Dîrok.
 - Mehrdad R. Izady, *The Kurds: A Concise Handbook*, Washington: Crane Russak, 1992.
 
 **Kürt tarihçiler**
-- Muhammed Emin Zeki Beg — Bağdat, 1931.
+- Muhammed Emin Zeki Beg, *Xulasey Tarîxî Kurd û Kurdistan*, Bağdat, 1931.
 - Cemal Reşîd Ehmed, *Dirasat Kurdiyya fi Bilad Subartu*, Bağdat, 1984.
 
 **Akademik arka plan**
