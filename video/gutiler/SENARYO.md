@@ -1,6 +1,6 @@
 # DÎROK — "GUTİLER: Mezopotamyaya Hükmeden Kürt Ataları"
 
-**Süre:** ~11–12 dakika (957 kelime) · **Format:** 1920×1080
+**Süre:** ~7–8 dakika anlatım, kartlar ve jenerikle ~9 dakika (957 kelime) · **Format:** 1920×1080
 
 ---
 
