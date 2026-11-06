@@ -40,10 +40,11 @@ Kürtçe gramerinin bir başka ilginç yönü, ergatif yapıdır. Geçmiş zaman
 Dilbilimde buna vokatif, yani seslenme hâli denir. Erkeklere "o", kadınlara "ê", çoğula ise "no" eki gelir. {B}
 Bu küçük ek, aslında büyük bir şeyi gösterir. Seslenme hâli, Hint-Avrupa ana dilinden gelen çok eski bir dilbilgisi özelliğidir. Farsça gibi pek çok dil bu ekleri kaybetmiş, yerine "ey" gibi ayrı bir kelime koymuştur. Kürtçe ise bu eki binlerce yıl korumuştur. Bu, Kürtçenin arkaik karakterinin en canlı kanıtlarından biridir."""),
 
-("06_lehceler", f"""Kürtçe, Kürtlerin yaşadığı coğrafyanın dört parçasında konuşulur: kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhilat. {B}
+("06_lehceler", f"""Kürtler, kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhelat'ta yaşar. {B}
+Kürt nüfusu için resmî bir sayım bulunmuyor. Tahminlere göre Bakur'da on beş ila yirmi milyon, Rojhelat'ta sekiz ila on milyon, Başûr'da altı ila sekiz milyon, Rojava'da ise iki ila üç milyon Kürt yaşıyor. Kafkasya, Orta Asya ve diasporayla birlikte, toplam nüfusun kırk milyonu aştığı tahmin ediliyor. {B}
 Kürtçenin başlıca lehçeleri şunlardır: {B}
-Kurmancî, yani Kuzey Kürtçesi. En çok konuşulan lehçedir. Bakur ve Rojava'da, Başûr'un kuzeyinde, Rojhilat'ın bir kısmında ve Kafkasya'da konuşulur. {B}
-Soranî, yani Orta Kürtçe. Başûr ve Rojhilat'ta yaygındır. {B}
+Kurmancî, yani Kuzey Kürtçesi. En çok konuşulan lehçedir. Bakur ve Rojava'da, Başûr'un kuzeyinde, Rojhelat'ın bir kısmında ve Kafkasya'da konuşulur. {B}
+Soranî, yani Orta Kürtçe. Başûr ve Rojhelat'ta yaygındır. {B}
 Güney Kürtçesi. Kelhurî, Feylî ve Lekî bu grupta yer alır. {B}
 Zazakî, ya da Kirmanckî ve Dimilî. Başta Dersim, Bingöl, Elazığ, Diyarbakır ve Siverek olmak üzere geniş bir bölgede konuşulur. {B}
 Ve Goranî, ya da Hewramî. Klasik Kürt edebiyatının en eski yazı dillerinden biridir. Erdelan ve Baban saraylarında edebiyat dili olarak kullanılmıştır. {B}
