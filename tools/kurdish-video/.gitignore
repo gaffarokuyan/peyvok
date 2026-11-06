@@ -1,0 +1,4 @@
+build/
+video/fonts/
+output/*.mp4
+__pycache__/

@@ -1,0 +1,552 @@
+1
+00:00:00,080 --> 00:00:01,409
+Bir dil düşünün...
+
+2
+00:00:01,459 --> 00:00:03,510
+Son yüz yıl boyunca yasaklandı.
+
+3
+00:00:03,560 --> 00:00:08,669
+Okullarda konuşulması engellendi, kitapları toplatıldı, adı bile anılmak istenmedi.
+
+4
+00:00:08,720 --> 00:00:10,250
+Ama o dil susmadı.
+
+5
+00:00:10,300 --> 00:00:16,410
+Annelerin ninnilerinde, dengbêjlerin klamlarında, medreselerin loş odalarında yaşamaya devam etti.
+
+6
+00:00:16,460 --> 00:00:19,989
+Baskıya, yasağa ve asimilasyona rağmen yok olmadı.
+
+7
+00:00:20,039 --> 00:00:23,769
+Bu dil, şüphesiz, Mezopotamya'nın kadim dili Kürtçedir.
+
+8
+00:00:23,820 --> 00:00:27,230
+Bugün 40 milyonu aşkın insanın konuştuğu bu dilin kökenine,
+
+9
+00:00:27,280 --> 00:00:33,640
+akrabalarına, kendine has gramerine ve onu yüzyıllardır yaşatan âlimlere birlikte bakalım.
+
+10
+00:00:34,240 --> 00:00:39,470
+Kürtçe, dünyanın en büyük dil ailesi olan Hint-Avrupa ailesinin bir üyesidir.
+
+11
+00:00:39,520 --> 00:00:43,650
+Bu ailenin Hint-İran kolunun, İrani diller grubunda yer alır.
+
+12
+00:00:43,700 --> 00:00:47,690
+Daha ayrıntılı bakıldığında, Kuzeybatı İrani diller dalına girer.
+
+13
+00:00:47,740 --> 00:00:50,850
+En yakın akrabaları Beluççe ve Taliş dilidir.
+
+14
+00:00:50,899 --> 00:00:53,970
+Farsça aynı aileden olsa da ayrı bir daldadır:
+
+15
+00:00:54,020 --> 00:00:56,010
+Güneybatı İrani grubuna girer.
+
+16
+00:00:56,060 --> 00:00:59,590
+Yani Kürtçe ile Farsça kardeş değil, kuzen sayılır.
+
+17
+00:00:59,640 --> 00:01:03,670
+Peştuca ve Osetçe de bu geniş ailenin daha uzak üyeleridir.
+
+18
+00:01:03,719 --> 00:01:06,950
+Bu aile bağının izleri Avrupa dillerinde bile görülür.
+
+19
+00:01:07,000 --> 00:01:13,710
+Kürtçe “stêr”, yani yıldız kelimesi; İngilizce “star”, Latince “stella” ile akrabadır.
+
+20
+00:01:13,760 --> 00:01:18,790
+Kürtçe “nû”, yani yeni kelimesi İngilizce “new” ile; “nav”,
+
+21
+00:01:18,840 --> 00:01:23,180
+yani isim kelimesi ise “name” ile aynı kökten gelir.
+
+22
+00:01:23,840 --> 00:01:28,590
+Kürtçe, kadim İrani dillerin pek çok eski özelliğini bugüne taşımıştır.
+
+23
+00:01:28,640 --> 00:01:32,570
+Bazı dilbilimciler, Kürtçenin arkaik kelime dağarcığı bakımından,
+
+24
+00:01:32,620 --> 00:01:36,060
+Farsçadan daha eski olabileceğini ileri sürer.
+
+25
+00:01:36,680 --> 00:01:41,350
+Kürtçenin en dikkat çekici özelliklerinden biri, dilbilgisel cinsiyettir.
+
+26
+00:01:41,400 --> 00:01:47,650
+Özellikle Kurmancîde isimler, eril ya da dişil olarak ayrılır ve bu ayrım kelimelerin aldığı eklere
+
+27
+00:01:47,700 --> 00:01:48,570
+yansır.
+
+28
+00:01:48,620 --> 00:01:49,570
+“Kurê min”:
+
+29
+00:01:49,620 --> 00:01:50,430
+oğlum.
+
+30
+00:01:50,480 --> 00:01:51,189
+Eril.
+
+31
+00:01:51,239 --> 00:01:52,230
+“Keça min”:
+
+32
+00:01:52,280 --> 00:01:53,030
+kızım.
+
+33
+00:01:53,079 --> 00:01:53,950
+Dişil.
+
+34
+00:01:54,000 --> 00:01:55,370
+“Ez mêrî dibînim”:
+
+35
+00:01:55,420 --> 00:01:56,710
+adamı görüyorum.
+
+36
+00:01:56,760 --> 00:01:58,010
+“Ez jinê dibînim”:
+
+37
+00:01:58,060 --> 00:01:59,329
+kadını görüyorum.
+
+38
+00:01:59,379 --> 00:02:02,549
+Peki bu özellik diğer İrani dillerde var mı?
+
+39
+00:02:02,599 --> 00:02:05,990
+Farsça, cinsiyet ayrımını yüzyıllar önce kaybetmiştir.
+
+40
+00:02:06,040 --> 00:02:09,409
+Oysa Eski Farsça ve Avestçede bu ayrım vardı.
+
+41
+00:02:09,460 --> 00:02:13,829
+Bugün cinsiyet ayrımını koruyan diller arasında Kürtçenin Kurmancî,
+
+42
+00:02:13,879 --> 00:02:19,750
+Zazakî ve Goranî lehçeleri; ayrıca Peştuca ve bazı Orta İran lehçeleri bulunur.
+
+43
+00:02:19,800 --> 00:02:24,149
+Kürtçe, Farsçanın kaybettiği bu eski mirası bugün de yaşatıyor.
+
+44
+00:02:24,199 --> 00:02:27,729
+Kürtçe gramerinin bir başka ilginç yönü, ergatif yapıdır.
+
+45
+00:02:27,780 --> 00:02:32,089
+Geçmiş zamanda geçişli fiillerde cümlenin kurgusu tamamen değişir.
+
+46
+00:02:32,139 --> 00:02:36,240
+Bu, dünyada oldukça az dilde görülen bir özelliktir.
+
+47
+00:02:37,152 --> 00:02:40,589
+Kürtçede birine seslenirken, ismin sonuna bir ek gelir.
+
+48
+00:02:40,639 --> 00:02:41,649
+“Kuro, were!”:
+
+49
+00:02:41,699 --> 00:02:42,929
+Oğlan, gel!
+
+50
+00:02:42,979 --> 00:02:43,689
+“Bavo!”:
+
+51
+00:02:43,740 --> 00:02:44,369
+Baba!
+
+52
+00:02:44,419 --> 00:02:45,109
+“Keçê!”:
+
+53
+00:02:45,159 --> 00:02:45,789
+Kız!
+
+54
+00:02:45,840 --> 00:02:46,649
+“Hevalno!”:
+
+55
+00:02:46,699 --> 00:02:47,769
+Arkadaşlar!
+
+56
+00:02:47,819 --> 00:02:51,429
+Dilbilimde buna vokatif, yani seslenme hâli denir.
+
+57
+00:02:51,479 --> 00:02:56,269
+Erkeklere “o”, kadınlara “ê”, çoğula ise “no” eki gelir.
+
+58
+00:02:56,319 --> 00:02:59,169
+Bu küçük ek, aslında büyük bir şeyi gösterir.
+
+59
+00:02:59,219 --> 00:03:04,349
+Seslenme hâli, Hint-Avrupa ana dilinden gelen çok eski bir dilbilgisi özelliğidir.
+
+60
+00:03:04,400 --> 00:03:10,089
+Farsça gibi pek çok dil bu ekleri kaybetmiş, yerine “ey” gibi ayrı bir kelime koymuştur.
+
+61
+00:03:10,139 --> 00:03:12,969
+Kürtçe ise bu eki binlerce yıl korumuştur.
+
+62
+00:03:13,020 --> 00:03:17,760
+Bu, Kürtçenin arkaik karakterinin en canlı kanıtlarından biridir.
+
+63
+00:03:18,635 --> 00:03:20,909
+Kürtçenin başlıca lehçeleri şunlardır:
+
+64
+00:03:20,960 --> 00:03:23,569
+Kurmancî, yani Kuzey Kürtçesi.
+
+65
+00:03:23,620 --> 00:03:25,209
+En çok konuşulan lehçedir.
+
+66
+00:03:25,259 --> 00:03:30,769
+Türkiye, Suriye, Irak'ın kuzeyi, İran'ın bir kısmı ve Kafkasya'da konuşulur.
+
+67
+00:03:30,819 --> 00:03:33,009
+Soranî, yani Orta Kürtçe.
+
+68
+00:03:33,060 --> 00:03:35,549
+Irak Kürdistanı ve İran'da yaygındır.
+
+69
+00:03:35,599 --> 00:03:36,769
+Güney Kürtçesi.
+
+70
+00:03:36,819 --> 00:03:40,189
+Kelhurî, Feylî ve Lekî bu grupta yer alır.
+
+71
+00:03:40,240 --> 00:03:43,189
+Zazakî, ya da Kirmanckî ve Dimilî.
+
+72
+00:03:43,240 --> 00:03:49,609
+Başta Dersim, Bingöl, Elazığ, Diyarbakır ve Siverek olmak üzere geniş bir bölgede konuşulur.
+
+73
+00:03:49,659 --> 00:03:51,769
+Ve Goranî, ya da Hewramî.
+
+74
+00:03:51,819 --> 00:03:55,229
+Klasik Kürt edebiyatının en eski yazı dillerinden biridir.
+
+75
+00:03:55,280 --> 00:03:59,289
+Erdelan ve Baban saraylarında edebiyat dili olarak kullanılmıştır.
+
+76
+00:03:59,340 --> 00:04:03,589
+Bu lehçe çeşitliliği, Kürtçeye büyük bir kelime zenginliği kazandırmıştır.
+
+77
+00:04:03,639 --> 00:04:07,289
+Aynı kavram için farklı bölgelerde farklı kelimeler kullanılır.
+
+78
+00:04:07,340 --> 00:04:11,530
+Ön ek ve son eklerle yeni kelimeler türetmek de son derece kolaydır.
+
+79
+00:04:11,580 --> 00:04:15,569
+Doğaya, hayvancılığa, dağa ve tarıma dair kelime hazinesi,
+
+80
+00:04:15,620 --> 00:04:19,439
+binlerce yıllık bir yaşam biçiminin dile yansımasıdır.
+
+81
+00:04:20,388 --> 00:04:24,009
+Kürtçe, yaşadığı topraklarda ilerleyen yıllarda yasaklarla,
+
+82
+00:04:24,060 --> 00:04:26,529
+inkârla ve baskıyla karşılaşacaktı.
+
+83
+00:04:26,579 --> 00:04:32,889
+Oysa çok uzaklarda, Rus dilbilimciler daha 19. yüzyılda bu dile büyük bir ilgi gösteriyordu.
+
+84
+00:04:32,939 --> 00:04:36,870
+Sankt-Peterburg, adeta bir Kürdoloji merkezi hâline gelmişti.
+
+85
+00:04:36,920 --> 00:04:43,250
+Rus akademisyen Pyotr Lerch, 1850'li yıllarda Kürtçe üzerine kapsamlı çalışmalar yayımladı.
+
+86
+00:04:43,300 --> 00:04:49,430
+Rusya'nın Erzurum konsolosu Aleksandr Jaba ise, Kürt âlimlerle birlikte çalışarak çok sayıda Kürtçe
+
+87
+00:04:49,480 --> 00:04:50,729
+el yazmasını topladı.
+
+88
+00:04:50,779 --> 00:04:54,709
+Hazırladığı Kürtçe-Fransızca sözlük, 1879'da,
+
+89
+00:04:54,759 --> 00:04:58,409
+Petersburg İmparatorluk Bilimler Akademisi tarafından yayımlandı.
+
+90
+00:04:58,459 --> 00:05:02,170
+Petersburg'daki bu koleksiyonların en değerli eserlerinden biri,
+
+91
+00:05:02,220 --> 00:05:05,849
+büyük Kürt şairi ve düşünürü Ehmedê Xanî'ye aittir.
+
+92
+00:05:05,899 --> 00:05:11,849
+Xanî, 1683 yılında, çocukların dil öğrenmesi için manzum bir Kürtçe-Arapça sözlük
+
+93
+00:05:11,899 --> 00:05:12,509
+yazdı:
+
+94
+00:05:12,560 --> 00:05:15,990
+“Nûbihara Biçûkan”, yani Çocukların İlkbaharı.
+
+95
+00:05:16,040 --> 00:05:20,529
+Bu eserin el yazmaları bugün Petersburg'daki koleksiyonlarda korunmaktadır.
+
+96
+00:05:20,579 --> 00:05:22,629
+Sovyet döneminde de bu gelenek sürdü.
+
+97
+00:05:22,680 --> 00:05:28,930
+Margarita Rudenko gibi Kürdologlar, Xanî'nin ölümsüz eseri “Mem û Zîn”i inceleyip Rusçaya çevirdi
+
+98
+00:05:28,980 --> 00:05:33,599
+ve Kürtçe el yazmalarını kataloglayarak gelecek kuşaklara aktardı.
+
+99
+00:05:34,759 --> 00:05:40,110
+Yüzyıllar boyunca Kürt coğrafyasındaki medreseler, yalnızca dini eğitim veren kurumlar değildi.
+
+100
+00:05:40,160 --> 00:05:44,849
+Bunlar aynı zamanda dil, edebiyat, mantık ve astronomi okullarıydı.
+
+101
+00:05:44,899 --> 00:05:50,349
+Ders kitaplarının çoğu Arapça olsa da, eğitimin, anlatımın ve şerhin dili Kürtçeydi.
+
+102
+00:05:50,399 --> 00:05:54,849
+Öğrenciler eğitime, Ehmedê Xanî'nin Nûbihar adlı eseriyle başlar;
+
+103
+00:05:54,899 --> 00:05:59,529
+Melayê Cizîrî'nin Dîwan'ını ve Melayê Bateyî'nin Mewlûd'unu okurdu.
+
+104
+00:05:59,579 --> 00:06:01,750
+Kürtçe, ilmin taşıyıcısı oldu.
+
+105
+00:06:01,800 --> 00:06:05,389
+Bu medreseler İslam dünyasına büyük âlimler kazandırdı.
+
+106
+00:06:05,439 --> 00:06:12,009
+Melayê Cizîrî, Feqiyê Teyran ve Ehmedê Xanî gibi şair ve düşünürler bu geleneğin içinden çıktı.
+
+107
+00:06:12,060 --> 00:06:15,909
+Fatih Sultan Mehmed'in hocası Molla Gürani ve yakın dönemde,
+
+108
+00:06:15,959 --> 00:06:19,969
+Mela Xelîlê Sêrtî gibi isimler de bu kökten beslendi.
+
+109
+00:06:20,019 --> 00:06:25,579
+Kürtçe medreseler, dilin yazılı geleneğini yaşatan en önemli kalelerden biri oldu.
+
+110
+00:06:26,768 --> 00:06:32,269
+Bu medrese geleneğinin yetiştirdiği en tanınmış isimlerden biri de Bediüzzaman Said Nursi'dir.
+
+111
+00:06:32,319 --> 00:06:37,670
+Bitlis'in Nurs köyünde doğan Said Nursi, eğitimini Kürtçe eğitim veren medreselerde aldı.
+
+112
+00:06:37,720 --> 00:06:41,589
+Doğu'da kurmayı hayal ettiği üniversite, Medresetü'z-Zehra için,
+
+113
+00:06:41,639 --> 00:06:43,509
+dil formülünü şöyle koymuştu:
+
+114
+00:06:43,560 --> 00:06:47,329
+“Arabî vâcib, Kürdî câiz, Türkî lâzım.”
+
+115
+00:06:47,379 --> 00:06:47,990
+Yani:
+
+116
+00:06:48,040 --> 00:06:51,670
+Arapça zorunlu, Kürtçe serbest, Türkçe gerekli.
+
+117
+00:06:51,720 --> 00:06:54,069
+Said Nursi'nin Kürtçe yazıları da vardır.
+
+118
+00:06:54,120 --> 00:06:59,029
+1908'de İstanbul'da yayımlanan Kürd Teâvün ve Terakkî Gazetesi'nde,
+
+119
+00:06:59,079 --> 00:07:00,909
+Kürtçe bir makalesi çıkmıştır.
+
+120
+00:07:00,959 --> 00:07:06,870
+Kürtçenin onun ilim hayatındaki yeri, en çarpıcı biçimde İşaratü'l-İ'caz tefsirinde görülür.
+
+121
+00:07:06,920 --> 00:07:10,269
+Bu eser, Birinci Dünya Savaşı sırasında cephede yazıldı.
+
+122
+00:07:10,319 --> 00:07:15,670
+Talebelerinin aktardığına göre Üstad, ayetleri önce yanındakilere Kürtçe olarak açıklıyor;
+
+123
+00:07:15,720 --> 00:07:20,329
+talebesi Molla Habib de bu açıklamaları hızla Arapça olarak kâğıda geçiriyordu.
+
+124
+00:07:20,379 --> 00:07:26,529
+Rivayet edilir ki Arapçanın tercih edilmesinin sebebi, o dönemde Allah'ın varlığını inkâr eden felsefi
+
+125
+00:07:26,579 --> 00:07:28,269
+akımların hız kazanmasıydı.
+
+126
+00:07:28,319 --> 00:07:34,269
+Üstad, tercümeye gerek kalmadan, İslam dünyasında çok daha fazla insana hızla ulaşmak istemişti.
+
+127
+00:07:34,319 --> 00:07:40,310
+Sonraki yıllarda Said Nursi, eserlerinin çoğunu daha geniş bir kitleye ulaşmak için Osmanlı Türkçesiyle
+
+128
+00:07:40,360 --> 00:07:41,209
+kaleme aldı.
+
+129
+00:07:41,259 --> 00:07:45,569
+Ancak külliyatındaki derinlik, fikir dünyasının derinliğinden geliyordu.
+
+130
+00:07:45,620 --> 00:07:49,629
+O fikir dünyasını besleyen kaynak ise, yıllarca içinde okuduğu,
+
+131
+00:07:49,680 --> 00:07:51,990
+düşündüğü ve öğrettiği eğitim dili:
+
+132
+00:07:52,040 --> 00:07:53,519
+Kürtçeydi.
+
+133
+00:07:54,775 --> 00:07:59,229
+Antik çağlardan kalan kelimeleri, eril ve dişil ayrımı, seslenme ekleri,
+
+134
+00:07:59,279 --> 00:08:05,069
+zengin lehçeleri ve köklü yazılı geleneğiyle Kürtçe, yalnızca bir iletişim aracı değildir.
+
+135
+00:08:05,120 --> 00:08:07,529
+O, binlerce yıllık bir hafızadır.
+
+136
+00:08:07,579 --> 00:08:12,069
+Ve bu hafıza, onu konuşan her ağızda yaşamaya devam ediyor.
+
+137
+00:08:12,120 --> 00:08:13,490
+“Ziman jiyan e.”
+
+138
+00:08:13,540 --> 00:08:15,539
+Dil, hayattır.
+
