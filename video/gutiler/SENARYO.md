@@ -10,7 +10,7 @@
 
 ## 0. SOĞUK AÇILIŞ (00:00 – 01:00)
 
-[Kapkara ekran. Def vuruşu. Altın toz parçacıkları. Uzaydan Ortadoğu'ya hızlı zoom-in; Zagros sırtları kor gibi parlıyor. Ekranda büyük tarih: **MÖ 2200**]
+[Def vuruşu. Bugünkü harita: Kürtlerin yaşadığı bölge altın ışıkla parlar — "KÜRDİSTAN · Bugün Kürtlerin yaşadığı bölgeler". Sayaç **2026 → MÖ 2200** akarken modern sınırlar ve devlet adları söner; harita antik haritaya dönüşür (Subartu, Hurri ülkesi, Lullubi, Gutium, Akad, Sümer, Elam). Zagros sırtları kor gibi parlar.]
 
 Dört bin iki yüz yıl önce... Zagros Dağları'nın sarp zirvelerinden bir halk indi: Gutiler.
 
@@ -24,13 +24,13 @@ Peki kimdi bu dağlı savaşçılar? Nereden geldiler, nereye gittiler? Ve neden
 
 Bu videoda, Kürtlerin en eski atalarından sayılan Gutilerin izini; çivi yazılı tabletlerden, krallık listelerinden ve onlarca yıllık tarih araştırmalarından takip edeceğiz.
 
-[DÎROK logo animasyonu. Başlık: **GUTİLER — Zagros'un Ejderhaları**]
+[DÎROK logo animasyonu: kanal rozeti, arkasında 21 altın ışın. Başlık: **GUTİLER — Zagros'un Ejderhaları**]
 
 ---
 
 ## 1. ZAGROS: KÜRDİSTAN'IN DAĞ KALESİ (01:00 – 03:00)
 
-[Harita yavaşça zoom-out: bugünkü Türkiye, İran, Irak, Suriye sınırları canlı renklerde. Dicle ve Fırat mavi ışıkla akar. Zagros sıradağı kabartma olarak yükselir.]
+[Antik harita, modern sınır yok. Harita yavaşça zoom-out: Dicle ve Fırat mavi ışıkla akar, kıyılarında verimli yeşil vadiler. Zagros ve Toros sıradağları kabartma olarak yükselir.]
 
 Haritaya bakın. Kuzeyde Toroslar, doğuda Zagros. Bu iki büyük sıradağın kucaklaştığı yer, tarih boyunca tek bir isimle anılmaya başlayacaktı: Kürdistan.
 
@@ -136,7 +136,7 @@ Ve Nabonid Kroniği'ne göre Babil'e ilk giren komutan, "Gutium valisi" Ugbaru'd
 
 Yani Gutium; Akad'dan Perslere kadar, yaklaşık bin yedi yüz yıl boyunca, Zagros'taki aynı dağ halkını tanımlamak için kullanılan bir isim olarak yaşadı. Bu, tarihte çok az halka nasip olan bir süreklilik.
 
-[Harita: Gutium bölgesi ile bugünkü Kürt nüfus haritası üst üste bindirilir. Neredeyse tam örtüşme.]
+[Harita: Antik Gutium/Lullubi bölgesi ile videonun başındaki "bugün Kürtlerin yaşadığı bölgeler" katmanı üst üste bindirilir. Neredeyse tam örtüşme.]
 
 Şimdi bu haritaya bakın. Kadim Gutium'un, Lullubi'nin ve Zagros halklarının yurdu ile bugün Kürtlerin yaşadığı coğrafya üst üste bindiğinde ortaya çıkan tablo, tesadüf olamayacak kadar açıktır.
 
@@ -200,7 +200,7 @@ Belki de bu söz, ilk kez dört bin yıl önce, Zagros'un zirvelerinden Mezopota
 
 ## 8. KAPANIŞ (17:30 – 18:15)
 
-[DÎROK logosu. Altın ışık süpürmesi.]
+[DÎROK logosu (kanal rozeti), arkasında 21 altın ışın açılır. Altın ışık süpürmesi.]
 
 Gutiler, Kürt tarihinin ilk sayfasıdır. Ve bu sayfayı okumadan, sonraki sayfaları anlamak mümkün değildir.
 
@@ -208,7 +208,7 @@ Bir sonraki bölümde, Gutilerin kardeş halkı Lullubileri ve Zagros'un unutulm
 
 Bu videoyu beğendiyseniz, kanalımıza abone olmayı ve görüşlerinizi yorumlarda paylaşmayı unutmayın.
 
-Ben Dîrok... Tarih, dağlarda yazılır.
+Ben Dîrok.
 
 ---
 

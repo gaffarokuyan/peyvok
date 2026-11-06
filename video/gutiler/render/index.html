@@ -85,6 +85,8 @@ const TAURUS=[[30.0,37.0],[32.0,37.0],[34.0,37.3],[36.0,37.9],[37.8,38.2],[39.6,
 const GUTIUM=[[44.0,36.4],[45.4,36.8],[46.8,35.9],[47.8,34.6],[47.3,33.6],[45.9,33.8],[44.9,34.3],[43.9,35.3]];
 const AKKAD_EMP=[[36.3,36.6],[38.5,37.4],[41.5,37.5],[43.8,36.8],[44.6,35.4],[45.6,34.1],[47.0,32.8],[48.4,31.0],[48.6,29.7],[47.4,29.6],[45.9,30.3],[44.4,31.2],[42.9,32.4],[41.2,33.7],[39.4,34.6],[37.4,35.2]];
 const GUTI_RULE=[[43.6,34.6],[44.9,34.3],[46.4,33.3],[47.8,31.4],[47.6,30.3],[46.2,30.6],[44.6,31.4],[43.3,32.9]];
+const KURD=[[36.6,36.9],[37.3,37.6],[37.7,38.3],[38.4,39.0],[39.5,39.6],[41.2,39.9],[42.6,40.2],[43.8,39.7],[44.6,39.1],[44.9,38.2],[45.4,37.4],[45.9,37.0],[46.9,36.4],[47.8,35.1],[48.3,34.2],[47.9,33.3],[46.7,32.8],[45.6,33.6],[45.0,34.3],[44.1,35.0],[43.4,35.6],[42.9,36.1],[41.6,36.1],[40.6,36.5],[39.2,36.6],[38.2,36.6],[37.2,36.4],[36.6,36.4]];
+function mixHex(a,b,k){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const x=p(a),y=p(b);return `rgb(${x.map((v,i)=>Math.round(lerp(v,y[i],k))).join(',')})`}
 const SITES=[['Akad',44.1,33.1,'akad'],['Kiş',44.6,32.54],['Nippur',45.23,32.13],['Uruk',45.64,31.32],['Ur',46.1,30.96],['Lagaş',46.4,31.41],['Susa',48.25,32.19],['Ninova',43.15,36.36]];
 // mountain glyphs along ridges
 function glyphsAlong(line,n,width,seed){const r=rng(seed),out=[];let L=[],tot=0;
@@ -106,7 +108,7 @@ function glowText(txt,x,y,font,fill,alpha,glow='rgba(233,196,106,.6)',blur=18,sp
   X.shadowColor=glow;X.shadowBlur=blur;X.fillStyle=fill;X.fillText(txt,x,y);X.shadowBlur=0;X.fillText(txt,x,y);X.restore()}
 
 function camAt(t){ // keyframes: t, lon, lat, lonWidth, rot
-  const K=[[0,44,33,120,-2],[2.2,44.5,34.6,42,0],[6.8,45.6,34.4,13.5,1.2],[9.8,45.2,33.2,10,.4],[13.6,45.0,33.6,17,-.6],[16,45,33.6,19,-.6]];
+  const K=[[0,41.8,37.3,33,-1],[2.7,42.4,37.0,26.5,0],[6.8,45.6,34.4,13.5,1.2],[9.8,45.2,33.2,10,.4],[13.6,45.0,33.6,17,-.6],[16,45,33.6,19,-.6]];
   let i=0;while(i<K.length-2&&t>K[i+1][0])i++;const a=K[i],b=K[i+1],f=eio(clamp((t-a[0])/(b[0]-a[0])));
   const w=Math.exp(lerp(Math.log(a[3]),Math.log(b[3]),f));
   CAM={lon:lerp(a[1],b[1],f),lat:lerp(a[2],b[2],f),s:W/(w*RAD),rot:lerp(a[4],b[4],f)*RAD}}
@@ -124,15 +126,25 @@ function drawMap(t){
   for(let la=0;la<=65;la+=step){X.beginPath();const a=P(-20,la),b=P(100,la);X.moveTo(a[0],a[1]);X.lineTo(b[0],b[1]);X.stroke()}
   // countries
   const zoomK=clamp((CAM.s-1500)/6000); // 0 wide ->1 close
-  for(const c of GEO){const cc=CC[c.id];const col=cc?cc[0]:'#24324f';
+  const MK=1-ss(2.9,4.3,t), AK=1-MK;
+  for(const c of GEO){const cc=CC[c.id];const col=mixHex(cc?cc[0]:'#24324f','#a8814a',AK);
     for(const ring of c.rings){pathRing(ring);
-      X.fillStyle=col;X.globalAlpha=cc?lerp(.78,.5,zoomK):.55;X.fill();
+      X.fillStyle=col;X.globalAlpha=lerp(cc?lerp(.78,.5,zoomK):.55,.88,AK);X.fill();
       X.globalAlpha=1;}
   }
   // land shading texture (inner darkening)
   X.globalAlpha=1;
   // borders
-  for(const c of GEO){for(const ring of c.rings){pathRing(ring);X.strokeStyle='rgba(255,255,255,.18)';X.lineWidth=5;X.stroke();X.strokeStyle='rgba(255,250,235,.85)';X.lineWidth=1.4;X.stroke()}}
+  if(MK>0)for(const c of GEO){for(const ring of c.rings){pathRing(ring);X.strokeStyle=`rgba(255,255,255,${.18*MK})`;X.lineWidth=5;X.stroke();X.strokeStyle=`rgba(255,250,235,${.85*MK})`;X.lineWidth=1.4;X.stroke()}}
+  // today's Kurdish-inhabited region
+  const KR=MK*ss(.3,1.1,t);
+  if(KR>0){const pulse=.5+.5*Math.sin(t*4);pathRing(KURD);const [kx,ky]=P(42.5,37.4);const kg=X.createRadialGradient(kx,ky,20,kx,ky,CAM.s*.12);
+    kg.addColorStop(0,`rgba(255,200,60,${.8*KR})`);kg.addColorStop(1,`rgba(240,110,30,${.7*KR})`);X.fillStyle=kg;X.fill();
+    X.strokeStyle=`rgba(255,236,170,${KR})`;X.lineWidth=3+2*pulse;X.shadowColor='#ffb347';X.shadowBlur=26;X.stroke();X.shadowBlur=0;
+    glowText('KÜRDİSTAN',kx,ky-18,'700 64px Cinzel','#fff6dc',KR,'rgba(120,40,0,.9)',22,14);
+    glowText('Bugün Kürtlerin yaşadığı bölgeler',kx,ky+40,'600 36px Corm','#fff0d0',KR,'rgba(0,0,0,.9)',12,1)}
+  // fertile river valleys (ancient)
+  if(AK>0){for(const k of ['dicle','firat']){pathRing(RIVERS[k],false);X.lineCap='round';X.lineJoin='round';X.strokeStyle=`rgba(70,150,60,${.45*AK})`;X.lineWidth=Math.min(CAM.s*.011,44);X.stroke()}}
   // mountains
   const ms=clamp(CAM.s/9000,.25,1.6);
   for(const [lo,la,k] of MTN){const[x,y]=P(lo,la);if(x<-50||x>W+50||y<-50||y>H+50)continue;const s=22*k*ms;
@@ -177,22 +189,31 @@ function drawMap(t){
     X.save();X.globalAlpha=a;X.beginPath();X.arc(x,y,tag?9:6,0,TAU);X.fillStyle=col;X.shadowColor=col;X.shadowBlur=16;X.fill();X.shadowBlur=0;
     X.font=(tag?'700 34px':'700 26px')+' Cinzel';X.textAlign='left';X.textBaseline='middle';X.lineWidth=5;X.strokeStyle='rgba(0,0,0,.65)';X.strokeText(nm.toLocaleUpperCase('tr'),x+14,y-2);X.fillStyle=col;X.fillText(nm.toLocaleUpperCase('tr'),x+14,y-2);X.restore()}
   // modern country labels
-  const la=1-ss(5.2,6.4,t)*.75;
+  const la=MK;
   for(const id in CC){const c=CC[id];if(!c[1])continue;const[x,y]=P(c[2][0],c[2][1]);
     const big=['792','364','368','760'].includes(id);
-    X.save();X.globalAlpha=la*(big?.95:.7)*ss(.6,1.6,t);X.font=`700 ${big?Math.min(54,18+CAM.s/120):22}px Cinzel`;X.letterSpacing='6px';X.textAlign='center';X.textBaseline='middle';
+    X.save();X.globalAlpha=la*(big?.85:.6);X.font=`700 ${big?Math.min(54,18+CAM.s/120):22}px Cinzel`;X.letterSpacing='6px';X.textAlign='center';X.textBaseline='middle';
     X.fillStyle='rgba(255,255,255,.92)';X.shadowColor='rgba(0,0,0,.8)';X.shadowBlur=12;X.fillText(c[1],x,y);X.restore()}
   // ancient region labels
   glowText('ZAGROS DAĞLARI',...P(48.7,32.0),'700 40px Cinzel','#ffe2a6',ss(4,5,t)*(1-ss(8,8.8,t)),'rgba(255,140,40,.8)',22,10);
   if(gu>0){const[x,y]=P(46.4,35.6);glowText('GUTİUM',x,y-10,`700 ${Math.round(58+12*eout((t-6.9)/1))}px Cinzel`,'#fff',gu,'#ff4a1a',30,12)}
+  const AL=ss(4.0,5.0,t);
+  glowText('SUBARTU',...P(41.3,36.9),'700 32px Cinzel','#fbe7c0',AL*(1-ss(9,10,t)*.4),'rgba(0,0,0,.9)',10,10);
+  glowText('HURRİ ÜLKESİ',...P(40.2,38.3),'700 30px Cinzel','#fbe7c0',ss(5.6,6.4,t)*(1-ss(9,10,t)*.4),'rgba(0,0,0,.9)',10,8);
+  glowText('LULLUBİ',...P(45.0,36.2),'700 26px Cinzel','#fbe7c0',AL*(1-ss(6.8,7.4,t)*.6),'rgba(0,0,0,.9)',10,6);
+  glowText('ELAM',...P(49.2,31.6),'700 32px Cinzel','#fbe7c0',AL,'rgba(0,0,0,.9)',10,10);
   glowText('SÜMER',...P(46.7,30.6),'700 34px Cinzel','#ffe9b8',ss(9,9.8,t),'rgba(0,0,0,.9)',10,8);
   X.restore();
   // dust motes
   for(let i=0;i<80;i++){const x=(hash(i)*W+t*20*(hash(i+5)-.3)+W)%W,y=(hash(i+9)*H-t*12*hash(i+3)+H)%H;X.fillStyle=`rgba(255,220,160,${.15+.25*hash(i+1)})`;X.beginPath();X.arc(x,y,1+hash(i+2)*2,0,TAU);X.fill()}
   // overlays text
-  const d=ss(.8,1.6,t)*(1-ss(5.4,6.2,t));
-  if(d>0){X.save();X.globalAlpha=d*.6;X.fillStyle='#02040a';X.fillRect(0,0,W,H);X.restore();X.save();X.globalAlpha=d;X.textAlign='center';X.font='600 34px Corm';X.fillStyle='#e8d8b0';X.letterSpacing='4px';X.fillText('Milattan Önce',W/2,H/2-150);
-    X.font='900 190px CinzelD';X.letterSpacing='10px';X.fillStyle=goldGrad(X,H/2-90,H/2+70);X.shadowColor='rgba(255,170,60,.6)';X.shadowBlur=40;X.fillText('2200',W/2,H/2+40);X.restore()}
+  const d=ss(.5,1.1,t)*(1-ss(5.6,6.3,t));
+  if(d>0){const k=eio(clamp((t-2.6)/1.8));const v=Math.round(lerp(2026,-2200,k));
+    X.save();const bg=X.createLinearGradient(0,56,0,380);bg.addColorStop(0,'rgba(2,4,10,.75)');bg.addColorStop(1,'rgba(2,4,10,0)');X.globalAlpha=d;X.fillStyle=bg;X.fillRect(0,56,W,330);
+    X.textAlign='center';X.font='600 38px Corm';X.fillStyle='#efe0bc';X.letterSpacing='4px';
+    X.fillText(t<2.7?'Bugün':(v>0?'Milattan Sonra':'Milattan Önce'),W/2,130);
+    X.font='900 140px CinzelD';X.letterSpacing='10px';X.fillStyle=goldGrad(X,160,300);X.shadowColor='rgba(255,170,60,.6)';X.shadowBlur=36;
+    X.fillText((v<=0&&t>2.7?'MÖ ':'')+Math.abs(v),W/2,270);X.restore()}
   lowerThird(t,7.0,10.2,'GUTİLER','Zagros’un dağlı savaşçıları');
   lowerThird(t,10.8,13.6,'AKAD ÇÖKER','MÖ ~2150 · Mezopotamya Gutilerin eline geçer');
 }
@@ -427,36 +448,31 @@ function drawSources(t){ // local t 0..7.3
 }
 
 // ---------- LOGO ----------
-function drawLogo(t){ // local 0..5.4
-  X.fillStyle='#030207';X.fillRect(0,0,W,H);
-  const bg=X.createRadialGradient(W/2,H/2-40,0,W/2,H/2,900);bg.addColorStop(0,`rgba(90,40,20,${.6*ss(0,1,t)})`);bg.addColorStop(1,'rgba(0,0,0,0)');X.fillStyle=bg;X.fillRect(0,0,W,H);
-  const cx=W/2,cy=H/2-70;
-  // sun rays
-  X.save();X.translate(cx,cy);X.rotate(t*.05);const R=ss(0,1.2,t);
-  for(let i=0;i<21;i++){X.rotate(TAU/21);X.beginPath();X.moveTo(-14,-170*R);X.lineTo(0,-(250+20*Math.sin(t*2+i))*R);X.lineTo(14,-170*R);X.closePath();X.fillStyle=`rgba(233,180,80,${.55*R})`;X.fill()}X.restore();
-  // ring
-  X.save();X.strokeStyle=goldGrad(X,cy-160,cy+160);X.lineWidth=5;X.shadowColor='rgba(255,170,60,.8)';X.shadowBlur=24;X.beginPath();X.arc(cx,cy,160,-Math.PI/2,-Math.PI/2+TAU*eout(t/1.1));X.stroke();
-  X.lineWidth=1.5;X.beginPath();X.arc(cx,cy,145,Math.PI/2,Math.PI/2+TAU*eout((t-.2)/1.1));X.stroke();
-  // mountains inside
-  X.beginPath();X.arc(cx,cy,140,0,TAU);X.clip();const mk2=ss(.4,1.3,t);
-  X.beginPath();X.moveTo(cx-150,cy+90);X.lineTo(cx-70,cy+90-140*mk2);X.lineTo(cx-30,cy+90-90*mk2);X.lineTo(cx+20,cy+90-170*mk2);X.lineTo(cx+80,cy+90-80*mk2);X.lineTo(cx+150,cy+90-120*mk2);X.lineTo(cx+150,cy+150);X.lineTo(cx-150,cy+150);X.closePath();
-  X.fillStyle=goldGrad(X,cy-80,cy+100);X.shadowBlur=0;X.fill();
-  X.beginPath();X.moveTo(cx+20,cy+90-170*mk2);X.lineTo(cx+5,cy+90-135*mk2);X.lineTo(cx+20,cy+90-145*mk2);X.lineTo(cx+35,cy+90-130*mk2);X.closePath();X.fillStyle='#fff8e1';X.fill();X.restore();
-  // DÎROK text
-  const tk=ss(.5,1.3,t);X.save();X.globalAlpha=tk;X.textAlign='center';X.textBaseline='middle';X.font='900 200px CinzelD';X.letterSpacing=lerp(60,24,eout((t-.5)/1.4))+'px';
-  X.shadowColor='rgba(255,160,50,.7)';X.shadowBlur=50;X.fillStyle=goldGrad(X,cy+190,cy+390);X.fillText('DÎROK',cx,cy+290);X.shadowBlur=0;
-  // light sweep
-  const sw=(t-1.2)/1.2;if(sw>0&&sw<1){X.globalCompositeOperation='source-atop'}
+const LOGO=new Image();LOGO.src='logo.png';
+function drawLogo(t){ // local 0..5.4 — user's Dîrok logo + 21-ray emphasis
+  X.fillStyle='#0d0819';X.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2-25,S=760,R=S*.478;
+  const bg=X.createRadialGradient(cx,cy,0,cx,cy,900);bg.addColorStop(0,`rgba(255,170,80,${.35*ss(.2,1.2,t)})`);bg.addColorStop(.45,`rgba(120,50,60,${.25*ss(.2,1.2,t)})`);bg.addColorStop(1,'rgba(0,0,0,0)');X.fillStyle=bg;X.fillRect(0,0,W,H);
+  // 21 golden rays behind the badge
+  const rk=eback(clamp((t-.35)/1.0));
+  X.save();X.translate(cx,cy);X.rotate(t*.06);
+  for(let i=0;i<21;i++){const L=R+(110+30*Math.sin(t*2.2+i*.9))*rk;const g=X.createLinearGradient(0,-R,0,-L);g.addColorStop(0,'rgba(255,214,90,.95)');g.addColorStop(1,'rgba(255,170,40,0.15)');
+    X.fillStyle=g;X.beginPath();X.moveTo(-34,-R+10);X.lineTo(0,-L);X.lineTo(34,-R+10);X.closePath();X.shadowColor='rgba(255,180,60,.8)';X.shadowBlur=20;X.globalAlpha=ss(.35,.8,t);X.fill();X.rotate(TAU/21)}
   X.restore();
-  if(sw>0&&sw<1){const tc=mk(W,H),g=tc.getContext('2d');g.textAlign='center';g.textBaseline='middle';g.font='900 200px CinzelD';g.letterSpacing='24px';g.fillStyle='#fff';g.fillText('DÎROK',cx,cy+290);
-    g.globalCompositeOperation='source-in';const sx=lerp(cx-700,cx+700,sw);const gr=g.createLinearGradient(sx-140,0,sx+140,0);gr.addColorStop(0,'rgba(255,255,255,0)');gr.addColorStop(.5,'rgba(255,255,255,.95)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,W,H);
-    X.save();X.globalCompositeOperation='lighter';X.drawImage(tc,0,0);X.restore()}
-  glowText('Tarih, dağlarda yazılır.',cx,cy+440,'600 58px Corm','#f3e6c8',ss(.75,1.5,t)*(1),'rgba(255,170,60,.4)',16,2);
+  // badge: circular reveal + scale
+  const k=eback(clamp((t-.05)/.9)),sc=lerp(.82,1,k);
+  if(LOGO.complete&&LOGO.naturalWidth){X.save();X.translate(cx,cy);X.scale(sc,sc);X.globalAlpha=ss(0,.35,t);
+    X.beginPath();X.arc(0,0,R*clamp(t/.6+.2,0,1),0,TAU);X.clip();X.drawImage(LOGO,-S/2,-S/2-S*.004,S,S);
+    // light sweep across the badge
+    const sw=(t-1.0)/1.1;if(sw>0&&sw<1){X.globalCompositeOperation='lighter';X.rotate(.35);const sx=lerp(-S,S,sw);const g=X.createLinearGradient(sx-110,0,sx+110,0);
+      g.addColorStop(0,'rgba(255,240,200,0)');g.addColorStop(.5,'rgba(255,240,200,.45)');g.addColorStop(1,'rgba(255,240,200,0)');X.fillStyle=g;X.fillRect(-S,-S,S*2,S*2)}
+    X.restore()}
+  // glowing outer ring
+  X.save();X.strokeStyle=goldGrad(X,cy-R,cy+R);X.lineWidth=5;X.shadowColor='rgba(255,190,80,.9)';X.shadowBlur=28;X.beginPath();X.arc(cx,cy,R*sc+6,-Math.PI/2,-Math.PI/2+TAU*eout((t-.1)/1.1));X.stroke();X.restore();
   // subscribe
-  const sb=ss(2.6,3.1,t);if(sb>0){X.save();X.globalAlpha=sb;const bw=330,bh=74,bx=cx-bw/2,by=H-120;X.translate(cx,by+bh/2);X.scale(lerp(.8,1,eback(clamp((t-2.6)/.5))),lerp(.8,1,eback(clamp((t-2.6)/.5))));X.translate(-cx,-(by+bh/2));
-    X.fillStyle='#b8241c';X.beginPath();X.roundRect(bx,by,bw,bh,37);X.fill();X.font='700 32px Inter';X.letterSpacing='4px';X.textAlign='center';X.textBaseline='middle';X.fillStyle='#fff';X.fillText('ABONE OL',cx,by+bh/2+2);X.restore()}
+  const sb=ss(2.4,2.9,t);if(sb>0){X.save();X.globalAlpha=sb;const bw=330,bh=70,by=cy+R+46;const bs=lerp(.8,1,eback(clamp((t-2.4)/.5)));X.translate(cx,by+bh/2);X.scale(bs,bs);
+    X.fillStyle='#b8241c';X.shadowColor='rgba(0,0,0,.6)';X.shadowBlur=20;X.beginPath();X.roundRect(-bw/2,-bh/2,bw,bh,35);X.fill();X.shadowBlur=0;X.font='700 30px Inter';X.letterSpacing='4px';X.textAlign='center';X.textBaseline='middle';X.fillStyle='#fff';X.fillText('ABONE OL',0,2);X.restore()}
   embers(t+90,60,.5);
-  // flash at start
   if(t<.25){X.fillStyle=`rgba(255,240,210,${1-t/.25})`;X.fillRect(0,0,W,H)}
 }
 
@@ -488,5 +504,5 @@ function renderFrame(T){
   if(T>29.3){X.fillStyle=`rgba(0,0,0,${clamp((T-29.3)/.7)})`;X.fillRect(0,0,W,H)}
 }
 window.renderFrame=renderFrame;
-window.ready=(async()=>{const fams=['700 40px Cinzel','900 40px CinzelD','italic 600 40px Corm','600 40px Inter'];for(const f of fams){await document.fonts.load(f,'ÂÎŞĞİÜÖÇşğıüöçâî');}await document.fonts.ready;return true})();
+window.ready=(async()=>{await LOGO.decode();const fams=['700 40px Cinzel','900 40px CinzelD','italic 600 40px Corm','600 40px Inter'];for(const f of fams){await document.fonts.load(f,'ÂÎŞĞİÜÖÇşğıüöçâî');}await document.fonts.ready;return true})();
 </script></body></html>
