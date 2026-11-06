@@ -24,9 +24,9 @@ function camFromKeys(keys,T){const K=keys.map(k=>[R(k[0]),k[1],k[2],k[3]]);let i
 function drawFilmMap(T,p){
   camFromKeys(p.cam,T);const drift=1+.012*(T-SH.t0);CAM.s*=Math.min(drift,1.25);
   X.fillStyle='#2f78bb';X.fillRect(0,0,W,H);const RB=window.RELIEF;const [x0,y0]=P(RB.lon0,RB.lat0),[x1,y1]=P(RB.lon1,RB.lat1);X.imageSmoothingQuality='high';X.drawImage(RIMG,x0,y0,x1-x0,y1-y0);
-  if(!p.modernGulf){pathRing(OLDGULF);X.fillStyle='#5aa9dc';X.fill()}
+  if(!p.modernGulf){pathRing(OLDGULF);X.fillStyle=window.HIRES?'rgba(110,205,232,.92)':'#5aa9dc';X.fill()}
   const rv=p.rivers!=null?A(p.rivers,3):1;
-  for(const k of ['dicle','firat','zap','kzap','diyala','karun','kerhe','kizil','nil','nil2']){const line=partial(RIVERS[k],rv);pathRing(line,false);X.lineCap='round';X.lineJoin='round';
+  if(!window.HIRES)for(const k of ['dicle','firat','zap','kzap','diyala','karun','kerhe','kizil','nil','nil2']){const line=partial(RIVERS[k],rv);pathRing(line,false);X.lineCap='round';X.lineJoin='round';
     const main=k==='dicle'||k==='firat';X.strokeStyle='rgba(20,70,130,.55)';X.lineWidth=main?7:4;X.stroke();X.strokeStyle=p.rivers!=null&&main?'#7fe0ff':'#5fc6ff';X.lineWidth=main?(p.rivers!=null?4.5:3.2):2;X.stroke()}
   // mountain range highlight
   (p.lines||[]).forEach(([q,key,col])=>{const a=A(q,.8);if(a<=0)return;const L={zagros:ZAGROS,taurus:TAURUS,cauc:CAUC}[key];pathRing(partial(L,a),false);X.save();X.lineCap='round';X.strokeStyle=col||'rgba(255,200,80,.55)';X.lineWidth=Math.min(CAM.s*.012,70);X.stroke();X.strokeStyle='rgba(255,250,220,.9)';X.lineWidth=5;X.stroke();X.restore()});

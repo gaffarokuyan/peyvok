@@ -135,6 +135,9 @@ edge = np.abs(np.asarray(Image.fromarray((L * 255).astype(np.uint8)).filter(Imag
 img = img + np.clip(edge, 0, 1)[..., None] * 25
 full = Image.fromarray(np.clip(img, 0, 255).astype(np.uint8))
 print('full image done', flush=True)
+full.save(f'{OUT}/relief8.jpg', quality=90)
+lon0 = X0 * T / N * 360 - 180; lon1 = (X1 + 1) * T / N * 360 - 180
+open(f'{OUT}/relief8_bounds.js', 'w').write('window.RELIEF={lon0:%f,lon1:%f,lat0:%f,lat1:%f};' % (lon0, lon1, lat_of(0), lat_of(H)))
 # ---- crops
 VIEWS = [('genis', 21.0, 62.0, 47.2, 3840, 2160), ('mezopotamya', 32.0, 54.5, 41.3, 3840, 2160), ('dikey', 34.0, 48.0, 46.9, 2160, 3840)]
 meta = {}

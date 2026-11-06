@@ -9,7 +9,7 @@ const _scenic=sScenicText;sScenicText=function(T,p){_scenic(T,p);if(p.hero){cons
   X.save();X.shadowColor='rgba(0,0,0,.35)';X.shadowBlur=14;warriorC(X,pp,PAL.guti,{helmet:'cone',shield:'round',spear:1.45,cloak:true,wind:lt*1.5});X.restore()}};
 const SCENE={map:drawFilmMap,duel:sDuel,battle:sBattle,stele:sStele,anubanini:sAnubanini,tablet:sTablet,cylinder:sCylinder,lion:sLion,amarna:sAmarna,chariots:sChariots,ziggurat:sZiggurat,ekbatana:sEkbatana,
  eclipse:sEclipse,nineveh:sNineveh,van:sVan,gudea:sGudea,quote:sQuote,compare:sCompare,authors:sAuthors,etym:sEtym,lineage:sLineage,timeline:sTimeline,scenic:sScenicText,anthem:sAnthem,
- card:sChapterCard,list:sList,city:sCity,title:sTitle,credits:sCredits,logo:(T,p)=>drawLogo(T-SH.t0)};
+ card:sChapterCard,council:sCouncil,governor:sGovernor,list:sList,city:sCity,title:sTitle,credits:sCredits,logo:(T,p)=>drawLogo(T-SH.t0)};
 function normW(w){return w.toLocaleLowerCase('tr').replace(/[^a-zçğıöşüâîûê0-9-]/g,'')}
 const MISSING=[];
 function cueT(ch,q){if(typeof q==='number')return ch.start+q;let [key,off]=q.split('@');off=+(off||0);let [w,n]=key.split('#');n=+(n||1);const parts=w.split(' ').map(normW);const ws=ch.words;

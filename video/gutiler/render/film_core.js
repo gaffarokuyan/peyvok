@@ -1,5 +1,5 @@
 // ================= DÎROK FILM ENGINE — core (1920x1080, bright style) =================
-const RIMG=new Image();RIMG.src='relief_bright.jpg';
+const RIMG=new Image();RIMG.src=window.RELIEF_SRC||'relief_bright.jpg';
 // ---------- palettes for colored warriors
 const PAL={
  guti:{skin:'#c98d5f',tunic:'#d2322a',kilt:'#8e1f1a',helmet:'#b8803c',plume:'#ffcf3a',shield:'#e2a83f',rim:'#7a4a12',cloak:'#f0682a',metal:'#e8e2d4',beard:'#3a2414',boot:'#4a2a16'},
