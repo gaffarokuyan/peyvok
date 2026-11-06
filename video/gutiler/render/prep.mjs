@@ -17,5 +17,11 @@ for (const f of fc.features) {
   }
   if (keep.length) out.push({id:f.id, name:f.properties.name, rings:keep});
 }
-fs.writeFileSync('geo.js', 'window.GEO='+JSON.stringify(out)+';');
-console.log(out.length, fs.statSync('geo.js').size);
+
+
+const lt = JSON.parse(fs.readFileSync('node_modules/world-atlas/land-50m.json'));
+const lf = feature(lt, lt.objects.land);
+const land=[];
+for (const f of (lf.type==='FeatureCollection'?lf.features:[lf])) { const g=f.geometry; const polys=g.type==='Polygon'?[g.coordinates]:g.coordinates;
+  for (const p of polys) for (const ring of p) { let ok=false; for (const [x,y] of ring) if (x>10&&x<75&&y>15&&y<55){ok=true;break} if(ok) land.push(ring.map(([x,y])=>[r(x),r(y)])); } }
+fs.writeFileSync('land.js','window.LAND='+JSON.stringify(land)+';'); console.log('land rings',land.length, fs.statSync('land.js').size);

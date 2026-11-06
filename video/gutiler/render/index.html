@@ -12,7 +12,7 @@
 html,body{margin:0;background:#000}
 canvas{display:block}
 </style>
-<script src="geo.js"></script>
+<script src="land.js"></script>
 </head><body>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script>
@@ -64,156 +64,155 @@ const CUNEI=(()=>{const c=mk(W,H),g=c.getContext('2d'),r=rng(5);g.fillStyle='rgb
     g.beginPath();g.moveTo(-s*.6,-s*.5);g.lineTo(s*.6,-s*.5);g.lineTo(0,s*1.1);g.closePath();g.globalAlpha=.5+r()*.5;g.fill();g.restore();
     x+=12+r()*22;if(r()<.08)x+=40}}return c})();
 
-// ---------- MAP ----------
+// ---------- MAP (ancient, ~MÖ 2200) ----------
 const RAD=Math.PI/180;
 const mercY=lat=>Math.log(Math.tan(Math.PI/4+lat*RAD/2));
 let CAM={lon:44,lat:33,s:1000,rot:0};
 function P(lon,lat){return[W/2+(lon-CAM.lon)*RAD*CAM.s,H/2-(mercY(lat)-mercY(CAM.lat))*CAM.s]}
-const CC={ '792':['#13a39a','TÜRKİYE',[35.2,39.1]], '364':['#2fae5f','İRAN',[54.5,32.6]], '368':['#e0962d','IRAK',[42.2,32.6]],
- '760':['#8b63e6','SURİYE',[38.6,35.3]], '682':['#355c9a','S. ARABİSTAN',[44.5,24]], '400':['#4b6fb0','ÜRDÜN',[36.6,30.9]],
- '051':['#c04b6b','ERMENİSTAN',[44.9,40.3]], '031':['#3b8fc4','AZERB.',[47.8,40.4]], '268':['#a05bb5','GÜRCİSTAN',[43.6,42.2]],
- '414':['#d2b548',''], '422':['#5f86c6',''], '376':['#4a73a8',''], '275':['#4a73a8',''], '818':['#3a5486','MISIR',[30,26.5]],
- '795':['#2c7a7a','TÜRKMENİSTAN',[59,39.4]], '004':['#476a8f','AFGANİSTAN',[66,33.8]], '586':['#2d6b52',''], '196':['#5a7fb5',''],
- '643':['#2b3f66',''], '634':['#3d5e8d',''], '784':['#3d5e8d',''], '512':['#34548a',''], '048':['#3d5e8d',''], '887':['#2f4b7c',''] };
 const RIVERS={
- dicle:[[39.4,38.5],[40.24,37.91],[41.0,37.8],[41.41,37.71],[42.19,37.33],[42.7,36.95],[43.13,36.34],[43.25,35.6],[43.68,34.6],[43.87,34.2],[44.2,33.7],[44.37,33.31],[44.9,32.8],[45.82,32.5],[46.6,32.1],[47.15,31.84],[47.43,31.0],[47.8,30.5],[48.5,29.95]],
- firat:[[38.5,39.3],[38.75,38.8],[38.3,38.0],[37.98,37.0],[38.3,36.5],[39.0,35.95],[40.14,35.33],[40.92,34.45],[41.5,34.4],[42.38,34.13],[43.3,33.42],[43.78,33.35],[44.42,32.48],[44.9,32.0],[45.28,31.31],[46.26,31.05],[47.43,31.0]],
- zap:[[44.6,36.9],[44.0,36.4],[43.4,36.1],[43.3,35.9]], kzap:[[45.3,36.2],[44.6,35.9],[44.0,35.5],[43.4,35.2]], diyala:[[46.0,35.3],[45.6,34.9],[45.2,34.2],[44.8,33.6],[44.5,33.2]]
+ dicle:[[39.4,38.5],[40.24,37.91],[41.0,37.8],[41.41,37.71],[42.19,37.33],[42.7,36.95],[43.13,36.34],[43.25,35.6],[43.68,34.6],[43.87,34.2],[44.2,33.7],[44.37,33.31],[44.9,32.8],[45.82,32.5],[46.6,32.1],[47.15,31.84],[47.4,31.2]],
+ firat:[[38.5,39.3],[38.75,38.8],[38.3,38.0],[37.98,37.0],[38.3,36.5],[39.0,35.95],[40.14,35.33],[40.92,34.45],[41.5,34.4],[42.38,34.13],[43.3,33.42],[43.78,33.35],[44.42,32.48],[44.9,32.0],[45.28,31.31],[46.0,31.0],[46.5,31.0]],
+ zap:[[44.6,36.9],[44.0,36.4],[43.4,36.1],[43.3,35.9]], kzap:[[45.3,36.2],[44.6,35.9],[44.0,35.5],[43.4,35.2]], diyala:[[46.0,35.3],[45.6,34.9],[45.2,34.2],[44.8,33.6],[44.5,33.2]],
+ karun:[[50.0,32.3],[49.2,32.2],[48.7,31.8],[48.6,31.3],[48.3,30.8]], kerhe:[[47.6,33.6],[47.9,32.8],[48.2,32.2],[47.9,31.6],[47.6,31.3]],
+ nil:[[31.0,25.0],[31.2,27.0],[30.9,28.2],[31.2,29.6],[31.25,30.1],[30.6,30.9],[30.4,31.4]], nil2:[[31.25,30.1],[31.6,30.8],[31.8,31.45]],
+ kizil:[[38.2,39.8],[36.8,39.3],[35.5,38.9],[34.2,39.1],[33.6,39.9],[34.0,40.8],[35.3,41.3],[35.9,41.7]]
 };
+// ancient Persian Gulf reached further north (Ur/Eridu were near the coast)
+const OLDGULF=[[48.4,29.9],[47.9,29.95],[47.2,30.2],[46.6,30.5],[46.3,30.9],[46.7,31.15],[47.4,31.2],[48.1,30.8],[48.7,30.4],[49.2,30.1]];
 const ZAGROS=[[43.2,37.6],[44.5,37.0],[45.6,36.2],[46.5,35.2],[47.4,34.2],[48.4,33.2],[49.3,32.3],[50.3,31.3],[51.3,30.4],[52.4,29.6],[53.8,28.7],[55.5,27.8]];
 const TAURUS=[[30.0,37.0],[32.0,37.0],[34.0,37.3],[36.0,37.9],[37.8,38.2],[39.6,38.5],[41.4,38.5],[43.0,38.1]];
-const GUTIUM=[[44.0,36.4],[45.4,36.8],[46.8,35.9],[47.8,34.6],[47.3,33.6],[45.9,33.8],[44.9,34.3],[43.9,35.3]];
-const AKKAD_EMP=[[36.3,36.6],[38.5,37.4],[41.5,37.5],[43.8,36.8],[44.6,35.4],[45.6,34.1],[47.0,32.8],[48.4,31.0],[48.6,29.7],[47.4,29.6],[45.9,30.3],[44.4,31.2],[42.9,32.4],[41.2,33.7],[39.4,34.6],[37.4,35.2]];
-const GUTI_RULE=[[43.6,34.6],[44.9,34.3],[46.4,33.3],[47.8,31.4],[47.6,30.3],[46.2,30.6],[44.6,31.4],[43.3,32.9]];
-const KURD=[[36.6,36.9],[37.3,37.6],[37.7,38.3],[38.4,39.0],[39.5,39.6],[41.2,39.9],[42.6,40.2],[43.8,39.7],[44.6,39.1],[44.9,38.2],[45.4,37.4],[45.9,37.0],[46.9,36.4],[47.8,35.1],[48.3,34.2],[47.9,33.3],[46.7,32.8],[45.6,33.6],[45.0,34.3],[44.1,35.0],[43.4,35.6],[42.9,36.1],[41.6,36.1],[40.6,36.5],[39.2,36.6],[38.2,36.6],[37.2,36.4],[36.6,36.4]];
-function mixHex(a,b,k){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const x=p(a),y=p(b);return `rgb(${x.map((v,i)=>Math.round(lerp(v,y[i],k))).join(',')})`}
-const SITES=[['Akad',44.1,33.1,'akad'],['Kiş',44.6,32.54],['Nippur',45.23,32.13],['Uruk',45.64,31.32],['Ur',46.1,30.96],['Lagaş',46.4,31.41],['Susa',48.25,32.19],['Ninova',43.15,36.36]];
-// mountain glyphs along ridges
+const CAUC=[[37.5,44.6],[40,43.6],[42.5,43.0],[44.5,42.6],[46.5,41.8],[48.5,41.0]];
+const PONT=[[31,41.0],[34,41.2],[37,40.8],[39.5,40.6],[41.5,41.0]];
+const ELBURZ=[[47.5,37.5],[49.5,36.6],[51.5,36.0],[53.5,36.4],[55.5,37.2]];
+const LEBAN=[[35.8,33.3],[36.2,34.3],[36.4,35.3]];
+const POLITIES=[
+ {k:'akad',n:'AKAD',sub:'İmparatorluğu · Sargon hanedanı',c:'#f2b134',l:[42.4,35.95],r:[[36.8,36.6],[38.5,36.9],[40.0,37.0],[41.0,36.6],[42.4,36.6],[43.4,36.2],[44.2,35.6],[44.4,35.0],[45.4,34.0],[46.6,33.4],[47.3,32.4],[47.6,31.3],[47.0,31.1],[46.3,30.9],[45.0,30.9],[44.0,31.5],[43.0,32.4],[41.6,33.6],[40.4,34.3],[39.0,35.0],[37.6,35.6]]},
+ {k:'gut',n:'GUTİUM',sub:'Gutiler',c:'#e3322b',l:[46.9,34.55],r:[[44.4,35.9],[45.6,36.0],[46.1,36.4],[47.2,35.7],[48.2,34.7],[47.9,33.7],[46.6,33.5],[45.4,34.0],[44.4,35.0]]},
+ {k:'lul',n:'LULLUBİ',sub:'',c:'#ff8a2a',l:[45.3,36.55],r:[[44.6,36.9],[45.5,37.1],[46.1,36.6],[45.6,36.0],[44.8,36.0],[44.4,36.4]]},
+ {k:'hur',n:'HURRİLER',sub:'Urkeş',c:'#3f84e5',l:[41.4,37.75],r:[[38.0,37.0],[40.0,37.6],[41.8,37.9],[43.2,37.5],[43.4,36.6],[42.4,36.6],[41.0,36.6],[40.0,37.0],[38.5,36.9]]},
+ {k:'elam',n:'ELAM',sub:'Avan · Şimaşki',c:'#18b8a6',l:[50.7,31.0],r:[[47.3,32.4],[48.6,33.6],[49.6,33.2],[50.8,32.4],[52.2,31.4],[53.6,30.4],[54.0,29.4],[53.0,28.6],[51.5,28.9],[50.4,29.8],[49.5,30.2],[48.6,30.3],[48.0,30.9],[47.6,31.3]]},
+ {k:'mar',n:'MARHAŞİ',sub:'',c:'#9a5ce0',l:[57.1,29.9],r:[[55.0,31.5],[57.5,31.8],[59.5,30.5],[59.0,28.5],[56.5,28.0],[54.6,29.0]]},
+ {k:'hat',n:'HATTİLER',sub:'Orta Anadolu',c:'#d4519f',l:[34.5,39.95],r:[[31.5,40.6],[34.0,41.4],[36.5,41.0],[37.5,40.0],[36.8,38.8],[35.0,38.4],[33.2,38.8],[31.8,39.6]]},
+ {k:'mis',n:'MISIR',sub:'Eski Krallık',c:'#3db34d',l:[30.0,29.3],r:[[29.6,31.25],[32.4,31.3],[32.6,30.0],[31.6,29.2],[31.4,27.6],[30.6,27.6],[30.8,29.4],[29.8,30.3]]},
+ {k:'dil',n:'DİLMUN',sub:'',c:'#22c3dc',l:[50.6,26.75],r:[[50.35,25.8],[50.75,25.8],[50.7,26.35],[50.4,26.35]]}
+];
+const CITIES=[['Akad',44.1,33.1,1],['Kiş',44.6,32.54,2],['Nippur',45.23,32.13,2],['Uruk',45.64,31.32,1],['Ur',46.1,30.96,1],['Lagaş',46.4,31.41,2],['Eridu',46.0,30.8,3],
+ ['Susa',48.25,32.19,1],['Anşan',52.4,30.0,1],['Aşur',43.26,35.46,2],['Ninova',43.15,36.36,2],['Mari',40.88,34.55,1],['Nagar',41.06,36.67,2],['Urkeş',41.0,37.05,2],
+ ['Ebla',36.8,35.8,1],['Biblos',35.65,34.12,1],['Kaneş',35.64,38.85,1],['Truva',26.24,39.96,1],['Memfis',31.25,29.85,1]];
 function glyphsAlong(line,n,width,seed){const r=rng(seed),out=[];let L=[],tot=0;
   for(let i=1;i<line.length;i++){const d=Math.hypot(line[i][0]-line[i-1][0],line[i][1]-line[i-1][1]);L.push(d);tot+=d}
   for(let k=0;k<n;k++){let u=r()*tot,i=0;while(u>L[i]){u-=L[i];i++}const a=line[i],b=line[i+1],f=u/L[i];
     const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),nx=-dy/l,ny=dx/l,o=(r()-.5)*width*(1-Math.abs(r()-.5));
     out.push([lerp(a[0],b[0],f)+nx*o,lerp(a[1],b[1],f)+ny*o,.5+r()*.8])}
-  return out.sort((p,q)=>q[1]-p[1])}
-const MTN=glyphsAlong(ZAGROS,420,2.2,3).concat(glyphsAlong(TAURUS,240,1.4,4)).sort((p,q)=>q[1]-p[1]);
-
+  return out}
+const MTN=[].concat(glyphsAlong(ZAGROS,420,2.2,3),glyphsAlong(TAURUS,240,1.4,4),glyphsAlong(CAUC,170,1.3,8),glyphsAlong(PONT,110,.9,9),glyphsAlong(ELBURZ,110,1.0,10),glyphsAlong(LEBAN,30,.5,12)).sort((p,q)=>q[1]-p[1]);
+const GUTIUM=POLITIES[1].r;
+const AKKAD_EMP=POLITIES[0].r;
+const GUTI_RULE=[[43.6,34.6],[44.9,34.3],[46.4,33.3],[47.4,31.6],[47.0,31.1],[46.2,30.9],[44.6,31.4],[43.3,32.9]];
 function pathRing(ring,close=true){X.beginPath();ring.forEach(([lo,la],i)=>{const[x,y]=P(lo,la);i?X.lineTo(x,y):X.moveTo(x,y)});if(close)X.closePath()}
-function partial(line,f){ // returns sub-polyline up to fraction f
+function addRing(ring){ring.forEach(([lo,la],i)=>{const[x,y]=P(lo,la);i?X.lineTo(x,y):X.moveTo(x,y)});X.closePath()}
+function partial(line,f){
   if(f>=1)return line;let L=[],tot=0;for(let i=1;i<line.length;i++){const d=Math.hypot(line[i][0]-line[i-1][0],line[i][1]-line[i-1][1]);L.push(d);tot+=d}
   let u=f*tot,out=[line[0]];for(let i=0;i<L.length;i++){if(u>L[i]){out.push(line[i+1]);u-=L[i]}else{const a=line[i],b=line[i+1],t=u/L[i];out.push([lerp(a[0],b[0],t),lerp(a[1],b[1],t)]);break}}return out}
-
 function glowText(txt,x,y,font,fill,alpha,glow='rgba(233,196,106,.6)',blur=18,spacing=0){
   if(alpha<=0)return;X.save();X.globalAlpha=alpha;X.font=font;X.textAlign='center';X.textBaseline='middle';
   if(spacing)X.letterSpacing=spacing+'px';
   X.shadowColor=glow;X.shadowBlur=blur;X.fillStyle=fill;X.fillText(txt,x,y);X.shadowBlur=0;X.fillText(txt,x,y);X.restore()}
-
-function camAt(t){ // keyframes: t, lon, lat, lonWidth, rot
-  const K=[[0,41.8,37.3,33,-1],[2.7,42.4,37.0,26.5,0],[6.8,45.6,34.4,13.5,1.2],[9.8,45.2,33.2,10,.4],[13.6,45.0,33.6,17,-.6],[16,45,33.6,19,-.6]];
+function mapLabel(txt,sub,x,y,size,alpha,col='#ffffff'){if(alpha<=0)return;X.save();X.globalAlpha=alpha;X.textAlign='center';X.textBaseline='middle';
+  X.font=`700 ${size}px Cinzel`;X.letterSpacing=Math.round(size*.18)+'px';X.lineJoin='round';X.lineWidth=Math.max(4,size*.16);X.strokeStyle='rgba(10,8,18,.85)';X.strokeText(txt,x,y);X.fillStyle=col;X.fillText(txt,x,y);
+  if(sub){X.font=`600 ${Math.round(size*.62)}px Corm`;X.letterSpacing='1px';X.lineWidth=4;X.strokeText(sub,x,y+size*.85);X.fillStyle='#fff3d6';X.fillText(sub,x,y+size*.85)}X.restore()}
+function camAt(t){
+  const K=[[0,42.4,36.4,43,0],[2.8,42.7,36.1,39,0],[6.8,46.0,34.6,13.5,1.2],[9.8,45.2,33.2,10,.4],[13.6,45.0,33.6,17,-.6],[16,45,33.6,19,-.6]];
   let i=0;while(i<K.length-2&&t>K[i+1][0])i++;const a=K[i],b=K[i+1],f=eio(clamp((t-a[0])/(b[0]-a[0])));
   const w=Math.exp(lerp(Math.log(a[3]),Math.log(b[3]),f));
   CAM={lon:lerp(a[1],b[1],f),lat:lerp(a[2],b[2],f),s:W/(w*RAD),rot:lerp(a[4],b[4],f)*RAD}}
 
 function drawMap(t){
   camAt(t);
-  // ocean
-  const og=X.createRadialGradient(W*.5,H*.45,100,W*.5,H*.5,W*.75);og.addColorStop(0,'#0d2440');og.addColorStop(1,'#040a16');
+  const og=X.createRadialGradient(W*.5,H*.45,100,W*.5,H*.5,W*.8);og.addColorStop(0,'#1366a6');og.addColorStop(1,'#08345e');
   X.fillStyle=og;X.fillRect(0,0,W,H);
   X.save();X.translate(W/2,H/2);X.rotate(CAM.rot);X.translate(-W/2,-H/2);
-  // graticule
-  X.strokeStyle='rgba(120,170,230,.10)';X.lineWidth=1;
-  const step=CAM.s>6000?1:(CAM.s>2500?2:5);
-  for(let lo=-20;lo<=100;lo+=step){X.beginPath();const a=P(lo,0),b=P(lo,65);X.moveTo(a[0],a[1]);X.lineTo(b[0],b[1]);X.stroke()}
-  for(let la=0;la<=65;la+=step){X.beginPath();const a=P(-20,la),b=P(100,la);X.moveTo(a[0],a[1]);X.lineTo(b[0],b[1]);X.stroke()}
-  // countries
-  const zoomK=clamp((CAM.s-1500)/6000); // 0 wide ->1 close
-  const MK=1-ss(2.9,4.3,t), AK=1-MK;
-  for(const c of GEO){const cc=CC[c.id];const col=mixHex(cc?cc[0]:'#24324f','#a8814a',AK);
-    for(const ring of c.rings){pathRing(ring);
-      X.fillStyle=col;X.globalAlpha=lerp(cc?lerp(.78,.5,zoomK):.55,.88,AK);X.fill();
-      X.globalAlpha=1;}
-  }
-  // land shading texture (inner darkening)
-  X.globalAlpha=1;
-  // borders
-  if(MK>0)for(const c of GEO){for(const ring of c.rings){pathRing(ring);X.strokeStyle=`rgba(255,255,255,${.18*MK})`;X.lineWidth=5;X.stroke();X.strokeStyle=`rgba(255,250,235,${.85*MK})`;X.lineWidth=1.4;X.stroke()}}
-  // today's Kurdish-inhabited region
-  const KR=MK*ss(.3,1.1,t);
-  if(KR>0){const pulse=.5+.5*Math.sin(t*4);pathRing(KURD);const [kx,ky]=P(42.5,37.4);const kg=X.createRadialGradient(kx,ky,20,kx,ky,CAM.s*.12);
-    kg.addColorStop(0,`rgba(255,200,60,${.8*KR})`);kg.addColorStop(1,`rgba(240,110,30,${.7*KR})`);X.fillStyle=kg;X.fill();
-    X.strokeStyle=`rgba(255,236,170,${KR})`;X.lineWidth=3+2*pulse;X.shadowColor='#ffb347';X.shadowBlur=26;X.stroke();X.shadowBlur=0;
-    glowText('KÜRDİSTAN',kx,ky-18,'700 64px Cinzel','#fff6dc',KR,'rgba(120,40,0,.9)',22,14);
-    glowText('Bugün Kürtlerin yaşadığı bölgeler',kx,ky+40,'600 36px Corm','#fff0d0',KR,'rgba(0,0,0,.9)',12,1)}
-  // fertile river valleys (ancient)
-  if(AK>0){for(const k of ['dicle','firat']){pathRing(RIVERS[k],false);X.lineCap='round';X.lineJoin='round';X.strokeStyle=`rgba(70,150,60,${.45*AK})`;X.lineWidth=Math.min(CAM.s*.011,44);X.stroke()}}
+  // land
+  X.beginPath();for(const ring of LAND)addRing(ring);
+  X.save();X.shadowColor='rgba(150,230,255,.55)';X.shadowBlur=18;X.fillStyle='#e6cf95';X.fill('evenodd');X.restore();
+  X.save();X.clip('evenodd');
+  const lg=X.createLinearGradient(0,0,0,H);lg.addColorStop(0,'rgba(120,160,80,.35)');lg.addColorStop(.5,'rgba(0,0,0,0)');lg.addColorStop(1,'rgba(230,170,90,.25)');X.fillStyle=lg;X.fillRect(0,0,W,H);
+  X.globalAlpha=.10;X.globalCompositeOperation='multiply';X.drawImage(SMOKE,0,0,W,H);X.restore();
+  X.beginPath();for(const ring of LAND)addRing(ring);X.strokeStyle='#0b2a48';X.lineWidth=2.2;X.stroke();
+  // ancient gulf coast
+  pathRing(OLDGULF);X.fillStyle='#0f5591';X.fill();X.strokeStyle='#0b2a48';X.lineWidth=2;X.stroke();
+  // fertile valleys
+  for(const k of ['dicle','firat','nil']){pathRing(RIVERS[k],false);X.lineCap='round';X.lineJoin='round';X.strokeStyle='rgba(70,160,60,.45)';X.lineWidth=Math.min(CAM.s*.010,40);X.stroke()}
+  // polities
+  const zoomK=clamp((CAM.s-3500)/6000);
+  POLITIES.forEach((p,i)=>{const a=ss(.4+i*.12,.9+i*.12,t);if(a<=0)return;pathRing(p.r);
+    X.globalAlpha=a*(p.k==='gut'?.62:.5);X.fillStyle=p.c;X.fill();X.globalAlpha=a;
+    X.strokeStyle='rgba(255,255,255,.9)';X.lineWidth=4.5;X.lineJoin='round';X.stroke();X.strokeStyle=p.c;X.lineWidth=2.6;X.stroke();X.globalAlpha=1});
   // mountains
-  const ms=clamp(CAM.s/9000,.25,1.6);
+  const ms=clamp(CAM.s/9000,.28,1.6);
   for(const [lo,la,k] of MTN){const[x,y]=P(lo,la);if(x<-50||x>W+50||y<-50||y>H+50)continue;const s=22*k*ms;
-    X.beginPath();X.moveTo(x-s,y);X.lineTo(x,y-s*1.1);X.lineTo(x+s,y);X.closePath();X.fillStyle='rgba(40,28,20,.55)';X.fill();
-    X.beginPath();X.moveTo(x-s,y);X.lineTo(x,y-s*1.1);X.lineTo(x-s*.1,y);X.closePath();X.fillStyle='rgba(255,236,200,.42)';X.fill();
-    X.beginPath();X.moveTo(x-s*.28,y-s*.8);X.lineTo(x,y-s*1.1);X.lineTo(x+s*.25,y-s*.82);X.closePath();X.fillStyle='rgba(255,255,255,.55)';X.fill()}
-  // rivers (animated draw)
-  const rf=ss(1.5,6,t);
-  for(const k in RIVERS){const line=partial(RIVERS[k],k.length>5?rf:rf);const main=k==='dicle'||k==='firat';
-    pathRing(line,false);X.lineCap='round';X.lineJoin='round';X.strokeStyle='rgba(90,200,255,.25)';X.lineWidth=main?9:5;X.stroke();
-    X.strokeStyle='#8fe3ff';X.lineWidth=main?2.6:1.4;X.stroke()}
+    X.beginPath();X.moveTo(x-s,y);X.lineTo(x,y-s*1.1);X.lineTo(x+s,y);X.closePath();X.fillStyle='rgba(92,62,40,.85)';X.fill();
+    X.beginPath();X.moveTo(x-s,y);X.lineTo(x,y-s*1.1);X.lineTo(x-s*.1,y);X.closePath();X.fillStyle='rgba(196,150,100,.95)';X.fill();
+    X.beginPath();X.moveTo(x-s*.28,y-s*.8);X.lineTo(x,y-s*1.1);X.lineTo(x+s*.25,y-s*.82);X.closePath();X.fillStyle='#ffffff';X.fill()}
+  // rivers
+  const rf=ss(.3,3,t);
+  for(const k in RIVERS){const line=partial(RIVERS[k],rf);const main=['dicle','firat','nil'].includes(k);
+    pathRing(line,false);X.lineCap='round';X.lineJoin='round';X.strokeStyle='#0b2a48';X.lineWidth=main?6:3.5;X.stroke();
+    X.strokeStyle='#4fc3ff';X.lineWidth=main?3.4:2;X.stroke()}
   // Zagros highlight
   const zg=ss(3.6,5,t)*(1-ss(12.5,14,t)*.6);
   if(zg>0){pathRing(ZAGROS,false);X.strokeStyle=`rgba(255,170,60,${.35*zg})`;X.lineWidth=60*ms;X.stroke();X.strokeStyle=`rgba(255,220,140,${.5*zg})`;X.lineWidth=8*ms;X.stroke()}
-  // Akkad empire
-  const ak=ss(8.2,9.2,t)*(1-ss(10.6,11.8,t)*.75);
-  if(ak>0){pathRing(AKKAD_EMP);X.fillStyle=`rgba(233,196,106,${.28*ak})`;X.fill();X.setLineDash([14,10]);X.lineDashOffset=-t*40;X.strokeStyle=`rgba(255,226,150,${.9*ak})`;X.lineWidth=3;X.stroke();X.setLineDash([])}
-  // Gutium region
+  // Akkad pulse
+  const ak=ss(8.2,9.2,t)*(1-ss(10.6,11.8,t));
+  if(ak>0){pathRing(AKKAD_EMP);X.setLineDash([16,10]);X.lineDashOffset=-t*40;X.strokeStyle=`rgba(255,240,180,${ak})`;X.lineWidth=5;X.shadowColor='#ffcc55';X.shadowBlur=20;X.stroke();X.shadowBlur=0;X.setLineDash([])}
+  // Gutium glow
   const gu=ss(6.9,7.6,t);
   if(gu>0){const pulse=.5+.5*Math.sin(t*5);pathRing(GUTIUM);
-    const [cx,cy]=P(45.9,35.1);const rg=X.createRadialGradient(cx,cy,10,cx,cy,CAM.s*.035);rg.addColorStop(0,`rgba(255,80,40,${.65*gu})`);rg.addColorStop(1,`rgba(160,20,20,${.35*gu})`);
+    const [cx,cy]=P(46.4,34.8);const rg=X.createRadialGradient(cx,cy,10,cx,cy,CAM.s*.035);rg.addColorStop(0,`rgba(255,80,40,${.6*gu})`);rg.addColorStop(1,`rgba(160,20,20,${.3*gu})`);
     X.fillStyle=rg;X.fill();X.strokeStyle=`rgba(255,${150+60*pulse},90,${gu})`;X.lineWidth=4+3*pulse;X.shadowColor='#ff5a1f';X.shadowBlur=30;X.stroke();X.shadowBlur=0}
   // Gutian rule over Sumer/Akkad
   const gr=ss(11.6,12.8,t);
   if(gr>0){X.save();pathRing(GUTI_RULE);X.clip();const [cx,cy]=P(46,34.9);const R=gr*CAM.s*.09;const rr=X.createRadialGradient(cx,cy,R*.6,cx,cy,R);
-    rr.addColorStop(0,'rgba(220,40,30,.45)');rr.addColorStop(.95,'rgba(255,90,40,.5)');rr.addColorStop(1,'rgba(255,90,40,0)');X.fillStyle=rr;X.fillRect(0,0,W,H);X.restore();
-    pathRing(GUTI_RULE);X.setLineDash([10,8]);X.strokeStyle=`rgba(255,120,80,${gr})`;X.lineWidth=2.5;X.stroke();X.setLineDash([])}
+    rr.addColorStop(0,'rgba(220,40,30,.5)');rr.addColorStop(.95,'rgba(255,90,40,.55)');rr.addColorStop(1,'rgba(255,90,40,0)');X.fillStyle=rr;X.fillRect(0,0,W,H);X.restore();
+    pathRing(GUTI_RULE);X.setLineDash([10,8]);X.strokeStyle=`rgba(255,120,80,${gr})`;X.lineWidth=3;X.stroke();X.setLineDash([])}
   // invasion arrows
   const ar=ss(9.9,11.3,t);
   if(ar>0){const targets=[[44.1,33.1],[45.23,32.13],[45.64,31.32],[46.3,31.4]];
-    targets.forEach((tg,i)=>{const f=clamp(ar*1.25-i*.08);if(f<=0)return;const a=P(45.9+i*.25,35.2-i*.15),b=P(tg[0],tg[1]);
+    targets.forEach((tg,i)=>{const f=clamp(ar*1.25-i*.08);if(f<=0)return;const a=P(46.1+i*.25,35.0-i*.15),b=P(tg[0],tg[1]);
       const mx=(a[0]+b[0])/2-80,my=(a[1]+b[1])/2-40;const N=40;X.beginPath();let px,py;
       for(let k=0;k<=N*f;k++){const u=k/N;px=(1-u)*(1-u)*a[0]+2*(1-u)*u*mx+u*u*b[0];py=(1-u)*(1-u)*a[1]+2*(1-u)*u*my+u*u*b[1];k?X.lineTo(px,py):X.moveTo(px,py)}
-      X.lineCap='round';X.strokeStyle='rgba(255,60,30,.35)';X.lineWidth=22;X.stroke();X.strokeStyle='#ffb36b';X.lineWidth=6;X.stroke();
+      X.lineCap='round';X.strokeStyle='rgba(120,0,0,.5)';X.lineWidth=20;X.stroke();X.strokeStyle='#ff5a2a';X.lineWidth=7;X.stroke();
       const u=Math.max(.01,f),dx=2*(1-u)*(mx-a[0])+2*u*(b[0]-mx),dy=2*(1-u)*(my-a[1])+2*u*(b[1]-my),an=Math.atan2(dy,dx);
-      X.save();X.translate(px,py);X.rotate(an);X.beginPath();X.moveTo(18,0);X.lineTo(-14,-14);X.lineTo(-6,0);X.lineTo(-14,14);X.closePath();X.fillStyle='#ffd9a0';X.shadowColor='#ff5a1f';X.shadowBlur=20;X.fill();X.restore()})}
-  // sites
-  const sa=ss(8.0,9.0,t);
-  for(const [nm,lo,la,tag] of SITES){const[x,y]=P(lo,la);let a=sa;if(a<=0)continue;
-    let col='#fff1c9';if(tag==='akad'){const br=ss(10.9,11.4,t);col=br?'#ff6b4a':'#fff1c9';
+      X.save();X.translate(px,py);X.rotate(an);X.beginPath();X.moveTo(20,0);X.lineTo(-14,-15);X.lineTo(-6,0);X.lineTo(-14,15);X.closePath();X.fillStyle='#ffe0b0';X.strokeStyle='#5a0a00';X.lineWidth=2;X.fill();X.stroke();X.restore()})}
+  // sea labels
+  const sl=ss(.8,1.8,t)*(1-zoomK);
+  [['AKDENİZ','Yukarı Deniz',32.6,34.0],['KARADENİZ','',35.0,43.3],['HAZAR DENİZİ','',51.0,41.6],['BASRA KÖRFEZİ','',50.1,28.9]].forEach(([n,s,lo,la])=>{const[x,y]=P(lo,la);
+    X.save();X.globalAlpha=sl*.95;X.textAlign='center';X.textBaseline='middle';X.font='600 40px Corm';X.letterSpacing='8px';X.fillStyle='#bfe6ff';X.fillText(n,x,y);
+    if(s){X.font='600 26px Corm';X.letterSpacing='2px';X.fillStyle='#9ccff0';X.fillText('“'+s+'”',x,y+34)}X.restore()});
+  // cities
+  for(const [nm,lo,la,lvl] of CITIES){const[x,y]=P(lo,la);if(x<-80||x>W+80||y<-80||y>H+80)continue;
+    const vis=lvl===1?ss(1.6,2.6,t):(lvl===2?clamp((CAM.s-4500)/1500):clamp((CAM.s-7000)/1500));if(vis<=0)continue;
+    let col='#ffffff',r=lvl===1?7:5;if(nm==='Akad'){const br=ss(10.9,11.4,t);if(br>0)col='#ff6b4a';
       if(br>0&&br<1){X.save();X.globalAlpha=1-br;X.strokeStyle='#ffcf8a';X.lineWidth=3;X.beginPath();X.arc(x,y,20+br*120,0,TAU);X.stroke();X.restore()}}
-    X.save();X.globalAlpha=a;X.beginPath();X.arc(x,y,tag?9:6,0,TAU);X.fillStyle=col;X.shadowColor=col;X.shadowBlur=16;X.fill();X.shadowBlur=0;
-    X.font=(tag?'700 34px':'700 26px')+' Cinzel';X.textAlign='left';X.textBaseline='middle';X.lineWidth=5;X.strokeStyle='rgba(0,0,0,.65)';X.strokeText(nm.toLocaleUpperCase('tr'),x+14,y-2);X.fillStyle=col;X.fillText(nm.toLocaleUpperCase('tr'),x+14,y-2);X.restore()}
-  // modern country labels
-  const la=MK;
-  for(const id in CC){const c=CC[id];if(!c[1])continue;const[x,y]=P(c[2][0],c[2][1]);
-    const big=['792','364','368','760'].includes(id);
-    X.save();X.globalAlpha=la*(big?.85:.6);X.font=`700 ${big?Math.min(54,18+CAM.s/120):22}px Cinzel`;X.letterSpacing='6px';X.textAlign='center';X.textBaseline='middle';
-    X.fillStyle='rgba(255,255,255,.92)';X.shadowColor='rgba(0,0,0,.8)';X.shadowBlur=12;X.fillText(c[1],x,y);X.restore()}
-  // ancient region labels
-  glowText('ZAGROS DAĞLARI',...P(48.7,32.0),'700 40px Cinzel','#ffe2a6',ss(4,5,t)*(1-ss(8,8.8,t)),'rgba(255,140,40,.8)',22,10);
-  if(gu>0){const[x,y]=P(46.4,35.6);glowText('GUTİUM',x,y-10,`700 ${Math.round(58+12*eout((t-6.9)/1))}px Cinzel`,'#fff',gu,'#ff4a1a',30,12)}
-  const AL=ss(4.0,5.0,t);
-  glowText('SUBARTU',...P(41.3,36.9),'700 32px Cinzel','#fbe7c0',AL*(1-ss(9,10,t)*.4),'rgba(0,0,0,.9)',10,10);
-  glowText('HURRİ ÜLKESİ',...P(40.2,38.3),'700 30px Cinzel','#fbe7c0',ss(5.6,6.4,t)*(1-ss(9,10,t)*.4),'rgba(0,0,0,.9)',10,8);
-  glowText('LULLUBİ',...P(45.0,36.2),'700 26px Cinzel','#fbe7c0',AL*(1-ss(6.8,7.4,t)*.6),'rgba(0,0,0,.9)',10,6);
-  glowText('ELAM',...P(49.2,31.6),'700 32px Cinzel','#fbe7c0',AL,'rgba(0,0,0,.9)',10,10);
-  glowText('SÜMER',...P(46.7,30.6),'700 34px Cinzel','#ffe9b8',ss(9,9.8,t),'rgba(0,0,0,.9)',10,8);
+    X.save();X.globalAlpha=vis;X.beginPath();X.arc(x,y,r+2.5,0,TAU);X.fillStyle='#14101e';X.fill();X.beginPath();X.arc(x,y,r,0,TAU);X.fillStyle=col;X.fill();
+    X.font=`700 ${lvl===1?24:21}px Cinzel`;X.textAlign='left';X.textBaseline='middle';X.lineJoin='round';X.lineWidth=5;X.strokeStyle='rgba(15,10,25,.9)';const T=nm.toLocaleUpperCase('tr');X.strokeText(T,x+12,y-1);X.fillStyle=col;X.fillText(T,x+12,y-1);X.restore()}
+  // polity labels
+  POLITIES.forEach((p,i)=>{const[x,y]=P(p.l[0],p.l[1]);let a=ss(.7+i*.12,1.3+i*.12,t);
+    if(p.k==='gut')a*=1-ss(6.7,7.0,t);
+    if(p.k==='akad')a*=1-ss(9.6,10.2,t)*.0;
+    const size=p.k==='akad'?40:(p.k==='gut'?34:28);mapLabel(p.n,p.sub,x,y,size,a)});
+  mapLabel('Amurrular','',...P(38.7,33.3),24,ss(1.6,2.4,t)*(1-zoomK)*.9,'#fff3d6');
+  mapLabel('Kura-Aras Halkları','',...P(45.6,40.9),24,ss(1.8,2.6,t)*(1-zoomK)*.9,'#fff3d6');
+  glowText('ZAGROS DAĞLARI',...P(48.9,32.4),'700 40px Cinzel','#fff2cf',ss(4,5,t)*(1-ss(8,8.8,t)),'rgba(120,40,0,.95)',16,10);
+  if(gu>0){const[x,y]=P(46.6,35.15);glowText('GUTİUM',x,y-10,`700 ${Math.round(58+12*eout((t-6.9)/1))}px Cinzel`,'#fff',gu,'#a01400',26,12)}
+  glowText('SÜMER',...P(46.9,31.75),'700 34px Cinzel','#fff2d0',ss(9,9.8,t),'rgba(0,0,0,.95)',10,8);
   X.restore();
-  // dust motes
-  for(let i=0;i<80;i++){const x=(hash(i)*W+t*20*(hash(i+5)-.3)+W)%W,y=(hash(i+9)*H-t*12*hash(i+3)+H)%H;X.fillStyle=`rgba(255,220,160,${.15+.25*hash(i+1)})`;X.beginPath();X.arc(x,y,1+hash(i+2)*2,0,TAU);X.fill()}
-  // overlays text
+  // year header
   const d=ss(.5,1.1,t)*(1-ss(5.6,6.3,t));
-  if(d>0){const k=eio(clamp((t-2.6)/1.8));const v=Math.round(lerp(2026,-2200,k));
-    X.save();const bg=X.createLinearGradient(0,56,0,380);bg.addColorStop(0,'rgba(2,4,10,.75)');bg.addColorStop(1,'rgba(2,4,10,0)');X.globalAlpha=d;X.fillStyle=bg;X.fillRect(0,56,W,330);
-    X.textAlign='center';X.font='600 38px Corm';X.fillStyle='#efe0bc';X.letterSpacing='4px';
-    X.fillText(t<2.7?'Bugün':(v>0?'Milattan Sonra':'Milattan Önce'),W/2,130);
-    X.font='900 140px CinzelD';X.letterSpacing='10px';X.fillStyle=goldGrad(X,160,300);X.shadowColor='rgba(255,170,60,.6)';X.shadowBlur=36;
-    X.fillText((v<=0&&t>2.7?'MÖ ':'')+Math.abs(v),W/2,270);X.restore()}
+  if(d>0){X.save();const bg=X.createLinearGradient(0,H-56,0,H-380);bg.addColorStop(0,'rgba(4,10,24,.8)');bg.addColorStop(1,'rgba(4,10,24,0)');X.globalAlpha=d;X.fillStyle=bg;X.fillRect(0,H-380,W,324);
+    X.textAlign='center';X.font='600 38px Corm';X.fillStyle='#f3e6c8';X.letterSpacing='4px';X.fillText('Milattan Önce',W/2,H-262);
+    X.font='900 128px CinzelD';X.letterSpacing='10px';X.fillStyle=goldGrad(X,160,290);X.shadowColor='rgba(0,0,0,.8)';X.shadowBlur=24;
+    const sc=1+.04*(1-eout((t-.5)/1.2));X.translate(W/2,H-130);X.scale(sc,sc);X.fillText('2200',0,0);X.restore()}
   lowerThird(t,7.0,10.2,'GUTİLER','Zagros’un dağlı savaşçıları');
   lowerThird(t,10.8,13.6,'AKAD ÇÖKER','MÖ ~2150 · Mezopotamya Gutilerin eline geçer');
 }
@@ -494,8 +493,8 @@ function renderFrame(T){
   });
   // letterbox, vignette, grain
   X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.globalCompositeOperation='source-over';
-  X.drawImage(VIG,0,0);
-  X.save();X.globalAlpha=.07;X.globalCompositeOperation='overlay';X.drawImage(GRAIN[Math.floor(T*24)%4],0,0,W,H);X.restore();
+  X.save();X.globalAlpha=T<13.7?.5:1;X.drawImage(VIG,0,0);X.restore();
+  X.save();X.globalAlpha=T<13.7?.03:.07;X.globalCompositeOperation='overlay';X.drawImage(GRAIN[Math.floor(T*24)%4],0,0,W,H);X.restore();
   X.fillStyle='#000';X.fillRect(0,0,W,56);X.fillRect(0,H-56,W,56);
   // channel bug
   if(T<24.4){X.save();X.globalAlpha=.75*ss(1,2,T);X.font='900 30px CinzelD';X.textAlign='right';X.letterSpacing='4px';X.fillStyle=goldGrad(X,80,120);X.fillText('DÎROK',W-60,110);X.restore()}
