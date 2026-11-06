@@ -658,7 +658,7 @@ def scene_06():
     # Kurdistan cografyasi: dort parca
     t_dl = T(s, "Kürtçenin başlıca") - 0.2
     cx, cy = 960, 500
-    add(text_img("Kürdistan coğrafyası", "serif_i", 58, CREAM), cx, 112, S0(s) + 0.2, t_dl)
+    add(text_img("Dört parça", "serif_i", 58, CREAM), cx, 112, S0(s) + 0.2, t_dl)
 
     def compass(fr, d, t, a):
         col = lerp(BGC, GOLD_D, a)
@@ -672,7 +672,7 @@ def scene_06():
             x3, y3 = cx + math.cos(ang - 0.12) * 40, cy + math.sin(ang - 0.12) * 40
             d.polygon([(x1, y1), (x2, y2), (x3, y3)], outline=col)
     fx(compass, S0(s) + 0.2, t_dl)
-    add(pill("KÜRDİSTAN", GOLD, INK, size=34, padx=40, pady=16), cx, cy, S0(s) + 0.6, t_dl)
+    add(pill("KÜRTÇE", GOLD, INK, size=34, padx=40, pady=16), cx, cy, S0(s) + 0.6, t_dl)
     Rg = [("Bakur", "kuzey", (cx, cy - 268), "Bakur,"), ("Başûr", "güney", (cx, cy + 268), "Başûr,"),
           ("Rojava", "batı", (cx - 470, cy), "Rojava"), ("Rojhilat", "doğu", (cx + 470, cy), "Rojhilat.")]
     for nm, yon, (x, y), k in Rg:

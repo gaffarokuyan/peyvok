@@ -40,7 +40,7 @@ Kürtçe gramerinin bir başka ilginç yönü, ergatif yapıdır. Geçmiş zaman
 Dilbilimde buna vokatif, yani seslenme hâli denir. Erkeklere "o", kadınlara "ê", çoğula ise "no" eki gelir. {B}
 Bu küçük ek, aslında büyük bir şeyi gösterir. Seslenme hâli, Hint-Avrupa ana dilinden gelen çok eski bir dilbilgisi özelliğidir. Farsça gibi pek çok dil bu ekleri kaybetmiş, yerine "ey" gibi ayrı bir kelime koymuştur. Kürtçe ise bu eki binlerce yıl korumuştur. Bu, Kürtçenin arkaik karakterinin en canlı kanıtlarından biridir."""),
 
-("06_lehceler", f"""Kürtçe, Kürdistan coğrafyasının dört parçasında konuşulur: kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhilat. {B}
+("06_lehceler", f"""Kürtçe, Kürtlerin yaşadığı coğrafyanın dört parçasında konuşulur: kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhilat. {B}
 Kürtçenin başlıca lehçeleri şunlardır: {B}
 Kurmancî, yani Kuzey Kürtçesi. En çok konuşulan lehçedir. Bakur ve Rojava'da, Başûr'un kuzeyinde, Rojhilat'ın bir kısmında ve Kafkasya'da konuşulur. {B}
 Soranî, yani Orta Kürtçe. Başûr ve Rojhilat'ta yaygındır. {B}
