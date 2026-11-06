@@ -3,14 +3,14 @@ tl=json.loads(open('timeline.js').read()[len('window.TL='):-1]); T=round(tl['tot
 cards={c['id']:c.get('card') for c in tl['chapters']}
 MUS=[('m1_mystic',0,cards['ch03']),('m3_royal',cards['ch03'],cards['ch04']),('m2_war',cards['ch04'],cards['ch07']),('m4_empire',cards['ch07'],cards['ch09']),('m5_reflect',cards['ch09'],T)]
 sfx=json.load(open('shots.json'))['sfx']
-VOL={'whoosh':.35,'boom':.45,'clash':.85,'army':.22,'shimmer':.4}
+VOL={'whoosh':.2,'boom':.28,'clash':.5,'army':.1,'shimmer':.22}
 inp=['-i','audio/narration_master.wav'];f=[];k=1;mus=[]
 for name,a,b in MUS:
   a0=max(0,a-1.5);d=b+1.5-a0
-  inp+=['-stream_loop','2','-i',f'audio/{name}.mp3'];f.append(f"[{k}]atrim=0:{d:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=1.5,afade=t=out:st={d-2.5:.3f}:d=2.5,volume=0.42,adelay={int(a0*1000)}|{int(a0*1000)}[m{k}]");mus.append(f'[m{k}]');k+=1
+  inp+=['-stream_loop','2','-i',f'audio/{name}.mp3'];f.append(f"[{k}]atrim=0:{d:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=1.5,afade=t=out:st={d-2.5:.3f}:d=2.5,volume=0.17,adelay={int(a0*1000)}|{int(a0*1000)}[m{k}]");mus.append(f'[m{k}]');k+=1
 f.append(''.join(mus)+f"amix=inputs={len(mus)}:normalize=0:duration=longest,apad=whole_dur={T}[music]")
-f.append("[0]asplit=2[nar][key]")
-f.append("[music][key]sidechaincompress=threshold=0.015:ratio=8:attack=40:release=600:makeup=1[musd]")
+f.append("[0]highpass=f=70,equalizer=f=3000:t=q:w=1.2:g=2.5,acompressor=threshold=0.12:ratio=2.5:attack=8:release=180:makeup=1.6,asplit=2[nar][key]")
+f.append("[music][key]sidechaincompress=threshold=0.008:ratio=6:attack=60:release=900:makeup=1[musd]")
 fx=[]
 for typ,t in sfx:
   if t<0 or t>T: continue
