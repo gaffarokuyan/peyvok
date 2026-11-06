@@ -13,3 +13,6 @@ film3/stills/
 film3/sheet_*.jpg
 film3/out/
 film3/audio/*.wav
+maps4k/out/
+maps4k/base_*.png
+maps4k/rivers_traced_px.json
