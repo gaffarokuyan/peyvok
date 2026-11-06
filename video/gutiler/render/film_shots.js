@@ -99,9 +99,7 @@ const SHOTS={
   {at:'ovaya',type:'scenic',p:{lines:[['ovaya','SARP YAYLALAR VE GEÇİTLER',96,.33],['ordular','Ordular geçitlerde dağıldı',64,.5,'corm']]}},
   {at:'moğollar@-1.2',type:'nineveh',p:{noArmy:true,title:'BAĞDAT · 1258',sub:'MOĞOL İSTİLASI'}},
   {at:'stratejik',type:'scenic',p:{warm:.15,hero:true,lines:[['stratejik','STRATEJİK AVANTAJ',100,.24]]}},
-  {at:'sümer',type:'scenic',p:{lines:[['sümer','KARDUKH · KORDUENE',90,.36],['ruh','Aynı ruh, aynı topraklar',64,.52,'corm']]}},
-  {at:'sözü@-1.5',type:'scenic',p:{warm:.3,lines:[['ji','Ji çiyan pê ve, hevalên me tune',96,.36],['dağlardan','Dağlardan başka dostumuz yok',66,.53,'corm']]}},
-  {at:'belki',type:'scenic',p:{warm:.55,hero:true,lines:[['belki','4.000 YIL ÖNCE',100,.24]]}}],
+  {at:'sözü@-1.5',type:'scenic',p:{warm:.3,lines:[['ji','Ji çiyan pê ve, hevalên me tune',96,.36],['dağlardan','Dağlardan başka dostumuz yok',66,.53,'corm']]}}],
  ch11:[
   {at:0,type:'city',p:{title:'MEZOPOTAMYA',sub:'Medeniyetin beşiği',sub2:'KÜRT TARİHİNİN İLK SAYFALARI'}},
   {at:'videoyu@-0.3',type:'scenic',p:{warm:.2,lines:[['videoyu','ABONE OL',140,.38],['yorumlarda','Görüşlerinizi yorumlarda paylaşın',62,.55,'corm']]}}]
