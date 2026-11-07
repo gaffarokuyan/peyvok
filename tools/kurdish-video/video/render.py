@@ -1030,7 +1030,7 @@ def scene_00(final_lang="tr"):
         a, b = t0 + i * step, t0 + (i + 1) * step
         last = i == len(seq) - 1
         im = imgs[lg]
-        add(im, W - 36 - im.width // 2, 40 + im.height // 2, a, (end if last else b), fade=0.6 if i == 0 else 0.25,
+        add(im, W - 36 - im.width // 2, H // 2 - 20, a, (end if last else b), fade=0.6 if i == 0 else 0.25,
             fout=0.6 if last else 0.25, dy=-14 if i == 0 else 0)
 
 
