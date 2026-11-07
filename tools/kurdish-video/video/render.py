@@ -517,14 +517,24 @@ def scene_02():
     add(rich_img([("Türk değil", RED), ("  ·  Doğu İrani", GOLD)], "sans_b", 26), 1340, 815,
         T(s, "desteklenmez."), t_end, dy=8)
     add(text_img("İskit → Sarmat → Alan → Oset", "sans", 24, GOLD), 1340, 862, T(s, "Osetçe, İskit"), t_end, dy=0)
-    # Afrasiyab -> Alp Er Tunga
+    # Afrasiyab > Iskitler > Alp Er Tunga
     ta = T(s, "Türk destanlarının")
-    af = card(rich_img([("Afrasiyab", GOLD), ("  İran destanı  ", MUTED), ("→", CREAM), ("  Alp Er Tunga", CREAM),
-                        ("  11. yy, Türk geleneği", MUTED)], "serif_b", 40, shadow=False),
-              pad=(40, 22), border=GOLD)
-    add(af, W // 2, 945, ta, T(s, "İskitlerden kalan") + 1.5, dy=16)
-    add(text_img("tarihte yaşamış bir hükümdar değil, İran destanından alınmış bir efsane", "sans", 26, MUTED), W // 2, 1028,
-        T(s, "Yani Alp"), T(s, "İskitlerden kalan") + 1.5, dy=0)
+    t_end_af = T(s, "İskitlerden kalan") + 1.5
+    steps = [("Afrasiyab", "İran destanında Turan kralı", ta),
+             ("İskitler", "ilişkilendirildiği bozkır halkı", T(s, "bozkır")),
+             ("Alp Er Tunga", "11. yy Türk geleneğindeki adı", T(s, "Bu figür"))]
+    xs = [W // 2 - 520, W // 2, W // 2 + 520]
+    for i, ((nm, sub, t0), x) in enumerate(zip(steps, xs)):
+        c = card(stack([text_img(nm, "serif_b", 44, GOLD if i != 2 else CREAM, shadow=False),
+                        text_img(sub, "sans_r", 22, MUTED, shadow=False)], gap=-14),
+                 w=420, h=120, border=GOLD if i == 0 else GOLD_D)
+        add(c, x, 968, t0, t_end_af, dy=14)
+        if i:
+            ax = xs[i - 1] + 220
+            line([(ax, 968), (x - 220, 968)], t0 - 0.3, t_end_af, color=GOLD, width=3, dur=0.3)
+            line([(x - 236, 956), (x - 220, 968), (x - 236, 980)], t0, t_end_af, color=GOLD, width=3, dur=0.15)
+    add(text_img("tarihte yaşamış bir hükümdar değil, İran destanından alınmış bir efsane", "sans", 26, MUTED),
+        W // 2, 1054, T(s, "Yani Alp"), t_end_af, dy=0)
     tk = T(s, "kuzen")
     add(text_img("kuzen", "serif_i", 44, GOLD), 735, 840, tk, t_end, dy=10)
     line(bezier((380, 790), (500, 880), (980, 880), (1090, 790)), tk - 0.2, t_end, color=GOLD, width=2, dur=0.8)
