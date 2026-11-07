@@ -236,14 +236,16 @@ def main():
                   glow=(255, 200, 40))
     fb = fit("YASAKLANDI", "Inter_900Black.ttf", 1450, 300)
     banner(img, cx, 900, "YASAKLANDI", fb, angle=-4)
-    f3 = fit("AMA ÖLMEDİ!", "Inter_900Black.ttf", 1560, 330)
-    gradient_text(img, (cx, 1390), "AMA ÖLMEDİ!", f3, (170, 255, 190), (30, 200, 100), stroke=20, stroke_col=INK,
+    fa = F("Inter_900Black.ttf", 200)
+    gradient_text(img, (cx, 1270), "AMA", fa, (255, 255, 255), (235, 225, 240), stroke=16, stroke_col=INK)
+    f3 = fit("YOK OLMADI!", "Inter_900Black.ttf", 1560, 340)
+    gradient_text(img, (cx, 1520), "YOK OLMADI!", f3, (170, 255, 190), (30, 200, 100), stroke=20, stroke_col=INK,
                   glow=(60, 255, 140))
 
     # alt serit
     d = ImageDraw.Draw(img)
-    d.text((cx, 1790), "ZIMAN JIYAN E", font=F("Inter_800ExtraBold.ttf", 92), fill=(255, 226, 150, 255), anchor="mm")
-    d.line([(cx - 420, 1860), (cx + 420, 1860)], fill=(255, 200, 90, 220), width=6)
+    d.text((cx, 1850), "ZIMAN JIYAN E", font=F("Inter_800ExtraBold.ttf", 92), fill=(255, 226, 150, 255), anchor="mm")
+    d.line([(cx - 420, 1920), (cx + 420, 1920)], fill=(255, 200, 90, 220), width=6)
 
     os.makedirs(OUT, exist_ok=True)
     rgb = img.convert("RGB")
