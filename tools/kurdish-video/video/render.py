@@ -520,8 +520,8 @@ def scene_02():
     # Afrasiyab > Iskitler > Alp Er Tunga
     ta = T(s, "Türk destanlarının")
     t_end_af = T(s, "İskitlerden kalan") + 1.5
-    steps = [("Afrasiyab", "İran destanında Turan kralı", ta),
-             ("İskitler", "ilişkilendirildiği bozkır halkı", T(s, "bozkır")),
+    steps = [("Afrasiyab", "İran destanında Turan kralı", T(s, "Afrasiyab,")),
+             ("İskitler", "dilleri İrani", T(s, "bozkır")),
              ("Alp Er Tunga", "11. yy Türk geleneğindeki adı", T(s, "Bu figür"))]
     xs = [W // 2 - 520, W // 2, W // 2 + 520]
     for i, ((nm, sub, t0), x) in enumerate(zip(steps, xs)):
@@ -533,8 +533,8 @@ def scene_02():
             ax = xs[i - 1] + 220
             line([(ax, 968), (x - 220, 968)], t0 - 0.3, t_end_af, color=GOLD, width=3, dur=0.3)
             line([(x - 236, 956), (x - 220, 968), (x - 236, 980)], t0, t_end_af, color=GOLD, width=3, dur=0.15)
-    add(text_img("tarihte yaşamış bir hükümdar değil, İran destanından alınmış bir efsane", "sans", 26, MUTED),
-        W // 2, 1054, T(s, "Yani Alp"), t_end_af, dy=0)
+    add(text_img("Alp Er Tunga adında bir Türk hükümdarı yaşamadı", "sans_b", 28, CREAM),
+        W // 2, 1054, T(s, "Dolayısıyla Alp"), t_end_af, dy=0)
     tk = T(s, "kuzen")
     add(text_img("kuzen", "serif_i", 44, GOLD), 735, 840, tk, t_end, dy=10)
     line(bezier((380, 790), (500, 880), (980, 880), (1090, 790)), tk - 0.2, t_end, color=GOLD, width=2, dur=0.8)
