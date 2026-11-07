@@ -21,3 +21,4 @@ film3/seg3p/
 film3/seg0p/
 dub/*/
 dub/log*.txt
+film3/out/
