@@ -23,12 +23,12 @@ Bu videoda Mezopotamya'nın kadim dili Kürtçeyi anlatıyoruz: Hint-Avrupa dil 
 1:57 Eril ve dişil: dilbilgisel cinsiyet
 2:58 Seslenme hâli: -o, -ê, -no
 3:39 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
-4:05 Lehçeler ve kelime zenginliği
-5:06 Rus Kürdolojisi ve Petersburg
-6:20 Kürt medreseleri ve âlimler
-7:12 Bediüzzaman Said Nursi ve Kürtçe
-7:46 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
-8:40 Kapanış: Ziman jiyan e
+4:07 Lehçeler ve kelime zenginliği
+5:08 Rus Kürdolojisi ve Petersburg
+6:23 Kürt medreseleri ve âlimler
+7:15 Bediüzzaman Said Nursi ve Kürtçe
+7:49 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
+8:43 Kapanış: Ziman jiyan e
 
 🗣️ Videoda geçen isimler ve eserler
 Ehmedê Xanî (Mem û Zîn, Nûbihara Biçûkan) · Melayê Cizîrî (Dîwan) · Melayê Bateyî (Mewlûd) · Feqiyê Teyran · Mela Xelîlê Sêrtî · Molla Gürani · Bediüzzaman Said Nursi · Pyotr Lerch · Aleksandr Jaba · Margarita Rudenko

@@ -41,12 +41,12 @@ Dilbilimde buna vokatif, yani seslenme hâli denir. Erkeklere "o", kadınlara "�
 Bu küçük ek, aslında büyük bir şeyi gösterir. Seslenme hâli, Hint-Avrupa ana dilinden gelen çok eski bir dilbilgisi özelliğidir. Farsça gibi pek çok dil bu ekleri kaybetmiş, yerine "ey" gibi ayrı bir kelime koymuştur. Kürtçe ise bu eki binlerce yıl korumuştur. Bu, Kürtçenin arkaik karakterinin en canlı kanıtlarından biridir."""),
 
 ("06_lehceler", f"""Kürtler, kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhelat'ta yaşar. {B}
-Kürt nüfusu için resmî bir sayım bulunmuyor. Tahminlere göre Bakur'da on beş ila yirmi milyon, Rojhelat'ta sekiz ila on milyon, Başûr'da altı ila sekiz milyon, Rojava'da ise iki ila üç milyon Kürt yaşıyor. Kafkasya, Orta Asya ve diasporayla birlikte, toplam nüfusun kırk milyonu aştığı tahmin ediliyor. {B}
+Kürt nüfusu için resmî bir sayım bulunmuyor. Tahminlere göre Bakur'da yirmi üç ila otuz beş milyon, Rojhelat'ta sekiz ila on milyon, Başûr'da altı ila sekiz milyon, Rojava'da ise iki ila üç milyon Kürt yaşıyor. Kafkasya, Orta Asya ve diasporayla birlikte, toplam nüfusun kırk ila altmış milyon arasında olduğu tahmin ediliyor. {B}
 Kürtçenin başlıca lehçeleri şunlardır: {B}
 Kurmancî, yani Kuzey Kürtçesi. En çok konuşulan lehçedir. Bakur ve Rojava'da, Başûr'un kuzeyinde, Rojhelat'ın bir kısmında ve Kafkasya'da konuşulur. {B}
 Soranî, yani Orta Kürtçe. Başûr ve Rojhelat'ta yaygındır. {B}
 Güney Kürtçesi. Kelhurî, Feylî ve Lekî bu grupta yer alır. {B}
-Zazakî, ya da Kirmanckî ve Dimilî. Başta Dersim, Bingöl, Elazığ, Diyarbakır ve Siverek olmak üzere geniş bir bölgede konuşulur. {B}
+Zazakî, ya da Kirmanckî ve Dimilî. Başta Dersim, Çewlîg, Xarpêt, Amed ve Sêwreg olmak üzere geniş bir bölgede konuşulur. {B}
 Ve Goranî, ya da Hewramî. Klasik Kürt edebiyatının en eski yazı dillerinden biridir. Erdelan ve Baban saraylarında edebiyat dili olarak kullanılmıştır. {B}
 Bu lehçe çeşitliliği, Kürtçeye büyük bir kelime zenginliği kazandırmıştır. Aynı kavram için farklı bölgelerde farklı kelimeler kullanılır. Ön ek ve son eklerle yeni kelimeler türetmek de son derece kolaydır. Doğaya, hayvancılığa, dağa ve tarıma dair kelime hazinesi, binlerce yıllık bir yaşam biçiminin dile yansımasıdır."""),
 
@@ -59,7 +59,7 @@ Sovyet döneminde de bu gelenek sürdü. Margarita Rudenko gibi Kürdologlar, Xa
 Öğrenciler eğitime, Ehmedê Xanî'nin Nûbihar adlı eseriyle başlar; Melayê Cizîrî'nin Dîwan'ını ve Melayê Bateyî'nin Mewlûd'unu okurdu. Kürtçe, ilmin taşıyıcısı oldu. {B}
 Bu medreseler İslam dünyasına büyük âlimler kazandırdı. Melayê Cizîrî, Feqiyê Teyran ve Ehmedê Xanî gibi şair ve düşünürler bu geleneğin içinden çıktı. Fatih Sultan Mehmed'in hocası Molla Gürani ve yakın dönemde, Mela Xelîl-ê Sêrtî gibi isimler de bu kökten beslendi. Kürtçe medreseler, dilin yazılı geleneğini yaşatan en önemli kalelerden biri oldu."""),
 
-("09_bediuzzaman", f"""Bu medrese geleneğinin yetiştirdiği en tanınmış isimlerden biri de Bediüzzaman Said Nursi'dir. Bitlis'in Nurs köyünde doğan Said Nursi, eğitimini Kürtçe eğitim veren medreselerde aldı. {B}
+("09_bediuzzaman", f"""Bu medrese geleneğinin yetiştirdiği en tanınmış isimlerden biri de Bediüzzaman Said Nursi'dir. Bedlîs'in Nurs köyünde doğan Said Nursi, eğitimini Kürtçe eğitim veren medreselerde aldı. {B}
 Doğu'da kurmayı hayal ettiği üniversite, Medresetüz Zehra için, dil formülünü şöyle koymuştu: {B}
 "Arabi vacib, Kürdi caiz, Türki lazım." {B}
 Yani: Arapça zorunlu, Kürtçe serbest, Türkçe gerekli. {B}
