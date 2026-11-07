@@ -24,14 +24,16 @@ Bu videoda Mezopotamya'nın kadim dili Kürtçeyi anlatıyoruz: Hint-Avrupa dil 
 2:58 Seslenme hâli: -o, -ê, -no
 3:39 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
 4:07 Lehçeler ve kelime zenginliği
-5:08 Rus Kürdolojisi ve Petersburg
-6:22 Kürt medreseleri ve âlimler
-7:14 Bediüzzaman Said Nursi ve Kürtçe
-7:49 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
-8:43 Kapanış: Ziman jiyan e
+5:08 Rusya ve Sankt-Peterburg koleksiyonları
+6:52 Sovyet dönemi Kürdolojisi
+7:32 Kürt edebiyatına sahip çıkan diğer ülkeler
+8:36 Kürt medreseleri ve âlimler
+9:28 Bediüzzaman Said Nursi ve Kürtçe
+10:02 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
+10:56 Kapanış: Ziman jiyan e
 
 🗣️ Videoda geçen isimler ve eserler
-Ehmedê Xanî (Mem û Zîn, Nûbihara Biçûkan) · Melayê Cizîrî (Dîwan) · Melayê Bateyî (Mewlûd) · Feqiyê Teyran · Mela Xelîlê Sêrtî · Molla Gürani · Bediüzzaman Said Nursi · Pyotr Lerch · Aleksandr Jaba · Margarita Rudenko
+Ehmedê Xanî (Mem û Zîn, Nûbihara Biçûkan, Eqîdeya Îmanê) · Feqiyê Teyran (Qewlê Hespê Reş) · Melayê Cizîrî (Dîwan) · Melayê Bateyî (Mewlûd) · Mela Xelîlê Sêrtî · Molla Gürani · Bediüzzaman Said Nursi · Pyotr Lerch · Aleksandr Jaba · Mela Mehmûdê Bazîdî · İosif Orbeli · Vladimir Minorsky · Erebê Şemo · Qanatê Kurdo · Margarita Rudenko · Maurizio Garzoni · Roger Lescot · Celadet ve Kamuran Bedirxan · D. N. MacKenzie
 
 ℹ️ Not: Kürt nüfusuna dair resmî bir sayım bulunmadığından, videodaki nüfus rakamları farklı kaynaklardaki tahminlere dayanan aralıklardır. Kürtçenin Farsçadan daha eski olabileceği görüşü bazı dilbilimcilere aittir ve akademide tartışmalıdır.
 

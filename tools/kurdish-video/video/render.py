@@ -301,7 +301,7 @@ NOSUB = []  # altyazi gosterilmeyecek zaman araliklari
 
 DISPLAY = [("Xelîl-ê", "Xelîlê"), ("İşaratül İcaz", "İşaratü'l-İ'caz"), ("Medresetüz Zehra", "Medresetü'z-Zehra"),
            ('"Arabi vacib, Kürdi caiz, Türki lazım."', "“Arabî vâcib, Kürdî câiz, Türkî lâzım.”"),
-           ("Pyotr Lerh", "Pyotr Lerch"), ("bin sekiz yüz ellili yıllarda", "1850'li yıllarda"),
+           ("Pyotr Lerh", "Pyotr Lerch"), ("Bin sekiz yüz elli yedide", "1857'de"), ("bin altı yüz seksen üçte", "1683'te"), ("Yirminci yüzyılda", "20. yüzyılda"), ("bin dokuz yüz on altıda", "1916'da"), ("Vladimir Minorski", "Vladimir Minorsky"), ("bin dokuz yüz otuz beşte", "1935'te"), ("bin dokuz yüz altmış birde", "1961'de"), ("bin yedi yüz seksen yedide", "1787'de"), ("Albert Sotsin", "Albert Socin"), ("Ferdinand Yusti", "Ferdinand Justi"), ("Rojer Lesko", "Roger Lescot"), ("bin dokuz yüz seksen üçte", "1983'te"), ("David Makenzi", "D. N. MacKenzie"), ("bin dokuz yüz yetmişlerden", "1970'lerden"), ("bin sekiz yüz ellili yıllarda", "1850'li yıllarda"),
            ("bin sekiz yüz yetmiş dokuzda", "1879'da"), ("bin altı yüz seksen üç yılında", "1683 yılında"),
            ("Bin dokuz yüz sekizde", "1908'de"), ("on dokuzuncu yüzyılda", "19. yüzyılda"),
            ("kırk milyonu", "40 milyonu"), ('"nyu"', '"new"'), ('"neym"', '"name"'),
@@ -723,12 +723,40 @@ def scene_06():
         add(im, x, y, ta + (tb - ta + 2.5) * i / len(words), e, dy=30)
 
 
+def info_card(top, name, lines, w=400, border=GOLD_D, name_size=46, top_col=GOLD):
+    parts = []
+    if top:
+        parts.append(text_img(top, "sans_b", 24, top_col, shadow=False))
+    parts.append(text_img(name, "serif_b", name_size, CREAM, shadow=False))
+    parts += [text_img(l, "sans_r", 23, MUTED, shadow=False) for l in lines]
+    return card(stack(parts, gap=-12), w=w, border=border)
+
+
+def manuscript_book(lines, author, col):
+    im = Image.new("RGBA", (300, 440), (0, 0, 0, 0))
+    dd = ImageDraw.Draw(im)
+    dd.rounded_rectangle((20, 20, 280, 420), 10, fill=col + (255,), outline=GOLD_D + (255,), width=3)
+    dd.rectangle((20, 70, 280, 80), fill=GOLD_D + (255,))
+    dd.rectangle((20, 360, 280, 370), fill=GOLD_D + (255,))
+    n = len(lines)
+    for i, l in enumerate(lines):
+        dd.text((150, 200 - (n - 1) * 30 + i * 60), l, font=font("serif_b", 50), fill=GOLD + (255,), anchor="mm")
+    dd.text((150, 320), author, font=font("sans_r", 22), fill=CREAM + (255,), anchor="mm")
+    return im
+
+
 def scene_07():
     s = "07_petersburg"
     e = S1(s) + 0.3
-    chapter(s, "06", "RUS KÜRDOLOJİSİ")
-    t_tl = T(s, "Rus akademisyen") - 0.2
+    chapter(s, "06", "KÜRT EDEBİYATINA SAHİP ÇIKANLAR")
+    tB = T(s, "Rus akademisyen") - 0.2
+    tC = T(s, "Bu koleksiyonlar") - 0.2
+    tD = T(s, "Yirminci yüzyılda") - 0.2
+    tE = T(s, "Sovyet döneminde de") - 0.2
+    tF = T(s, "Kürt edebiyatına sahip") - 0.2
+    tG = T(s, "Güçlü bir bilim") - 0.2
 
+    # A: Sankt-Peterburg silueti
     def skyline(fr, d, t, a):
         col = lerp(BGC, (60, 70, 100), a)
         gcol = lerp(BGC, GOLD, a)
@@ -742,29 +770,73 @@ def scene_07():
         d.rectangle((1340, base - 360, 1360, base - 290), fill=gcol)
         d.ellipse((440, base - 250, 560, base - 130), fill=col)
         d.line([(200, base), (1720, base)], fill=gcol, width=3)
-    fx(skyline, T(s, "Oysa çok"), t_tl)
-    add(text_img("Sankt-Peterburg", "serif_b", 96, GOLD), W // 2, 230, T(s, "Sankt"), t_tl)
-    add(text_img("19. yüzyılın Kürdoloji merkezi", "serif_i", 44, CREAM), W // 2, 320, TE(s, "Peterburg,"), t_tl)
+    fx(skyline, T(s, "Oysa çok"), tB)
+    add(text_img("Sankt-Peterburg", "serif_b", 96, GOLD), W // 2, 810, T(s, "Sankt"), tB)
+    add(text_img("19. yüzyılın Kürdoloji merkezi", "serif_i", 44, CREAM), W // 2, 900, TE(s, "Peterburg,"), tB)
 
+    # B: 19. yuzyil zaman cizelgesi
     y0 = 520
-    line([(180, y0), (1740, y0)], t_tl + 0.1, e, color=GOLD_D, width=3, dur=1.2)
-    P = [("1683", 300, "Ehmedê Xanî", ["Nûbihara Biçûkan", "Kürtçe-Arapça manzum sözlük"], T(s, "Ehmedê Xanî'ye"), -1),
-         ("1850'ler", 760, "Pyotr Lerch", ["Kürtçe üzerine", "kapsamlı çalışmalar"], T(s, "Pyotr"), 1),
-         ("1879", 1180, "Aleksandr Jaba", ["Kürtçe-Fransızca sözlük", "Bilimler Akademisi, Petersburg"],
-          T(s, "Aleksandr"), -1),
-         ("Sovyet dönemi", 1600, "Margarita Rudenko", ["Mem û Zîn çevirisi", "el yazması katalogları"],
-          T(s, "Margarita"), 1)]
-    for yr, x, who, lines_, t0, side in P:
+    line([(180, y0), (1740, y0)], tB + 0.1, tC, color=GOLD_D, width=3, dur=1.2)
+    P = [("1857", "Pyotr Lerch", ["Kürtçe gramer ve folklor", "Kürt şairlerini Avrupa'ya tanıttı"], T(s, "Pyotr"), 370, -1),
+         ("Erzurum konsolosu", "Aleksandr Jaba", ["Kürtçe el yazmalarını topladı"], T(s, "Aleksandr"), 800, 1),
+         ("Kürt âlim", "Mela Mehmûdê Bazîdî", ["Kürt şairlerinin hayatları", "Kürt örf ve âdetleri"],
+          T(s, "Kürt âlim"), 1235, -1),
+         ("1879", "Kürtçe-Fransızca Sözlük", ["Bilimler Akademisi, Petersburg"], T(s, "Jaba'nın Kürtçe-Fransızca"),
+          1620, 1)]
+    for top, who, ls, t0, x, side in P:
         def dot(fr, d, t, a, x=x):
-            r = 12
-            d.ellipse((x - r, y0 - r, x + r, y0 + r), fill=lerp(BGC, GOLD, a))
-        fx(dot, t0, e)
-        parts = [text_img(yr, "sans_b", 26, GOLD, shadow=False), text_img(who, "serif_b", 52, CREAM, shadow=False)]
-        parts += [text_img(l, "sans_r", 24, MUTED, shadow=False) for l in lines_]
-        c = card(stack(parts, gap=-12), w=400)
-        cy = y0 + side * (c.height // 2 + 40)
-        add(c, x, cy, t0, e, dy=12 * side)
-        line([(x, y0 + side * 14), (x, y0 + side * 40)], t0, e, color=GOLD_D, width=2, dur=0.3)
+            d.ellipse((x - 12, y0 - 12, x + 12, y0 + 12), fill=lerp(BGC, GOLD, a))
+        fx(dot, t0, tC)
+        c = info_card(top, who, ls, w=400, name_size=40)
+        add(c, x, y0 + side * (c.height // 2 + 40), t0, tC, dy=12 * side)
+        line([(x, y0 + side * 14), (x, y0 + side * 40)], t0, tC, color=GOLD_D, width=2, dur=0.3)
+
+    # C: koleksiyondaki el yazmalari
+    add(text_img("Sankt-Peterburg koleksiyonları", "serif_i", 60, CREAM), W // 2, 190, tC + 0.2, tD)
+    books = [(["Mem û Zîn"], "Ehmedê Xanî", (120, 60, 50), T(s, '"Mem')),
+             (["Nûbihara", "Biçûkan"], "Ehmedê Xanî · 1683", (40, 80, 90), T(s, '"Nûbihara')),
+             (["Eqîdeya", "Îmanê"], "Ehmedê Xanî", (70, 60, 110), T(s, '"Eqîdeya')),
+             (["Qewlê", "Hespê Reş"], "Feqiyê Teyran", (60, 90, 60), T(s, '"Qewlê'))]
+    for i, (ls, au, col, t0) in enumerate(books):
+        add(manuscript_book(ls, au, col), 420 + i * 360, 540, t0, tD, dy=40)
+
+    # D: 20. yuzyil
+    add(text_img("20. yüzyıl: kurumsallaşma", "serif_i", 60, CREAM), W // 2, 200, tD + 0.2, tE)
+    add(info_card("1916 · Petersburg Üniversitesi", "İosif Orbeli", ["Kürtçe dersleri başladı",
+                                                                     "Kürdoloji akademik disiplin oldu"],
+                  w=600, name_size=58), 600, 500, T(s, "İosif"), tE)
+    add(info_card("İslam Ansiklopedisi", "Vladimir Minorsky", ["“Kürtler” maddesi",
+                                                               "Kürt tarihinde dünya otoritesi"],
+                  w=600, name_size=58), 1320, 500, T(s, "Rus kökenli"), tE)
+
+    # E: Sovyet donemi
+    add(text_img("Sovyet dönemi", "serif_i", 56, CREAM), W // 2, 135, tE + 0.2, tF)
+    E = [("1920'lerin sonu", "Latin alfabesi", ["“Riya Teze” gazetesi"], T(s, "Kürtçe için Latin"), 420, 380),
+         ("1935 · Erivan", "Şivanê Kurmanca", ["Erebê Şemo", "ilk Kürtçe romanlardan"], T(s, "Erebê"), 960, 380),
+         ("Leningrad", "Qanatê Kurdo", ["Kürtçe gramer ve sözlük"], T(s, "Leningrad'da"), 1500, 380),
+         ("1961", "Margarita Rudenko", ["El yazmaları kataloğu", "Mem û Zîn · Feqiyê Teyran çevirileri"],
+          T(s, "Margarita"), 690, 710),
+         ("Bugün", "Doğu Yazmaları Enstitüsü", ["Rusya Bilimler Akademisi"], T(s, "Bugün Rusya"), 1230, 710)]
+    for top, name, ls, t0, x, y in E:
+        add(info_card(top, name, ls, w=480, name_size=40), x, y, t0, tF)
+
+    # F: diger ulkeler
+    add(text_img("Kürt edebiyatına sahip çıkanlar", "serif_i", 60, CREAM), W // 2, 170, tF + 0.2, tG)
+    C = [("İTALYA · 1787", "Maurizio Garzoni", ["İlk Kürtçe gramer ve sözlük"], T(s, "İtalyan"), 420, 380),
+         ("ALMANYA", "Socin · Prym · Justi", ["Halk anlatıları, Kürtçe gramer"], T(s, "Alman"), 960, 380),
+         ("FRANSA", "Roger Lescot", ["Celadet ve Kamuran Bedirxan", "Paris Kürt Enstitüsü · 1983"], T(s, "Fransız"),
+          1500, 380),
+         ("İNGİLTERE", "D. N. MacKenzie", ["Kürt lehçeleri çalışmaları"], T(s, "İngiliz"), 690, 660),
+         ("İSVEÇ · 1970'ler", "Kürtçe yayıncılık", ["Yüzlerce Kürtçe kitap"], T(s, "İsveç ise"), 1230, 660)]
+    for top, name, ls, t0, x, y in C:
+        add(info_card(top, name, ls, w=480, name_size=42), x, y, t0, tG)
+
+    # G: kapanis
+    add(text_img("Güçlü bir bilim merkezi olmak işte böyle olur:", "serif_i", 54, CREAM), W // 2, 300, tG + 0.2, e)
+    add(text_img("Kendi dilin olmasa bile, bir halkın hafızasını", "serif", 50, CREAM), W // 2, 400, tG + 1.2, e)
+    add(text_img("kayıt altına alıp gelecek kuşaklara aktarabilmek.", "serif", 50, CREAM), W // 2, 470, tG + 1.8, e)
+    add(text_img("O dili yasaklamak, baskı altına almak değil.", "serif_b", 64, GOLD), W // 2, 640,
+        T(s, "O dili yasaklamak"), e)
 
 
 def arch_fx(cx, base, w, h):
