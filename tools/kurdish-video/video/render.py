@@ -916,10 +916,128 @@ def scene_10():
     add(text_img("Dil hayattır.", "serif_i", 74, CREAM), W // 2, 610, T(s, "Dil,"), e, fade=1.2)
 
 
+# ================================================================ 5 DIL KARTI (YouTube ses/altyazi menusu)
+MENU = [
+    ("tr", False, "5 DİLDE SESLİ ANLATIM VE ALTYAZI", "Ses parçası",
+     ["Türkçe (orijinal)", "Kurmancî", "Soranî", "Arapça", "İngilizce"], "Altyazı: Türkçe", 0),
+    ("ku", False, "BI 5 ZIMANAN DENG Û BINNIVÎS", "Şopa deng",
+     ["Tirkî (orîjînal)", "Kurmancî", "Soranî", "Erebî", "Îngilîzî"], "Binnivîs: Kurmancî", 1),
+    ("ckb", True, "دەنگ و ژێرنووس بە ٥ زمان", "تراکی دەنگ",
+     ["تورکی (ئەسڵی)", "کورمانجی", "سۆرانی", "عەرەبی", "ئینگلیزی"], "ژێرنووس: سۆرانی", 2),
+    ("ar", True, "صوت وترجمة بخمس لغات", "المسار الصوتي",
+     ["التركية (الأصلية)", "الكردية الكرمانجية", "الكردية السورانية", "العربية", "الإنجليزية"], "الترجمة: العربية", 3),
+    ("en", False, "AUDIO & SUBTITLES IN 5 LANGUAGES", "Audio track",
+     ["Turkish (original)", "Kurmanji", "Sorani", "Arabic", "English"], "Subtitles: English", 4),
+]
+FOOTER = [("Türkçe", False), ("Kurmancî", False), ("سۆرانی", True), ("العربية", True), ("English", False)]
+
+
+def _mfont(rtl, size, bold=False):
+    if rtl:
+        return font("arabic", int(size * 1.15))
+    return font("sans_b" if bold else "sans", size)
+
+
+def _icon_gear(d, x, y, col):
+    for k in range(8):
+        a = k * math.pi / 4
+        d.line([(x + math.cos(a) * 7, y + math.sin(a) * 7), (x + math.cos(a) * 12, y + math.sin(a) * 12)], fill=col, width=4)
+    d.ellipse((x - 9, y - 9, x + 9, y + 9), outline=col, width=3)
+
+
+def _icon_phones(d, x, y, col):
+    d.arc((x - 11, y - 12, x + 11, y + 10), 180, 360, fill=col, width=3)
+    d.rounded_rectangle((x - 13, y - 1, x - 7, y + 10), 2, fill=col)
+    d.rounded_rectangle((x + 7, y - 1, x + 13, y + 10), 2, fill=col)
+
+
+def _icon_cc(d, x, y, col):
+    d.rounded_rectangle((x - 15, y - 10, x + 15, y + 10), 4, outline=col, width=2)
+    d.text((x, y), "CC", font=font("sans_b", 13), fill=col, anchor="mm")
+
+
+def lang_panel(entry):
+    _, rtl, head, title, items, sub, sel = entry
+    PW, RH = 460, 50
+    ph = 66 + len(items) * RH + 16 + 58
+    im = Image.new("RGBA", (PW + 40, ph + 90), (0, 0, 0, 0))
+    sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle((20, 66, 20 + PW, 66 + ph), 16, fill=(0, 0, 0, 170))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12)))
+    d = ImageDraw.Draw(im)
+    L, R = 20, 20 + PW
+
+    def put(txt, y, f, col, inset=0):
+        w = f.getlength(txt)
+        x = (R - 24 - inset - w) if rtl else (L + 24 + inset)
+        d.text((x, y), txt, font=f, fill=col + (255,), anchor="lm")
+
+    hf = _mfont(rtl, 21, bold=True)
+    hw = hf.getlength(head)
+    d.text((R - hw if not rtl else R - hw, 30), head, font=hf, fill=GOLD + (255,), anchor="lm")
+    top = 60
+    d.rounded_rectangle((L, top, R, top + ph), 16, fill=(14, 18, 30, 238), outline=(78, 88, 120, 255), width=2)
+    # baslik satiri
+    ty = top + 34
+    if rtl:
+        _icon_gear(d, R - 30, ty, CREAM); _icon_phones(d, R - 62, ty, CREAM)
+        put(title, ty, _mfont(rtl, 24, True), CREAM, inset=60)
+    else:
+        _icon_gear(d, L + 30, ty, CREAM); _icon_phones(d, L + 62, ty, CREAM)
+        put(title, ty, _mfont(rtl, 24, True), CREAM, inset=60)
+    d.line([(L + 14, top + 66), (R - 14, top + 66)], fill=(60, 70, 100, 255), width=1)
+    for i, it in enumerate(items):
+        cy = top + 66 + 8 + i * RH + RH // 2
+        if i == sel:
+            d.rounded_rectangle((L + 12, cy - 22, R - 12, cy + 22), 8, fill=RED + (255,))
+            cx = (R - 34) if rtl else (L + 34)
+            d.line([(cx - 9, cy), (cx - 3, cy + 7), (cx + 10, cy - 8)], fill=(255, 255, 255, 255), width=4)
+            put(it, cy, _mfont(rtl, 23, True), (255, 255, 255), inset=36)
+        else:
+            put(it, cy, _mfont(rtl, 23), (190, 196, 212), inset=36)
+    yb = top + 66 + 8 + len(items) * RH + 8
+    d.line([(L + 14, yb), (R - 14, yb)], fill=(60, 70, 100, 255), width=1)
+    cy = yb + 29
+    if rtl:
+        _icon_cc(d, R - 36, cy, GOLD)
+    else:
+        _icon_cc(d, L + 36, cy, GOLD)
+    put(sub, cy, _mfont(rtl, 22, True), GOLD, inset=44)
+    # alt serit: dil adlari
+    x = L + 6
+    fy = top + ph + 22
+    parts = []
+    for i, (nm, r) in enumerate(FOOTER):
+        parts.append((nm, r))
+        if i < len(FOOTER) - 1:
+            parts.append(("·", False))
+    tot = sum(_mfont(r, 19).getlength(t) + 12 for t, r in parts)
+    x = R - tot
+    for t, r in parts:
+        f = _mfont(r, 19)
+        d.text((x, fy), t, font=f, fill=(MUTED if t == "·" else CREAM) + (255,), anchor="lm")
+        x += f.getlength(t) + 12
+    return im
+
+
+def scene_00(final_lang="tr"):
+    t0, step = 0.6, 1.7
+    order = [m[0] for m in MENU]
+    seq = order + [final_lang]
+    imgs = {m[0]: lang_panel(m) for m in MENU}
+    end = t0 + step * len(seq) + 0.2
+    for i, lg in enumerate(seq):
+        a, b = t0 + i * step, t0 + (i + 1) * step
+        last = i == len(seq) - 1
+        im = imgs[lg]
+        add(im, W - 36 - im.width // 2, 40 + im.height // 2, a, (end if last else b), fade=0.6 if i == 0 else 0.25,
+            fout=0.6 if last else 0.25, dy=-14 if i == 0 else 0)
+
+
 def build():
     global BG
     BG = make_bg()
-    for f in (scene_01, scene_02, scene_03, scene_04, scene_05, scene_06, scene_07, scene_08, scene_09, scene_10):
+    for f in (scene_00, scene_01, scene_02, scene_03, scene_04, scene_05, scene_06, scene_07, scene_08, scene_09, scene_10):
         f()
     build_subs()
 
