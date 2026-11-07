@@ -29,9 +29,12 @@ const SHOTS={
  ch03:[
   {at:0,type:'tablet',p:{title:'SÜMER KRAL LİSTESİ',sub:'Mezopotamya hanedanları',quotes:[['krallık','Krallık, Gutium ordusuna geçti.']],hl:'krallık'}},
   {at:'ilginç@-1.5',type:'quote',p:{title:'SÜMER KRAL LİSTESİ',text:'“Gutium ordusunda başta bilinen bir kral yoktu;\nkendi kendilerinin kralıydılar.”',src:'— ORTAK YÖNETİM, AŞİRET MECLİSİ',size:60}},
+  {at:'pek@-0.3',type:'council',p:{vote:'meclisle',elect:'liderleriyle'}},
   {at:'listeye',type:'tablet',p:{seed:7,title:'GUTİ KRALLARI',sub:'Sümer Kral Listesi',names:[['yirmi','İNKİŞUŞ'],['yirmi@0.3','ZARLAGAB'],['yirmi@0.6','ŞULME'],['yirmi@0.9','ELULUMEŞ'],['yirmi@1.2','YARLAGAB'],['yirmi@1.5','Sİ’UM'],['yirmi@1.8','TİRİGAN']],badges:[['krallarının','21 KRAL','~100 YIL · KISA SALTANATLAR']]}},
   {at:'valiler@-2.2',type:'map',p:{year:'MÖ ~2120',cam:[['valiler@-2.2',45.7,31.9,7]],show:['akad'],spread:['valiler@-2.2','rule'],cities:[['Umma',45.88,31.67,'umma',true],['Uruk',45.64,31.32],['Lagaş',46.4,31.41],['Nippur',45.23,32.13],['Ur',46.1,30.96]],
     labels:[['lugal-annatum',47.0,32.3,'LUGAL-ANNATUM','Umma valisi','“GUTİUM KRALI Sİ’UM ZAMANINDA”']],badges:[['yani','YEREL VALİLER','Şehirler özerk · Guti kralı egemen']]}},
+  {at:'umma@-0.4',type:'governor',p:{step:'umma',bow:'yazıtını',quote:['kralı sium@-0.6','“Gutium kralı Si’um zamanında”']}},
+  {at:'yani@-0.3',type:'map',p:{year:'MÖ ~2120',cam:[['yani@-0.3',45.7,31.9,7.5]],show:['akad'],cities:[['Umma',45.88,31.67,'umma',true],['Uruk',45.64,31.32],['Lagaş',46.4,31.41],['Nippur',45.23,32.13],['Ur',46.1,30.96]],badges:[['yani','YEREL VALİLER','Şehirler özerk · Guti kralı egemen']]}},
   {at:'akadın',type:'quote',p:{title:'LA’ERABUM’UN TOPUZU',text:'“Gutium’un güçlü kralı”',src:'— TOPUZ BAŞLIĞI YAZITI · AKADCA',colors:['#fff6d8','#ffcf7a','#d27a3a']}},
   {at:'erridupizirdir@-2.2',type:'map',p:{cam:[['erridupizirdir@-2.2',45.2,32.4,7.5]],show:['akad'],spread:['erridupizirdir@-2.2','rule'],cities:[['Nippur',45.23,32.13,null,true],['Uruk',45.64,31.32],['Lagaş',46.4,31.41]],labels:[['erridupizirdir',44.3,31.6,'ERRİDUPİZİR','Guti kralı','NİPPUR YAZITLARI']]}},
   {at:'gutiumun#2@-0.3',type:'quote',p:{text:'Gutium’un kralı,\ndünyanın dört bucağının kralı',src:'— ERRİDUPİZİR YAZITI, NİPPUR'}},
@@ -39,7 +42,7 @@ const SHOTS={
     cities:[['Nippur',45.23,32.13,'enlilin',true]],labels:[['enlilin',44.0,31.9,'ENLİL TAPINAĞI','Nippur','GANİMETLER ADANDI']]}},
   {at:'döneminde',type:'gudea',p:{}},
   {at:'yani#2',type:'scenic',p:{lines:[['yani#2','İMPARATORLUK MİRASÇILARI',100,.33],['hükümdarlardı','Akıncı değil, hükümdar',66,.5,'corm']]}},
-  {at:'meclisle',type:'compare',p:{left:['GUTİLER','Meclisle seçilen liderler','Aşiret konfederasyonu','Yerel özerklik'],right:['KÜRT GELENEĞİ','Aşiret meclisi','Aşiret birlikleri','Yerel özerklik'],cues:['meclisle','aşiret#3','yerel#2'],link:'tablo'}}],
+  {at:'meclisle#2',type:'compare',p:{left:['GUTİLER','Meclisle seçilen liderler','Aşiret konfederasyonu','Yerel özerklik'],right:['KÜRT GELENEĞİ','Aşiret meclisi','Aşiret birlikleri','Yerel özerklik'],cues:['meclisle#2','aşiret#3','yerel#2'],link:'tablo'}}],
  ch04:[
   {at:0,type:'battle',p:{left:G.guti,right:G.uruk,vs:true,year:'MÖ ~2050'}},
   {at:'zafer',type:'duel',p:{b:'sumer',clash:'ejderhası',quote:['“DAĞLARIN EJDERHASI”','— Utu-hengal’in zafer yazıtı']}},

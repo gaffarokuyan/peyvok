@@ -98,4 +98,4 @@ function sGovernor(T,p){const lt=T-SH.t0;skyDay(lt,.15);const gg=X.createLinearG
   stick(X,ex,840,250,{pose:lt>bow?'bow':(lt>step+1.6?'present':'stand'),walk:lt>step&&lt<step+1.6,f:-1,t:lt,col:'#d2322a',hat:'cone',hatCol:'#b8803c',plume:'#ffcf3a',item:'tablet',sash:'#ffcf3a'});
   labelBoxB(495,300,p.title||'UMMA VALİSİ',p.sub||'Lugal-annatum','',ss(.2,.6,lt),'#5fb0ff',clamp((lt-.2)/.5),.9);
   labelBoxB(1260,580,p.title2||'GUTİ ELÇİSİ',p.sub2||'Kral Si’um adına','',ss(step+1.2,step+1.6,lt),'#ff6a4a',clamp((lt-step-1.2)/.5),.85);
-  if(p.quote){const a=A(p.quote[0],.5);if(a>0){parchment(W*.5-560,940,1120,110,a);X.save();X.globalAlpha=a;X.textAlign='center';X.textBaseline='middle';X.font='italic 600 46px Corm';X.fillStyle='#4a2a10';X.fillText(p.quote[1],W/2,996);X.restore()}}}
+  if(p.quote){const a=A(p.quote[0],.5);if(a>0){parchment(W*.5-560,110,1120,110,a);X.save();X.globalAlpha=a;X.textAlign='center';X.textBaseline='middle';X.font='italic 600 46px Corm';X.fillStyle='#4a2a10';X.fillText(p.quote[1],W/2,166);X.restore()}}}
