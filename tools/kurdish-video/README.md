@@ -26,6 +26,9 @@ python3 narration/splice_kurdish.py
 ./build.sh                             # output/Kurtce_Mezopotamyanin_Kadim_Dili.mp4
 ```
 
+Altyazı varsayılan olarak videoya gömülmez; `output/Kurtce_Video_Altyazi.srt` ayrı dosya olarak üretilir.
+Gömülü altyazılı sürüm için: `BURN_SUBS=1 ./build.sh`
+
 Yalnızca görselleri değiştirmek için 2–3. adımlara gerek yok: `build/narration.mp3` hazırsa
 `./build.sh` videoyu yeniden üretir. Tek karelik önizleme:
 

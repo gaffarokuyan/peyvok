@@ -7,6 +7,8 @@ sys.path.insert(0, HERE)
 from align import norm  # noqa: E402
 
 W, H, FPS = 1920, 1080, 30
+# Altyazi videoya gomulsun mu? Varsayilan: hayir (ayri .srt dosyasi verilir). BURN_SUBS=1 ile gomulur.
+BURN_SUBS = os.environ.get("BURN_SUBS", "0") == "1"
 FD = os.path.join(HERE, "fonts")
 F = {
     "serif": f"{FD}/PlayfairDisplay_600SemiBold.ttf",
@@ -1050,7 +1052,8 @@ def frame(t):
         L.draw(fr, t, d)
     for sp in SPRITES:
         sp.draw(fr, t)
-    draw_sub(fr, t)
+    if BURN_SUBS:
+        draw_sub(fr, t)
     g = 1.0
     if t < 1.0:
         g = t / 1.0
