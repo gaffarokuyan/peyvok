@@ -301,7 +301,7 @@ NOSUB = []  # altyazi gosterilmeyecek zaman araliklari
 
 DISPLAY = [("Xelîl-ê", "Xelîlê"), ("İşaratül İcaz", "İşaratü'l-İ'caz"), ("Medresetüz Zehra", "Medresetü'z-Zehra"),
            ('"Arabi vacib, Kürdi caiz, Türki lazım."', "“Arabî vâcib, Kürdî câiz, Türkî lâzım.”"),
-           ("Pyotr Lerh", "Pyotr Lerch"), ("Bin sekiz yüz elli yedide", "1857'de"), ("bin altı yüz seksen üçte", "1683'te"), ("Yirminci yüzyılda", "20. yüzyılda"), ("bin dokuz yüz on altıda", "1916'da"), ("Vladimir Minorski", "Vladimir Minorsky"), ("bin dokuz yüz otuz beşte", "1935'te"), ("bin dokuz yüz altmış birde", "1961'de"), ("bin yedi yüz seksen yedide", "1787'de"), ("Albert Sotsin", "Albert Socin"), ("Ferdinand Yusti", "Ferdinand Justi"), ("Rojer Lesko", "Roger Lescot"), ("bin dokuz yüz seksen üçte", "1983'te"), ("David Makenzi", "D. N. MacKenzie"), ("bin dokuz yüz yetmişlerden", "1970'lerden"), ("bin sekiz yüz ellili yıllarda", "1850'li yıllarda"),
+           ("Pyotr Lerh", "Pyotr Lerch"), ("Bin sekiz yüz elli yedide", "1857'de"), ("bin altı yüz seksen üçte", "1683'te"), ("Yirminci yüzyılda", "20. yüzyılda"), ("on birinci yüzyılda", "11. yüzyılda"), ("bin dokuz yüz on altıda", "1916'da"), ("Vladimir Minorski", "Vladimir Minorsky"), ("bin dokuz yüz otuz beşte", "1935'te"), ("bin dokuz yüz altmış birde", "1961'de"), ("bin yedi yüz seksen yedide", "1787'de"), ("Albert Sotsin", "Albert Socin"), ("Ferdinand Yusti", "Ferdinand Justi"), ("Rojer Lesko", "Roger Lescot"), ("bin dokuz yüz seksen üçte", "1983'te"), ("David Makenzi", "D. N. MacKenzie"), ("bin dokuz yüz yetmişlerden", "1970'lerden"), ("bin sekiz yüz ellili yıllarda", "1850'li yıllarda"),
            ("bin sekiz yüz yetmiş dokuzda", "1879'da"), ("bin altı yüz seksen üç yılında", "1683 yılında"),
            ("Bin dokuz yüz sekizde", "1908'de"), ("on dokuzuncu yüzyılda", "19. yüzyılda"),
            ("kırk milyonu", "40 milyonu"), ('"nyu"', '"new"'), ('"neym"', '"name"'),
@@ -517,6 +517,14 @@ def scene_02():
     add(rich_img([("Türk değil", RED), ("  ·  Doğu İrani", GOLD)], "sans_b", 26), 1340, 815,
         T(s, "desteklenmez."), t_end, dy=8)
     add(text_img("İskit → Sarmat → Alan → Oset", "sans", 24, GOLD), 1340, 862, T(s, "Osetçe, İskit"), t_end, dy=0)
+    # Afrasiyab -> Alp Er Tunga
+    ta = T(s, "Türk destanlarının")
+    af = card(rich_img([("Afrasiyab", GOLD), ("  İran destanı  ", MUTED), ("→", CREAM), ("  Alp Er Tunga", CREAM),
+                        ("  11. yy, Türk geleneği", MUTED)], "serif_b", 40, shadow=False),
+              pad=(40, 22), border=GOLD)
+    add(af, W // 2, 945, ta, T(s, "İskitlerden kalan") + 1.5, dy=16)
+    add(text_img("tarihte yaşamış bir hükümdar değil, İran destanından alınmış bir efsane", "sans", 26, MUTED), W // 2, 1028,
+        T(s, "Yani Alp"), T(s, "İskitlerden kalan") + 1.5, dy=0)
     tk = T(s, "kuzen")
     add(text_img("kuzen", "serif_i", 44, GOLD), 735, 840, tk, t_end, dy=10)
     line(bezier((380, 790), (500, 880), (980, 880), (1090, 790)), tk - 0.2, t_end, color=GOLD, width=2, dur=0.8)
