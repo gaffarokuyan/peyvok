@@ -165,24 +165,34 @@ button:focus-visible{outline:3px solid var(--acc); outline-offset:3px}
 .bubble .w{top:2px}
 @media (max-height:700px){.stage{margin-top:28px}.bubble .w{top:0}}
 
-/* ---------- level done ---------- */
+/* ---------- level done: centred celebration, words as mini tiles ---------- */
 .done .col{justify-content:flex-start; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; touch-action:pan-y}
-.banner{margin-top:3vh; display:flex; flex-direction:column; align-items:center}
-.stars{display:flex; align-items:flex-end; gap:4px; margin-bottom:-10px; position:relative; z-index:2}
-.stars svg{width:52px; height:52px; filter:drop-shadow(0 0 12px rgba(255,210,63,.5)) drop-shadow(0 4px 6px rgba(0,0,0,.3)); animation:starin .5s cubic-bezier(.3,1.8,.5,1) both}
-.stars svg:nth-child(2){width:68px; height:68px; margin-bottom:12px}
+.banner{position:relative; margin-top:auto; padding-top:12px; display:flex; flex-direction:column; align-items:center}
+.burst{position:absolute; left:50%; top:46px; width:440px; height:440px; margin:-220px 0 0 -220px; z-index:0; pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,var(--glow) 0 8deg,transparent 8deg 20deg);
+  -webkit-mask:radial-gradient(circle,#000 8%,transparent 58%); mask:radial-gradient(circle,#000 8%,transparent 58%); animation:raysSpin 22s linear infinite}
+@keyframes raysSpin{to{transform:rotate(360deg)}}
+.stars{display:flex; align-items:flex-end; gap:6px; position:relative; z-index:2}
+.stars svg{width:50px; height:50px; filter:drop-shadow(0 0 14px rgba(255,210,63,.55)) drop-shadow(0 4px 6px rgba(0,0,0,.3)); animation:starin .5s cubic-bezier(.3,1.8,.5,1) both}
+.stars svg:nth-child(2){width:70px; height:70px; margin-bottom:14px}
 @keyframes starin{0%{transform:scale(0) rotate(-40deg)}100%{transform:none}}
-.banner .ribbon{position:relative; top:auto; opacity:1; font-size:1.5rem; padding:10px 34px 11px; animation:drop .6s var(--ease-pop) both}
-.reward{margin-top:14px; display:flex; align-items:center; gap:8px; padding:6px 18px 6px 6px; border-radius:999px; font:900 1.15rem var(--font-b)}
-.card{margin-top:14px; width:100%; max-width:360px; border-radius:24px; padding:14px 18px; color:var(--ink);
-  background:#fff; box-shadow:0 24px 50px rgba(0,12,5,.45); animation:drop .6s .2s both}
-.card .t{font:900 .66rem var(--font-b); letter-spacing:.18em; text-transform:uppercase; color:var(--tile); margin:2px 0 4px}
-.card .r{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 0; border-top:1px solid var(--line)}
-.card b{font:800 1.12rem var(--font-d); text-transform:uppercase; color:var(--tile-deep); letter-spacing:.04em}
-.card span{color:var(--ink2); font-weight:800; text-align:right}
-#doneBody{flex:none; padding-bottom:14px}
-.done .btn3d{position:sticky; bottom:0; margin-top:auto; flex:none; margin-bottom:4px}
-
+.banner .ribbon{position:relative; top:auto; z-index:2; opacity:1; margin-top:10px; padding:0; background:none; box-shadow:none; color:#fff;
+  font:900 2.1rem/1.1 var(--font-b); letter-spacing:.06em; text-align:center; text-shadow:0 0 28px var(--glow), 0 3px 0 rgba(0,0,0,.25); animation:drop .6s var(--ease-pop) both}
+.banner .ribbon::before,.banner .ribbon::after{color:var(--acc); font-size:.7em; vertical-align:.18em}
+.dsub{position:relative; z-index:2; margin-top:6px; font:900 .72rem var(--font-b); letter-spacing:.26em; text-transform:uppercase; color:var(--acc)}
+.reward{position:relative; z-index:2; margin-top:16px; display:flex; align-items:center; gap:8px; padding:6px 18px 6px 6px; border-radius:999px; font:900 1.15rem var(--font-b)}
+.card{margin-top:18px; width:100%; max-width:360px; border-radius:26px; padding:14px 18px 6px; color:#fff;
+  background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.04)),rgba(0,26,11,.5); border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4); box-shadow:inset 0 1px 0 rgba(255,255,255,.16), 0 16px 36px rgba(0,0,0,.28); animation:drop .6s .2s both}
+.card .t{font:900 .64rem var(--font-b); letter-spacing:.22em; text-transform:uppercase; color:var(--acc); text-align:center; margin:2px 0 8px}
+.card .r{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 0; border-top:1px solid rgba(255,255,255,.1)}
+.card .wt{display:flex; gap:3px; flex:none}
+.card .wt i{font-style:normal; width:27px; height:29px; border-radius:8px; display:grid; place-items:center; padding-top:3px; font:800 1.02rem/1 var(--font-d); text-transform:uppercase; color:#fff;
+  background:linear-gradient(180deg,var(--tile-hi),var(--tile) 55%,var(--tile-deep)); box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 2px 5px rgba(0,0,0,.28); animation:land .42s cubic-bezier(.3,1.8,.5,1) both}
+.card .mn{min-width:0; color:rgba(255,255,255,.78); font-weight:800; text-align:right}
+#doneBody{flex:none}
+.done .btn3d{flex:none; margin-top:22px; margin-bottom:auto}
+.done .bar+.banner{margin-top:auto}
 /* ---------- toast / sheets ---------- */
 .toast{position:fixed; left:50%; top:calc(62px + env(safe-area-inset-top,0px)); transform:translate(-50%,-6px); padding:9px 18px; border-radius:999px; font-weight:900; opacity:0; transition:.2s; z-index:9; pointer-events:none; white-space:nowrap}
 .toast.show{opacity:1; transform:translate(-50%,0)}
@@ -260,11 +270,11 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
 @media (max-height:720px){
   .logo{margin-top:4vh}
   .ring{width:144px; height:144px}.ring .in{width:108px; height:108px}.ring b{font-size:2.5rem}
-  .stars svg{width:38px; height:38px}.stars svg:nth-child(2){width:50px; height:50px; margin-bottom:8px}
-  .banner .ribbon{font-size:1.25rem; padding:7px 26px 8px}
+  .stars svg{width:38px; height:38px}.stars svg:nth-child(2){width:52px; height:52px; margin-bottom:10px}
+  .banner .ribbon{font-size:1.6rem}
   .reward{font-size:1rem}
   .done .btn3d{height:52px}
-  .card .r{padding:5px 0}
+  .card .r{padding:6px 0}
 }
 @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important; animation-iteration-count:1!important; transition:none!important}}
 </style>
@@ -310,7 +320,7 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
 <section class="screen done" id="done">
   <div class="col">
     <div class="bar"><div></div><div></div><div class="coins glass" id="doneCoins"><span class="coin"></span><span class="cn"></span></div></div>
-    <div class="banner"><div class="stars" id="stars"></div><div class="ribbon" id="dT"></div></div>
+    <div class="banner"><div class="burst"></div><div class="stars" id="stars"></div><div class="ribbon" id="dT"></div><div class="dsub" id="dSub"></div></div>
     <div class="reward glass" id="reward"><span class="coin"></span>+<span id="dR"></span></div>
     <div id="doneBody" style="width:100%;display:flex;justify-content:center"></div>
     <button class="btn3d" id="nextBtn"></button>
@@ -856,9 +866,9 @@ function openDone(reward,stars,card){
   const t=L(),last=S.lvl>=N;show("done");shownCoins=S.coins-reward;coins();
   const star=(on,k)=>`<svg viewBox="0 0 24 24" style="animation-delay:${.3+k*.18}s"><path d="M12 2.6l2.9 5.9 6.4.9-4.7 4.5 1.1 6.4L12 17.3l-5.7 3 1.1-6.4-4.7-4.5 6.4-.9z" fill="${on?"#ffd23f":"rgba(255,255,255,.35)"}" stroke="${on?"#d98a00":"rgba(255,255,255,.5)"}" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
   $("#stars").innerHTML=[0,1,2].map(k=>star(k<stars,k)).join("");
-  $("#dT").textContent=last?t.fin:t.done;$("#dR").textContent=reward;
+  $("#dT").textContent=last?t.fin:t.done;$("#dSub").textContent=`${t.lvl} ${S.lvl}`;$("#dR").textContent=reward;
   if(card>=0){$("#doneBody").innerHTML=postHTML(card,true);const c=$("#doneBody canvas");requestAnimationFrame(()=>miniScene(c,card));setTimeout(()=>SFX.card(),700)}
-  else $("#doneBody").innerHTML=`<div class="card">`+`<div class="t">${t.gl}</div>`+lv.w.map(w=>`<div class="r"><b>${w[0]}</b><span>${w[1]}</span></div>`).join("")+`</div>`;
+  else $("#doneBody").innerHTML=`<div class="card">`+`<div class="t">${t.gl}</div>`+lv.w.map((w,wi)=>`<div class="r"><span class="wt" aria-label="${w[0]}">${[...w[0]].map((ch,k)=>`<i style="animation-delay:${.45+wi*.14+k*.05}s">${ch}</i>`).join("")}</span><span class="mn">${w[1]}</span></div>`).join("")+`</div>`;
   $("#nextBtn").textContent=last?t.reset.toUpperCase():t.next.toUpperCase();
   setTimeout(()=>flyCoins(reward),900);
 }
