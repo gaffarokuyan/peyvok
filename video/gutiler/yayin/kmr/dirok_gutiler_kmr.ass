@@ -1,0 +1,166 @@
+﻿[Script Info]
+Title: Dîrok - Gutiler
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Dirok,Arial Black,52,&H00FFFFFF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokKaraoke,Arial Black,52,&H005AD6FF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokAlinti,Arial Black,56,&H005AD6FF,&H005AD6FF,&H40040814,&H64000000,-1,-1,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.14,0:00:05.06,Dirok,,0,0,0,,Çar hezar û du sed sal berê, gelek\Nji rojhilatê Mezopotamyayê derket
+Dialogue: 0,0:00:05.10,0:00:06.28,Dirok,,0,0,0,,ser sehneya dîrokê:
+Dialogue: 0,0:00:06.48,0:00:07.42,Dirok,,0,0,0,,Gutî.
+Dialogue: 0,0:00:07.46,0:00:11.70,Dirok,,0,0,0,,Wan Akad, yekem împaratoriya\Ncîhanê, çok da û sedsalek tam
+Dialogue: 0,0:00:11.74,0:00:14.36,Dirok,,0,0,0,,li Mezopotamyayê, landika\Nşaristaniyê, hukim kirin.
+Dialogue: 0,0:00:14.44,0:00:17.32,Dirok,,0,0,0,,Nivîskarên Sumerî bi tirs navek li wan
+Dialogue: 0,0:00:17.42,0:00:18.98,Dirok,,0,0,0,,kirin: Ejdehayê Çiyayan.
+Dialogue: 0,0:00:19.08,0:00:20.84,Dirok,,0,0,0,,Gelo ev Gutî kî bûn?
+Dialogue: 0,0:00:20.88,0:00:24.84,Dirok,,0,0,0,,Wan çawa Mezopotamya bi rê ve\Nbir û çima gelek dîroknas wan
+Dialogue: 0,0:00:24.88,0:00:27.50,Dirok,,0,0,0,,di nav kevintirîn bav û\Nkalên Kurdan de dihesibînin?
+Dialogue: 0,0:00:27.54,0:00:29.08,Dirok,,0,0,0,,Hûn bi xêr hatin Dîrokê.
+Dialogue: 0,0:00:41.20,0:00:44.92,Dirok,,0,0,0,,Axa di navbera Dicle û Firatê\Nde bû sehneya mezintirîn
+Dialogue: 0,0:00:44.96,0:00:46.54,Dirok,,0,0,0,,dahênanên dîroka mirovahiyê.
+Dialogue: 0,0:00:46.58,0:00:50.82,Dirok,,0,0,0,,Yekem bajar, nivîs, teker û\Nqanûnên nivîskî li vir çêbûn.
+Dialogue: 0,0:00:50.86,0:00:55.62,Dirok,,0,0,0,,Bajarên Sumerî yên wek Uruk, Ur, Lagaş\Nû Nippur yekem navendên şaristaniyê
+Dialogue: 0,0:00:55.66,0:00:56.72,Dirok,,0,0,0,,yên cîhanê bûn.
+Dialogue: 0,0:00:56.80,0:01:01.02,Dirok,,0,0,0,,Di sedsala bîst û sêyemîn a berî zayînê\Nde, Sargonê Akadî ev bajar yek bi
+Dialogue: 0,0:01:01.06,0:01:04.58,Dirok,,0,0,0,,yek zeft kirin û yekem împaratoriya\Nnaskirî ya dîrokê ava kir.
+Dialogue: 0,0:01:04.62,0:01:08.62,Dirok,,0,0,0,,Împaratoriya Akadê ji Kendava\NBesrayê heta Deryaya Spî dirêj dibû.
+Dialogue: 0,0:01:08.66,0:01:12.66,Dirok,,0,0,0,,Neviyê Sargon, Naram-Sin, xwe wek\Npadîşahê çar aliyên cîhanê bi nav
+Dialogue: 0,0:01:12.70,0:01:13.70,Dirok,,0,0,0,,dikir.
+Dialogue: 0,0:01:13.98,0:01:17.80,Dirok,,0,0,0,,Lê dawiya vê împaratoriya\Nmezin dê ji rojhilatê bihata.
+Dialogue: 0,0:01:23.22,0:01:27.56,Dirok,,0,0,0,,Çavkaniyên Mezopotamyayê ji welatê li\Nrojhilatê Dicleyê, di navbera çemên Zaba Biçûk
+Dialogue: 0,0:01:27.60,0:01:30.02,Dirok,,0,0,0,,û Diyalayê de, re dibêjin Gutium.
+Dialogue: 0,0:01:30.06,0:01:34.10,Dirok,,0,0,0,,Ev der welatê Gutiyan bû û rêyên ku ber\Nbi deşta Mezopotamyayê ve diçûn di bin
+Dialogue: 0,0:01:34.14,0:01:35.16,Dirok,,0,0,0,,kontrola wan de bûn.
+Dialogue: 0,0:01:35.20,0:01:39.36,Dirok,,0,0,0,,Di serdema Şar-kali-şarrî, kurê\NNaram-Sin de, şerê navbera Akad û
+Dialogue: 0,0:01:39.40,0:01:40.66,Dirok,,0,0,0,,Gutiyan germ bû.
+Dialogue: 0,0:01:40.70,0:01:44.18,Dirok,,0,0,0,,Li ser lewheyên Akadî, sal\Nli gorî bûyerên girîng ên wê
+Dialogue: 0,0:01:44.22,0:01:45.22,Dirok,,0,0,0,,salê dihatin binavkirin.
+Dialogue: 0,0:01:45.26,0:01:47.66,Dirok,,0,0,0,,Di yek ji van navên salan de
+Dialogue: 0,0:01:47.70,0:01:51.60,DirokAlinti,,0,0,0,,ev qeyd heye: "Sala ku Şar-kali-şarrî\NŞarlag, padîşahê Gutiumê, dîl girt."
+Dialogue: 0,0:01:51.74,0:01:54.08,Dirok,,0,0,0,,Lê serkeftinên Akadê mayînde nebûn.
+Dialogue: 0,0:01:54.12,0:01:58.16,Dirok,,0,0,0,,Împaratorî bi serhildan,\Nşerê text û demeke dirêj
+Dialogue: 0,0:01:58.20,0:01:59.50,Dirok,,0,0,0,,a hişkesaliyê hejiya.
+Dialogue: 0,0:01:59.54,0:02:03.76,Dirok,,0,0,0,,Piştî mirina Şar-kali-şarrî, Akad\Nket nav kaoseke wisa ku Lîsteya
+Dialogue: 0,0:02:03.80,0:02:07.10,Dirok,,0,0,0,,Padîşahên Sumerî vê demê\Nbi pirseke tinazî vedibêje.
+Dialogue: 0,0:02:07.14,0:02:09.34,DirokAlinti,,0,0,0,,"Kî padîşah bû, kî ne padîşah bû?"
+Dialogue: 0,0:02:09.38,0:02:13.46,DirokAlinti,,0,0,0,,Nivîsa Sumerî ya navdar "Nifira Agadeyê"\Nhilweşîna Akadê bi xezeba xwedayan ve girê
+Dialogue: 0,0:02:13.50,0:02:17.94,Dirok,,0,0,0,,dide û gelê ku ji bo pêkanîna vê\Nxezebê hatibû şandin jî diyar e.
+Dialogue: 0,0:02:17.98,0:02:18.66,Dirok,,0,0,0,,Gutî.
+Dialogue: 0,0:02:18.70,0:02:22.10,Dirok,,0,0,0,,Nivîs wan wek gelekî ku nayê\Nkontrolkirin dide nasîn.
+Dialogue: 0,0:02:22.14,0:02:26.66,Dirok,,0,0,0,,Nêzî sala 2150 berî zayînê\NÎmparatoriya Akadê hilweşiya û
+Dialogue: 0,0:02:26.70,0:02:30.12,Dirok,,0,0,0,,bajarên text ên Mezopotamyayê\Nketin destê Gutiyan.
+Dialogue: 0,0:02:35.54,0:02:38.44,Dirok,,0,0,0,,Di Lîsteya Padîşahên Sumerî\Nde qeydeke eşkere heye.
+Dialogue: 0,0:02:38.48,0:02:40.80,DirokAlinti,,0,0,0,,"Padîşahî derbasî artêşa Gutiumê bû."
+Dialogue: 0,0:02:41.30,0:02:44.64,Dirok,,0,0,0,,Lîste serdema yekem a Gutiyan\Nbi hevokeke balkêş vedibêje.
+Dialogue: 0,0:02:44.68,0:02:47.98,DirokAlinti,,0,0,0,,"Di artêşa Gutiumê de di destpêkê\Nde padîşahekî naskirî tune
+Dialogue: 0,0:02:48.02,0:02:49.86,Dirok,,0,0,0,,bû, ew bi xwe padîşahên xwe bûn."
+Dialogue: 0,0:02:50.08,0:02:54.26,Dirok,,0,0,0,,Gelek lêkolîner vê hevokê wek nîşana\Nwê yekê şîrove dikin ku Gutî ne
+Dialogue: 0,0:02:54.30,0:02:58.10,Dirok,,0,0,0,,ji aliyê serdestekî mutleq ve, lê ji\Naliyê meclîseke hevpar an serokên eşîran
+Dialogue: 0,0:02:58.14,0:02:59.14,Dirok,,0,0,0,,ve dihatin birêvebirin.
+Dialogue: 0,0:02:59.18,0:03:03.50,Dirok,,0,0,0,,Li gorî lîsteyê, bîst û yek padîşahên\NGutî nêzî sed salan hukim kirin.
+Dialogue: 0,0:03:03.54,0:03:06.48,Dirok,,0,0,0,,Piraniya padîşahên wan tenê\Nçend salan li ser text man.
+Dialogue: 0,0:03:06.52,0:03:09.04,Dirok,,0,0,0,,Ev jî nîşan dide ku serokatî ji bav
+Dialogue: 0,0:03:09.08,0:03:11.86,Dirok,,0,0,0,,derbasî kur nedibû, di navbera\Neşîran de dest diguherand.
+Dialogue: 0,0:03:12.04,0:03:15.72,Dirok,,0,0,0,,Gutiyan bajarên Sumerî bi rêya\Nwaliyên herêmî bi rê ve birin.
+Dialogue: 0,0:03:15.76,0:03:20.30,Dirok,,0,0,0,,Waliyê bajarê Ummayê, Lugal-annatum,\Nnivîsa xwe wiha dîrok kiriye: "Di
+Dialogue: 0,0:03:20.34,0:03:22.22,Dirok,,0,0,0,,dema Si'um, padîşahê Gutiumê de."
+Dialogue: 0,0:03:22.26,0:03:26.40,Dirok,,0,0,0,,Ango bajaran rêveberiya xwe parastin,\Nlê serweriya padîşahê Gutî nas
+Dialogue: 0,0:03:26.44,0:03:26.98,Dirok,,0,0,0,,kirin.
+Dialogue: 0,0:03:27.02,0:03:30.48,Dirok,,0,0,0,,Gutiyan zimanê rêveberiyê û\Nkevneşopiyên Akadê jî wergirtin.
+Dialogue: 0,0:03:30.52,0:03:35.04,Dirok,,0,0,0,,Li ser serê gurzekî ku aîdî\NPadîşah La'erabum e, bi Akadî\Nhatiye nivîsandin: "Padîşahê
+Dialogue: 0,0:03:35.08,0:03:36.22,Dirok,,0,0,0,,bihêz ê Gutiumê."
+Dialogue: 0,0:03:36.26,0:03:39.34,Dirok,,0,0,0,,Balkêştirîn padîşahê wan Erridupizir e.
+Dialogue: 0,0:03:39.38,0:03:43.40,Dirok,,0,0,0,,Di nivîsên xwe yên li Nippurê,\Nbajarê herî pîroz ê Mezopotamyayê de,
+Dialogue: 0,0:03:43.44,0:03:44.10,Dirok,,0,0,0,,xwe wiha
+Dialogue: 0,0:03:44.14,0:03:47.36,DirokAlinti,,0,0,0,,dide nasîn: "Padîşahê Gutiumê,\Npadîşahê çar aliyên cîhanê."
+Dialogue: 0,0:03:47.40,0:03:51.02,Dirok,,0,0,0,,Ev tam ew sernav e ku\Nîmparatorên Akadê bi kar dianîn.
+Dialogue: 0,0:03:51.06,0:03:54.66,Dirok,,0,0,0,,Nivîsên wî behsa seferên wî\Nyên li dijî herêmên serhildêr
+Dialogue: 0,0:03:54.70,0:03:58.44,Dirok,,0,0,0,,dikin û çawa wî xenîmet diyarî\Nperestgeha Xweda Enlil kirine.
+Dialogue: 0,0:03:58.50,0:04:01.78,Dirok,,0,0,0,,Di serdema Gutiyan de bajarên\NSumerî jî demeke geş jiyan.
+Dialogue: 0,0:04:01.82,0:04:06.20,Dirok,,0,0,0,,Lagaşê di bin rêveberiya Mîr Gudea de\Nperestgeh ava kirin û di hunerê de serdema xwe
+Dialogue: 0,0:04:06.24,0:04:07.12,Dirok,,0,0,0,,ya zêrîn jiya.
+Dialogue: 0,0:04:07.16,0:04:10.46,Dirok,,0,0,0,,Ango Gutî ne talankerên ku\Ntalan dikirin û vedikişiyan bûn.
+Dialogue: 0,0:04:10.50,0:04:14.18,Dirok,,0,0,0,,Ew serdestên ku mîrateya împaratoriyê\Nya Mezopotamyayê wergirtibûn bûn.
+Dialogue: 0,0:04:14.22,0:04:18.62,Dirok,,0,0,0,,Serokên ku ji aliyê meclîsê ve\Ndihatin hilbijartin, konfederasyona\Neşîran û xweseriya herêmî...
+Dialogue: 0,0:04:18.82,0:04:22.92,Dirok,,0,0,0,,Ev tablo tam ew tablo ye ku\Npiştî bi hezaran salan em ê di
+Dialogue: 0,0:04:22.96,0:04:24.80,Dirok,,0,0,0,,avahiya civakî ya Kurdan de bibînin.
+Dialogue: 0,0:04:30.22,0:04:33.10,Dirok,,0,0,0,,Nêzî sed sal şûnde,\NUtu-hengal, padîşahê Urukê,
+Dialogue: 0,0:04:33.14,0:04:35.64,Dirok,,0,0,0,,li dijî Gutiyan serhildaneke\Nmezin da destpêkirin.
+Dialogue: 0,0:04:35.68,0:04:38.06,Dirok,,0,0,0,,Di nivîsa xwe ya serkeftinê de wiha
+Dialogue: 0,0:04:38.10,0:04:41.48,DirokAlinti,,0,0,0,,behsa Gutiyan dike:\N"Gutium, marê diran jehrî
+Dialogue: 0,0:04:41.52,0:04:43.16,Dirok,,0,0,0,,yê çiyayan, ejdehayê çiyayan."
+Dialogue: 0,0:04:43.38,0:04:46.36,Dirok,,0,0,0,,Wê demê padîşahê dawî yê\NGutiyan, Tirigan, li ser text bû.
+Dialogue: 0,0:04:46.40,0:04:50.46,Dirok,,0,0,0,,Li gorî Lîsteya Padîşahên Sumerî,\NTirigan tenê çil rojan hukim kir.
+Dialogue: 0,0:04:50.58,0:04:52.86,Dirok,,0,0,0,,Utu-hengal bi artêşa xwe\Nber bi bakur ve meşiya.
+Dialogue: 0,0:04:52.90,0:04:56.18,Dirok,,0,0,0,,Wî her du fermandarên ku Tirigan\Nşandibûn têk birin û dîl girtin.
+Dialogue: 0,0:04:56.22,0:05:00.34,Dirok,,0,0,0,,Di dawiya şer de Tirigan artêşa xwe\Nhişt û reviya bajarekî bi navê Dubrum.
+Dialogue: 0,0:05:00.38,0:05:04.22,Dirok,,0,0,0,,Lê xelkê Dubrumê ew girt\Nû radestî Utu-hengal kir.
+Dialogue: 0,0:05:04.28,0:05:08.94,Dirok,,0,0,0,,Piştî demeke kurt, Ur-Nammu li bajarê\NUrê xanedaneke nû ava kir, lê têkoşîn
+Dialogue: 0,0:05:08.98,0:05:09.60,Dirok,,0,0,0,,neqediya.
+Dialogue: 0,0:05:09.64,0:05:13.58,Dirok,,0,0,0,,Li gorî hin nivîsên Sumerî yên\Ndereng, heta Ur-Nammu jî di şerekî li
+Dialogue: 0,0:05:13.62,0:05:15.82,Dirok,,0,0,0,,dijî Gutiyan de jiyana xwe ji dest da.
+Dialogue: 0,0:05:15.86,0:05:19.44,Dirok,,0,0,0,,Desthilatdariya siyasî ya Gutiyan\Nli Mezopotamyayê bi dawî bûbû.
+Dialogue: 0,0:05:19.48,0:05:21.04,Dirok,,0,0,0,,Lê Gutî winda nebûn.
+Dialogue: 0,0:05:26.46,0:05:30.58,Dirok,,0,0,0,,Di hezar û pênc sed salên piştre\Nde navê Gutiumê qet ji çavkaniyên
+Dialogue: 0,0:05:30.62,0:05:31.74,Dirok,,0,0,0,,Mezopotamyayê kêm nebû.
+Dialogue: 0,0:05:31.78,0:05:35.48,Dirok,,0,0,0,,Padîşahê Babîlê, Hammurabî, serkeftinên\Nxwe yên li dijî artêşa Gutiumê qeyd
+Dialogue: 0,0:05:35.52,0:05:36.28,Dirok,,0,0,0,,kirin.
+Dialogue: 0,0:05:36.32,0:05:39.46,Dirok,,0,0,0,,Padîşahên Asûrî seferên li\Nser welatê Qutu li dar xistin.
+Dialogue: 0,0:05:39.50,0:05:43.98,Dirok,,0,0,0,,Dema ku padîşahê Farisan Kûroşê Mezin\Ndi sala 539 berî zayînê de Babîl
+Dialogue: 0,0:05:44.02,0:05:47.76,Dirok,,0,0,0,,girt, di Silindira Kûroş de Gutium jî\Ndi nav welatên di bin serweriya xwe de
+Dialogue: 0,0:05:47.80,0:05:48.48,Dirok,,0,0,0,,hejmar kir.
+Dialogue: 0,0:05:48.52,0:05:52.20,Dirok,,0,0,0,,Fermandarê yekem ê ku ket Babîlê\Njî Ugbaru, waliyê Gutiumê bû.
+Dialogue: 0,0:05:52.24,0:05:56.24,Dirok,,0,0,0,,Ango navê Gutiumê hezar û heft\Nsed salan berdewam kir ku gelê
+Dialogue: 0,0:05:56.28,0:05:58.14,Dirok,,0,0,0,,rojhilatê Mezopotamyayê bi nav bike.
+Dialogue: 0,0:06:03.56,0:06:06.74,Dirok,,0,0,0,,Gutî ne tenê gelê kevnar bûn\Nku li ser van axan dijiyan.
+Dialogue: 0,0:06:06.78,0:06:11.26,Dirok,,0,0,0,,Lullubî, Hurrî, Kassît\Nû Med jî li bakur û
+Dialogue: 0,0:06:11.30,0:06:12.50,Dirok,,0,0,0,,rojhilatê Mezopotamyayê jiyan.
+Dialogue: 0,0:06:12.54,0:06:16.54,Dirok,,0,0,0,,Li gorî gelek dîroknasan, ev gel\Nbi Gutiyan re qatên ku Kurd pêk
+Dialogue: 0,0:06:16.58,0:06:17.54,Dirok,,0,0,0,,anîne ne.
+Dialogue: 0,0:06:17.58,0:06:21.34,Dirok,,0,0,0,,Di serê kesên ku ev girêdan herî bi\Nhêz anîne ziman de dîroknasên biyanî
+Dialogue: 0,0:06:21.38,0:06:21.88,Dirok,,0,0,0,,tên.
+Dialogue: 0,0:06:21.92,0:06:25.06,Dirok,,0,0,0,,Rojhilatnas Arşak Safrastian ê ku\Nli Îngilîstanê dixebitî, di pirtûka
+Dialogue: 0,0:06:25.10,0:06:29.94,Dirok,,0,0,0,,xwe ya sala 1948an de Gutiyan rasterast\Nwek bav û kalên Kurdan dibîne û
+Dialogue: 0,0:06:29.98,0:06:33.80,Dirok,,0,0,0,,di navbera navê Gutî û koka\Nnavê Kurd de girêdan datîne.
+Dialogue: 0,0:06:33.84,0:06:36.28,Dirok,,0,0,0,,Zincîra navan bi rastî balkêş e.
+Dialogue: 0,0:06:36.32,0:06:40.56,Dirok,,0,0,0,,Di qeydên Asûrî de ji bo gelên vê\Nherêmê navên wek Qurtî û Kurtî derbas
+Dialogue: 0,0:06:40.60,0:06:41.14,Dirok,,0,0,0,,dibin.
+Dialogue: 0,0:06:41.18,0:06:45.00,Dirok,,0,0,0,,Fermandarê Yewnanî Ksenofon\Nbehsa Kardûxên şervan dike ku li
+Dialogue: 0,0:06:45.04,0:06:46.48,Dirok,,0,0,0,,bakurê Dicleyê dijiyan.
+Dialogue: 0,0:06:46.52,0:06:49.84,Dirok,,0,0,0,,Di serdema Romayê de heman herêm\Nbi navê Korduene dihat naskirin.
+Dialogue: 0,0:06:50.42,0:06:52.26,Dirok,,0,0,0,,G. R. Driver ji Zanîngeha
+Dialogue: 0,0:06:52.30,0:06:56.04,Dirok,,0,0,0,,Oxfordê têkiliya navê Kurd bi\Nvan navên kevnar re lêkolîn kir.
+Dialogue: 0,0:06:56.12,0:07:00.32,Dirok,,0,0,0,,Vladimir Minorsky rola Medan di\Navabûna Kurdan de da ber çavan.
+Dialogue: 0,0:07:00.42,0:07:04.64,Dirok,,0,0,0,,Ephraim Speiser Gutî wek gelê xwecihî\Nyê rojhilatê Mezopotamyayê pênase
+Dialogue: 0,0:07:04.68,0:07:05.52,Dirok,,0,0,0,,kirin.
+Dialogue: 0,0:07:05.56,0:07:09.54,Dirok,,0,0,0,,Mehrdad Izady jî dibêje ku\NGutî û gelên din ên kevnar
+Dialogue: 0,0:07:09.58,0:07:11.30,Dirok,,0,0,0,,bingeha gelê Kurd pêk tînin.
+Dialogue: 0,0:07:11.34,0:07:14.72,Dirok,,0,0,0,,Dîroknasê Kurd Mihemed Emîn Zekî\NBeg jî heman nêrînê diparêze.
+Dialogue: 0,0:07:15.12,0:07:17.14,Dirok,,0,0,0,,Bê guman nêrînên dijber jî hene.
+Dialogue: 0,0:07:17.18,0:07:21.38,Dirok,,0,0,0,,Sedema sereke ew e ku ji zimanê Gutiyan\Npir hindik belge gihîştine roja me.
+Dialogue: 0,0:07:21.42,0:07:23.98,Dirok,,0,0,0,,Di destê me de tenê çend\Nnavên padîşahan hene.
+Dialogue: 0,0:07:24.12,0:07:28.82,Dirok,,0,0,0,,Lê erdnîgarî, avahiya civakî û\Nberdewamiya navan a bi hezaran salan vê
+Dialogue: 0,0:07:28.86,0:07:30.30,Dirok,,0,0,0,,tezê bi hêz dike.
+Dialogue: 0,0:07:31.52,0:07:34.96,Dirok,,0,0,0,,Deştên Mezopotamyayê dewlemend\Nbûn, lê bêparastin bûn.
+Dialogue: 0,0:07:35.00,0:07:37.80,Dirok,,0,0,0,,Împaratorî hatin,\Nbajar hatin şewitandin.
+Dialogue: 0,0:07:37.86,0:07:42.00,Dirok,,0,0,0,,Di sedsala sêzdehan de Mongolan\NBexda û tevahiya Mezopotamyayê wêran
+Dialogue: 0,0:07:42.04,0:07:42.54,Dirok,,0,0,0,,kirin.
+Dialogue: 0,0:07:42.58,0:07:46.72,Dirok,,0,0,0,,Lê bi saya avantaja stratejîk\Na çiyayan, Kurd ji vê wêranbûnê
+Dialogue: 0,0:07:46.76,0:07:48.82,Dirok,,0,0,0,,bi qasî gelên deştê bandor nebûn.
+Dialogue: 0,0:07:48.90,0:07:50.86,Dirok,,0,0,0,,Gotineke kevnar a Kurdan heye:
+Dialogue: 0,0:07:51.16,0:07:54.80,DirokAlinti,,0,0,0,,Ji çiyan pê ve, hevalên me tune.
+Dialogue: 0,0:07:55.00,0:07:56.96,Dirok,,0,0,0,,Ji çiyayan pê ve dostên me tune ne.
+Dialogue: 0,0:07:57.20,0:08:01.40,Dirok,,0,0,0,,Gutî ew gel bûn ku yekem împaratoriya\NMezopotamyayê hilweşandin û
+Dialogue: 0,0:08:01.44,0:08:02.52,Dirok,,0,0,0,,mîrateya wê wergirtin.
+Dialogue: 0,0:08:02.56,0:08:06.68,Dirok,,0,0,0,,Yek ji rûpelên pêşîn ên dîroka Kurdan\Nli ser van axan hat nivîsandin.
+Dialogue: 0,0:08:06.98,0:08:10.76,Dirok,,0,0,0,,Heke we ev vîdyo eciband, ji bîr\Nnekin ku abone bibin û ramanên xwe
+Dialogue: 0,0:08:10.80,0:08:12.18,Dirok,,0,0,0,,di şîroveyan de parve bikin.
