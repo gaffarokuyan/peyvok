@@ -22,3 +22,7 @@ film3/seg0p/
 dub/*/
 dub/log*.txt
 film3/out/
+short2/seg/
+short2/stills/
+short2/out/
+short2/audio/*.wav
