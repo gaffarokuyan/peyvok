@@ -520,8 +520,8 @@ def scene_02():
     # Afrasiyab > Iskitler > Alp Er Tunga
     ta = T(s, "Türk destanlarının")
     t_end_af = T(s, "İskitlerden kalan") + 1.5
-    steps = [("Afrasiyab", "İran destanında Turan kralı", T(s, "Afrasiyab,")),
-             ("İskitler", "dilleri İrani", T(s, "bozkır")),
+    steps = [("Afrasiyab", "Turanlıların efsanevi kralı", T(s, "Afrasiyab,")),
+             ("İskitler · Sakalar", "dilleri İrani", T(s, "araştırmacıların İskitler")),
              ("Alp Er Tunga", "11. yy Türk geleneğindeki adı", T(s, "Bu figür"))]
     xs = [W // 2 - 520, W // 2, W // 2 + 520]
     for i, ((nm, sub, t0), x) in enumerate(zip(steps, xs)):

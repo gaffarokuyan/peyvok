@@ -19,18 +19,18 @@ Bu videoda Mezopotamya'nın kadim dili Kürtçeyi anlatıyoruz: Hint-Avrupa dil 
 0:00 Giriş: Yasaklara rağmen yaşayan dil
 0:34 Dil ailesi ve akraba diller
 1:03 İskitler, Afrasiyab ve Alp Er Tunga
-2:15 Arkaik bir dil
-2:28 Eril ve dişil: dilbilgisel cinsiyet
-3:28 Seslenme hâli: -o, -ê, -no
-4:10 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
-4:38 Lehçeler ve kelime zenginliği
-5:39 Rusya ve Sankt-Peterburg koleksiyonları
-7:23 Sovyet dönemi Kürdolojisi
-8:03 Kürt edebiyatını araştırıp koruyan diğer ülkeler
-9:09 Kürt medreseleri ve âlimler
-10:01 Bediüzzaman Said Nursi ve Kürtçe
-10:35 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
-11:29 Kapanış: Ziman jiyan e
+2:14 Arkaik bir dil
+2:27 Eril ve dişil: dilbilgisel cinsiyet
+3:27 Seslenme hâli: -o, -ê, -no
+4:09 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
+4:36 Lehçeler ve kelime zenginliği
+5:37 Rusya ve Sankt-Peterburg koleksiyonları
+7:22 Sovyet dönemi Kürdolojisi
+8:01 Kürt edebiyatını araştırıp koruyan diğer ülkeler
+9:07 Kürt medreseleri ve âlimler
+9:59 Bediüzzaman Said Nursi ve Kürtçe
+10:34 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
+11:28 Kapanış: Ziman jiyan e
 
 🗣️ Videoda geçen isimler ve eserler
 Ehmedê Xanî (Mem û Zîn, Nûbihara Biçûkan, Eqîdeya Îmanê) · Feqiyê Teyran (Qewlê Hespê Reş) · Melayê Cizîrî (Dîwan) · Melayê Bateyî (Mewlûd) · Mela Xelîlê Sêrtî · Molla Gürani · Bediüzzaman Said Nursi · Pyotr Lerch · Aleksandr Jaba · Mela Mehmûdê Bazîdî · İosif Orbeli · Vladimir Minorsky · Erebê Şemo · Qanatê Kurdo · Margarita Rudenko · Maurizio Garzoni · Roger Lescot · Celadet ve Kamuran Bedirxan · D. N. MacKenzie
