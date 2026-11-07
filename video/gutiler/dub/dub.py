@@ -25,7 +25,7 @@ def tts(job):
     for attempt in range(5):
       try:
         if not os.path.exists(wav) or os.path.getsize(wav)<1000:
-          r=urllib.request.Request('https://www.kurdishtts.com/api/tts-proxy',data=json.dumps({'text':tx,'speaker_id':'kurmanji_236','model_version':'v4'}).encode(),headers={'Content-Type':'application/json'})
+          r=urllib.request.Request('https://www.kurdishtts.com/api/tts-proxy',data=json.dumps({'text':tx,'speaker_id':'kurmanji_236','model_version':'v4','speed':1.2}).encode(),headers={'Content-Type':'application/json'})
           open(wav,'wb').write(urllib.request.urlopen(r,timeout=180).read())
         b='----'+uuid.uuid4().hex;audio=open(wav,'rb').read()
         body=(f'--{b}\r\nContent-Disposition: form-data; name="model_id"\r\n\r\neleven_multilingual_sts_v2\r\n--{b}\r\nContent-Disposition: form-data; name="audio"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n').encode()+audio+f'\r\n--{b}--\r\n'.encode()
