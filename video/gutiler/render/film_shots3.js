@@ -82,4 +82,4 @@ window.CREDITS=['# Birincil Kaynaklar','Sümer Kral Listesi — T. Jacobsen, The
  'E. A. Speiser — Mesopotamian Origins, 1930','Basil Nikitine — Les Kurdes, Paris, 1956','Mehrdad R. Izady — The Kurds: A Concise Handbook, 1992',
  '# Kürt Tarihçiler','Muhammed Emin Zeki Beg — Xulasey Tarîxî Kurd û Kurdistan, Bağdat, 1931','Cemal Reşîd Ehmed — Dirasat Kurdiyya fi Bilad Subartu, Bağdat, 1984',
  '# Akademik Arka Plan','W. W. Hallo — Gutium, Reallexikon der Assyriologie, 1971','M. Van De Mieroop — A History of the Ancient Near East, 2015','G. Wilhelm — The Hurrians, 1989','I. M. Diakonoff — Media, Cambridge History of Iran, 1985',
- '# Yapım','Animasyon ve harita: kodla üretildi · Yükseklik verisi: AWS Terrain Tiles','Müzik: ElevenLabs','DÎROK'];
+ '# Yapım','DÎROK'];
