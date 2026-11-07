@@ -41,7 +41,7 @@ Dilbilimde buna vokatif, yani seslenme hâli denir. Erkeklere "o", kadınlara "�
 Bu küçük ek, aslında büyük bir şeyi gösterir. Seslenme hâli, Hint-Avrupa ana dilinden gelen çok eski bir dilbilgisi özelliğidir. Farsça gibi pek çok dil bu ekleri kaybetmiş, yerine "ey" gibi ayrı bir kelime koymuştur. Kürtçe ise bu eki binlerce yıl korumuştur. Bu, Kürtçenin arkaik karakterinin en canlı kanıtlarından biridir."""),
 
 ("06_lehceler", f"""Kürtler, kuzeyde Bakur, güneyde Başûr, batıda Rojava ve doğuda Rojhelat'ta yaşar. {B}
-Kürt nüfusu için resmî bir sayım bulunmuyor. Tahminlere göre Bakur'da yirmi üç ila otuz beş milyon, Rojhelat'ta sekiz ila on milyon, Başûr'da altı ila sekiz milyon, Rojava'da ise iki ila üç milyon Kürt yaşıyor. Kafkasya, Orta Asya ve diasporayla birlikte, toplam nüfusun kırk ila altmış milyon arasında olduğu tahmin ediliyor. {B}
+Kürt nüfusu için resmî bir sayım bulunmuyor. Tahminlere göre Bakur'da yirmi üç ila yirmi beş milyon, Rojhelat'ta sekiz ila on milyon, Başûr'da altı ila sekiz milyon, Rojava'da ise iki ila üç milyon Kürt yaşıyor. Kafkasya, Orta Asya ve diasporayla birlikte, toplam nüfusun kırk ila elli milyon arasında olduğu tahmin ediliyor. {B}
 Kürtçenin başlıca lehçeleri şunlardır: {B}
 Kurmancî, yani Kuzey Kürtçesi. En çok konuşulan lehçedir. Bakur ve Rojava'da, Başûr'un kuzeyinde, Rojhelat'ın bir kısmında ve Kafkasya'da konuşulur. {B}
 Soranî, yani Orta Kürtçe. Başûr ve Rojhelat'ta yaygındır. {B}

@@ -306,7 +306,7 @@ DISPLAY = [("Xelîl-ê", "Xelîlê"), ("İşaratül İcaz", "İşaratü'l-İ'caz
            ("Bin dokuz yüz sekizde", "1908'de"), ("on dokuzuncu yüzyılda", "19. yüzyılda"),
            ("kırk milyonu", "40 milyonu"), ('"nyu"', '"new"'), ('"neym"', '"name"'),
            ("Kürd Teavün ve Terakki", "Kürd Teâvün ve Terakkî"), ("Sankt Peterburg", "Sankt-Peterburg"),
-           ("Arabi", "Arabî"), ("yirmi üç ila otuz beş milyon", "23-35 milyon"), ("kırk ila altmış milyon", "40-60 milyon"), ("sekiz ila on milyon", "8-10 milyon"),
+           ("Arabi", "Arabî"), ("yirmi üç ila yirmi beş milyon", "23-25 milyon"), ("kırk ila elli milyon", "40-50 milyon"), ("sekiz ila on milyon", "8-10 milyon"),
            ("altı ila sekiz milyon", "6-8 milyon"), ("iki ila üç milyon", "2-3 milyon")]
 
 
@@ -679,10 +679,10 @@ def scene_06():
     NOSUB.append((S0(s) - 0.3, t_dl + 0.2))  # bolgeler ve nufus sahnesinde altyazi yok
     t_tot = T(s, "Kafkasya, Orta Asya")
     add(pill("KÜRTÇE", GOLD, INK, size=34, padx=40, pady=16), cx, cy, S0(s) + 0.6, t_tot)
-    add(card(stack([text_img("40–60 milyon", "serif_b", 50, GOLD, shadow=False),
+    add(card(stack([text_img("40–50 milyon", "serif_b", 50, GOLD, shadow=False),
                     text_img("toplam · tahmini", "sans_r", 22, MUTED, shadow=False)], gap=-14),
              fill=(20, 24, 40, 255), border=GOLD, w=290, h=130), cx, cy, t_tot, t_dl, dy=0, scale_in=0.85)
-    Rg = [("Bakur", "kuzey", "23–35 milyon", (cx, cy - 268), "Bakur,", "Bakur'da"),
+    Rg = [("Bakur", "kuzey", "23–25 milyon", (cx, cy - 268), "Bakur,", "Bakur'da"),
           ("Başûr", "güney", "6–8 milyon", (cx, cy + 268), "Başûr,", "Başûr'da"),
           ("Rojava", "batı", "2–3 milyon", (cx - 470, cy), "Rojava", "Rojava'da"),
           ("Rojhelat", "doğu", "8–10 milyon", (cx + 470, cy), "Rojhelat'ta", ("Rojhelat'ta", 2))]

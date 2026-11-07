@@ -25,8 +25,8 @@ Bu videoda Mezopotamya'nın kadim dili Kürtçeyi anlatıyoruz: Hint-Avrupa dil 
 3:39 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
 4:07 Lehçeler ve kelime zenginliği
 5:08 Rus Kürdolojisi ve Petersburg
-6:23 Kürt medreseleri ve âlimler
-7:15 Bediüzzaman Said Nursi ve Kürtçe
+6:22 Kürt medreseleri ve âlimler
+7:14 Bediüzzaman Said Nursi ve Kürtçe
 7:49 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
 8:43 Kapanış: Ziman jiyan e
 
