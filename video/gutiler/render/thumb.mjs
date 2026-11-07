@@ -4,7 +4,9 @@ const out = '/home/user/peyvok/video/gutiler/film3/out/';
 const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1920, height: 1080 } }); p.on('pageerror', e => console.log('ERR', e.message));
 await p.goto('file://' + path.resolve('film3.html')); await p.evaluate(() => window.ready);
-await p.evaluate(() => {
+await p.evaluate(async () => {
+  const ff = new FontFace('KufiB', 'url(node_modules/@fontsource/noto-kufi-arabic/files/noto-kufi-arabic-arabic-900-normal.woff2)', { weight: '900' }); await ff.load(); document.fonts.add(ff);
+  const ff2 = new FontFace('KufiB', 'url(node_modules/@fontsource/noto-kufi-arabic/files/noto-kufi-arabic-arabic-800-normal.woff2)', { weight: '800' }); await ff2.load(); document.fonts.add(ff2);
   // big outlined text with glow
   window.bigTxt = (txt, x, y, size, fill, o = {}) => {
     X.save(); X.font = `${o.w || 900} ${size}px ${o.font || 'CinzelH'}`; X.textAlign = o.align || 'left'; X.textBaseline = 'alphabetic'; X.letterSpacing = (o.ls || 0) + 'px'; X.lineJoin = 'round';
@@ -87,8 +89,36 @@ await p.evaluate(() => {
       ribbon('GUTİLER · MÖ 2200', 56, 1012, 46); logo()
     }
   };
+  // language versions of variant d
+  const LANG = {
+    en: { lines: [['4000', 330, 'g', 380], ['YEAR-OLD', 92, 'w', 475], ['KURDISH', 280, 'r', 705], ['ANCESTORS', 120, 'g', 860]], rib: 'THE GUTIANS · RULERS OF MESOPOTAMIA' },
+    kmr: { lines: [['4000', 330, 'g', 380], ['SAL BERÊ', 92, 'w', 475], ['BAPÎRÊN', 130, 'g', 640], ['KURDAN', 260, 'r', 880]], rib: 'GUTÎ · SERWERÊN MEZOPOTAMYAYÊ' },
+    ar: { rtl: true, lines: [['4000', 330, 'g', 360], ['عام', 100, 'w', 495], ['أجداد', 140, 'g', 670], ['الكرد', 230, 'r', 900]], rib: 'الغوتيون · حكّام بلاد الرافدين' },
+    ckb: { rtl: true, lines: [['4000', 330, 'g', 360], ['ساڵ لەمەوبەر', 96, 'w', 495], ['باوباپیرانی', 130, 'g', 670], ['کورد', 230, 'r', 900]], rib: 'گوتییەکان · فەرمانڕەوایانی میزۆپۆتامیا' }
+  };
+  const isAr = t => /[\u0600-\u06FF]/.test(t);
+  for (const [k, c] of Object.entries(LANG)) THUMBS['d_' + k] = () => {
+    duelBG(420);
+    if (c.rtl) { const t = mk(W, H); t.getContext('2d').drawImage(document.getElementById('c'), 0, 0); X.save(); X.translate(W, 0); X.scale(-1, 1); X.drawImage(t, 0, 0); X.restore() }
+    if (c.rtl) { X.save(); X.translate(W, 0); X.scale(-1, 1); darkLeft(.9); X.restore(); sunburst(W - 1450, 250, 650, .7) } else { darkLeft(.9); sunburst(1450, 250, 650, .7) }
+    const x = c.rtl ? W - 60 : 60, align = c.rtl ? 'right' : 'left', maxW = 900;
+    // vertical layout: fit sizes to width, stack
+    c.lines.forEach(([t, size, st, y]) => {
+      const ar = isAr(t), font = ar ? 'KufiB' : 'CinzelH';
+      X.font = `900 ${size}px ${font}`; X.letterSpacing = '0px'; let sz = size; while (X.measureText(t).width > maxW && sz > 30) { sz -= 4; X.font = `900 ${sz}px ${font}` }
+      const o = { align, font, lw: sz * .09 }; if (ar) o.ls = 0; else if (sz < 140) o.ls = 8;
+      if (st === 'g') Object.assign(o, { glow: 'rgba(255,170,40,.8)', blur: 50 }); if (st === 'r') Object.assign(o, { stroke: '#7a0f0a', glow: 'rgba(230,40,20,.9)', blur: 55 });
+      bigTxt(t, x, y, sz, st === 'g' ? gold : '#ffffff', o)
+    });
+    // ribbon
+    X.save(); X.direction = c.rtl ? 'rtl' : 'ltr'; const rs = isAr(c.rib) ? 44 : 50; X.font = `800 ${rs}px ${isAr(c.rib) ? 'KufiB' : 'InterB'}`; const w = X.measureText(c.rib).width + rs * 1.1, h = rs * 1.6, ry = c.rtl ? 1018 : 990;
+    const rx = c.rtl ? W - 60 - w : 60; X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 20; X.fillStyle = '#c8201a'; X.beginPath(); X.roundRect(rx, ry - h / 2, w, h, 12); X.fill(); X.shadowBlur = 0;
+    X.fillStyle = '#fff'; X.textBaseline = 'middle'; X.textAlign = 'center'; X.fillText(c.rib, rx + w / 2, ry + (isAr(c.rib) ? 4 : 2)); X.restore();
+    if (c.rtl) { X.save(); X.font = '900 44px CinzelD'; X.textAlign = 'left'; X.letterSpacing = '6px'; X.lineWidth = 7; X.lineJoin = 'round'; X.strokeStyle = 'rgba(30,10,4,.8)'; X.strokeText('DÎROK', 46, 78); X.fillStyle = goldGrad(X, 40, 80); X.fillText('DÎROK', 46, 78); X.restore() } else logo()
+  };
 });
-for (const k of ['a', 'b', 'c', 'd', 'e']) {
+const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : ['a', 'b', 'c', 'd', 'e'];
+for (const k of ONLY) {
   const d = await p.evaluate(k => { X.setTransform(1, 0, 0, 1, 0, 0); X.fillStyle = '#000'; X.fillRect(0, 0, W, H); THUMBS[k](); return document.getElementById('c').toDataURL('image/jpeg', .95) }, k);
   fs.writeFileSync(out + `kapak_${k}_1920.jpg`, Buffer.from(d.split(',')[1], 'base64')); console.log(k)
 }
