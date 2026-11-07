@@ -3,7 +3,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Cinzel:wght@700;900&family=Nunito:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Nunito:wght@700;800;900&display=swap">
 <style>
 /* Peyvok — "Zimrûd" design system.
    Garanti BBVA greens (#2C873A brand, #002808 deep) + BBVA navy/aqua accents.
@@ -15,7 +15,7 @@
   --tile:#2C873A; --tile-hi:#4CC163; --tile-deep:#17602A; --acc:#6BE38A; --glow:rgba(107,227,138,.35);
   --ink:#0A2614; --ink2:#5B7564; --line:#E3EEE6; --on:#fff; --gold:#FFC93C; --red:#E5484D;
   --font-d:"Baloo 2","Arial Rounded MT Bold",system-ui,sans-serif;
-  --font-b:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-b:"Plus Jakarta Sans","Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease-pop:cubic-bezier(.3,1.6,.5,1);
   color-scheme:light;
 }
@@ -64,35 +64,50 @@ button:focus-visible{outline:3px solid var(--acc); outline-offset:3px}
   70%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.22), inset 0 2px 0 rgba(255,255,255,.4), inset 0 -3px 0 rgba(0,40,10,.25), 0 14px 32px rgba(10,120,50,.45), 0 0 0 16px rgba(107,227,138,0)}}
 
 /* ---------- home ---------- */
-.logo{margin-top:7vh; display:flex; flex-direction:column; align-items:center; gap:16px}
-.tiles{display:flex; gap:6px}
-.lt{width:min(13vw,54px); height:min(13vw,54px); border-radius:15px; display:grid; place-items:center; padding-top:4px;
-  font:800 min(8.8vw,36px)/1 var(--font-d); color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.2);
+.logo{margin-top:7vh; display:flex; flex-direction:column; align-items:center; gap:18px}
+.tiles{display:flex; gap:7px}
+.lt{width:min(13vw,54px); height:min(13vw,56px); border-radius:16px; display:grid; place-items:center; padding-top:4px;
+  font:800 min(8.8vw,36px)/1 var(--font-d); color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.18);
   background:linear-gradient(180deg,var(--tile-hi),var(--tile) 55%,var(--tile-deep));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.45), inset 0 -3px 0 rgba(0,0,0,.18), 0 12px 26px rgba(0,16,6,.45);
-  animation:drop .7s var(--ease-pop) both, float 4s ease-in-out infinite; animation-delay:calc(var(--i)*90ms), calc(var(--i)*300ms + .8s)}
-.lt:nth-child(n+5){background:linear-gradient(180deg,#fff,#E6F3EA); color:var(--tile-deep); text-shadow:none; box-shadow:inset 0 -3px 0 rgba(0,60,20,.1), 0 12px 26px rgba(0,16,6,.45)}
-.lt:nth-child(odd){rotate:-4deg}.lt:nth-child(even){rotate:3deg}
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45), inset 0 -4px 0 rgba(0,0,0,.16), 0 14px 28px rgba(0,16,6,.45);
+  animation:drop .7s var(--ease-pop) both, float 4.5s ease-in-out infinite; animation-delay:calc(var(--i)*90ms), calc(var(--i)*300ms + .8s)}
+.lt:nth-child(n+5){background:linear-gradient(180deg,#fff,#E6F3EA); color:var(--tile-deep); text-shadow:none; box-shadow:inset 0 -4px 0 rgba(0,60,20,.1), 0 14px 28px rgba(0,16,6,.45)}
+.lt:nth-child(odd){rotate:-3deg}.lt:nth-child(even){rotate:2deg}
 @keyframes drop{0%{transform:translateY(-60px) scale(.6); opacity:0}100%{transform:none; opacity:1}}
-@keyframes float{50%{translate:0 -6px}}
-.tag{font:900 .72rem var(--font-b); letter-spacing:.34em; text-transform:uppercase; padding:7px 16px; border-radius:999px; color:rgba(255,255,255,.9)}
-.ring{margin-top:4vh; position:relative; width:164px; height:164px; display:grid; place-items:center}
+@keyframes float{50%{translate:0 -5px}}
+.tag{display:flex; align-items:center; gap:12px; font:700 .74rem var(--font-b); letter-spacing:.32em; text-transform:uppercase; color:rgba(255,255,255,.78)}
+.tag::before,.tag::after{content:""; width:28px; height:1px; background:linear-gradient(90deg,transparent,var(--acc))}
+.tag::after{background:linear-gradient(90deg,var(--acc),transparent)}
+.ring{margin-top:5vh; position:relative; width:176px; height:176px; display:grid; place-items:center}
 .ring svg{position:absolute; inset:0; transform:rotate(-90deg); filter:drop-shadow(0 0 10px var(--glow))}
-.ring .in{width:124px; height:124px; border-radius:50%; display:grid; place-items:center; text-align:center}
-.ring b{display:block; font:800 2.9rem/1 var(--font-d); color:#fff; padding-top:6px}
-.ring span{font:900 .62rem var(--font-b); letter-spacing:.18em; text-transform:uppercase; color:var(--acc)}
-.where{margin-top:16px; display:flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; font:800 .9rem var(--font-b)}
+.ring .in{width:134px; height:134px; border-radius:50%; display:grid; place-items:center; text-align:center}
+.ring .in>div{display:flex; flex-direction:column; align-items:center}
+.ring span{font:800 .66rem var(--font-b); letter-spacing:.24em; text-transform:uppercase; color:var(--acc)}
+.ring b{display:block; font:800 3.3rem/1 var(--font-d); color:#fff; padding-top:6px; margin:2px 0 -2px; text-shadow:0 0 24px var(--glow)}
+.ring em{font:700 .78rem var(--font-b); font-style:normal; color:rgba(255,255,255,.55); letter-spacing:.04em}
+.where{margin-top:18px; display:flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; font:700 .88rem var(--font-b)}
 .where svg{width:15px; height:15px; color:var(--acc)}
-.homeRow{display:flex; gap:14px; align-items:center; justify-content:center; margin-top:auto; margin-bottom:4vh}
-.homeRow{width:100%}
-.home .btn3d{margin:0; flex:1 1 auto; min-width:0; max-width:240px}
-.cardBtn{width:58px; height:58px; border-radius:50%; display:grid; place-items:center; cursor:pointer; position:relative; color:#fff; padding:0}
-.cardBtn svg{width:26px; height:26px}
-.cardBtn .badge{position:absolute; top:-4px; right:-4px; min-width:22px; height:22px; padding:0 6px; border-radius:11px; background:#fff; color:var(--tile-deep); font:900 .72rem var(--font-b); display:grid; place-items:center; box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.homeCta{margin-top:auto; margin-bottom:3vh; width:100%; max-width:360px; display:flex; flex-direction:column; gap:12px}
+.btn3d.play{width:100%; min-width:0; height:72px; padding:0 18px 0 11px; border-radius:24px; display:flex; align-items:center; gap:14px; text-align:left; letter-spacing:0; text-shadow:none}
+.play .pIc{flex:none; width:50px; height:50px; border-radius:17px; display:grid; place-items:center; color:var(--g500);
+  background:linear-gradient(180deg,#fff,#E9F7ED); box-shadow:0 4px 12px rgba(0,50,15,.28), inset 0 -2px 0 rgba(0,60,20,.08)}
+.play .pIc svg{width:24px; height:24px; margin-left:3px}
+.play .pTx{flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; line-height:1.1}
+.play b{font:800 1.32rem var(--font-b); letter-spacing:.01em; text-transform:none}
+.play small{font:600 .8rem var(--font-b); color:rgba(255,255,255,.86); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.play .pGo{flex:none; width:22px; height:22px; opacity:.9; animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(4px)}}
+.home .btn3d{animation:ping 2.4s ease-out infinite}
+.homeRow{display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%}
+.cardBtn{height:54px; border-radius:18px; display:flex; align-items:center; justify-content:center; gap:10px; cursor:pointer; position:relative; color:#fff; padding:0 12px; font:700 .9rem var(--font-b)}
+.cardBtn svg{width:22px; height:22px; flex:none}
+.cardBtn .lbl{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
+.cardBtn:active{transform:translateY(1px)}
+.cardBtn .badge{position:absolute; top:-7px; right:-5px; min-width:22px; height:22px; padding:0 6px; border-radius:11px; background:#fff; color:var(--tile-deep); font:800 .72rem var(--font-b); display:grid; place-items:center; box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .spinBtn .badge{display:none}
 .spinBtn.ready .badge{display:grid; background:var(--red); color:#fff; animation:pulse 1.4s ease-in-out infinite}
-.spinBtn.ready{animation:wob 2.6s ease-in-out infinite}
-@keyframes wob{0%,80%,100%{transform:none}85%{transform:rotate(-12deg)}90%{transform:rotate(10deg)}95%{transform:rotate(-6deg)}}
+.spinBtn.ready svg{animation:wob 2.6s ease-in-out infinite}
+@keyframes wob{0%,80%,100%{transform:none}85%{transform:rotate(-16deg)}90%{transform:rotate(12deg)}95%{transform:rotate(-6deg)}}
 @keyframes pulse{50%{transform:scale(1.18)}}
 
 /* ---------- game ---------- */
@@ -269,7 +284,8 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
 /* ---------- small phones ---------- */
 @media (max-height:720px){
   .logo{margin-top:4vh}
-  .ring{width:144px; height:144px}.ring .in{width:108px; height:108px}.ring b{font-size:2.5rem}
+  .ring{width:148px; height:148px; margin-top:3vh}.ring .in{width:112px; height:112px}.ring b{font-size:2.6rem}
+  .btn3d.play{height:64px}.play .pIc{width:44px; height:44px; border-radius:15px}.cardBtn{height:48px}.homeCta{gap:10px}
   .stars svg{width:38px; height:38px}.stars svg:nth-child(2){width:52px; height:52px; margin-bottom:10px}
   .banner .ribbon{font-size:1.6rem}
   .reward{font-size:1rem}
@@ -286,13 +302,15 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
       <div class="coins glass"><span class="coin"></span><span class="cn"></span></div><div></div>
       <button class="rbtn glass" data-set aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></button>
     </div>
-    <div class="logo"><div class="tiles" id="logoTiles"></div><div class="tag glass" id="hSub"></div></div>
+    <div class="logo"><div class="tiles" id="logoTiles"></div><div class="tag" id="hSub"></div></div>
     <div class="ring"><svg viewBox="0 0 150 150"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F2C4"/><stop offset=".5" stop-color="var(--acc)"/><stop offset="1" stop-color="#2C873A"/></linearGradient></defs><circle cx="75" cy="75" r="68" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="7"/><circle id="ringArc" cx="75" cy="75" r="68" fill="none" stroke="url(#rg)" stroke-width="7" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="427" style="transition:stroke-dashoffset 1s .3s"/></svg>
-      <div class="in glass"><div><b id="hNum"></b><span id="hJ"></span></div></div></div>
+      <div class="in glass"><div><span id="hJ"></span><b id="hNum"></b><em id="hOf"></em></div></div></div>
     <div class="where glass"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span id="hPlace"></span></div>
-    <div class="homeRow">
-      <button class="cardBtn glass" id="collBtn" aria-label="Postcards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="16" height="12" rx="2" transform="rotate(-6 11 12)"/><rect x="5" y="5" width="16" height="12" rx="2"/><path d="M8 13l3-3 3 3 2-2 3 3"/></svg><span class="badge" id="collN"></span></button>
-      <button class="btn3d" id="playBtn"></button>
+    <div class="homeCta">
+      <button class="btn3d play" id="playBtn"></button>
+      <div class="homeRow">
+      <button class="cardBtn glass" id="collBtn" aria-label="Postcards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="16" height="12" rx="2" transform="rotate(-6 11 12)"/><rect x="5" y="5" width="16" height="12" rx="2"/><path d="M8 13l3-3 3 3 2-2 3 3"/></svg><span class="lbl" id="collL"></span><span class="badge" id="collN"></span></button>
+      </div>
     </div>
   </div>
 </section>
@@ -514,13 +532,13 @@ const LEVELS=[{"l":"ekç","w":[["keç","kız"],["çek","giysi"]],"x":{"r":3,"c":
 const T={
   ku:{sub:"Rêwîtiya peyvan",j:"Ast temam",lvl:"Ast",found:"Berê hat dîtin",coins:"Zêr têrê nake!",cnt:"Peyv",bonus:"Peyva bonus",
       praise:["Baş e!","Pir baş!","Mezin!","Bêhempa!","Şahane!"],done:"Pîroz be!",gl:"Peyvên vê astê",next:"Asta din",set:"Mîheng",
-      music:"Muzîk",sound:"Deng",reset:"Ji serî ve dest pê bike",fin:"Te hemû rêwîtî qedand!",post:"Kartpostala nû",coll:"Kartpostal",collSub:"ji 20 kartan",back:"Vegere",newBg:"Atmosfera nû"},
+      music:"Muzîk",sound:"Deng",reset:"Ji serî ve dest pê bike",fin:"Te hemû rêwîtî qedand!",post:"Kartpostala nû",coll:"Kartpostal",collSub:"ji 20 kartan",back:"Vegere",newBg:"Atmosfera nû",play:"Bilîze",cards:"Kartpostal",wheel:"Çerxa Bextê"},
   tr:{sub:"Kelime yolculuğu",j:"Bölüm bitti",lvl:"Bölüm",found:"Zaten bulundu",coins:"Yeterli altın yok",cnt:"Kelime",bonus:"Bonus kelime",
       praise:["Güzel!","Çok iyi!","Müthiş!","Süper!","Efsane!"],done:"Tebrikler!",gl:"Bu bölümün kelimeleri",next:"Sonraki bölüm",set:"Ayarlar",
-      music:"Müzik",sound:"Ses",reset:"Baştan başla",fin:"Tüm yolculuğu bitirdin!",post:"Yeni kartpostal",coll:"Kartpostallar",collSub:"20 kartpostaldan",back:"Geri",newBg:"Yeni atmosfer"},
+      music:"Müzik",sound:"Ses",reset:"Baştan başla",fin:"Tüm yolculuğu bitirdin!",post:"Yeni kartpostal",coll:"Kartpostallar",collSub:"20 kartpostaldan",back:"Geri",newBg:"Yeni atmosfer",play:"Oyna",cards:"Kartpostallar",wheel:"Şans Çarkı"},
   en:{sub:"A journey in words",j:"Completed",lvl:"Level",found:"Already found",coins:"Not enough coins",cnt:"Words",bonus:"Bonus word",
       praise:["Good!","Great!","Awesome!","Brilliant!","Legendary!"],done:"Well done!",gl:"Words in this level",next:"Next level",set:"Settings",
-      music:"Music",sound:"Sound",reset:"Start over",fin:"You finished the whole journey!",post:"New postcard",coll:"Postcards",collSub:"of 20 postcards",back:"Back",newBg:"New atmosphere"}
+      music:"Music",sound:"Sound",reset:"Start over",fin:"You finished the whole journey!",post:"New postcard",coll:"Postcards",collSub:"of 20 postcards",back:"Back",newBg:"New atmosphere",play:"Play",cards:"Postcards",wheel:"Lucky Wheel"}
 };
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function load(){try{return JSON.parse(localStorage.getItem("peyvok:v5"))||{}}catch(e){return{}}}
@@ -735,9 +753,9 @@ function coins(anim){const to=S.coins,from=shownCoins;shownCoins=to;
 function goHome(){
   const li=Math.min(S.lvl,N-1),t=L();setScene(li);show("home");coins();
   $("#logoTiles").innerHTML=[..."PEYVOK"].map((c,i)=>`<div class="lt" style="--i:${i}">${c}</div>`).join("");
-  $("#hSub").textContent=t.sub;$("#hNum").textContent=Math.min(S.lvl,N);$("#hJ").textContent=t.j;$("#hPlace").textContent=SCENES[sceneOf(li)].n;
+  $("#hSub").textContent=t.sub;$("#hNum").textContent=Math.min(S.lvl+1,N);$("#hJ").textContent=t.lvl;$("#hOf").textContent=`/ ${N}`;$("#collL").textContent=t.cards;{const sl=$("#spinBtn .lbl");if(sl)sl.textContent=t.wheel}$("#hPlace").textContent=SCENES[sceneOf(li)].n;
   $("#ringArc").style.strokeDashoffset=427*(1-Math.min(S.lvl,N)/N);$("#collN").textContent=S.cards.length;$("#collN").hidden=!S.cards.length;
-  $("#playBtn").textContent=S.lvl>=N?t.reset.toUpperCase():`${t.lvl.toUpperCase()} ${S.lvl+1}`;
+  $("#playBtn").innerHTML=`<span class="pIc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8c0 .8.9 1.3 1.6.9l10.2-6.4c.6-.4.6-1.4 0-1.8L9.6 4.7C8.9 4.3 8 4.8 8 5.6z" fill="currentColor"/></svg></span><span class="pTx"><b>${S.lvl>=N?t.reset:t.play}</b><small>${t.lvl} ${Math.min(S.lvl+1,N)} · ${SCENES[sceneOf(li)].n}</small></span><svg class="pGo" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 $("#playBtn").addEventListener("click",()=>{SFX.tap();if(S.lvl>=N){S.lvl=0;S.found={};S.hint={};S.bonus={};save()}startLevel(S.lvl)});
 $("#homeBtn").addEventListener("click",()=>{SFX.tap();goHome()});
@@ -955,7 +973,7 @@ async function doSpin(){if(spinning||spinLeft()<=0)return;initAudio();
 function updFH(){const p=$(".price");if(!p)return;const f=S.freeHints||0;p.innerHTML=f>0?`💡 ${f}`:`<i></i>100`;p.classList.toggle("free",f>0)}
 function updSpinBadge(){const b=$("#spinBtn");if(b)b.classList.toggle("ready",spinLeft()>0&&spinFree())}
 (function(){const row=$(".homeRow");if(!row)return;const b=document.createElement("button");b.className="cardBtn glass spinBtn";b.id="spinBtn";b.setAttribute("aria-label","Wheel");
-  b.innerHTML=`<svg viewBox="-20 -20 40 40" width="34" height="34">${[0,1,2,3,4,5,6,7].map(i=>{const a0=(i*45-112.5)*Math.PI/180,a1=a0+Math.PI/4;return `<path d="M0 0L${16*Math.cos(a0)} ${16*Math.sin(a0)}A16 16 0 0 1 ${16*Math.cos(a1)} ${16*Math.sin(a1)}Z" fill="${SPIN_COL[i][0]}"/>`}).join("")}<circle r="16" fill="none" stroke="#ffffff" stroke-width="2.5"/><circle r="4" fill="#ffffff"/></svg><span class="badge">!</span>`;
+  b.innerHTML=`<svg viewBox="-20 -20 40 40" width="24" height="24">${[0,1,2,3,4,5,6,7].map(i=>{const a0=(i*45-112.5)*Math.PI/180,a1=a0+Math.PI/4;return `<path d="M0 0L${16*Math.cos(a0)} ${16*Math.sin(a0)}A16 16 0 0 1 ${16*Math.cos(a1)} ${16*Math.sin(a1)}Z" fill="${SPIN_COL[i][0]}"/>`}).join("")}<circle r="16" fill="none" stroke="#ffffff" stroke-width="2.5"/><circle r="4" fill="#ffffff"/></svg><span class="lbl">${L().wheel}</span><span class="badge">!</span>`;
   row.appendChild(b);b.addEventListener("click",()=>{SFX.tap();openSpin()});updSpinBadge();updFH()})();
 
 goHome();frame();if(spinFree()&&S.lvl>0)setTimeout(()=>{if($("#home").classList.contains("show")&&!$("#layer").innerHTML)openSpin(true)},900);

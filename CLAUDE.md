@@ -16,7 +16,7 @@ Geliştirici: Gaffar (Okuyan Studio). Kısa, doğrudan Türkçe cevap tercih ede
 App.tsx, app.json, eas.json, assets/   # Expo uygulaması
 assets/web/game.html                   # ÜRETİLEN dosya (tools/build_game.py)
 source/peyvok.html                     # OYUN KAYNAĞI
-source/fonts-inline.html               # gömülü @font-face (Baloo 2, Cinzel, Nunito; latin+latin-ext)
+source/fonts-inline.html               # gömülü @font-face (Baloo 2, Plus Jakarta Sans, Nunito; latin+latin-ext)
 source/levels56.json                   # 200 seviye (oyuna gömülü olanın kaynağı)
 source/gen56.py                        # seviye üretici (max 5 sütun × 6 satır) — source/ içinden çalıştır
 source/gen7.py, gen200.py              # eski üreticiler (referans)
@@ -53,10 +53,10 @@ tools/build_game.py
 `dir`: 0 yatay, 1 dikey; `p[i]` ↔ `w[i]`. Yeniden üretim: `cd source && python3 gen56.py` (çıktı `levels.json` adını kontrol et) → oyundaki gömülü seviye dizisini değiştir.
 
 ### Onaylı tasarım kararları — bozma
-- **"Zimrûd" teması (Garanti BBVA renkleri):** ana yeşil `#2C873A`, koyu `#002808`; ek tonlar BBVA lacivert `#072146`, aqua `#2DCCCD`, teal, jade, lime. Beyaz kutular/çark, yeşil gradyan bulunan kutular ve CTA. Fontlar: Baloo 2 (harfler/başlık), Nunito 800–900 (arayüz). Altın sadece coin/ödül için.
+- **"Zimrûd" teması (Garanti BBVA renkleri):** ana yeşil `#2C873A`, koyu `#002808`; ek tonlar BBVA lacivert `#072146`, aqua `#2DCCCD`, teal, jade, lime. Beyaz kutular/çark, yeşil gradyan bulunan kutular ve CTA. Fontlar: Baloo 2 (harfler/logo/sayılar), Plus Jakarta Sans 600–800 (arayüz yazıları), Nunito yedek. Altın sadece coin/ödül için.
 - **Kutular her seviyede 64px (1. seviyedeki gibi). Küçültme.** Bu yüzden ızgara max 5×6; övgü şeridi (`top:-58px`) ve kelime balonu ızgaranın üstüne overlay.
 - Arka planlar koyu, üstte/altta karartmalı (HUD ve çark okunur kalsın); fotoğraf eklenmez, yeni görünüm = yeni `THEMES`/`STYLES` girdisi.
-- Logo: PEYV yeşil + OK beyaz harf kutuları. Ana sayfada ilerleme halkası (yeşil gradyan).
+- Logo: PEYV yeşil + OK beyaz harf kutuları. Ana sayfa: ilerleme halkası (içinde mevcut seviye / 200), altta büyük "Bilîze" butonu (oynat ikonu + seviye·mekân + ok), altında yan yana Kartpostal ve Çerxa Bextê cam butonları.
 - Günlük çark: 8 dilim (10–100 altın, 1–2 ipucu), günde 5 çevirme; ilki bedava, gerisi ödüllü reklam; `lvl>0` ise günde bir kez otomatik açılır. Kazanma penceresi "Te qezenc kir" (ışınlar + sayaç + "BIGIRE").
 - Arayüz dili: KU / TR / EN.
 
