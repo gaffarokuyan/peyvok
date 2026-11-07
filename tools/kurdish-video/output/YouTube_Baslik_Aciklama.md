@@ -25,12 +25,12 @@ Bu videoda Mezopotamya'nın kadim dili Kürtçeyi anlatıyoruz: Hint-Avrupa dil 
 3:39 Bakur, Başûr, Rojava, Rojhelat ve Kürt nüfusu
 4:07 Lehçeler ve kelime zenginliği
 5:08 Rusya ve Sankt-Peterburg koleksiyonları
-6:52 Sovyet dönemi Kürdolojisi
-7:32 Kürt edebiyatına sahip çıkan diğer ülkeler
-8:36 Kürt medreseleri ve âlimler
-9:28 Bediüzzaman Said Nursi ve Kürtçe
-10:02 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
-10:56 Kapanış: Ziman jiyan e
+6:53 Sovyet dönemi Kürdolojisi
+7:32 Kürt edebiyatını araştırıp koruyan diğer ülkeler
+8:38 Kürt medreseleri ve âlimler
+9:30 Bediüzzaman Said Nursi ve Kürtçe
+10:04 İşaratü'l-İ'caz: Kürtçe anlatılan tefsir
+10:58 Kapanış: Ziman jiyan e
 
 🗣️ Videoda geçen isimler ve eserler
 Ehmedê Xanî (Mem û Zîn, Nûbihara Biçûkan, Eqîdeya Îmanê) · Feqiyê Teyran (Qewlê Hespê Reş) · Melayê Cizîrî (Dîwan) · Melayê Bateyî (Mewlûd) · Mela Xelîlê Sêrtî · Molla Gürani · Bediüzzaman Said Nursi · Pyotr Lerch · Aleksandr Jaba · Mela Mehmûdê Bazîdî · İosif Orbeli · Vladimir Minorsky · Erebê Şemo · Qanatê Kurdo · Margarita Rudenko · Maurizio Garzoni · Roger Lescot · Celadet ve Kamuran Bedirxan · D. N. MacKenzie

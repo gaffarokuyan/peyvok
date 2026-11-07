@@ -748,12 +748,12 @@ def manuscript_book(lines, author, col):
 def scene_07():
     s = "07_petersburg"
     e = S1(s) + 0.3
-    chapter(s, "06", "KÜRT EDEBİYATINA SAHİP ÇIKANLAR")
+    chapter(s, "06", "KÜRT EDEBİYATINI KORUYANLAR")
     tB = T(s, "Rus akademisyen") - 0.2
     tC = T(s, "Bu koleksiyonlar") - 0.2
     tD = T(s, "Yirminci yüzyılda") - 0.2
     tE = T(s, "Sovyet döneminde de") - 0.2
-    tF = T(s, "Kürt edebiyatına sahip") - 0.2
+    tF = T(s, "Kürt edebiyatını araştırıp") - 0.2
     tG = T(s, "Güçlü bir bilim") - 0.2
 
     # A: Sankt-Peterburg silueti
@@ -821,7 +821,7 @@ def scene_07():
         add(info_card(top, name, ls, w=480, name_size=40), x, y, t0, tF)
 
     # F: diger ulkeler
-    add(text_img("Kürt edebiyatına sahip çıkanlar", "serif_i", 60, CREAM), W // 2, 170, tF + 0.2, tG)
+    add(text_img("Kürt edebiyatını araştırıp gelecek kuşaklara aktaranlar", "serif_i", 54, CREAM), W // 2, 170, tF + 0.2, tG)
     C = [("İTALYA · 1787", "Maurizio Garzoni", ["İlk Kürtçe gramer ve sözlük"], T(s, "İtalyan"), 420, 380),
          ("ALMANYA", "Socin · Prym · Justi", ["Halk anlatıları, Kürtçe gramer"], T(s, "Alman"), 960, 380),
          ("FRANSA", "Roger Lescot", ["Celadet ve Kamuran Bedirxan", "Paris Kürt Enstitüsü · 1983"], T(s, "Fransız"),
