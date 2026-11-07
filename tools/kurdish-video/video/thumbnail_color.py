@@ -214,46 +214,70 @@ def fit(text, name, maxw, size):
     return F(name, size)
 
 
-def main():
+LANGS = {
+    "tr": dict(title="KÜRTÇE", sub="Mezopotamya'nın kadim dili", l1="100 YIL", ban="YASAKLANDI", l3="AMA",
+               l4="YOK OLMADI!", foot="ZIMAN JIYAN E", rtl=False),
+    "en": dict(title="KURDISH", sub="The ancient language of Mesopotamia", l1="100 YEARS", ban="BANNED", l3="BUT",
+               l4="IT SURVIVED!", foot="ZIMAN JIYAN E", rtl=False),
+    "ku": dict(title="KURDÎ", sub="Zimanê kevnar ê Mezopotamyayê", l1="100 SAL", ban="QEDEXE BÛ", l3="LÊ",
+               l4="WINDA NEBÛ!", foot="ZIMAN JIYAN E", rtl=False),
+    "ar": dict(title="الكُردية", sub="لغة بلاد الرافدين العريقة", l1="100 عام", ban="من الحظر", l3="لكنها",
+               l4="لم تندثر!", foot="اللغة حياة", rtl=True),
+    "ckb": dict(title="کوردی", sub="زمانی دێرینی میزۆپۆتامیا", l1="١٠٠ ساڵ", ban="قەدەغە کرا", l3="بەڵام",
+                l4="لەناو نەچوو!", foot="زمان ژیانە", rtl=True),
+}
+
+
+def main(lang="tr"):
+    T = LANGS[lang]
+    rtl = T["rtl"]
+    HOOK = "Vazirmatn_900Black.ttf" if rtl else "Inter_900Black.ttf"
+    FOOT = "Vazirmatn_900Black.ttf" if rtl else "Inter_800ExtraBold.ttf"
+    TITLE = "Amiri_700Bold.ttf" if rtl else "PlayfairDisplay_700Bold.ttf"
+    SUBF = "Amiri_700Bold.ttf" if rtl else "PlayfairDisplay_600SemiBold_Italic.ttf"
+
     img = sky()
     rays(img)
     sun(img)
     mountains(img)
     chains(img)
 
-    # KURTCE: gunesin onunde altin, parlayan
-    fk = F("PlayfairDisplay_700Bold.ttf", 400)
-    gradient_text(img, (1180, 1010), "KÜRTÇE", fk, (255, 248, 200), (230, 140, 30), stroke=14, stroke_col=(70, 20, 30),
-                  glow=(255, 150, 40))
-    fsub = F("PlayfairDisplay_600SemiBold_Italic.ttf", 110)
-    gradient_text(img, (1180, 1290), "Mezopotamya'nın kadim dili", fsub, (255, 255, 255), (255, 225, 190),
-                  stroke=6, stroke_col=(80, 20, 50))
+    # baslik: gunesin onunde altin, parlayan
+    fk = fit(T["title"], TITLE, 1500, 520 if rtl else 400)
+    gradient_text(img, (1180, 990 if rtl else 1010), T["title"], fk, (255, 248, 200), (230, 140, 30), stroke=14,
+                  stroke_col=(70, 20, 30), glow=(255, 150, 40))
+    fsub = fit(T["sub"], SUBF, 1500, 120 if rtl else 110)
+    gradient_text(img, (1180, 1300), T["sub"], fsub, (255, 255, 255), (255, 225, 190), stroke=6,
+                  stroke_col=(80, 20, 50))
 
     # HOOK (sag)
     cx = 3010
-    f1 = fit("100 YIL", "Inter_900Black.ttf", 1500, 470)
-    gradient_text(img, (cx, 430), "100 YIL", f1, (255, 240, 120), (255, 176, 20), stroke=22, stroke_col=INK,
+    f1 = fit(T["l1"], HOOK, 1500, 470 if not rtl else 420)
+    gradient_text(img, (cx, 430), T["l1"], f1, (255, 240, 120), (255, 176, 20), stroke=22, stroke_col=INK,
                   glow=(255, 200, 40))
-    fb = fit("YASAKLANDI", "Inter_900Black.ttf", 1450, 300)
-    banner(img, cx, 900, "YASAKLANDI", fb, angle=-4)
-    fa = F("Inter_900Black.ttf", 200)
-    gradient_text(img, (cx, 1270), "AMA", fa, (255, 255, 255), (235, 225, 240), stroke=16, stroke_col=INK)
-    f3 = fit("YOK OLMADI!", "Inter_900Black.ttf", 1560, 340)
-    gradient_text(img, (cx, 1520), "YOK OLMADI!", f3, (170, 255, 190), (30, 200, 100), stroke=20, stroke_col=INK,
+    fb = fit(T["ban"], HOOK, 1450, 300 if not rtl else 270)
+    banner(img, cx, 900, T["ban"], fb, angle=-4)
+    fa = fit(T["l3"], HOOK, 1200, 200 if not rtl else 190)
+    gradient_text(img, (cx, 1270), T["l3"], fa, (255, 255, 255), (235, 225, 240), stroke=16, stroke_col=INK)
+    f3 = fit(T["l4"], HOOK, 1560, 340 if not rtl else 300)
+    gradient_text(img, (cx, 1520), T["l4"], f3, (170, 255, 190), (30, 200, 100), stroke=20, stroke_col=INK,
                   glow=(60, 255, 140))
 
     # alt serit
     d = ImageDraw.Draw(img)
-    d.text((cx, 1850), "ZIMAN JIYAN E", font=F("Inter_800ExtraBold.ttf", 92), fill=(255, 226, 150, 255), anchor="mm")
+    d.text((cx, 1850), T["foot"], font=F(FOOT, 92), fill=(255, 226, 150, 255), anchor="mm")
     d.line([(cx - 420, 1920), (cx + 420, 1920)], fill=(255, 200, 90, 220), width=6)
 
     os.makedirs(OUT, exist_ok=True)
+    tag = "" if lang == "tr" else f"_{lang}"
     rgb = img.convert("RGB")
-    rgb.save(os.path.join(OUT, "Kapak2_4K.png"), optimize=True)
-    rgb.save(os.path.join(OUT, "Kapak2_4K.jpg"), quality=93)
-    rgb.resize((1280, 720), Image.LANCZOS).save(os.path.join(OUT, "Kapak2_YouTube_1280.jpg"), quality=92)
-    print("ok")
+    rgb.save(os.path.join(OUT, f"Kapak2{tag}_4K.png"), optimize=True)
+    rgb.save(os.path.join(OUT, f"Kapak2{tag}_4K.jpg"), quality=93)
+    rgb.resize((1280, 720), Image.LANCZOS).save(os.path.join(OUT, f"Kapak2{tag}_YouTube_1280.jpg"), quality=92)
+    print("ok", lang)
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    for lg in (sys.argv[1:] or list(LANGS)):
+        main(lg)
