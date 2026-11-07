@@ -27,6 +27,11 @@ for lang in sys.argv[1:]:
   text=[None]*len(cues)
   for g,tr in zip(groups,lines):
     ws=tr.split()
+    P='Ji çiyan pê ve, hevalên me tune.'
+    if P in tr and len(g)==2:
+      k=tr.index(P);x=[tr[:k].strip(),P]
+      for kk,i in enumerate(g): (out if 'out' in dir() else text)[i]=x[kk]
+      continue
     if len(g)==1: text[g[0]]=tr;continue
     lens=[len(cues[i][2]) for i in g];tot=sum(lens);cum=0;cuts=[]
     for L in lens[:-1]:

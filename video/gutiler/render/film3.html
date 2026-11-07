@@ -16,7 +16,7 @@ canvas{display:block}
 <script>window.RELIEF_SRC="../maps4k/relief8.jpg";window.HIRES=true;</script>
 <script src="../maps4k/relief8_bounds.js"></script>
 <script src="../film3/timeline.js"></script>
-<style>@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-900-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-ext-900-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-800-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}</style>
+<style>@font-face{font-family:KufiB;font-weight:800;src:url(node_modules/@fontsource/noto-kufi-arabic/files/noto-kufi-arabic-arabic-800-normal.woff2)}@font-face{font-family:KufiB;font-weight:600;src:url(node_modules/@fontsource/noto-kufi-arabic/files/noto-kufi-arabic-arabic-600-normal.woff2)}@font-face{font-family:KufiB;font-weight:700;src:url(node_modules/@fontsource/noto-kufi-arabic/files/noto-kufi-arabic-arabic-700-normal.woff2)}@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-900-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-ext-900-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-800-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}</style>
 </head><body>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script>
@@ -1015,6 +1015,62 @@ function sGovernor(T,p){const lt=T-SH.t0;skyDay(lt,.15);const gg=X.createLinearG
   labelBoxB(1260,580,p.title2||'GUTİ ELÇİSİ',p.sub2||'Kral Si’um adına','',ss(step+1.2,step+1.6,lt),'#ff6a4a',clamp((lt-step-1.2)/.5),.85);
   if(p.quote){const a=A(p.quote[0],.5);if(a>0){parchment(W*.5-560,110,1120,110,a);X.save();X.globalAlpha=a;X.textAlign='center';X.textBaseline='middle';X.font='italic 600 46px Corm';X.fillStyle='#4a2a10';X.fillText(p.quote[1],W/2,166);X.restore()}}}
 
+// ================= 5-LANGUAGE AUDIO/SUBTITLE MENU OVERLAY (video opening) =================
+const LANGMENU = {
+  t0: 1.2, step: 1.9, out: 12.0,
+  ui: [
+    { rtl: 0, title: '5 DİLDE SESLENDİRME VE ALTYAZI', head: 'Ses parçası', items: ['Türkçe (orijinal)', 'Kurmancî', 'Soranî', 'Arapça', 'İngilizce'], foot: 'Altyazı: Türkçe' },
+    { rtl: 0, title: 'BI 5 ZIMANAN DENG Û BINNIVÎS', head: 'Şopa dengî', items: ['Tirkî (orîjînal)', 'Kurmancî', 'Soranî', 'Erebî', 'Îngilîzî'], foot: 'Binnivîs: Kurmancî' },
+    { rtl: 1, title: 'دەنگ و ژێرنووس بە ٥ زمان', head: 'تراکی دەنگ', items: ['تورکی (ڕەسەن)', 'کورمانجی', 'سۆرانی', 'عەرەبی', 'ئینگلیزی'], foot: 'ژێرنووس: سۆرانی' },
+    { rtl: 1, title: 'دبلجة وترجمة بخمس لغات', head: 'المسار الصوتي', items: ['التركية (الأصلية)', 'الكرمانجية', 'السورانية', 'العربية', 'الإنجليزية'], foot: 'الترجمة: العربية' },
+    { rtl: 0, title: 'AUDIO & SUBTITLES IN 5 LANGUAGES', head: 'Audio track', items: ['Turkish (original)', 'Kurmanji', 'Sorani', 'Arabic', 'English'], foot: 'Subtitles: English' }
+  ],
+  strip: ['Türkçe', 'Kurmancî', 'سۆرانی', 'العربية', 'English']
+};
+function drawLangMenu(T) {
+  const M = LANGMENU; if (T < M.t0 - .1 || T > M.out + .6) return;
+  const aIn = eout(clamp((T - M.t0) / .5)), aOut = 1 - clamp((T - M.out) / .5), a = aIn * aOut; if (a <= 0) return;
+  const k = Math.min(4, Math.max(0, Math.floor((T - M.t0) / M.step))), lt = T - M.t0 - k * M.step;
+  const U = M.ui[k], ar = !!U.rtl, F = ar ? 'KufiB' : 'InterB';
+  const w = 470, h = 392, x = W - 46 - w, y = 122 + (1 - aIn) * -30;
+  X.save(); X.globalAlpha = a;
+  // title above panel
+  X.textAlign = 'center'; X.textBaseline = 'middle'; X.font = `800 ${ar ? 25 : 23}px ${F}`; X.letterSpacing = ar ? '0px' : '2px';
+  X.lineJoin = 'round'; X.lineWidth = 6; X.strokeStyle = 'rgba(20,8,4,.85)'; const ty = y + 2; X.strokeText(U.title, x + w / 2, ty); X.fillStyle = goldGrad(X, ty - 14, ty + 14); X.fillText(U.title, x + w / 2, ty);
+  // panel
+  const py = y + 26; X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 26; X.fillStyle = 'rgba(22,12,8,.88)'; X.beginPath(); X.roundRect(x, py, w, h - 26, 16); X.fill(); X.shadowBlur = 0;
+  X.lineWidth = 2.5; X.strokeStyle = '#d9a640'; X.stroke();
+  const L = ar ? x + w - 26 : x + 26, R = ar ? x + 26 : x + w - 26, al = ar ? 'right' : 'left', dir = ar ? -1 : 1;
+  X.letterSpacing = '0px'; X.textAlign = al; X.direction = ar ? 'rtl' : 'ltr';
+  // header with headphone + gear icons
+  const hy = py + 34; X.font = `800 ${ar ? 25 : 24}px ${F}`; X.fillStyle = '#ffffff';
+  X.save(); X.strokeStyle = '#ffd65a'; X.lineWidth = 3; X.beginPath(); X.arc(L + dir * 12, hy + 2, 9, Math.PI, 0); X.stroke(); X.fillStyle = '#ffd65a'; X.fillRect(L + dir * 12 - 11, hy, 5, 9); X.fillRect(L + dir * 12 + 6, hy, 5, 9); X.restore();
+  X.fillText(U.head, L + dir * 34, hy + 2);
+  X.strokeStyle = 'rgba(217,166,64,.45)'; X.lineWidth = 1.5; X.beginPath(); X.moveTo(x + 16, hy + 24); X.lineTo(x + w - 16, hy + 24); X.stroke();
+  // items
+  const iy0 = hy + 58, ih = 46;
+  U.items.forEach((it, i) => {
+    const yy = iy0 + i * ih, sel = i === k;
+    if (sel) {
+      const pop = 1 + .06 * Math.sin(Math.PI * clamp(lt / .35));
+      X.save(); X.translate(x + w / 2, yy); X.scale(pop, pop); X.fillStyle = '#c8201a'; X.beginPath(); X.roundRect(-w / 2 + 14, -20, w - 28, 40, 9); X.fill(); X.strokeStyle = '#ffd65a'; X.lineWidth = 2; X.stroke(); X.restore();
+      X.save(); X.strokeStyle = '#fff'; X.lineWidth = 4; X.lineCap = 'round'; X.lineJoin = 'round'; const cx = L + dir * 8; X.beginPath(); X.moveTo(cx - 8 * dir, yy); X.lineTo(cx - 2 * dir, yy + 7); X.lineTo(cx + 10 * dir, yy - 8); X.stroke(); X.restore();
+    }
+    X.font = `${sel ? 800 : 600} ${ar ? 23 : 22}px ${F}`; X.fillStyle = sel ? '#ffffff' : 'rgba(255,240,220,.78)'; X.fillText(it, L + dir * 34, yy + 1);
+  });
+  // tap ripple on the newly selected row
+  if (lt < .6) { const yy = iy0 + k * ih; X.save(); X.globalAlpha = a * (1 - lt / .6); X.strokeStyle = '#ffd65a'; X.lineWidth = 3; X.beginPath(); X.arc(x + w / 2 + dir * 120, yy, 10 + 40 * lt, 0, TAU); X.stroke(); X.restore() }
+  // footer: subtitles
+  const fy = iy0 + 5 * ih + 4; X.strokeStyle = 'rgba(217,166,64,.45)'; X.lineWidth = 1.5; X.beginPath(); X.moveTo(x + 16, fy - 22); X.lineTo(x + w - 16, fy - 22); X.stroke();
+  X.save(); X.strokeStyle = '#ffd65a'; X.lineWidth = 2.5; X.strokeRect(ar ? L - 24 : L, fy - 9, 24, 18); X.fillStyle = '#ffd65a'; X.fillRect(ar ? L - 20 : L + 4, fy + 1, 7, 3); X.fillRect(ar ? L - 11 : L + 13, fy + 1, 7, 3); X.restore();
+  X.font = `700 ${ar ? 21 : 20}px ${F}`; X.fillStyle = '#ffd65a'; X.fillText(U.foot, L + dir * 34, fy + 1);
+  // language strip under panel
+  X.direction = 'ltr'; X.textAlign = 'left'; const sy = py + h - 26 + 26; let sx = 0; const parts = M.strip.map((s, i) => { X.font = `${i === k ? 800 : 600} 19px ${/[؀-ۿ]/.test(s) ? 'KufiB' : 'InterB'}`; return [s, X.measureText(s).width, X.font] });
+  const tot = parts.reduce((q, p) => q + p[1], 0) + 22 * (parts.length - 1); sx = x + w / 2 - tot / 2;
+  parts.forEach(([s, pw, f], i) => { X.font = f; X.lineWidth = 4; X.strokeStyle = 'rgba(20,8,4,.8)'; X.strokeText(s, sx, sy); X.fillStyle = i === k ? '#ffd65a' : '#ffffff'; X.fillText(s, sx, sy); if (i < parts.length - 1) { X.fillStyle = '#d9a640'; X.fillText('·', sx + pw + 7, sy) } sx += pw + 22 });
+  X.restore();
+}
+
 // ================= FILM SHOT LISTS v2 (Mezopotamya odaklı) — cue = anlatımdaki kelime =================
 const E2200=['akad','gut','lul','hur','elam'];
 const CIT_SUMER=[['Akad',44.1,33.1,null,true],['Kiş',44.6,32.54],['Nippur',45.23,32.13],['Uruk',45.64,31.32],['Ur',46.1,30.96],['Lagaş',46.4,31.41]];
@@ -1146,9 +1202,10 @@ function renderFrame(T){X.setTransform(1,0,0,1,0,0);X.filter='none';X.shadowBlur
   X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.globalCompositeOperation='source-over';
   const vg=X.createRadialGradient(W/2,H/2,H*.45,W/2,H/2,H*1.05);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.28)');X.fillStyle=vg;X.fillRect(0,0,W,H);
   if(T<window.TL.credits)filmCaptions(T);
+  if(typeof drawLangMenu==='function'&&window.LANGMENU_ON!==false)drawLangMenu(T);
   if(T<window.TL.logo-.5){X.save();X.globalAlpha=.85;X.font='900 30px CinzelD';X.textAlign='right';X.letterSpacing='4px';X.lineWidth=5;X.lineJoin='round';X.strokeStyle='rgba(40,15,5,.6)';X.strokeText('DÎROK',W-50,70);X.fillStyle=goldGrad(X,45,75);X.fillText('DÎROK',W-50,70);X.restore()}
   if(T<.5){X.fillStyle=`rgba(0,0,0,${1-T/.5})`;X.fillRect(0,0,W,H)}if(T>window.TL.total-.8){X.fillStyle=`rgba(0,0,0,${clamp((T-window.TL.total+.8)/.8)})`;X.fillRect(0,0,W,H)}}
 window.renderFrame=renderFrame;window.previewScene=(type,p,lt)=>{SH={t0:0,t1:30,T:lt,R:q=>typeof q==='number'?q:0,ch:null};X.setTransform(1,0,0,1,0,0);SCENE[type](lt,p)};window.MISSING=MISSING;
 
-window.ready=(async()=>{await RIMG.decode();await document.fonts.load('900 40px CinzelH','AaĞİŞ');await document.fonts.load('800 40px InterB','AaĞİŞ');await LOGO.decode();const fams=['700 40px Cinzel','900 40px CinzelD','italic 600 40px Corm','600 40px Inter'];for(const f of fams){await document.fonts.load(f,'ÂÎŞĞİÜÖÇşğıüöçâî');}await document.fonts.ready;return true})();
+window.ready=(async()=>{await RIMG.decode();await Promise.all(['600','700','800'].map(w=>document.fonts.load(w+' 30px KufiB','عربی')));await document.fonts.load('900 40px CinzelH','AaĞİŞ');await document.fonts.load('800 40px InterB','AaĞİŞ');await LOGO.decode();const fams=['700 40px Cinzel','900 40px CinzelD','italic 600 40px Corm','600 40px Inter'];for(const f of fams){await document.fonts.load(f,'ÂÎŞĞİÜÖÇşğıüöçâî');}await document.fonts.ready;return true})();
 </script></body></html>

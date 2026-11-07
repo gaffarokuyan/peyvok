@@ -43,6 +43,7 @@ function renderFrame(T){X.setTransform(1,0,0,1,0,0);X.filter='none';X.shadowBlur
   X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.globalCompositeOperation='source-over';
   const vg=X.createRadialGradient(W/2,H/2,H*.45,W/2,H/2,H*1.05);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.28)');X.fillStyle=vg;X.fillRect(0,0,W,H);
   if(T<window.TL.credits)filmCaptions(T);
+  if(typeof drawLangMenu==='function'&&window.LANGMENU_ON!==false)drawLangMenu(T);
   if(T<window.TL.logo-.5){X.save();X.globalAlpha=.85;X.font='900 30px CinzelD';X.textAlign='right';X.letterSpacing='4px';X.lineWidth=5;X.lineJoin='round';X.strokeStyle='rgba(40,15,5,.6)';X.strokeText('DÎROK',W-50,70);X.fillStyle=goldGrad(X,45,75);X.fillText('DÎROK',W-50,70);X.restore()}
   if(T<.5){X.fillStyle=`rgba(0,0,0,${1-T/.5})`;X.fillRect(0,0,W,H)}if(T>window.TL.total-.8){X.fillStyle=`rgba(0,0,0,${clamp((T-window.TL.total+.8)/.8)})`;X.fillRect(0,0,W,H)}}
 window.renderFrame=renderFrame;window.MISSING=MISSING;
