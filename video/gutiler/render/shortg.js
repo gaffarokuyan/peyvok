@@ -24,7 +24,7 @@ const SHOTS2 = [
   { at: 'akad@-0.3', type: 'map', crop: [960, 1150], p: { year: 'MÖ 2150', cam: [['akad@-0.3', 45.0, 33.6, 11], ['hükmettiler', 45.3, 33.0, 9]], show: ['akad', 'gut'], spread: ['diz', 'rule'],
       arrows: [['akad', [46.4, 34.6], [44.3, 33.2], '#e3322b', 1.4]], cities: [['Akad', 44.1, 33.1, null, true], ['Nippur', 45.23, 32.13], ['Uruk', 45.64, 31.32], ['Lagaş', 46.4, 31.41], ['Ur', 46.1, 30.96]] },
     hook: [[0, 'MEZOPOTAMYA’YA\n100 YIL HÜKMETTİLER']] },
-  { at: 'sümer#2@-0.3', type: 'tablet', crop: [1080, 1720], p: { seed: 5, title: 'SÜMER KRAL LİSTESİ', sub: 'Mezopotamya hanedanları', hl: 'kendi', quotes: [['kendi', 'Kendi kendilerinin kralıydılar']] },
+  { at: 'sümer#2@-0.3', type: 'tablet', crop: [1050, 1700], p: { seed: 5, title: 'SÜMER KRAL LİSTESİ', sub: 'Mezopotamya hanedanları', hl: 'kendi', quotes: [['kendi', 'Kendi kendilerinin kralıydılar']] },
     hook: [[0, 'SÜMER KRAL LİSTESİ\nNE YAZAR?']] },
   { at: 'yirmi@-0.3', type: 'council', crop: [1010, 1420], p: { vote: 'aşiret', elect: 'özerklik' }, hook: [[0, '21 KRAL'], ['aşiret', 'AŞİRET MECLİSİ'], ['kürt', 'KÜRT TOPLUMUNUN\nİLK İZLERİ']] },
   { at: 'gutium@-0.3', type: 'v_etym', p: {}, hook: [[0, '1700 YIL\nYAŞAYAN İSİM']] },
@@ -60,9 +60,9 @@ function wm(ctx) { ctx.save(); ctx.font = '900 34px CinzelD'; ctx.textAlign = 'c
 // captions: 3-4 word groups, current word gold
 const CAPG = []; (() => { let cur = []; SW.forEach((w, i) => { cur.push(w); const len = cur.map(x => x.w).join(' ').length; if (/[.,:;!?]$/.test(w.w) || cur.length >= 4 || len > 20 || i === SW.length - 1) { CAPG.push(cur); cur = [] } }) })();
 function captions(ctx, T, y = 1590) { const g = CAPG.find(c => T >= c[0].s - .08 && T < c[c.length - 1].e + .25); if (!g) return; ctx.save(); ctx.font = '800 72px InterB'; ctx.textBaseline = 'middle'; ctx.letterSpacing = '0px';
-  const txt = g.map(w => w.w.replace(/["“”]/g, '')); const sp = ctx.measureText(' ').width; const ws = txt.map(t => ctx.measureText(t).width); const total = ws.reduce((a, b) => a + b, 0) + sp * (txt.length - 1);
+  const txt = g.map(w => w.w.replace(/["“”]/g, '')); const sp = ctx.measureText(' ').width * 1.7; const ws = txt.map(t => ctx.measureText(t).width); const total = ws.reduce((a, b) => a + b, 0) + sp * (txt.length - 1);
   const sc = Math.min(1, 900 / total); ctx.translate(VW / 2, y); ctx.scale(sc, sc); let x = -total / 2;
-  txt.forEach((t, i) => { const on = T >= g[i].s - .03, cur = on && T < g[i].e + .05; ctx.save(); ctx.translate(x + ws[i] / 2, 0); const pop = cur ? 1 + .1 * Math.sin(Math.PI * clamp((T - g[i].s) / .2)) : 1; ctx.scale(pop, pop);
+  txt.forEach((t, i) => { const on = T >= g[i].s - .03, cur = on && T < g[i].e + .05; ctx.save(); ctx.translate(x + ws[i] / 2, 0); const pop = cur ? 1 + .05 * Math.sin(Math.PI * clamp((T - g[i].s) / .2)) : 1; ctx.scale(pop, pop);
     ctx.textAlign = 'center'; ctx.lineJoin = 'round'; ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(15,6,2,.95)'; ctx.strokeText(t, 0, 0); ctx.fillStyle = on ? '#ffd23a' : '#ffffff'; ctx.fillText(t, 0, 0); ctx.restore(); x += ws[i] + sp }); ctx.restore() }
 // ================= native vertical scenes =================
 function nodeBox(ctx, x, y, w, h, title, sub, a, k, final) { if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y); const s = lerp(.6, 1, eback(clamp(k))); ctx.scale(s, s);
