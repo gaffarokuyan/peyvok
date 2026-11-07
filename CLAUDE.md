@@ -64,7 +64,7 @@ tools/build_game.py
 2. **AdMob:** şu an sahte — `window.showRewardedAd=()=>new Promise(r=>setTimeout(()=>r(true),1200))`. `react-native-google-mobile-ads` ekle; WebView'dan `window.ReactNativeWebView.postMessage('ad:rewarded')`, native taraf reklamı gösterip `injectJavaScript` ile Promise'i çözsün. (Expo dev build gerekir, Expo Go'da çalışmaz.)
 3. Sahne 14 (Sine) ve 15–19 (Eyndiwer, Girê Mozan, Girê Helef, Efrîn, Nebî Horî) hâlâ çizim. Foto gelince `source/img/s14..s19.webp` (≈1080px, webp q≈80) üret, `IMGSRC`'ye ekle.
 4. Gizlilik URL'i: `https://peyvok.netlify.app/privacy.html` (`site/` Netlify'a yüklenecek).
-5. `app.json` → `android.versionCode` her Play yüklemesinde artmalı.
+5. `versionCode` EAS tarafından otomatik artar (`appVersionSource: remote`, `autoIncrement`); elle değiştirme.
 
 ## Build
 - `npx expo install` ile bağımlılıklar; test: `npx expo start`.
