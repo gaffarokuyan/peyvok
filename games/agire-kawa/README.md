@@ -1,4 +1,4 @@
-# Agirê Kawa — Newroz Efsanesi
+# Newroz Empire — Newroz Efsanesi
 
 3D **survivor-roguelite** mobil oyun prototipi (Okuyan Studio).
 Tek dosya: `index.html` (Three.js r160, vanilla JS, WebAudio sentez ses). Peyvok gibi Expo + WebView ile paketlenebilir.
