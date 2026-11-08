@@ -35,5 +35,6 @@ Uzakta yolda biri görünüyor. Kararma.
 - **Görsel:** VRoid Studio (karakterler) → Mixamo (hareket) → Blender toon shader (render); dudak senkronu Rhubarb Lip Sync.
 - **Ses:** ElevenLabs eleven_v4. Kurmancî metin hazır seslerle okunuyor (Voice Design Kürtçeyi kabul etmiyor).
   - Gulê: Dilara (`D2dHiTSPRx6l2bhKGmyJ`) — deneme: `ses/gule_test.mp3`
-  - Rêzan: Agit Taşdemir (`qLctY6uJSzrtjp23kPzO`) — denenecek
-  - Hêvî: çocuk sesi — seçilecek
+  - Rêzan: Agit Taşdemir (`qLctY6uJSzrtjp23kPzO`)
+  - Hêvî: Mithi (`MIl0Flub6Sc9KSkX2A42`)
+- **Replikler:** `ses/01…08_*.mp3` (sahne sırasıyla). Her biri ElevenLabs Scribe ile Kürtçe transkribe edilip kontrol edildi; metin Mazdek ile yazım/dilbilgisi kontrolünden geçti.
