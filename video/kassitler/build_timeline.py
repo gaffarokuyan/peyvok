@@ -1,6 +1,6 @@
 import json, subprocess
 CH=[('ch00','',''),('ch01','ZAGROSTAN GELEN ATLILAR','Kassitlerin Yurdu'),('ch02','BABİLİN TAHTI','Karduniaş · 430 Yıl'),('ch03','BÜYÜK GÜÇLER','Amarna Mektupları'),
- ('ch04','KASSİT MEDENİYETİ','Zigguratlar ve Kudurrular'),('ch05','DÜŞÜŞ','Elam Saldırısı'),('ch06','DAĞLARA DÖNÜŞ','Kossaioi'),('ch07','KASSİTLER VE KÜRTLER','Kaynaklar Ne Diyor?'),('ch08','','')]
+ ('ch04','KASSİT MEDENİYETİ','Zigguratlar ve Kudurrular'),('ch05','DÜŞÜŞ','Elam Saldırısı'),('ch06','ZAGROSLARA DÖNÜŞ','Kossaioi'),('ch07','KASSİTLER VE KÜRTLER','Kaynaklar Ne Diyor?'),('ch08','','')]
 FIX={'Dîroka':'Dîrok’a','Babile':'Babil’e','Babilin':'Babil’in','Babili':'Babil’i','Babili.':'Babil’i.','Hammurabinin':'Hammurabi’nin','Nehrinin':'Nehri’nin','Mezopotamyanın':'Mezopotamya’nın',
  'Mezopotamyayı':'Mezopotamya’yı','Mezopotamyaya':'Mezopotamya’ya','Mısırda':'Mısır’da','Ahenatona':'Ahenaton’a','Amenhotepe':'Amenhotep’e','Bağdadın':'Bağdat’ın','Zagrosun':'Zagros’un',
  'Zagrostan':'Zagros’tan','Paristeki':'Paris’teki','Müzesinde':'Müzesi’nde','Babildeki':'Babil’deki','İskenderin':'İskender’in','Kassitçeden':'Kassitçe’den'}
