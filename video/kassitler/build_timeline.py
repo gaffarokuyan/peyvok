@@ -7,7 +7,7 @@ FIX={'Dîroka':'Dîrok’a','Babile':'Babil’e','Babilin':'Babil’in','Babili'
 def dur(f): return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f]).decode())
 T=1.0;chs=[];num=0
 for i,(cid,title,sub) in enumerate(CH):
-  d=dur(f'audio/{cid}.wav');ws=json.load(open(f'audio/{cid}.words.json'))
+  d=dur(f'audio/{cid}.wav') if cid!='ch00' else 33.12;ws=json.load(open(f'audio/{cid}.words.json'))
   out=[[FIX.get(w,w),s,e] for w,s,e in ws]
   if i==1: chs.append({'id':'TITLE','card':T,'cardDur':7.0}); T+=7.0
   card=None

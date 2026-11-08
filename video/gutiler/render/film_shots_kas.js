@@ -14,7 +14,7 @@ const SHOTS = {
       badges: [['hanedanıydı', '430 YIL', 'BABİL TARİHİNİN EN UZUN HANEDANI']] } },
   { at: 'mısır@-0.3', type: 'amarna', p: { left: ['kas', 'KASSİT BABİL', 'Zagros’tan inen krallar'], right: ['egy', 'MISIR', 'Firavunlar'], quote: ['altın', 'Mektuplar, evlilikler ve altın'] } },
   { at: 'onların@-0.3', type: 'scenic', p: { warm: .25, hero: true, heroPal: 'kassit', lines: [['onların', 'KASSİTLER', 170, .3], ['kürtlerin', 'Kürtlerin kadim ataları', 70, .46, 'corm']] } },
-  { at: 'dîroka@-0.2', type: 'scenic', p: { warm: .2, lines: [['dîroka', 'DÎROK', 170, .38]] } }],
+  { at: 'dîrok@-0.2', type: 'scenic', p: { warm: .2, lines: [['dîrok', 'DÎROK', 170, .38]] } }],
  ch01: [
   { at: 0, type: 'terrain3d', p: { cam: [[0, 43.3, 31.0, 42, 45.4, 33.4], ['zagros', 45.4, 32.6, 34, 47.6, 34.3], ['kürtler', 46.0, 33.0, 26, 48.0, 34.5]],
       pins: [[null, 44.42, 32.54, 'BABİL', ''], ['dicle', 44.4, 33.35, 'DİCLE', ''], ['zagros', 47.6, 34.3, 'ORTA ZAGROS', 'Kassitlerin yurdu']], badges: [['bugün', 'BUGÜN', 'KÜRTLER VE LURLAR YAŞAR']] } },
