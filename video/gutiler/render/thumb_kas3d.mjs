@@ -8,7 +8,7 @@ for (const v of ['hero']) {
   const d = await p.evaluate(v => {
     const ctx = VX; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = 'none';
     const main = X; X = cv.getContext('2d'); X.setTransform(1, 0, 0, 1, 0, 0); SH = { t0: 0, t1: 30, T: 4.2, R: q => typeof q === 'number' ? q : 0, ch: null };
-    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'hero') { G3.rd.toneMappingExposure = 1.9; s3dHero(0, {}); G3.rd.toneMappingExposure = 1.05 } else if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
+    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'hero') { G3.rd.toneMappingExposure = 1.6; s3dHero(0, {}); G3.rd.toneMappingExposure = 1.05 } else if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
     X = main; labelBoxB = _lb;
     const s = VH / H; ctx.save(); ctx.filter = 'blur(26px) saturate(1.3)'; ctx.drawImage(cv, VW / 2 - W * s / 2, 0, W * s, H * s); ctx.restore();
     if (v === 'hero') ctx.filter = 'saturate(1.3) brightness(1.18)'; const f = v === 'hero' ? 1.0 : v === 'zig' ? 1.02 : 1.25; ctx.drawImage(cv, VW / 2 - (v === 'hero' ? 900 : v === 'zig' ? 880 : 960) * f, VH - H * f + (v === 'hero' ? 40 : v === 'zig' ? 60 : 20), W * f, H * f); ctx.filter = 'none';
@@ -28,6 +28,8 @@ for (const v of ['hero']) {
       if (o.shine) { ctx.globalCompositeOperation = 'lighter'; const sg = ctx.createLinearGradient(0, y - sz * .8, 0, y - sz * .4); sg.addColorStop(0, 'rgba(255,255,255,.35)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; ctx.fillText(txt, VW / 2, y) } ctx.restore() };
     const pill = (txt, y, bg, fg, size = 44) => { ctx.save(); ctx.font = `800 ${size}px InterB`; ctx.letterSpacing = '2px'; const w = ctx.measureText(txt).width + 70; ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 24; ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(VW / 2 - w / 2, y - size * .85, w, size * 1.7, size * .85); ctx.fill(); ctx.shadowBlur = 0;
       ctx.lineWidth = 3; ctx.strokeStyle = goldGrad(ctx, y - size, y + size); ctx.stroke(); ctx.fillStyle = fg; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(txt, VW / 2, y + 2); ctx.restore() };
+    if (v === 'hero') { const tc = document.createElement('canvas'); tc.width = VW; tc.height = VH; const tx = tc.getContext('2d'); tx.filter = 'saturate(1.3) brightness(1.04) contrast(1.12)';
+      tx.drawImage(cv, VW / 2 - 900, VH - H + 40, W, H); tx.filter = 'none'; tx.globalCompositeOperation = 'destination-in'; const mg = tx.createLinearGradient(0, 900, 0, 1100); mg.addColorStop(0, 'rgba(0,0,0,0)'); mg.addColorStop(1, 'rgba(0,0,0,1)'); tx.fillStyle = mg; tx.fillRect(0, 0, VW, VH); ctx.drawImage(tc, 0, 0) }
     // gold frame
     ctx.save(); ctx.lineWidth = 6; ctx.strokeStyle = goldGrad(ctx, 0, VH); ctx.strokeRect(26, 26, VW - 52, VH - 52); ctx.lineWidth = 2; ctx.strokeRect(40, 40, VW - 80, VH - 80); ctx.restore();
     ctx.save(); ctx.font = '900 40px CinzelD'; ctx.textAlign = 'center'; ctx.letterSpacing = '10px'; ctx.fillStyle = goldGrad(ctx, 90, 125); ctx.fillText('DÎROK', VW / 2, 125); ctx.restore();

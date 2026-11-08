@@ -1318,6 +1318,8 @@ const HERO3 = (() => {
     scene.add(new THREE.HemisphereLight(0xffd8b0, 0x5a3a2a, .7));
     const sun = new THREE.DirectionalLight(0xffb070, 3.2); sun.position.set(-20, 18, 14); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 100 }); scene.add(sun);
     const rim = new THREE.DirectionalLight(0xffe0a0, 2.2); rim.position.set(18, 10, -16); scene.add(rim);
+    const spot = new THREE.SpotLight(0xfff2e0, 260, 60, .55, .4, 1.6); spot.position.set(-2, 12, 14); spot.target.position.set(-4.2, 6, -4); scene.add(spot, spot.target);
+    const wl = new THREE.PointLight(0xffe8c8, 35, 40, 1.6); wl.position.set(6, 8, 10); scene.add(wl);
     cam = new THREE.PerspectiveCamera(36, W / H, .5, 600) }
   return { draw(T, p) { if (!scene) build(); const lt = T - SH.t0; cam.position.set(4 + lt * .2, 3.2, 21 - lt * .3); cam.lookAt(.4, 5.8, -1); G3.rd.render(scene, cam); X.drawImage(G3.cvs, 0, 0) } };
 })();
