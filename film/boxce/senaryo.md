@@ -20,7 +20,7 @@ Kurmancî, TR altyazılı. İlham: Japon annelerinin *obentō* kutusu ve içine 
 - GULÊ: Bi xêr here, bi xêr were. *(Sağ salim git, sağ salim gel.)*
 
 **4. İstanbul inşaatı, öğle.** Gri beton; Rêzan yalnız. Bohçayı açınca kırmızı bir renk patlıyor. İçinde eğri harflerle bir not:
-*"KURÊ MIN. TU BIRÇÎ NEMÎNÎ. DAYIKA TE"* (Oğlum. Aç kalma. Annen)
+*"KURÊ MIN. BIRÇÎ NEMÎNE. DAYIKA TE"* (Oğlum. Aç kalma. Annen)
 - GULÊ (dış ses): Kurê min… tu birçî nemînî, kurê min. *(Oğlum… aç kalma, oğlum.)*
 
 **5. Telefon.**

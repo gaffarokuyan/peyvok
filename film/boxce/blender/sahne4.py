@@ -253,7 +253,7 @@ NOTE_TOP = max(v.z for v in _nv)
 _rz = note.rotation_euler.z
 
 # el yazısı: her harf ayrı nesne; yeni öğrenen bir elin titrekliği
-LINES = ["KURÊ MIN.", "TU BIRÇÎ", "NEMÎNÎ.", "  DAYIKA TE"]
+LINES = ["KURÊ MIN.", "BIRÇÎ", "NEMÎNE.", "  DAYIKA TE"]
 rnd = random.Random(62)
 for li, line in enumerate(LINES):
     x = -0.064 + rnd.uniform(-0.003, 0.003)
