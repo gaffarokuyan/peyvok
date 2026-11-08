@@ -95,5 +95,6 @@ const SIT = { dy: -.45, legs: [[-1.5, 1.5], [-1.5, 1.5]], arms: [[-.6, 0, -.1, -
 const MICPOSE = (t, e = 1) => ({ ty: Math.sin(t * 1.3) * .15 * e, tx: .05 + Math.sin(t * 4.6) * .04 * e, hx: Math.sin(t * 4.6 + 1) * .08 * e, dy: -Math.abs(Math.sin(t * 2.3)) * .08 * e, arms: [[-.3 - Math.sin(t * 2.3) * .5 * e, 0, -.5, -.4], [-1.25, -.25, .2, -1.6]], legs: [[.12, .05], [-.12, .05]] });
 // ---------- portrait of the subject (stylized) ----------
 const makeJah = (o = {}) => makePerson(Object.assign({ hair: 'dreads', tattoo: true, chain: true, top: '#141418', pants: '#27324a', long: true }, o));
+const DOT = texCanvas(32, 32, (x, w, h) => { const g = x.createRadialGradient(16, 16, 0, 16, 16, 16); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.4, 'rgba(255,255,255,.8)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, w, h) });
 // ---------- film grain ----------
 const GRAIN = mk(512, 512); { const g = GRAIN.getContext('2d'), id = g.createImageData(512, 512); for (let i = 0; i < id.data.length; i += 4) { const v = Math.random() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 18 } g.putImageData(id, 0, 0) }

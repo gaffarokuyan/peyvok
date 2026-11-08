@@ -41,3 +41,29 @@ import os;os.makedirs('out',exist_ok=True)
 open('out/xxxtentacion_en.srt','w').write('\n'.join(f"{i+1}\n{ts(a)} --> {ts(b)}\n{wrap(t)}\n" for i,(a,b,t) in enumerate(cues)))
 open('out/xxxtentacion_en.ytt','w').write(HEAD+'\n'.join(f'<p t="{int(a*1000)}" d="{int((b-a)*1000)}" wp="1" ws="1">{body(wrap(t))}</p>' for a,b,t in cues)+'\n</body>\n</timedtext>\n')
 print(len(cues),'cues')
+# ---- burned-in karaoke ASS (spoken words turn yellow, song titles pink) ----
+def at(x): cs=int(round(x*100));return f"{cs//360000}:{cs//6000%60:02}:{cs//100%60:02}.{cs%100:02}"
+words=[]
+for ch in tl['chapters']:
+  if ch.get('words'): words+=[(w,ch['start']+s,ch['start']+e) for w,s,e in ch['words']]
+ASS=['[Script Info]','ScriptType: v4.00+','PlayResX: 1920','PlayResY: 1080','WrapStyle: 2','','[V4+ Styles]',
+ 'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
+ 'Style: K,Inter ExtraBold,52,&H003AD2F6,&H00FFFFFF,&H00140A12,&H00000000,0,0,0,0,100,100,0.5,0,3,16,0,2,160,160,64,1','','[Events]','Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text']
+wi=0
+for a,b,t in cues:
+  toks=t.split();seg=[]
+  # locate words of this cue in global list
+  while wi<len(words) and abs(words[wi][1]-a)>.02: wi+=1
+  ws=words[wi:wi+len(toks)];wi+=len(toks)
+  lines=wrap(t).split('\n');brk=len(lines[0].split()) if len(lines)>1 else -1
+  inq=False;out=''
+  for k,(w,s,e) in enumerate(ws):
+    nxt=ws[k+1][1] if k+1<len(ws) else max(e,b-.05);d=max(1,int(round((nxt-s)*100)))
+    q0=w.startswith('"');q1=w.rstrip('.,!?:;').endswith('"') or w.endswith('"')
+    if q0: inq=True
+    col='{\\1c&H6A4AFF&\\2c&H8A6AFF&}' if inq else '{\\1c&H3AD2F6&\\2c&HFFFFFF&}'
+    if k==brk: out+='\\N'
+    out+=f'{col}{{\\k{d}}}'+w.replace('"','')+(' ' if k+1<len(ws) and k+1!=brk else '')
+    if q1 and not (q0 and len(w)<2): inq=False
+  ASS.append(f'Dialogue: 0,{at(a)},{at(b)},K,,0,0,0,,{out}')
+open('out/xxxtentacion_en.ass','w').write('\n'.join(ASS)+'\n');print('ass',len(cues))

@@ -8,7 +8,7 @@ function ledTex() { return texCanvas(1024, 440, (x, w, h, txt = '17', t = 0, hue
   for (let i = 0; i < w; i += 4) { x.fillStyle = 'rgba(0,0,0,.25)'; x.fillRect(i, 0, 1, h) } }) }
 def3('concert', (sc, cam) => {
   sc.background = new THREE.Color('#030208'); sc.fog = new THREE.FogExp2('#0a0614', .028);
-  sc.add(new THREE.HemisphereLight('#4a3aff', '#0a0410', .35));
+  sc.add(new THREE.HemisphereLight('#6a5aff', '#0a0410', .7));
   const stage = box(18, 1.4, 9, M('#141418', { roughness: .5, metalness: .4 }), 0, .7, -4, sc);
   const lt = ledTex(); const led = mesh(new THREE.PlaneGeometry(16, 6.9), new THREE.MeshBasicMaterial({ map: lt, toneMapped: false })); led.position.set(0, 5.2, -8.4); sc.add(led);
   const tr = M('#9a9aa8', { metalness: .9, roughness: .3 }); for (const x of [-8.6, 8.6]) cyl(.12, .12, 10, tr, x, 5, -6, sc, 8); const tb = cyl(.12, .12, 17.2, tr, 0, 9.8, -6, sc, 8); tb.rotation.z = Math.PI / 2; const tb2 = cyl(.12, .12, 17.2, tr, 0, 9.8, -2, sc, 8); tb2.rotation.z = Math.PI / 2;
@@ -23,12 +23,13 @@ def3('concert', (sc, cam) => {
   const N = 520, bodyG = new THREE.CapsuleGeometry(.26, .7, 4, 8), headG = new THREE.SphereGeometry(.17, 10, 8), armG = new THREE.CapsuleGeometry(.07, .6, 3, 6);
   const bodies = new THREE.InstancedMesh(bodyG, M('#16141c', { roughness: .9 }), N), headsI = new THREE.InstancedMesh(headG, M('#3a2618', { roughness: .8 }), N), arms = new THREE.InstancedMesh(armG, M('#16141c'), N);
   const pos = []; for (let i = 0; i < N; i++) { const r = hash(i * 1.7); pos.push([(hash(i) - .5) * 30, 2 + hash(i + 5) * 22, hash(i + 2) * TAU, r < .35]) } sc.add(bodies, headsI, arms);
-  const phones = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ color: '#e8f0ff', size: .09, transparent: true, opacity: .9 })); sc.add(phones); const pp = new Float32Array(N * 3); phones.geometry.setAttribute('position', new THREE.BufferAttribute(pp, 3));
-  const smoke = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ color: '#8a6aff', size: 1.4, transparent: true, opacity: .05, depthWrite: false, blending: THREE.AdditiveBlending })); const sp = new Float32Array(300 * 3); for (let i = 0; i < 300; i++) { sp[i * 3] = (hash(i + 40) - .5) * 24; sp[i * 3 + 1] = hash(i + 41) * 6 + 1; sp[i * 3 + 2] = -7 + hash(i + 42) * 12 } smoke.geometry.setAttribute('position', new THREE.BufferAttribute(sp, 3)); sc.add(smoke);
+  const phones = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ map: DOT, color: '#e8f0ff', size: .12, transparent: true, opacity: .95, depthWrite: false })); sc.add(phones); const pp = new Float32Array(N * 3); phones.geometry.setAttribute('position', new THREE.BufferAttribute(pp, 3));
+  const puff = texCanvas(64, 64, (x, w, h) => { const g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, w, h) });
+  const smoke = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ map: puff, color: '#8a6aff', size: 2.2, transparent: true, opacity: .06, depthWrite: false, blending: THREE.AdditiveBlending })); const sp = new Float32Array(300 * 3); for (let i = 0; i < 300; i++) { sp[i * 3] = (hash(i + 40) - .5) * 24; sp[i * 3 + 1] = hash(i + 41) * 6 + 1; sp[i * 3 + 2] = -7 + hash(i + 42) * 12 } smoke.geometry.setAttribute('position', new THREE.BufferAttribute(sp, 3)); sc.add(smoke);
   const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), s1 = V3(1, 1, 1);
   let lastLed = -1;
   return {
-    exp: 1.25, update(lt, p, T) {
+    exp: 1.45, update(lt, p, T) {
       const beat = T * 70 / 60, bpulse = Math.pow(1 - (beat % 1), 3), ch = p.chaos ? A(p.chaos, 1) : 0, en = p.energy ?? 1;
       heads.forEach(h => { const a = lt * .7 + h.i * 1.3; const tx = Math.sin(a) * 7 + (h.i - 2.5) * 1.2, tz = Math.cos(a * .8) * 6 + 6; h.sl.target.position.set(tx, 0, tz); const d = V3(tx, 0, tz).sub(h.sl.position).normalize(); h.cone.quaternion.setFromUnitVectors(V3(0, -1, 0), d); h.sl.intensity = 500 + 600 * bpulse * en; h.cone.material.opacity = .05 + .08 * bpulse * en });
       if (Math.floor(T * 12) !== lastLed) { lastLed = Math.floor(T * 12); redraw(lt, p.led || '17', T, p.hue ?? 280) }

@@ -29,7 +29,7 @@ def3('portrait', (sc, cam) => {
   const floor = mesh(new THREE.CircleGeometry(6, 48), M('#0b0b10', { roughness: .4, metalness: .3 })); floor.rotation.x = -Math.PI / 2; sc.add(floor);
   // floating dust
   const n = 400, pg = new THREE.BufferGeometry(), pos = new Float32Array(n * 3); for (let i = 0; i < n; i++) { pos[i * 3] = (hash(i) - .5) * 10; pos[i * 3 + 1] = hash(i + 9) * 5; pos[i * 3 + 2] = (hash(i + 3) - .5) * 8 - 1 }
-  pg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); const pts = new THREE.Points(pg, new THREE.PointsMaterial({ color: '#ffd9a0', size: .025, transparent: true, opacity: .7, depthWrite: false })); sc.add(pts);
+  pg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); const pts = new THREE.Points(pg, new THREE.PointsMaterial({ map: DOT, color: '#ffd9a0', size: .04, transparent: true, opacity: .7, depthWrite: false })); sc.add(pts);
   return {
     exp: 1.2, j, update(lt, p) {
       const m = p.mode || 'bust'; pose(j, { hx: Math.sin(lt * .5) * .05 + (p.down ? .25 : 0), hy: Math.sin(lt * .3) * .12, arms: p.arms });
