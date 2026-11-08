@@ -27,3 +27,8 @@ short2/stills/
 short2/out/
 short2/audio/*.wav
 short2/seg_en/
+kassitler/seg/
+kassitler/stills/
+kassitler/out/
+kassitler/audio/*.wav
+kassitler/audio/*.mp3

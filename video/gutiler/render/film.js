@@ -6,17 +6,17 @@ function sAnthem(T,p){const lt=T-SH.t0;brightBG(lt,'#fff6c0','#ffb02a','#e0402a'
   const b=A(p.tr,.5);if(b>0){X.save();X.globalAlpha=b;X.textAlign='center';X.font='italic 600 60px Corm';X.lineJoin='round';X.lineWidth=8;X.strokeStyle='rgba(60,20,5,.7)';X.strokeText('“Biz Medya’nın ve Keyxusrew’in gençleriyiz”',W/2,H*.84);X.fillStyle='#fff';X.fillText('“Biz Medya’nın ve Keyxusrew’in gençleriyiz”',W/2,H*.84);X.restore()}
   labelBoxB(W/2,H*.09,'EY REQÎB','Kürt ulusal marşı','',ss(.2,.6,lt),'#ffb23a',clamp(lt/.5))}
 const _scenic=sScenicText;sScenicText=function(T,p){_scenic(T,p);if(p.hero){const lt=T-SH.t0;const pp={x:W*.74,y:0,f:-1,h:420,torso:.02,head:-.05,ua:[.25,.1],ba:[.15,-.2],fl:[.12,-.05],bl:[-.12,-.02]};ground(pp,900);
-  X.save();X.shadowColor='rgba(0,0,0,.35)';X.shadowBlur=14;warriorC(X,pp,PAL.guti,{helmet:'cone',shield:'round',spear:1.45,cloak:true,wind:lt*1.5});X.restore()}};
+  X.save();X.shadowColor='rgba(0,0,0,.35)';X.shadowBlur=14;warriorC(X,pp,PAL[p.heroPal||'guti'],{helmet:'cone',shield:'round',spear:1.45,cloak:true,wind:lt*1.5});X.restore()}};
 const SCENE={map:drawFilmMap,duel:sDuel,battle:sBattle,stele:sStele,anubanini:sAnubanini,tablet:sTablet,cylinder:sCylinder,lion:sLion,amarna:sAmarna,chariots:sChariots,ziggurat:sZiggurat,ekbatana:sEkbatana,
  eclipse:sEclipse,nineveh:sNineveh,van:sVan,gudea:sGudea,quote:sQuote,compare:sCompare,authors:sAuthors,etym:sEtym,lineage:sLineage,timeline:sTimeline,scenic:sScenicText,anthem:sAnthem,
- card:sChapterCard,council:sCouncil,governor:sGovernor,list:sList,city:sCity,title:sTitle,credits:sCredits,logo:(T,p)=>drawLogo(T-SH.t0)};
+ card:sChapterCard,council:sCouncil,governor:sGovernor,gold:(typeof sGold!=='undefined'?sGold:null),kudurru:(typeof sKudurru!=='undefined'?sKudurru:null),blackstele:(typeof sBlackStele!=='undefined'?sBlackStele:null),pass:(typeof sPass!=='undefined'?sPass:null),list:sList,city:sCity,title:sTitle,credits:sCredits,logo:(T,p)=>drawLogo(T-SH.t0)};
 function normW(w){return w.toLocaleLowerCase('tr').replace(/[^a-zçğıöşüâîûê0-9-]/g,'')}
 const MISSING=[];
 function cueT(ch,q){if(typeof q==='number')return ch.start+q;let [key,off]=q.split('@');off=+(off||0);let [w,n]=key.split('#');n=+(n||1);const parts=w.split(' ').map(normW);const ws=ch.words;
   for(let i=0;i<ws.length;i++){if(parts.every((pp,j)=>ws[i+j]&&normW(ws[i+j][0]).startsWith(pp))){if(--n===0)return ch.start+ws[i][1]+off}}MISSING.push(ch.id+':'+q);return ch.start}
 // build global shot list
 const ALL=[];const TLc=window.TL.chapters;
-TLc.forEach((ch,ci)=>{if(ch.id==='TITLE'){ALL.push({t0:ch.card,type:'title',p:{},ch:TLc[ci+1]});return}
+TLc.forEach((ch,ci)=>{if(ch.id==='TITLE'){ALL.push({t0:ch.card,type:'title',p:window.TITLEP||{},ch:TLc[ci+1]});return}
   if(ch.card!=null)ALL.push({t0:ch.card,type:'card',p:{num:ch.num,title:ch.title,sub:ch.sub},ch});
   (SHOTS[ch.id]||[]).forEach(s=>ALL.push({t0:cueT(ch,s.at),type:s.type,p:s.p,ch}))});
 ALL.push({t0:window.TL.credits,type:'credits',p:{},ch:TLc[TLc.length-1]});ALL.push({t0:window.TL.logo,type:'logo',p:{},ch:TLc[TLc.length-1]});

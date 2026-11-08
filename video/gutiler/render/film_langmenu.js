@@ -15,7 +15,7 @@ function drawLangMenu(T) {
   const aIn = eout(clamp((T - M.t0) / .5)), aOut = 1 - clamp((T - M.out) / .5), a = aIn * aOut; if (a <= 0) return;
   const k = Math.min(4, Math.max(0, Math.floor((T - M.t0) / M.step))), lt = T - M.t0 - k * M.step;
   const U = M.ui[k], ar = !!U.rtl, F = ar ? 'KufiB' : 'InterB';
-  const w = 470, h = 392, x = W - 46 - w, y = 122 + (1 - aIn) * -30;
+  const w = 470, h = 392, x = LANGMENU.left ? 46 : W - 46 - w, y = 122 + (1 - aIn) * -30;
   X.save(); X.globalAlpha = a;
   // title above panel
   X.textAlign = 'center'; X.textBaseline = 'middle'; X.font = `800 ${ar ? 25 : 23}px ${F}`; X.letterSpacing = ar ? '0px' : '2px';

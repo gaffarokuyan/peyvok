@@ -1,0 +1,5 @@
+seg/
+stills/
+out/
+audio/*.wav
+audio/*.mp3
