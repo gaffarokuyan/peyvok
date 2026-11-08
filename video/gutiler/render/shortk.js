@@ -17,20 +17,20 @@ const SEND = SW[SW.length - 1].e, STOTAL = +(SEND + 2.3).toFixed(2);
 // ---- shot list
 const FS = { map: drawFilmMap, duel: sDuel, tablet: sTablet, council: sCouncil, terrain3d: s3dTerrain, nineveh: sNineveh, amarna: sAmarna, gold: sGold, zig3d: s3dZiggurat, pass: sPass };
 const SHOTS2 = [
-  { at: 0, type: 'map', crop: [960, 1150], p: { cam: [[0, 44.0, 33.6, 18], ['ama', 44.6, 32.7, 9]], show: ['kas'], spread: ['babili', 'kas'], cities: [['Babil', 44.42, 32.54, null, true], ['Nippur', 45.23, 32.13], ['Uruk', 45.64, 31.32]] },
-    hook: [[0, '400 YIL\nBABİL’İ YÖNETTİLER'], ['ama', 'NE SÜMERLİ\nNE AKADLI']] },
-  { at: 'zagros@-0.3', type: 'terrain3d', crop: [960, 1150], p: { cam: [['zagros@-0.3', 44.2, 31.9, 40, 46.8, 34.0], ['yani', 45.6, 32.9, 26, 48.0, 34.5]], pins: [[null, 44.42, 32.54, 'BABİL', ''], ['inen', 47.6, 34.3, 'ZAGROS', 'Kassitlerin yurdu']] },
-    hook: [[0, 'ZAGROS’TAN\nİNEN HALK'], ['kassitlerdi', 'KASSİTLER'], ['yani', 'KÜRTLERİN\nKADİM ATALARI']] },
-  { at: 'milattan@-0.3', type: 'nineveh', crop: [960, 1300], p: { pal: 'hitit', noArmy: true, title: 'BABİL', sub: 'MÖ 1595 · YAĞMALANDI' }, hook: [[0, 'MÖ 1595'], ['tahta', 'TAHTA\nKASSİTLER OTURDU']] },
-  { at: 'otuz@-0.3', type: 'tablet', crop: [1060, 1700], p: { seed: 11, title: 'BABİL KRAL LİSTESİ', sub: 'Kassit hanedanı', names: [['otuz', 'GANDAŞ'], ['otuz@0.25', 'AGUM II'], ['otuz@0.5', 'BURNABURİAŞ'], ['otuz@0.75', 'KURİGALZU'], ['otuz@1', 'KADAŞMAN-ENLİL'], ['otuz@1.25', 'KAŞTİLİAŞ IV']], badges: [['babil#3', '430 YIL', 'BABİL’İN EN UZUN HANEDANI']] },
-    hook: [[0, '36 KRAL'], ['dört#2', '430 YIL'], ['babil#3', 'EN UZUN\nHANEDAN']] },
-  { at: 'mısır@-0.3', type: 'amarna', crop: [960, 1700], p: { left: ['kas', 'KASSİT BABİL', 'Burnaburiaş'], right: ['egy', 'MISIR', 'Firavun'] }, hook: [[0, 'FİRAVUNLARLA\nEŞİT MASADA']] },
-  { at: 'gönderdiğin@-0.3', type: 'gold', crop: [900, 1600], p: { melt: 'fırına', quote: ['gönderdiğin', '“Kırk mina altını fırına koydum, on mina bile çıkmadı.”'] }, hook: [[0, 'BURNABURİAŞ’IN\nŞİKÂYETİ'], ['on mina', '40 MİNADAN\n10 MİNA BİLE ÇIKMADI']] },
+  { at: 0, type: 'nineveh', crop: [960, 1300], p: { pal: 'hitit', noArmy: true, title: 'BABİL', sub: 'MÖ 1595' }, hook: [[0, 'BABİL DÜŞTÜĞÜNDE\nTAHTA KİM OTURDU?']] },
+  { at: 'milattan@-0.3', type: 'map', crop: [960, 1150], p: { cam: [['milattan@-0.3', 39.6, 36.4, 22], ['dünyanın', 43.6, 33.6, 12]], show: ['hit'], cities: [['Babil', 44.42, 32.54, null, true], ['Hattuşa', 34.6, 40.0, 0]],
+      armies: [['hititler', [34.8, 39.6], [44.2, 32.8], '#7a5a3a', '#2a1a10', 2.4]], fall: [['Babil', 'yağmaladı']] }, hook: [[0, 'MÖ 1595\nHİTİT YAĞMASI'], ['dünyanın', 'BABİL\nSAHİPSİZ KALDI']] },
+  { at: 'o boşluğu@-0.3', type: 'terrain3d', crop: [960, 1150], p: { cam: [['o boşluğu@-0.3', 44.2, 31.9, 40, 46.8, 34.0], ['kassitler', 45.6, 32.9, 26, 48.0, 34.5]], pins: [[null, 44.42, 32.54, 'BABİL', ''], ['zagros', 47.6, 34.3, 'ZAGROS', 'Kassitlerin yurdu']] },
+    hook: [[0, 'BOŞLUĞU DOLDURAN\nHALK'], ['kassitler', 'KASSİTLER']] },
+  { at: 'kassitler#2@-0.3', type: 'map', crop: [960, 1150], p: { cam: [['kassitler#2@-0.3', 45.0, 33.2, 12], ['hanedanıydı', 44.8, 32.7, 9]], show: ['kasO', ['kas', 'babili#2']], spread: ['babili#2', 'kas'], cities: [['Babil', 44.42, 32.54, null, true], ['Nippur', 45.23, 32.13], ['Uruk', 45.64, 31.32]],
+      armies: [['kassitler#2', [47.4, 34.3], [44.6, 32.7], '#e0b13a', '#5a3a08', 2.2]], badges: [['tam', '430 YIL', 'MÖ 1595 – 1155']] }, hook: [[0, '430 YIL'], ['bu', 'BABİL’İN EN UZUN\nHANEDANI']] },
+  { at: 'mısır@-0.3', type: 'amarna', crop: [960, 1700], p: { left: ['kas', 'KASSİT BABİL', 'Burnaburiaş'], right: ['egy', 'MISIR', 'Firavun'], quote: ['altın', 'Mektuplar, evlilikler ve altın'] }, hook: [[0, 'FİRAVUNLARLA\nEŞİT MASADA'], ['kız', 'KIZ VERDİLER'], ['altın', 'ALTIN İSTEDİLER']] },
   { at: 'bağdat@-0.3', type: 'zig3d', crop: [820, 1400], p: {}, hook: [[0, 'DUR-KURİGALZU'], ['bugün', 'BUGÜN HÂLÂ\nAYAKTA']] },
-  { at: 'babil#4@-0.3', type: 'terrain3d', crop: [960, 1150], p: { cam: [['babil#4@-0.3', 43.8, 31.6, 40, 46.0, 33.6], ['kossaioi', 45.6, 32.8, 26, 47.8, 34.4]], pins: [[null, 44.42, 32.54, 'BABİL', ''], ['zagros', 47.6, 34.3, 'ZAGROS', '']] },
-    hook: [[0, 'DAĞLARA\nDÖNÜŞ'], ['kossaioi', 'YUNANLILARA GÖRE\nKOSSAİOİ']] },
-  { at: 'pers@-0.3', type: 'pass', crop: [960, 1500], p: { title: 'SUSA – EKBATANA YOLU', sub: 'Kossaioi’nin dağ geçidi' }, hook: [[0, 'PERS KRALLARI\nVERGİ ÖDEDİ']] },
-  { at: 'speiser@-0.3', type: 'v_sources', p: {}, hook: [[0, 'KAYNAKLAR\nNE DİYOR?']] },
+  { at: 'babil#5@-0.3', type: 'nineveh', crop: [960, 1300], p: { pal: 'elam', noArmy: true, title: 'MÖ 1155', sub: 'ELAM BABİL’İ ALDI' }, hook: [[0, 'BABİL\nELAM’IN ELİNDE']] },
+  { at: 'ama@-0.3', type: 'terrain3d', crop: [960, 1150], p: { cam: [['ama@-0.3', 43.8, 31.6, 40, 46.0, 33.6], ['zagros#2', 45.6, 32.8, 26, 47.8, 34.4]], pins: [[null, 44.42, 32.54, 'BABİL', ''], ['zagros#2', 47.6, 34.3, 'ZAGROS', '']] },
+    hook: [[0, 'AMA YOK\nOLMADILAR'], ['geldikleri', 'ZAGROS’A\nDÖNDÜLER']] },
+  { at: 'bin@-0.3', type: 'pass', crop: [960, 1500], p: { title: 'KOSSAİOİ', sub: 'Yunan kaynaklarında Kassitler' }, hook: [[0, 'BİN YIL SONRA\nHÂLÂ ORADALAR'], ['pers', 'PERS KRALLARI\nVERGİ ÖDEDİ']] },
+  { at: 'speiser@-0.3', type: 'v_sources', p: {}, hook: [[0, 'BU HALK\nKAYBOLMADI']] },
   { at: 'tarihimizi@-0.3', type: 'v_end', p: {} }
 ];
 SHOTS2.forEach((s, i) => { s.t0 = cue(s.at); }); SHOTS2.sort((a, b) => a.t0 - b.t0);
@@ -39,7 +39,7 @@ window.SHOTLIST2 = SHOTS2.map(s => [s.type, +s.t0.toFixed(2), +s.t1.toFixed(2)])
 // ---- SFX (for the mixer)
 window.SSFX = [];
 SHOTS2.forEach((s, i) => { if (i > 0) SSFX.push(['whoosh', s.t0 - 0.1]); });
-SSFX.push(['boom', cue('kassitlerdi')], ['boom', cue('ataları')], ['boom', cue('yağmalanınca')], ['shimmer', cue('fırına')], ['boom', cue('atalarıdır')], ['shimmer', cue('dirok') - .5], ['boom', cue('dirok')]);
+SSFX.push(['boom', cue('yağmaladı')], ['boom', cue('kassitler')], ['shimmer', cue('altın')], ['boom', cue('geçti')], ['boom', cue('atalarıdır')], ['shimmer', cue('dirok') - .5], ['boom', cue('dirok')]);
 // ================= drawing helpers (vertical) =================
 function vBG(ctx, t, c1 = '#fff1c4', c2 = '#ffa65a', c3 = '#c2453a') { const g = ctx.createLinearGradient(0, 0, VW * .4, VH); g.addColorStop(0, c1); g.addColorStop(.55, c2); g.addColorStop(1, c3); ctx.fillStyle = g; ctx.fillRect(0, 0, VW, VH);
   ctx.save(); ctx.translate(VW / 2, VH * .36); ctx.rotate(t * .04); ctx.globalAlpha = .13; for (let i = 0; i < 21; i++) { ctx.rotate(TAU / 21); ctx.fillStyle = '#fff6d8'; ctx.beginPath(); ctx.moveTo(-40, 0); ctx.lineTo(0, -1500); ctx.lineTo(40, 0); ctx.fill() } ctx.restore();
