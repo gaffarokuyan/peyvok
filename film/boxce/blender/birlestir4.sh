@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Sahne 4 deneme klibi: geniş plan (bohça açılıyor) + yakın plan (not) + Gulê'nin dış sesi (05).
-# Kullanım: birlestir4.sh <render_klasoru> <cikti.mp4>
+# Kullanım: birlestir4.sh <render_klasoru> <cikti.mp4> [ses.mp3]
 set -euo pipefail
 R="$1"; OUT="$2"
 HERE="$(cd "$(dirname "$0")" && pwd)"
-SES="$HERE/../ses/05_gule_not.mp3"
+SES="${3:-$HERE/../ses/05_gule_not.mp3}"
 T="$(mktemp -d)"
 # 1) geniş plan: 120 kare @24fps = 5 sn
 ffmpeg -y -loglevel error -framerate 24 -i "$R/anim/genis_%04d.png" -c:v libx264 -pix_fmt yuv420p -r 24 "$T/a.mp4"
