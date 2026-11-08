@@ -62,10 +62,11 @@ tools/build_game.py
 
 ## YAYIN ÖNCESİ YAPILACAKLAR
 1. **Test ayarını geri al:** `openColl()` içinde `SCENES.map((s,i)=>true?` → `true` yerine kartın açık olup olmadığı kontrolü (`S.cards.includes(i)`); "seviyeye git" test butonunu kaldır.
-2. **AdMob:** şu an sahte — `window.showRewardedAd=()=>new Promise(r=>setTimeout(()=>r(true),1200))`. `react-native-google-mobile-ads` ekle; WebView'dan `window.ReactNativeWebView.postMessage('ad:rewarded')`, native taraf reklamı gösterip `injectJavaScript` ile Promise'i çözsün. (Expo dev build gerekir, Expo Go'da çalışmaz.)
-3. `site/` içindeki ekran görüntüleri (`s_home/s_game/s_card.webp`) eski mor/altın tasarımdan; yeni tasarımla yenilenmeli.
-4. Gizlilik URL'i: `https://peyvok.netlify.app/privacy.html` (`site/` Netlify'a yüklenecek).
-5. `versionCode` EAS tarafından otomatik artar (`appVersionSource: remote`, `autoIncrement`); elle değiştirme.
+2. **Seviye kilidi:** test için tüm seviyeler açık — `TEST_UNLOCK=true` (halkaya dokununca / Ayarlar'da "Seviye seç"). Yayında `false` yap.
+3. **AdMob:** şu an sahte — `window.showRewardedAd=()=>new Promise(r=>setTimeout(()=>r(true),1200))`. `react-native-google-mobile-ads` ekle; WebView'dan `window.ReactNativeWebView.postMessage('ad:rewarded')`, native taraf reklamı gösterip `injectJavaScript` ile Promise'i çözsün. (Expo dev build gerekir, Expo Go'da çalışmaz.)
+4. `site/` içindeki ekran görüntüleri (`s_home/s_game/s_card.webp`) eski mor/altın tasarımdan; yeni tasarımla yenilenmeli.
+5. Gizlilik URL'i: `https://peyvok.netlify.app/privacy.html` (`site/` Netlify'a yüklenecek).
+6. `versionCode` EAS tarafından otomatik artar (`appVersionSource: remote`, `autoIncrement`); elle değiştirme.
 
 ## Build
 - `npx expo install` ile bağımlılıklar; test: `npx expo start`.

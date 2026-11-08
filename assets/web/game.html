@@ -242,7 +242,12 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
 .cc span{position:absolute; left:0; right:0; bottom:0; padding:14px 8px 6px; background:linear-gradient(transparent,rgba(0,20,8,.7)); color:#fff; font:800 .78rem var(--font-b); text-align:left}
 .cc.lock{display:grid; place-items:center; color:#9DB8A6; font:800 1.6rem var(--font-d)}
 .cc.lock span{background:none; color:#9DB8A6}
-.sheet.big{width:min(440px,100%); max-height:86vh; overflow:auto}
+.sheet.big{width:min(440px,100%); max-height:86vh; overflow:auto; touch-action:pan-y; -webkit-overflow-scrolling:touch}
+.lvls{display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:4px}
+.lv{height:46px; border-radius:14px; border:0; padding-top:3px; cursor:pointer; background:#F1F6F2; color:var(--ink); font:800 1.05rem var(--font-d); box-shadow:inset 0 -2px 0 rgba(0,40,15,.08)}
+.lv.done{background:var(--c); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.3), inset 0 -2px 0 rgba(0,0,0,.15)}
+.lv.cur{background:#fff; color:var(--g500); box-shadow:0 0 0 3px var(--g500), 0 6px 14px rgba(44,135,58,.3)}
+.pickBtn{margin-top:14px; width:100%; height:46px; border-radius:999px; border:1.5px solid var(--g500); background:#fff; color:var(--g500); font:800 .92rem var(--font-b); cursor:pointer}
 
 /* ---------- daily wheel ---------- */
 .spinScrim{background:rgba(0,10,4,.75)}
@@ -302,7 +307,7 @@ canvas.fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none;
       <button class="rbtn glass" data-set aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></button>
     </div>
     <div class="logo"><div class="tiles" id="logoTiles"></div><div class="tag" id="hSub"></div></div>
-    <div class="ring"><svg viewBox="0 0 150 150"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F2C4"/><stop offset=".5" stop-color="var(--acc)"/><stop offset="1" stop-color="#2C873A"/></linearGradient></defs><circle cx="75" cy="75" r="68" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="7"/><circle id="ringArc" cx="75" cy="75" r="68" fill="none" stroke="url(#rg)" stroke-width="7" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="427" style="transition:stroke-dashoffset 1s .3s"/></svg>
+    <div class="ring" id="ringBtn" role="button" tabindex="0" aria-label="Levels"><svg viewBox="0 0 150 150"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F2C4"/><stop offset=".5" stop-color="var(--acc)"/><stop offset="1" stop-color="#2C873A"/></linearGradient></defs><circle cx="75" cy="75" r="68" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="7"/><circle id="ringArc" cx="75" cy="75" r="68" fill="none" stroke="url(#rg)" stroke-width="7" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="427" style="transition:stroke-dashoffset 1s .3s"/></svg>
       <div class="in glass"><div><span id="hJ"></span><b id="hNum"></b><em id="hOf"></em></div></div></div>
     <div class="where glass"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span id="hPlace"></span></div>
     <div class="homeCta">
@@ -531,13 +536,13 @@ const LEVELS=[{"l":"ekç","w":[["keç","kız"],["çek","giysi"]],"x":{"r":3,"c":
 const T={
   ku:{sub:"Rêwîtiya peyvan",j:"Ast temam",lvl:"Ast",found:"Berê hat dîtin",coins:"Zêr têrê nake!",cnt:"Peyv",bonus:"Peyva bonus",
       praise:["Baş e!","Pir baş!","Mezin!","Bêhempa!","Şahane!"],done:"Pîroz be!",gl:"Peyvên vê astê",next:"Asta din",set:"Mîheng",
-      music:"Muzîk",sound:"Deng",reset:"Ji serî ve dest pê bike",fin:"Te hemû rêwîtî qedand!",post:"Kartpostala nû",coll:"Kartpostal",collSub:"ji 20 kartan",back:"Vegere",newBg:"Atmosfera nû",play:"Bilîze",cards:"Kartpostal",wheel:"Çerxa Bextê"},
+      music:"Muzîk",sound:"Deng",reset:"Ji serî ve dest pê bike",fin:"Te hemû rêwîtî qedand!",post:"Kartpostala nû",coll:"Kartpostal",collSub:"ji 20 kartan",back:"Vegere",newBg:"Atmosfera nû",play:"Bilîze",pick:"Asteke hilbijêre",cards:"Kartpostal",wheel:"Çerxa Bextê"},
   tr:{sub:"Kelime yolculuğu",j:"Bölüm bitti",lvl:"Bölüm",found:"Zaten bulundu",coins:"Yeterli altın yok",cnt:"Kelime",bonus:"Bonus kelime",
       praise:["Güzel!","Çok iyi!","Müthiş!","Süper!","Efsane!"],done:"Tebrikler!",gl:"Bu bölümün kelimeleri",next:"Sonraki bölüm",set:"Ayarlar",
-      music:"Müzik",sound:"Ses",reset:"Baştan başla",fin:"Tüm yolculuğu bitirdin!",post:"Yeni kartpostal",coll:"Kartpostallar",collSub:"20 kartpostaldan",back:"Geri",newBg:"Yeni atmosfer",play:"Oyna",cards:"Kartpostallar",wheel:"Şans Çarkı"},
+      music:"Müzik",sound:"Ses",reset:"Baştan başla",fin:"Tüm yolculuğu bitirdin!",post:"Yeni kartpostal",coll:"Kartpostallar",collSub:"20 kartpostaldan",back:"Geri",newBg:"Yeni atmosfer",play:"Oyna",pick:"Seviye seç",cards:"Kartpostallar",wheel:"Şans Çarkı"},
   en:{sub:"A journey in words",j:"Completed",lvl:"Level",found:"Already found",coins:"Not enough coins",cnt:"Words",bonus:"Bonus word",
       praise:["Good!","Great!","Awesome!","Brilliant!","Legendary!"],done:"Well done!",gl:"Words in this level",next:"Next level",set:"Settings",
-      music:"Music",sound:"Sound",reset:"Start over",fin:"You finished the whole journey!",post:"New postcard",coll:"Postcards",collSub:"of 20 postcards",back:"Back",newBg:"New atmosphere",play:"Play",cards:"Postcards",wheel:"Lucky Wheel"}
+      music:"Music",sound:"Sound",reset:"Start over",fin:"You finished the whole journey!",post:"New postcard",coll:"Postcards",collSub:"of 20 postcards",back:"Back",newBg:"New atmosphere",play:"Play",pick:"Choose level",cards:"Postcards",wheel:"Lucky Wheel"}
 };
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function load(){try{return JSON.parse(localStorage.getItem("peyvok:v5"))||{}}catch(e){return{}}}
@@ -760,6 +765,13 @@ function goHome(){
 $("#playBtn").addEventListener("click",()=>{SFX.tap();if(S.lvl>=N){S.lvl=0;S.found={};S.hint={};S.bonus={};save()}startLevel(S.lvl)});
 $("#homeBtn").addEventListener("click",()=>{SFX.tap();goHome()});
 $("#collBtn").addEventListener("click",()=>{SFX.tap();openColl()});
+// TEST: all levels unlocked via level picker (ring tap + settings). Set TEST_UNLOCK=false before release.
+const TEST_UNLOCK=true;
+function openLevels(){const t=L(),cur=Math.min(S.lvl,N-1);
+  $("#layer").innerHTML=`<div class="scrim" id="scrim"><div class="sheet big"><h3>${t.pick}</h3><div class="sub">1 – ${N}</div><div class="lvls">${Array.from({length:N},(_,i)=>`<button class="lv${i<S.lvl?" done":""}${i===cur?" cur":""}" style="--c:${bgOf(i).T.p}" data-lv="${i}">${i+1}</button>`).join("")}</div></div></div>`;
+  $("#scrim").addEventListener("click",e=>{const b=e.target.closest("[data-lv]");if(b){SFX.tap();const i=+b.dataset.lv;$("#layer").innerHTML="";S.lvl=i;save();startLevel(i)}else if(e.target.id==="scrim")$("#layer").innerHTML=""});
+  requestAnimationFrame(()=>{const c=$(".lv.cur");if(c)c.scrollIntoView({block:"center"})})}
+if(TEST_UNLOCK){const rb=$("#ringBtn");rb.style.cursor="pointer";rb.addEventListener("click",()=>{SFX.tap();openLevels()});rb.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLevels()}})}
 
 // ================= game =================
 let lv,X,letters,found,hinted,bonusSet,sel=[],drag=false,streak=0,pt=null;
@@ -891,11 +903,12 @@ function openSet(){const t=L();
   <div class="row">${t.music}<button class="sw" id="swM" role="switch" aria-checked="${S.music}" aria-label="${t.music}"></button></div>
   <div class="row">${t.sound}<button class="sw" id="swS" role="switch" aria-checked="${S.sound}" aria-label="${t.sound}"></button></div>
   <div class="langs">${["ku","tr","en"].map(c=>`<button data-l="${c}" class="${S.lang===c?"on":""}">${{ku:"Kurmancî",tr:"Türkçe",en:"English"}[c]}</button>`).join("")}</div>
-  <button class="reset" id="resetBtn">${t.reset}</button></div></div>`;
+  ${TEST_UNLOCK?`<button class="pickBtn" id="pickBtn">${t.pick}</button>`:""}<button class="reset" id="resetBtn">${t.reset}</button></div></div>`;
   $("#scrim").addEventListener("click",e=>{if(e.target.id==="scrim")$("#layer").innerHTML=""});
   $("#swM").addEventListener("click",e=>{setMusic(!S.music);e.currentTarget.setAttribute("aria-checked",S.music)});
   $("#swS").addEventListener("click",e=>{S.sound=!S.sound;save();e.currentTarget.setAttribute("aria-checked",S.sound);SFX.tap()});
   $$("[data-l]").forEach(b=>b.addEventListener("click",()=>{S.lang=b.dataset.l;save();SFX.tap();$("#layer").innerHTML="";goHome()}));
+  if($("#pickBtn"))$("#pickBtn").addEventListener("click",()=>{SFX.tap();openLevels()});
   $("#resetBtn").addEventListener("click",()=>{S.lvl=0;S.found={};S.hint={};S.bonus={};S.cards=[];S.coins=200;save();$("#layer").innerHTML="";goHome()});
 }
 let tt;function toast(m){const el=$("#toast");el.textContent=m;el.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>el.classList.remove("show"),1200)}
