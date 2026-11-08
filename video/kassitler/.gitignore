@@ -3,3 +3,8 @@ stills/
 out/
 audio/*.wav
 audio/*.mp3
+tiktok/seg/
+tiktok/stills/
+tiktok/out/
+tiktok/audio/*.wav
+tiktok/audio/*.mp3
