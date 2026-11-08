@@ -8,14 +8,14 @@ for (const v of ['hero']) {
   const d = await p.evaluate(v => {
     const ctx = VX; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = 'none';
     const main = X; X = cv.getContext('2d'); X.setTransform(1, 0, 0, 1, 0, 0); SH = { t0: 0, t1: 30, T: 4.2, R: q => typeof q === 'number' ? q : 0, ch: null };
-    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'hero') s3dHero(0, {}); else if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
+    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'hero') { G3.rd.toneMappingExposure = 1.9; s3dHero(0, {}); G3.rd.toneMappingExposure = 1.05 } else if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
     X = main; labelBoxB = _lb;
     const s = VH / H; ctx.save(); ctx.filter = 'blur(26px) saturate(1.3)'; ctx.drawImage(cv, VW / 2 - W * s / 2, 0, W * s, H * s); ctx.restore();
-    const f = v === 'hero' ? 1.15 : v === 'zig' ? 1.02 : 1.25; ctx.drawImage(cv, VW / 2 - (v === 'hero' ? 950 : v === 'zig' ? 880 : 960) * f, VH - H * f + (v === 'hero' ? 160 - 0 : v === 'zig' ? 60 : 20), W * f, H * f);
+    if (v === 'hero') ctx.filter = 'saturate(1.3) brightness(1.18)'; const f = v === 'hero' ? 1.0 : v === 'zig' ? 1.02 : 1.25; ctx.drawImage(cv, VW / 2 - (v === 'hero' ? 900 : v === 'zig' ? 880 : 960) * f, VH - H * f + (v === 'hero' ? 40 : v === 'zig' ? 60 : 20), W * f, H * f); ctx.filter = 'none';
     // warm grade
     ctx.save(); ctx.globalCompositeOperation = 'multiply'; const g = ctx.createLinearGradient(0, 0, 0, VH); g.addColorStop(0, '#ffb070'); g.addColorStop(.55, '#ffd8a8'); g.addColorStop(1, '#b8703a'); ctx.fillStyle = g; ctx.fillRect(0, 0, VW, VH); ctx.restore();
     // top darkness for text
-    const dg = ctx.createLinearGradient(0, 0, 0, VH); dg.addColorStop(0, 'rgba(18,5,2,.96)'); dg.addColorStop(.45, 'rgba(18,5,2,.8)'); dg.addColorStop(.6, 'rgba(18,5,2,0)'); dg.addColorStop(.92, 'rgba(18,5,2,0)'); dg.addColorStop(1, 'rgba(18,5,2,.6)'); ctx.fillStyle = dg; ctx.fillRect(0, 0, VW, VH);
+    const dg = ctx.createLinearGradient(0, 0, 0, VH); dg.addColorStop(0, v === 'hero' ? 'rgba(40,12,20,.6)' : 'rgba(18,5,2,.96)'); dg.addColorStop(.45, v === 'hero' ? 'rgba(40,12,20,.25)' : 'rgba(18,5,2,.8)'); dg.addColorStop(.6, 'rgba(18,5,2,0)'); dg.addColorStop(.92, 'rgba(18,5,2,0)'); dg.addColorStop(1, 'rgba(18,5,2,.6)'); ctx.fillStyle = dg; ctx.fillRect(0, 0, VW, VH);
     // sunburst at the clash point
     ctx.save(); ctx.globalCompositeOperation = 'screen'; const cx = 760, cy = 1180; const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 760); rg.addColorStop(0, 'rgba(255,225,120,.28)'); rg.addColorStop(.35, 'rgba(255,150,40,.3)'); rg.addColorStop(1, 'rgba(255,90,20,0)'); ctx.fillStyle = rg; ctx.fillRect(0, 0, VW, VH);
     ctx.translate(cx, cy); for (let i = 0; i < 21; i++) { ctx.rotate(TAU / 21); ctx.fillStyle = 'rgba(255,215,110,.05)'; ctx.beginPath(); ctx.moveTo(-34, 0); ctx.lineTo(0, -1000); ctx.lineTo(34, 0); ctx.fill() } ctx.restore();
