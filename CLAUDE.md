@@ -53,7 +53,7 @@ tools/build_game.py
 `dir`: 0 yatay, 1 dikey; `p[i]` ↔ `w[i]`. Yeniden üretim: `cd source && python3 gen56.py` (çıktı `levels.json` adını kontrol et) → oyundaki gömülü seviye dizisini değiştir.
 
 ### Onaylı tasarım kararları — bozma
-- **"Zimrûd" teması (Garanti BBVA renkleri):** ana yeşil `#2C873A`, koyu `#002808`; ek tonlar BBVA lacivert `#072146`, aqua `#2DCCCD`, teal, jade, lime. Beyaz kutular/çark, yeşil gradyan bulunan kutular ve CTA. Fontlar: Baloo 2 (harfler/logo/sayılar), Plus Jakarta Sans 600–800 (arayüz yazıları), Nunito yedek. Altın sadece coin/ödül için.
+- **"Zimrûd" teması (Garanti BBVA renkleri):** ana yeşil `#2C873A`, koyu `#002808`; atmosferler sıcak ve ara tonlu: zeytin, yosun, jade, teal, gül kurusu zeminler; vurgular amber, bal, şeftali, mercan (`THEMES[].w` = üst köşedeki sıcak ışık). Soğuk lacivert/mavi zemin yok. Beyaz kutular/çark, yeşil gradyan bulunan kutular ve CTA. Fontlar: Baloo 2 (harfler/logo/sayılar), Plus Jakarta Sans 600–800 (arayüz yazıları), Nunito yedek. Altın sadece coin/ödül için.
 - **Kutular her seviyede 64px (1. seviyedeki gibi). Küçültme.** Bu yüzden ızgara max 5×6; övgü şeridi (`top:-58px`) ve kelime balonu ızgaranın üstüne overlay.
 - Arka planlar koyu, üstte/altta karartmalı (HUD ve çark okunur kalsın); fotoğraf eklenmez, yeni görünüm = yeni `THEMES`/`STYLES` girdisi.
 - Logo: PEYV yeşil + OK beyaz harf kutuları. Ana sayfa: ilerleme halkası (içinde mevcut seviye / 200), altta büyük "Bilîze" butonu (oynat ikonu + seviye·mekân + ok), altında yan yana Kartpostal ve Çerxa Bextê cam butonları.
