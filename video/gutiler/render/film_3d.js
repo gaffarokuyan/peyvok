@@ -96,7 +96,7 @@ function stoneScene(kind) {
     const ped = new THREE.Mesh(new THREE.CylinderGeometry(9, 10, 2, 48), new THREE.MeshStandardMaterial({ color: kind === 'stele' ? 0x8a96a4 : 0xb8905a, roughness: .7 })); ped.position.y = -12; ped.receiveShadow = true; scene.add(ped);
     scene.add(new THREE.HemisphereLight(0xffffff, 0x8a7050, .9)); const key = new THREE.DirectionalLight(0xfff0d8, 2.6); key.position.set(-14, 18, 22); key.castShadow = true; scene.add(key);
     const rim = new THREE.DirectionalLight(0xffc880, 1.4); rim.position.set(16, 8, -14); scene.add(rim); cam = new THREE.PerspectiveCamera(32, W / H, .5, 400) }
-  return { draw(T, p) { if (!scene) build(); const lt = T - SH.t0; obj.rotation.y = -.9 + Math.min(lt, 4) * .22 + Math.max(0, lt - 4) * .05; cam.position.set(17, 1 + lt * .2, 62 - lt * .7); cam.lookAt(12, -1, 0); obj.position.x = 0;
+  return { mesh() { if (!scene) build(); return obj.clone() }, draw(T, p) { if (!scene) build(); const lt = T - SH.t0; obj.rotation.y = -.9 + Math.min(lt, 4) * .22 + Math.max(0, lt - 4) * .05; cam.position.set(17, 1 + lt * .2, 62 - lt * .7); cam.lookAt(12, -1, 0); obj.position.x = 0;
     G3.rd.render(scene, cam); X.drawImage(G3.cvs, 0, 0);
     labelBoxB(W * .72, H * .2, p.title, p.sub || '', p.sub2 || '', ss(.3, .7, lt), '#ffb23a', clamp((lt - .3) / .5));
     (p.notes || []).forEach(([q, txt], i) => { const a = A(q, .4); if (a <= 0) return; X.save(); parchment(W * .53, H * .42 + i * 170, 760, 140, a); X.globalAlpha = a; X.textAlign = 'center'; X.textBaseline = 'middle'; const s = fitTxt(txt, '700 {s}px Cinzel', 680, 46); X.font = `700 ${s}px Cinzel`; X.fillStyle = '#4a2a10'; X.fillText(txt, W * .53 + 380, H * .42 + i * 170 + 72); X.restore() }) } };
@@ -104,3 +104,56 @@ function stoneScene(kind) {
 const KUD3 = stoneScene('kudurru'), STE3 = stoneScene('stele');
 function s3dKudurru(T, p) { KUD3.draw(T, p) }
 function s3dStele(T, p) { STE3.draw(T, p) }
+// ---------- HERO COVER: 3D Kassite warrior + black stele ----------
+function makeWarrior3D() {
+  const g = new THREE.Group(); const M = (c, r = .6, m = 0) => new THREE.MeshStandardMaterial({ color: c, roughness: r, metalness: m });
+  const skin = M(0xc98d5f, .7), tunic = M(0xe0b13a, .8), kilt = M(0xb8261e, .8), bronze = M(0xc08a3a, .35, .75), red = M(0xd2322a, .7), steel = new THREE.MeshStandardMaterial({ color: 0xe8eaf0, roughness: .2, metalness: .6, emissive: 0x6a6a72 }), dark = M(0x2a1a10, .9), teal = M(0x2f9f8f, .5, .2);
+  const add = (geo, mat, x, y, z, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.rotation.set(rx, ry, rz); m.scale.set(sx, sy, sz); m.castShadow = true; m.receiveShadow = true; g.add(m); return m };
+  // legs + boots (wide stance)
+  add(new THREE.CapsuleGeometry(.32, 2.4, 6, 12), skin, -.75, 1.6, 0, 0, 0, .18); add(new THREE.CapsuleGeometry(.32, 2.4, 6, 12), skin, .8, 1.6, .2, -.15, 0, -.2);
+  add(new THREE.BoxGeometry(.7, .5, 1.0), dark, -1.0, .25, .15); add(new THREE.BoxGeometry(.7, .5, 1.0), dark, 1.05, .25, .35);
+  // kilt + tunic + belt
+  add(new THREE.CylinderGeometry(1.0, 1.45, 1.4, 20, 1, true), kilt, 0, 3.1, 0); add(new THREE.CapsuleGeometry(.95, 1.9, 8, 20), tunic, 0, 4.7, 0, -.08, 0, 0);
+  add(new THREE.TorusGeometry(1.0, .12, 8, 28), bronze, 0, 3.8, 0, Math.PI / 2);
+  add(new THREE.SphereGeometry(.42, 16, 12), bronze, 1.05, 5.75, 0); add(new THREE.SphereGeometry(.42, 16, 12), bronze, -1.05, 5.75, 0); add(new THREE.CylinderGeometry(.3, .34, .5, 12), skin, 0, 6.25, 0);
+  add(new THREE.BoxGeometry(1.5, 1.4, .25), bronze, 0, 5.0, .9, -.1); for (let i = 0; i < 4; i++) add(new THREE.BoxGeometry(1.3, .08, .05), dark, 0, 4.5 + i * .32, 1.04, -.1);
+  // cape
+  const cape = new THREE.PlaneGeometry(2.6, 4.2, 10, 10); const cp = cape.attributes.position; for (let i = 0; i < cp.count; i++) { const x = cp.getX(i), y = cp.getY(i); cp.setZ(i, -Math.pow(x / 1.3, 2) * .6 - (2.1 - y) * .35 + Math.sin(y * 1.6 + x) * .18) } cape.computeVertexNormals();
+  const cm = new THREE.Mesh(cape, new THREE.MeshStandardMaterial({ color: 0xd2322a, roughness: .75, side: THREE.DoubleSide })); cm.position.set(0, 4.0, -1.0); cm.rotation.set(.18, 0, 0); cm.castShadow = true; g.add(cm);
+  // head, beard, helmet, plume
+  add(new THREE.SphereGeometry(.62, 24, 18), skin, 0, 6.85, .05); add(new THREE.SphereGeometry(.5, 18, 14), dark, 0, 6.45, .32, 0, 0, 0, .95, 1.1, .7);
+  add(new THREE.ConeGeometry(.72, 1.25, 24), bronze, 0, 7.75, 0); add(new THREE.TorusGeometry(.68, .09, 8, 24), bronze, 0, 7.2, 0, Math.PI / 2);
+  const pl = add(new THREE.SphereGeometry(.4, 16, 12), red, -.15, 8.4, -.5, .6, 0, .3, .5, 1.6, .9);
+  // right arm raised with sword
+  const ra = new THREE.Group(); ra.position.set(1.15, 5.7, 0); ra.rotation.set(.25, 0, -.55); g.add(ra);
+  const a1 = new THREE.Mesh(new THREE.CapsuleGeometry(.26, 1.8, 6, 12), skin); a1.position.y = 1.0; a1.castShadow = true; ra.add(a1);
+  const hilt = new THREE.Mesh(new THREE.CylinderGeometry(.09, .09, .6, 8), bronze); hilt.position.set(0, 2.2, 0); ra.add(hilt);
+  const guard = new THREE.Mesh(new THREE.BoxGeometry(.7, .12, .2), bronze); guard.position.set(0, 2.5, 0); ra.add(guard);
+  const blade = new THREE.Mesh(new THREE.BoxGeometry(.22, 3.2, .05), steel); blade.position.set(.18, 4.1, 0); blade.rotation.z = -.12; blade.castShadow = true; ra.add(blade);
+  // left arm forward with round shield
+  const la = new THREE.Group(); la.position.set(-1.1, 5.5, .2); la.rotation.set(1.35, 0, .35); g.add(la);
+  const a2 = new THREE.Mesh(new THREE.CapsuleGeometry(.26, 1.6, 6, 12), skin); a2.position.y = .9; la.add(a2);
+  const sh = new THREE.Mesh(new THREE.CylinderGeometry(1.45, 1.45, .18, 40), teal); sh.position.set(0, 1.9, .3); sh.rotation.set(0, 0, 0); sh.castShadow = true; la.add(sh);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(1.45, .1, 8, 40), bronze); rim.position.copy(sh.position); rim.rotation.set(Math.PI / 2, 0, 0); la.add(rim);
+  const boss = new THREE.Mesh(new THREE.SphereGeometry(.32, 16, 12), bronze); boss.position.set(0, 2.0, .3); la.add(boss);
+  g.traverse(o => { if (o.isMesh) { o.castShadow = true } });
+  return g;
+}
+const HERO3 = (() => {
+  let scene, cam;
+  function build() {
+    scene = new THREE.Scene(); scene.background = skyTex('#2a2050', '#d8643a', '#ffc070'); scene.fog = new THREE.Fog(0xe8905a, 40, 140);
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0xc89a5a, roughness: 1 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+    // distant mountains
+    for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(new THREE.ConeGeometry(14 + hash(i) * 12, 14 + hash(i + 2) * 14, 5), new THREE.MeshStandardMaterial({ color: 0x8a5a4a, roughness: 1, flatShading: true })); m.position.set(-70 + i * 18, 5, -70 - hash(i + 4) * 20); scene.add(m) }
+    // stele (reuse stone builder)
+    const st = STE3.mesh(); st.scale.setScalar(.62); st.position.set(-4.2, 6.4, -4); st.rotation.y = .45; scene.add(st);
+    const ped = new THREE.Mesh(new THREE.CylinderGeometry(4.2, 4.6, .8, 40), new THREE.MeshStandardMaterial({ color: 0x6a5a4a, roughness: .8 })); ped.position.set(-4.2, .4, -4); ped.receiveShadow = true; scene.add(ped);
+    const w = makeWarrior3D(); w.position.set(3.0, 0, 2.0); w.rotation.y = -.35; scene.add(w);
+    scene.add(new THREE.HemisphereLight(0xffd8b0, 0x5a3a2a, .7));
+    const sun = new THREE.DirectionalLight(0xffb070, 3.2); sun.position.set(-20, 18, 14); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 100 }); scene.add(sun);
+    const rim = new THREE.DirectionalLight(0xffe0a0, 2.2); rim.position.set(18, 10, -16); scene.add(rim);
+    cam = new THREE.PerspectiveCamera(36, W / H, .5, 600) }
+  return { draw(T, p) { if (!scene) build(); const lt = T - SH.t0; cam.position.set(4 + lt * .2, 3.2, 21 - lt * .3); cam.lookAt(.4, 5.8, -1); G3.rd.render(scene, cam); X.drawImage(G3.cvs, 0, 0) } };
+})();
+function s3dHero(T, p) { HERO3.draw(T, p) }

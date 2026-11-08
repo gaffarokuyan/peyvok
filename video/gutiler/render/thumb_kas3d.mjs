@@ -4,14 +4,14 @@ const out = '/home/user/peyvok/video/kassitler/tiktok/out/'; fs.mkdirSync(out, {
 const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1080, height: 1920 } }); p.on('pageerror', e => console.log('ERR', e.message));
 await p.goto('file://' + path.resolve('shortk.html')); await p.evaluate(() => window.ready);
-for (const v of ['zig', 'zag']) {
+for (const v of ['hero']) {
   const d = await p.evaluate(v => {
     const ctx = VX; ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = 'none';
     const main = X; X = cv.getContext('2d'); X.setTransform(1, 0, 0, 1, 0, 0); SH = { t0: 0, t1: 30, T: 4.2, R: q => typeof q === 'number' ? q : 0, ch: null };
-    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
+    const _lb = labelBoxB; labelBoxB = () => { }; if (v === 'hero') s3dHero(0, {}); else if (v === 'zig') s3dZiggurat(4.2, {}); else s3dTerrain(1, { cam: [[0, 45.0, 32.4, 22, 47.6, 34.4]], pins: [] });
     X = main; labelBoxB = _lb;
     const s = VH / H; ctx.save(); ctx.filter = 'blur(26px) saturate(1.3)'; ctx.drawImage(cv, VW / 2 - W * s / 2, 0, W * s, H * s); ctx.restore();
-    const f = v === 'zig' ? 1.02 : 1.25; ctx.drawImage(cv, VW / 2 - (v === 'zig' ? 880 : 960) * f, VH - H * f + (v === 'zig' ? 60 : 20), W * f, H * f);
+    const f = v === 'hero' ? 1.15 : v === 'zig' ? 1.02 : 1.25; ctx.drawImage(cv, VW / 2 - (v === 'hero' ? 950 : v === 'zig' ? 880 : 960) * f, VH - H * f + (v === 'hero' ? 160 - 0 : v === 'zig' ? 60 : 20), W * f, H * f);
     // warm grade
     ctx.save(); ctx.globalCompositeOperation = 'multiply'; const g = ctx.createLinearGradient(0, 0, 0, VH); g.addColorStop(0, '#ffb070'); g.addColorStop(.55, '#ffd8a8'); g.addColorStop(1, '#b8703a'); ctx.fillStyle = g; ctx.fillRect(0, 0, VW, VH); ctx.restore();
     // top darkness for text
