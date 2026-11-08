@@ -8,3 +8,7 @@ tiktok/stills/
 tiktok/out/
 tiktok/audio/*.wav
 tiktok/audio/*.mp3
+seg_nc/
+dil/dub_*/
+dil/out/*.wav
+dil/out/*.mp3
