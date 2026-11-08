@@ -2,7 +2,7 @@
 import json,html,itertools,math,sys,os,subprocess,urllib.request,concurrent.futures as cf,time
 D=os.path.dirname(os.path.abspath(__file__));os.chdir(D)
 S=json.load(open('sents.json'));tl=json.loads(open('../timeline.js').read()[len('window.TL='):-1]);T=tl['total']
-L={l:open(f'{l}.txt').read().strip('\n').split('\n') for l in ['en','ar']};L['tr']=[' '.join(x[0] for x in s['w']) for s in S]
+L={l:open(f'{l}.txt').read().strip('\n').split('\n') for l in ['en','ar','kmr','ckb']};L['tr']=[' '.join(x[0] for x in s['w']) for s in S]
 for l in L: assert len(L[l])==len(S),(l,len(L[l]))
 def wrap(s,lim=42):
   if len(s)<=lim: return s
@@ -32,7 +32,7 @@ HEAD='''<?xml version="1.0" encoding="utf-8"?>
 '''
 def subs():
   os.makedirs('out',exist_ok=True)
-  for lang in ['tr','en','ar']:
+  for lang in ['tr','en','ar','kmr','ckb']:
     cues=[]
     for g,tx in zip(groups,L[lang]):
       tx=tx.replace('Dirok','Dîrok');ws=tx.split()
@@ -47,7 +47,7 @@ def subs():
     for i,c in enumerate(cues):
       nxt=cues[i+1][0] if i+1<len(cues) else c[1]+1.5
       c[1]=min(max(c[1]+.3,c[0]+1.0),nxt-.04)
-    quote=lambda t: t.strip().startswith(('"','“')) or 'kırk mina' in t or 'forty minas' in t or 'أربعين' in t
+    quote=lambda t: t.strip().startswith(('"','“')) or 'kırk mina' in t or 'forty minas' in t or 'أربعين' in t or 'çil mîna' in t or 'چل مینا' in t
     open(f'out/dirok_kassitler_{lang}.srt','w').write('\n'.join(f"{i+1}\n{ts(a)} --> {ts(b)}\n{wrap(t)}\n" for i,(a,b,t) in enumerate(cues)))
     open(f'out/dirok_kassitler_{lang}.ytt','w').write(HEAD+'\n'.join(f'<p t="{int(a*1000)}" d="{int((b-a)*1000)}" wp="1" ws="1"><s p="{2 if quote(t) else 1}">{html.escape(wrap(t),quote=False)}</s></p>' for a,b,t in cues)+'\n</body>\n</timedtext>\n')
     print(lang,'subs',len(cues))
@@ -56,10 +56,29 @@ def dub(lang):
   def tts(i):
     out=f'{DD}/{i}.mp3'
     if os.path.exists(out) and os.path.getsize(out)>1000: return
-    body=json.dumps({'text':L[lang][i],'model_id':'eleven_v4','voice_settings':{'stability':0.5,'similarity_boost':0.8,'style':0.15}}).encode()
+    tx=L[lang][i].replace('Dîrok','Dirok').replace("'",'')
+    if lang=='kmr' and not os.path.exists(f'{DD}/NOKT'):
+      import uuid
+      wav=f'{DD}/{i}_kt.wav'
+      for at in range(5):
+        try:
+          if not os.path.exists(wav) or os.path.getsize(wav)<1000:
+            r=urllib.request.Request('https://www.kurdishtts.com/api/tts-proxy',data=json.dumps({'text':tx,'speaker_id':'kurmanji_236','model_version':'v4','speed':1.2}).encode(),headers={'Content-Type':'application/json'})
+            open(wav,'wb').write(urllib.request.urlopen(r,timeout=180).read())
+          b='----'+uuid.uuid4().hex;audio=open(wav,'rb').read()
+          body=(f'--{b}\r\nContent-Disposition: form-data; name="model_id"\r\n\r\neleven_multilingual_sts_v2\r\n--{b}\r\nContent-Disposition: form-data; name="audio"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n').encode()+audio+f'\r\n--{b}--\r\n'.encode()
+          r=urllib.request.Request('https://api.elevenlabs.io/v1/speech-to-speech/9UoAU5im7Rl44J2IvBHU?output_format=mp3_44100_192',data=body,headers={'xi-api-key':'dummy','Content-Type':f'multipart/form-data; boundary={b}'})
+          open(out,'wb').write(urllib.request.urlopen(r,timeout=240).read());return
+        except urllib.error.HTTPError as e:
+          print('kt err',i,e.code,e.read()[:200],flush=True)
+          if e.code in (401,402,403,429) and 'kurdishtts' in e.url: open(f'{DD}/NOKT','w').write(str(e.code));break
+          time.sleep(5*(at+1))
+        except Exception as e: print('retry',i,e,flush=True);time.sleep(5*(at+1))
+    VO='9UoAU5im7Rl44J2IvBHU' if lang=='kmr' else 'aB3kjBYXGX3jTKxg1bsE'
+    body=json.dumps({'text':tx,'model_id':'eleven_v4','voice_settings':{'stability':0.5,'similarity_boost':0.8,'style':0.15}}).encode()
     for at in range(6):
       try:
-        r=urllib.request.Request('https://api.elevenlabs.io/v1/text-to-speech/aB3kjBYXGX3jTKxg1bsE?output_format=mp3_44100_192',data=body,headers={'xi-api-key':'dummy','Content-Type':'application/json'})
+        r=urllib.request.Request('https://api.elevenlabs.io/v1/text-to-speech/'+VO+'?output_format=mp3_44100_192',data=body,headers={'xi-api-key':'dummy','Content-Type':'application/json'})
         open(out,'wb').write(urllib.request.urlopen(r,timeout=180).read());return
       except Exception as e: print('retry',i,e,flush=True);time.sleep(5*(at+1))
     raise SystemExit(f'failed {i}')
@@ -84,5 +103,5 @@ def dub(lang):
   subprocess.run(['ffmpeg','-y','-loglevel','error',*inp,'-filter_complex_script',f'{DD}/filter.txt','-map','[o]','-ar','48000','-ac','1',f'{DD}/narration.wav'],check=True)
   print(lang,'dub (chapter,tempo,overrun):',rep,flush=True)
 if 'subs' in sys.argv: subs()
-for l in ['en','ar']:
+for l in ['en','ar','kmr','ckb']:
   if l in sys.argv: dub(l)
