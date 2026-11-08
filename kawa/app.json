@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Agirê Kawa",
-    "slug": "agire-kawa",
+    "slug": "userbey",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -48,6 +48,11 @@
         }
       ]
     ],
-    "owner": "gaffardevs-team"
+    "owner": "uservys-team",
+    "extra": {
+      "eas": {
+        "projectId": "4bfa7ac9-0a49-4451-be64-9207479e64b7"
+      }
+    }
   }
 }

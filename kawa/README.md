@@ -1,7 +1,7 @@
 # Agirê Kawa — Android (Expo)
 
 Oyunun kaynağı `../games/agire-kawa/index.html`. Bu klasör onu WebView içinde çalışan bir Expo uygulamasına paketler.
-Paket adı: `com.okuyanstudio.agirekawa` · EAS sahibi: `gaffardevs-team`.
+Paket adı: `com.okuyanstudio.agirekawa` · EAS: `@uservys-team/userbey` (projectId 4bfa7ac9-…).
 
 ## Akış
 ```bash
