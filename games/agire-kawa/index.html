@@ -1,4 +1,4 @@
-<title>Newroz Empire</title>
+<title>Newroz Legends</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b0910">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,7 +207,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 <canvas id="fx"></canvas>
 <div id="vign"></div>
 
-<div id="loading"><h1>Newroz Empire</h1><p id="loadTxt">LOADING</p></div>
+<div id="loading"><h1>Newroz Legends</h1><p id="loadTxt">LOADING</p></div>
 
 <!-- HUD -->
 <div id="hud" hidden>
@@ -234,7 +234,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
     <div class="spacer"></div>
     <button class="iconbtn" data-open="set" aria-label="Settings"><svg class="ic" viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 000-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 00-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 00-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 000 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 001.7 1l.4 2.6h4l.4-2.6a7.4 7.4 0 001.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z" transform="translate(-1 0)"/></svg></button>
   </div>
-  <div class="logo"><small data-t="legend"></small><h1>Newroz Empire</h1></div>
+  <div class="logo"><small data-t="legend"></small><h1>Newroz Legends</h1></div>
   <div class="herosel">
     <button class="arrow" id="hPrev" aria-label="Previous hero">‹</button>
     <div class="mid"><div class="hname" id="hName"></div><div class="hrole" id="hRole"></div><div class="hstart" id="hStart"></div></div>
@@ -1264,7 +1264,7 @@ function renderSheet(){
       <div class="setrow"><span>${t('music')}</span>${seg('sMus',[[true,t('on')],[false,t('off')]],S.mus)}</div>
       <div class="setrow"><span>${t('quality')}</span>${seg('sQ',[['high',t('high')],['low',t('low')]],S.q)}</div>
       <button class="btn danger" id="bReset" style="margin-top:10px">${t('reset')}</button>
-      <p style="margin:6px 0 0;font:500 11px var(--ui);color:var(--ash);text-align:center">Newroz Empire · Okuyan Studio · v0.1</p>`;
+      <p style="margin:6px 0 0;font:500 11px var(--ui);color:var(--ash);text-align:center">Newroz Legends · Okuyan Studio · v0.1</p>`;
     const bind=(id,fn)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{fn(b.dataset.v);save();SFX.click();renderSheet()});
     bind('sLang',v=>{S.lang=v;applyLang();renderHome()});bind('sSfx',v=>{S.sfx=v==='true';setVol()});bind('sMus',v=>{S.mus=v==='true';setVol()});bind('sQ',v=>{S.q=v;S.qm=1;resize()});
     let armed=false;$('#bReset').onclick=()=>{if(!armed){armed=true;$('#bReset').textContent=t('sure');return}
