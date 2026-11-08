@@ -314,6 +314,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   <symbol id="i-armor" viewBox="0 0 24 24"><path d="M12 2l8.5 3.2v6.3c0 5.2-3.6 9.6-8.5 11-4.9-1.4-8.5-5.8-8.5-11V5.2z"/></symbol>
   <symbol id="i-crit" viewBox="0 0 24 24"><path d="M12 1.5l3 7 7.5.6-5.7 4.9 1.8 7.5L12 17.5l-6.6 4 1.8-7.5L1.5 9.1 9 8.5z"/></symbol>
   <symbol id="i-chest" viewBox="0 0 24 24"><path d="M3 10h18v10H3zM4 5h16a1 1 0 011 1v3H3V6a1 1 0 011-1zm6.5 6h3v4h-3z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 9h18v4H3zM5 13h14v8H5zM11 9h2v12h-2zM12 9C9 9 6.5 7.8 7.2 5.6 8 3.5 11 5 12 9zm0 0c1-4 4-5.5 4.8-3.4.7 2.2-1.8 3.4-4.8 3.4z"/></symbol>
   <symbol id="i-ad" viewBox="0 0 24 24"><path d="M3 5h18v14H3zm7 3.5v7l6-3.5z"/></symbol>
 </svg>
 
@@ -360,7 +361,7 @@ tr:{legend:'Newroz Efsanesi',play:'SAVAŞ',unlock:'KİLİDİ AÇ',shop:'Mağaza'
  starter:'Başlangıç Paketi',starterD:'500 elmas · 5.000 altın · Zîn',noads:'Reklamsız',noadsD:'Ödüllü reklamları atla, ödülü anında al',popular:'EN POPÜLER',bestv:'EN İYİ DEĞER',
  restore:'Satın alımları geri yükle',permT:'Kalıcı güçler her savaşta seninle',newRec:'Yeni rekor!',firstClear:'İlk zafer bonusu',move:'Hareket için sürükle',
  left:'kaldı',start:'Başlangıç gücü',hp:'Can',spd:'Hız',select:'Seç',selected:'Seçili',boss2:'BOSS',restored:'Geri yüklendi',chest:'Hazine sandığı!',
- reset2:'İlerleme sıfırlandı',watchFree:'Reklam izle',today:'bugün'},
+ reset2:'İlerleme sıfırlandı',watchFree:'Reklam izle',today:'bugün',revFree:'Ücretsiz diril',freeTake:'Topla',lowQ:'Akıcılık için grafik düşürüldü'},
 en:{legend:'Legend of Newroz',play:'BATTLE',unlock:'UNLOCK',shop:'Shop',up:'Power',heroes:'Heroes',daily:'Rewards',settings:'Settings',best:'Best',
  never:'Not played yet',chapter:'CHAPTER',lvup:'LEVEL UP',choose:'Choose a power',reroll:'Reroll',new:'NEW',lv:'LV',paused:'PAUSED',resume:'Resume',
  quit:'Main menu',sure:'Sure? Tap again',victory:'VICTORY',defeat:'YOU FELL',vsub:'Dehak’s serpent is slain. The fire lives.',dsub:'The darkness won tonight.',
@@ -372,7 +373,7 @@ en:{legend:'Legend of Newroz',play:'BATTLE',unlock:'UNLOCK',shop:'Shop',up:'Powe
  starter:'Starter Pack',starterD:'500 gems · 5,000 gold · Zîn',noads:'No Ads',noadsD:'Skip rewarded ads and get rewards instantly',popular:'MOST POPULAR',bestv:'BEST VALUE',
  restore:'Restore purchases',permT:'Permanent powers carry into every battle',newRec:'New record!',firstClear:'First victory bonus',move:'Drag to move',
  left:'left',start:'Starting power',hp:'HP',spd:'Speed',select:'Select',selected:'Selected',boss2:'BOSS',restored:'Restored',chest:'Treasure chest!',
- reset2:'Progress reset',watchFree:'Watch ad',today:'today'}};
+ reset2:'Progress reset',watchFree:'Watch ad',today:'today',revFree:'Revive for free',freeTake:'Claim',lowQ:'Graphics lowered for smoother play'}};
 const t=k=>(T[S.lang]&&T[S.lang][k])||T.en[k]||k;
 const L=o=>o[S.lang]||o.en;
 function applyLang(){document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));document.documentElement.lang=S.lang;}
@@ -442,8 +443,12 @@ window.__nativeReply=(id,ok)=>{const p=pending[id];if(p){delete pending[id];p(!!
 function native(msg){return new Promise(res=>{const id=++reqId;pending[id]=res;window.ReactNativeWebView.postMessage(JSON.stringify(Object.assign({id},msg)))})}
 function simulate(title,sub){return new Promise(res=>{$('#simT').textContent=title;$('#simS').textContent=sub;const el=$('#sim');el.hidden=false;
   const bar=el.querySelector('.bar i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';setTimeout(()=>{el.hidden=true;res(true)},1350)})}
-const IAP={buy(sku){return window.ReactNativeWebView?native({type:'iap:buy',sku}):simulate(t('shop'),t('demo'))}};
-function rewardedAd(){if(S.noAds)return Promise.resolve(true);return window.ReactNativeWebView?native({type:'ad:rewarded'}):simulate(t('adwatch'),'Demo · AdMob');}
+// Native build flags (set by the Expo app). Until Play Billing / AdMob are wired, store items are hidden and ad buttons give rewards for free.
+const NAT=window.ReactNativeWebView?Object.assign({iap:false,ads:false},window.KAWA_NATIVE||{}):null;
+const HAS_IAP=!NAT||NAT.iap,HAS_ADS=!NAT||NAT.ads;
+const adIc=()=>ico(HAS_ADS?'ad':'gift');
+const IAP={buy(sku){return NAT?native({type:'iap:buy',sku}):simulate(t('shop'),t('demo'))}};
+function rewardedAd(){if(S.noAds||!HAS_ADS)return Promise.resolve(true);return NAT?native({type:'ad:rewarded'}):simulate(t('adwatch'),'Demo · AdMob');}
 
 /* ---------------- AUDIO ---------------- */
 let AC,master,sfxG,musG,noiseBuf,musicOn=false;
@@ -942,7 +947,7 @@ function playerDown(){
 let revTimer=null;
 function openRevive(){
   const m=$('#revive');m.hidden=false;let n=5;$('#revN').textContent=n;$('#revCircle').style.setProperty('--p','100%');
-  $('#revAd').innerHTML=ico('ad')+' '+t('revAd');$('#revGem').innerHTML=t('revGem')+' · 30 '+ico('gem','gem');
+  $('#revAd').innerHTML=adIc()+' '+t(HAS_ADS?'revAd':'revFree');$('#revGem').innerHTML=t('revGem')+' · 30 '+ico('gem','gem');
   const t0=performance.now();clearInterval(revTimer);
   revTimer=setInterval(()=>{const el=(performance.now()-t0)/1000;n=Math.max(0,Math.ceil(5-el));$('#revN').textContent=n;$('#revCircle').style.setProperty('--p',Math.max(0,100-el/5*100)+'%');
     if(el>=5){clearInterval(revTimer);m.hidden=true;endRun(false)}},100);
@@ -968,7 +973,7 @@ function endRun(win){
   $('#rStats').innerHTML=[[t('time'),fmt(run.t)],[t('kills'),run.kills],[t('level'),run.lvl],[t('dmg'),dmgTotal>9999?(dmgTotal/1000).toFixed(1)+'k':dmgTotal]].map(([a,b])=>`<div><small>${a}</small><b>${b}</b></div>`).join('');
   $('#rReward').innerHTML=`<div>${ico('coin','coin')}<span id="rg">${gold}</span></div>`+(gems?`<div>${ico('gem','gem')}<span id="rm">${gems}</span></div>`:'');
   $('#rNote').textContent=note;
-  $('#rX2').innerHTML=ico('ad')+' '+t('x2');$('#rX2').hidden=false;
+  $('#rX2').innerHTML=adIc()+' '+t('x2');$('#rX2').hidden=false;
   setTimeout(()=>{$('#result').hidden=false},win?0:300);
 }
 $('#rX2').onclick=async()=>{SFX.click();if(!lastReward||lastReward.used)return;if(await rewardedAd()){lastReward.used=true;S.gold+=lastReward.gold;S.gems+=lastReward.gems;save();
@@ -1139,7 +1144,7 @@ function frame(now){
   let dt=Math.min(.05,(now-lastT)/1000);lastT=now;clock+=dt;
   if(slowT>0){slowT-=dt;timeScale=.25+(1-Math.min(1,slowT/1.6))*.75}else timeScale=1;
   const gdt=dt*timeScale;
-  if(state==='play')update(gdt);
+  if(state==='play'){update(gdt);autoQ(dt)}
   else if(state==='result'||state==='dead'){for(const e of E){e.ph+=gdt}}
   if(state!=='pause'&&state!=='lvup'){updParticles(gdt);
     for(const r of rings){if(r.userData.t<1){r.userData.t+=gdt/.38;const k=Math.min(1,r.userData.t),R=r.userData.R*(.25+.75*Math.sqrt(k));r.scale.set(R,1,R);r.material.opacity=1-k;if(k>=1)r.visible=false}}
@@ -1156,6 +1161,8 @@ function frame(now){
   drawOverlay(dt*(state==='pause'||state==='lvup'?0:1));
   if(state==='play'||state==='lvup')drawHud(dt);
 }
+let aqT=0,aqN=0;
+function autoQ(dt){if(S.q!=='high'||S.qm)return;aqT+=dt;aqN++;if(aqT>=5){const fps=aqN/aqT;aqT=aqN=0;if(fps<36){S.q='low';save();resize();toast(t('lowQ'))}}}
 function resize(){
   VW=innerWidth;VH=innerHeight;PR=Math.min(devicePixelRatio||1,S.q==='high'?1.75:1.15);
   renderer.setPixelRatio(PR);renderer.setSize(VW,VH);composer.setPixelRatio(PR);composer.setSize(VW,VH);
@@ -1208,23 +1215,23 @@ function renderSheet(){
   if(k==='shop'){$('#sheetTitle').textContent=t('shop');
     const ad=S.adGems.d===today()?S.adGems.n:0;
     body.innerHTML=`
-    ${S.starter?'':`<div class="sect">${t('special')}</div><div class="hero-offer"><div class="t"><b>${t('starter')}</b><span>${t('starterD')}</span></div><button class="price" id="bStarter">$2.99</button></div>`}
+    ${S.starter||!HAS_IAP?'':`<div class="sect">${t('special')}</div><div class="hero-offer"><div class="t"><b>${t('starter')}</b><span>${t('starterD')}</span></div><button class="price" id="bStarter">$2.99</button></div>`}
     <div class="sect">${t('gemsP')}</div>
     <div class="grid2">
-      <div class="item"><span class="big gem">${ico('ad')}</span><span class="amt">20 ${ico('gem','gem')}</span><button class="price" id="bAdGem" ${ad>=3?'disabled':''}>${t('watchFree')} ${3-ad}/3</button></div>
-      ${SHOP_GEMS.map(g=>`<div class="item">${g.tag?`<span class="tag">${T[S.lang][g.tag]||g.tag}</span>`:''}<span class="big gem">${ico('gem')}</span><span class="amt">${g.gems.toLocaleString()}</span><button class="price" data-sku="${g.sku}">${g.price}</button></div>`).join('')}
-      <div class="item"><span class="big" style="color:var(--blood)">${ico('ad')}</span><span class="amt" style="font-size:15px">${t('noads')}</span><button class="price" id="bNoAds" ${S.noAds?'disabled':''}>${S.noAds?t('owned'):'$3.99'}</button></div>
+      <div class="item"><span class="big gem">${adIc()}</span><span class="amt">20 ${ico('gem','gem')}</span><button class="price" id="bAdGem" ${ad>=3?'disabled':''}>${t(HAS_ADS?'watchFree':'freeTake')} ${3-ad}/3</button></div>
+      ${!HAS_IAP?'':SHOP_GEMS.map(g=>`<div class="item">${g.tag?`<span class="tag">${T[S.lang][g.tag]||g.tag}</span>`:''}<span class="big gem">${ico('gem')}</span><span class="amt">${g.gems.toLocaleString()}</span><button class="price" data-sku="${g.sku}">${g.price}</button></div>`).join('')}
+      ${HAS_IAP&&HAS_ADS?`<div class="item"><span class="big" style="color:var(--blood)">${ico('ad')}</span><span class="amt" style="font-size:15px">${t('noads')}</span><button class="price" id="bNoAds" ${S.noAds?'disabled':''}>${S.noAds?t('owned'):'$3.99'}</button></div>`:''}
     </div>
     <div class="sect">${t('goldP')}</div>
     <div class="grid2">${SHOP_GOLD.map(g=>`<div class="item"><span class="big coin">${ico('coin')}</span><span class="amt">${g.gold.toLocaleString()}</span><button class="price g" data-gold="${g.id}">${g.cost} ${ico('gem')}</button></div>`).join('')}</div>
-    <button class="btn" id="bRestore" style="margin-top:6px">${t('restore')}</button>
-    <p style="margin:2px 0 0;font:500 11px var(--ui);color:var(--ash);text-align:center">${t('demo')}</p>`;
+    ${HAS_IAP?`<button class="btn" id="bRestore" style="margin-top:6px">${t('restore')}</button>`:''}
+    ${NAT?'':`<p style="margin:2px 0 0;font:500 11px var(--ui);color:var(--ash);text-align:center">${t('demo')}</p>`}`;
     if($('#bStarter'))$('#bStarter').onclick=()=>buyIap('starter_pack',{gems:500,gold:5000,hero:'zin'},'starter');
     body.querySelectorAll('[data-sku]').forEach(b=>b.onclick=()=>{const g=SHOP_GEMS.find(x=>x.sku===b.dataset.sku);buyIap(g.sku,{gems:g.gems})});
-    $('#bNoAds').onclick=()=>{if(!S.noAds)buyIap('no_ads',{noAds:true})};
+    if($('#bNoAds'))$('#bNoAds').onclick=()=>{if(!S.noAds)buyIap('no_ads',{noAds:true})};
     $('#bAdGem').onclick=async()=>{if(S.adGems.d!==today())S.adGems={d:today(),n:0};if(S.adGems.n>=3)return;if(await rewardedAd()){S.adGems.n++;grant({gems:20})}};
     body.querySelectorAll('[data-gold]').forEach(b=>b.onclick=()=>{const g=SHOP_GOLD.find(x=>x.id===b.dataset.gold);if(S.gems<g.cost){toast(t('noGems'));return}S.gems-=g.cost;grant({gold:g.gold})});
-    $('#bRestore').onclick=()=>{if(window.ReactNativeWebView)native({type:'iap:restore'});toast(t('restored'))};
+    if($('#bRestore'))$('#bRestore').onclick=()=>{if(NAT)native({type:'iap:restore'});toast(t('restored'))};
   }
   else if(k==='up'){$('#sheetTitle').textContent=t('up');
     body.innerHTML=`<p style="margin:0 2px;font:500 13px var(--ui);color:var(--ash)">${t('permT')}</p>`+PERMS.map(p=>{const l=S.perm[p.k],mx=l>=PMAX,c=permCost(l);
@@ -1259,7 +1266,7 @@ function renderSheet(){
       <button class="btn danger" id="bReset" style="margin-top:10px">${t('reset')}</button>
       <p style="margin:6px 0 0;font:500 11px var(--ui);color:var(--ash);text-align:center">Agirê Kawa · Okuyan Studio · v0.1</p>`;
     const bind=(id,fn)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{fn(b.dataset.v);save();SFX.click();renderSheet()});
-    bind('sLang',v=>{S.lang=v;applyLang();renderHome()});bind('sSfx',v=>{S.sfx=v==='true';setVol()});bind('sMus',v=>{S.mus=v==='true';setVol()});bind('sQ',v=>{S.q=v;resize()});
+    bind('sLang',v=>{S.lang=v;applyLang();renderHome()});bind('sSfx',v=>{S.sfx=v==='true';setVol()});bind('sMus',v=>{S.mus=v==='true';setVol()});bind('sQ',v=>{S.q=v;S.qm=1;resize()});
     let armed=false;$('#bReset').onclick=()=>{if(!armed){armed=true;$('#bReset').textContent=t('sure');return}
       const lang=S.lang;S=DEF();S.lang=lang;save();viewHero=S.hero;setHeroModel(S.hero);applyChapter();renderSheet();renderHome();toast(t('reset2'))};
   }
@@ -1287,5 +1294,8 @@ camera.position.set(0,2.4,7);camLook.set(0,1.3,0);
 requestAnimationFrame(t0=>{lastT=t0;requestAnimationFrame(frame)});
 setTimeout(()=>{$('#loading').hidden=true;goHome()},250);
 addEventListener('pointerdown',()=>initAudio(),{once:true});
+window.__kawaBack=()=>{if(!$('#sim').hidden)return 'handled';if(!$('#sheet').hidden){$('#sheetX').onclick();return 'handled'}
+  if(state==='play'){openPause();return 'handled'}if(state==='pause'){$('#resume').onclick();return 'handled'}if(state==='home')return 'exit';return 'handled'};
+window.__kawaPause=()=>{if(state==='play')openPause()};
 window.__game={S,get state(){return state},startRun,get run(){return run},get E(){return E},P,spawnBoss:()=>{if(run)spawnBoss()}};
 </script>

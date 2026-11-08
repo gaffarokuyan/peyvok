@@ -1,0 +1,30 @@
+{
+  "name": "agire-kawa",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "private": true,
+  "scripts": {
+    "build:game": "node tools/build-game.mjs",
+    "start": "expo start",
+    "android": "expo start --android"
+  },
+  "dependencies": {
+    "expo": "~58.0.17",
+    "expo-asset": "~58.0.18",
+    "expo-screen-orientation": "~58.0.3",
+    "expo-splash-screen": "~58.0.11",
+    "expo-status-bar": "~58.0.4",
+    "expo-system-ui": "~58.0.6",
+    "react": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-webview": "14.0.1"
+  },
+  "devDependencies": {
+    "@fontsource/marcellus-sc": "^5.2.0",
+    "@fontsource/rubik": "^5.2.0",
+    "@types/react": "~19.3.0",
+    "esbuild": "^0.25.0",
+    "three": "0.160.0",
+    "typescript": "~6.0.3"
+  }
+}
