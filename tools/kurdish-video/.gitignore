@@ -3,3 +3,4 @@ video/fonts/
 output/*.mp4
 __pycache__/
 output/*.png
+output/*.mp3
