@@ -27,7 +27,7 @@ LINES = [  # (başlangıç sn, karakter, dosya, Kurmancî, Türkçe)
     (25.0, "gule", "02_gule_nikarim.mp3", "Ez nikarim binivîsim…", "Ben yazamam…"),
     (37.0, "hevi", "03_hevi_alfabe.mp3", "A… av. Bê… bav. Dê… dayik.", "A – su. B – baba. D – anne."),
     (70.0, "gule", "04_gule_bixer.mp3", "Bi xêr here… bi xêr were.", "Sağ salim git, sağ salim gel."),
-    (101.0, "gule_ds", "adaylar/05_birci_nemine.mp3", "Kurê min… birçî nemîne. Kurê min.", "Oğlum… aç kalma. Oğlum."),
+    (101.0, "gule_ds", "05_gule_not.mp3", "Kurê min… birçî nemîne.", "Oğlum… aç kalma."),
     (117.5, "rezan", "06_rezan_ke.mp3", "Dayê… kê ev nivîsî?", "Anne… bunu kim yazdı?"),
     (124.0, "gule", "07_gule_min.mp3", "Min bi xwe nivîsî.", "Kendim yazdım."),
     (141.5, "gule_ds", "08_gule_okuma.mp3", "Da… yê. Ez… têr… bûm. Ez… têm… malê.", "Anne. Doydum. Eve geliyorum."),
