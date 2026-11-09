@@ -27,10 +27,10 @@ function sHook(t){ // split
   const kv=pop(t,.95,.5);if(kv>0){X.save();X.translate(W/2,H/2);X.scale(kv*(1+.05*Math.sin(t*8)),kv*(1+.05*Math.sin(t*8)));X.rotate(-.11);X.fillStyle='#fff';X.shadowColor='rgba(0,0,0,.6)';X.shadowBlur=40;X.beginPath();X.arc(0,0,120,0,TAU);X.fill();X.shadowColor='transparent';tx('VS',0,8,130,'#d0122a',{st:0});X.restore()}
   const kq=clamp((t-1.5)/.4);if(kq>0){X.save();X.globalAlpha=kq;chip('HANGİSİ DAHA ZENGİN?',W/2,270,1,['#fff','#ffe9a8'],{size:74,h:140});X.restore()}
 }
-const DIA=[['KURMANCÎ',300,720,-.06],['SORANÎ',760,800,.05],['ZAZAKÎ',320,1010,.04],['GORANÎ',770,1090,-.05],['KELHURÎ',540,1290,.02]];
+const DIA=[['KURMANCÎ',290,720,-.03,'Behdînî · Botanî · Serhedî'],['SORANÎ',790,720,.03,'Silêmanî · Mukrî · Erdelanî'],['KELHURÎ',290,990,.02,'Feylî · Kirmaşanî'],['ZAZAKÎ',790,990,-.02,'Kirmanckî · Dimilkî'],['GORANÎ',290,1260,-.02,'Hewramî'],['LEKÎ',790,1260,.03,'']];
 // ---------- scenes (v2: Bakiler + Vikisözlük) ----------
 const C={once:cue('önce türk'),yavuz:cue('yavuz'),nediyor:cue('ne diyor'),bak:cue('bakiler türkiye'),kas:cue('kaşgarlı'),r1:cue('dokuz bin'),sem:cue('şemsettin'),r2:cue('on sekiz'),tdk:cue('türk dil'),r3:cue('seksen'),oz:cue('peki ya'),r4:cue('yalnızca'),
- soru:cue('ve bakiler'),q:cue('üç bin',2),simdi:cue('şimdi kürtçeye'),rud:cue('rudav'),sek:cue('sekizinci'),geri:cue('türkçe farsça'),ust:cue('üstelik'),haz:cue('hazinesi'),d:[cue('kurmanci'),cue('sorani'),cue('zazaki'),cue('gorani'),cue('kelhuri')],
+ soru:cue('ve bakiler'),q:cue('üç bin',2),simdi:cue('şimdi kürtçeye'),rud:cue('rudav'),sek:cue('sekizinci'),geri:cue('türkçe farsça'),ust:cue('üstelik'),haz:cue('hazinesi'),d:[cue('kurmanci'),cue('sorani'),cue('kelhuri'),cue('zazaki'),cue('gorani'),cue('leki')],
  nasil:cue('nasıl'),dev:cue('devletsiz'),okul:cue('okulsuz'),yas:cue('yasaklı'),resmi:cue('devletin ve'),bugun:cue('bugün'),sizce:cue('sizce'),yorum:cue('yorumlara'),fazla:cue('daha fazlası')};
 const INK=['#0a1a2e','#123a5a','#1a6a7a'];
 function sBakIntro(t){bg(INK,t,3);const k=pop(t,C.once,.45);tx('ÖNCE BİR TÜRK ŞAİRE SORALIM',W/2,470,62,'#bfeaff',{st:10,a:clamp(k),ls:3,maxW:980,sc:'#04121e'});
@@ -58,7 +58,7 @@ function sKurd(t){bg(K.bg,t,1);header('KÜRTÇE',[K.c1,'#fff6d0'],eout((t-C.simd
   else{const a=clamp((t-C.ust)/.3);X.save();X.globalAlpha=a;tx('TEK BİR DİL DEĞİL',W/2,520,78,'#fff',{st:14,ls:3});
     const kz=pop(t,C.haz-.3,.5);if(kz>0){X.save();X.translate(W/2,1010);X.globalCompositeOperation='screen';const rg=X.createRadialGradient(0,0,0,0,0,560*kz);rg.addColorStop(0,'rgba(255,220,90,.55)');rg.addColorStop(1,'rgba(255,160,20,0)');X.fillStyle=rg;X.fillRect(-600,-600,1200,1200);X.restore();
       if(t<C.d[0]){X.save();X.translate(W/2,960);X.scale(kz,kz);tx('BİR DİL',0,-90,150,'#fff',{st:22});tx('HAZİNESİ',0,100,200,['#fff36a','#ffa01a'],{st:28});X.restore()}}
-    DIA.forEach((d,i)=>{const k=pop(t,C.d[i],.4);if(k>0){X.save();X.translate(d[1],d[2]+Math.sin(t*2+i)*8);X.rotate(d[3]);chip(d[0],0,0,k,i%2?['#fff','#ffe2a0']:['#ffe14a','#ff9a1a'],{size:88,h:150});X.restore()}});X.restore()}}
+    DIA.forEach((d,i)=>{const k=pop(t,C.d[i],.4);if(k>0){X.save();X.translate(d[1],d[2]+Math.sin(t*2+i)*8);X.rotate(d[3]);chip(d[0],0,0,k,(i+(i>>1))%2?['#fff','#ffe2a0']:['#ffe14a','#ff9a1a'],{size:78,h:136,w:440});if(d[4])tx(d[4],0,112,34,'#fff',{f:'InterB',w:800,st:7,a:clamp((t-C.d[i]-.25)/.3),maxW:470});X.restore()}});tx('6 LEHÇE',W/2,1470,90,['#fff36a','#ffa01a'],{st:16,a:clamp((t-C.d[5]-.3)/.3),ls:4});X.restore()}}
 function sNasil(t){const g=X.createLinearGradient(0,0,0,H);g.addColorStop(0,'#14061e');g.addColorStop(.5,'#3a1040');g.addColorStop(1,'#7a1a22');X.fillStyle=g;X.fillRect(0,0,W,H);
   X.save();X.translate(W/2,H*.45);X.rotate(t*.05);X.globalAlpha=.07;X.fillStyle='#fff';for(let i=0;i<18;i++){X.rotate(TAU/18);X.beginPath();X.moveTo(-50,0);X.lineTo(0,-1600);X.lineTo(50,0);X.fill()}X.restore();
   const kn=pop(t,C.nasil,.45);X.save();X.translate(W/2,330);X.scale(kn,kn);tx('NASIL OLUYOR?',0,0,150,['#fff36a','#ffb01a'],{st:24,maxW:1000});X.restore();
@@ -74,7 +74,7 @@ function sEnd(t){const lt=t-C.fazla;const g=X.createLinearGradient(0,0,0,H);g.ad
   const kb=pop(lt,.9,.4);if(kb>0){X.save();X.translate(W/2,1340);X.scale(kb*(1+.04*Math.sin(lt*7)),kb*(1+.04*Math.sin(lt*7)));X.shadowColor='rgba(0,0,0,.5)';X.shadowBlur=30;X.shadowOffsetY=10;X.fillStyle='#e8202a';X.beginPath();X.roundRect(-270,-70,540,140,70);X.fill();X.shadowColor='transparent';tx('ABONE OL',0,6,84,'#fff',{st:0,ls:4});X.restore()}
   const kk=clamp((lt-1.6)/.5);if(kk>0){X.save();X.globalAlpha=kk;X.save();X.beginPath();X.arc(330,1560,58,0,TAU);X.clip();X.drawImage(KLOGO,272,1502,116,116);X.restore();tx('Kürtçe öğren: @dirokkurdii',410,1562,46,'#fff',{f:'InterB',w:800,st:8,al:'left'});X.restore()}}
 // ---------- captions ----------
-const FIX={Dirok:'Dîrok',Kurmanci:'Kurmancî',Sorani:'Soranî',Zazaki:'Zazakî',Gorani:'Goranî',Kelhuri:'Kelhurî',Kurumunun:'Kurumu’nun',Rudav:'Rudaw',Mahmudun:'Mahmud’un',Saminin:'Sami’nin',Bakilere:'Bakiler’e',Vikisözlükte:'Vikisözlük’te'};
+const FIX={Dirok:'Dîrok',Leki:'Lekî',Kurmanci:'Kurmancî',Sorani:'Soranî',Zazaki:'Zazakî',Gorani:'Goranî',Kelhuri:'Kelhurî',Kurumunun:'Kurumu’nun',Rudav:'Rudaw',Mahmudun:'Mahmud’un',Saminin:'Sami’nin',Bakilere:'Bakiler’e',Vikisözlükte:'Vikisözlük’te'};
 const CAPS=[];{let cur=[];WORDS.forEach((w,i)=>{const b=w[0].replace(/[.,:;!?]/g,'');let d=w[0];Object.keys(FIX).forEach(k=>{if(b===k)d=w[0].replace(k,FIX[k])});cur.push({w:d,s:OFF+w[1],e:OFF+w[2]});if(/[.,:;!?]$/.test(w[0])||cur.length>=4||i===WORDS.length-1){CAPS.push(cur);cur=[]}})}
 function captions(t){const c=CAPS.find(c=>t>=c[0].s-.05&&t<c[c.length-1].e+.3);if(!c)return;X.save();X.font='800 58px InterB';const sp=X.measureText(' ').width,ws=c.map(w=>X.measureText(w.w).width),tot=ws.reduce((a,b)=>a+b,0)+sp*(c.length-1);const sc=Math.min(1,960/tot),y=1660;X.translate(W/2,y);X.scale(sc,sc);
   X.fillStyle='rgba(12,6,14,.82)';X.beginPath();X.roundRect(-tot/2-34,-52,tot+68,104,26);X.fill();X.textBaseline='middle';X.textAlign='left';let x=-tot/2;c.forEach((w,i)=>{X.fillStyle=t>=w.s-.03?'#ffd83a':'#fff';X.fillText(w.w,x,3);x+=ws[i]+sp});X.restore()}
