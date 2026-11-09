@@ -377,7 +377,7 @@ def build_audio(path):
     for k, (st, w, fn, *_) in enumerate(LINES):
         args += ["-i", os.path.join(SES, fn)]
         ms = int(st * 1000)
-        flt.append(f"[{k + 1}:a]aresample=44100,adelay={ms}|{ms},volume=1.6[d{k}]")
+        flt.append(f"[{k + 1}:a]aresample=44100,loudnorm=I=-17:TP=-2:LRA=7,aresample=44100,adelay={ms}|{ms}[d{k}]")
     mix = "[m]" + "".join(f"[d{k}]" for k in range(len(LINES)))
     flt.append(f"{mix}amix=inputs={len(LINES) + 1}:normalize=0:duration=first[a]")
     args += ["-filter_complex", ";".join(flt), "-map", "[a]", "-ac", "2", "-ar", "44100", path]
