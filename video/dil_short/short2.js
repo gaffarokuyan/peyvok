@@ -85,3 +85,10 @@ function renderFrame(t){X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.globalComp
   const vg=X.createRadialGradient(W/2,H/2,H*.35,W/2,H/2,H*.8);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.35)');X.fillStyle=vg;X.fillRect(0,0,W,H);
   if(t>TOTAL-.5){X.fillStyle=`rgba(0,0,0,${clamp((t-TOTAL+.5)/.5)})`;X.fillRect(0,0,W,H)}}
 window.renderFrame=renderFrame;window.MISS=MISS;window.SFX=[['boom',.15],['boom',.55],['whoosh',.9],['whoosh',C.once-.1],['boom',C.yavuz],['whoosh',C.bak-.1],['boom',C.r1],['boom',C.r2],['boom',C.r3],['boom',C.r4],['shimmer',C.soru],['boom',C.q],['whoosh',C.simdi-.1],['boom',C.simdi],['shimmer',C.sek],['boom',C.sek],['shimmer',C.haz-.3],['whoosh',C.nasil-.1],['boom',C.dev],['boom',C.okul],['boom',C.yas],['shimmer',C.bugun],['whoosh',C.sizce-.1],['whoosh',C.fazla-.1],['boom',C.fazla+.1]];
+// ---------- cover (hook) ----------
+window.drawCover=function(){X.setTransform(1,0,0,1,0,0);X.globalAlpha=1;X.shadowColor='transparent';sHook(5);
+  tx('DÎROK',W/2,120,54,['#fff3b0','#e0a02a'],{f:'CinzelD',w:900,st:10,ls:10});
+  X.save();X.translate(W/2,790);X.rotate(-.11);chip('VİKİSÖZLÜK’TE DÜNYADA 8.',0,0,1,['#fff36a','#ffa01a'],{size:74,h:136});X.restore();
+  X.save();X.translate(W/2,1560);X.rotate(-.11);chip('ÖZ TÜRKÇE: 3.175 KELİME?',0,0,1,['#ff6a6a','#c8101e'],{size:74,h:136,fg:'#fff'});X.restore();
+  chip('TÜRK ŞAİR BAKİLER AÇIKLADI',W/2,1760,1,['#fff','#ffe9a8'],{size:56,h:104});
+  const vg=X.createRadialGradient(W/2,H/2,H*.35,W/2,H/2,H*.8);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.35)');X.fillStyle=vg;X.fillRect(0,0,W,H)};
