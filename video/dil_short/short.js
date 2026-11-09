@@ -29,7 +29,7 @@ function sHook(t){ // split
   const k1=pop(t,.15),k2=pop(t,.55);X.save();X.translate(W/2,560);X.rotate(-.11);X.scale(k1,k1);tx('KÜRTÇE',0,0,250,[K.c1,K.c2],{ls:4,st:34});X.restore();
   X.save();X.translate(W/2,1340);X.rotate(-.11);X.scale(Math.max(0,k2),Math.max(0,k2));tx('TÜRKÇE',0,0,250,[T_.c1,T_.c2],{ls:4,st:34,sc:'#04121e'});X.restore();
   const kv=pop(t,.95,.5);if(kv>0){X.save();X.translate(W/2,H/2);X.scale(kv*(1+.05*Math.sin(t*8)),kv*(1+.05*Math.sin(t*8)));X.rotate(-.11);X.fillStyle='#fff';X.shadowColor='rgba(0,0,0,.6)';X.shadowBlur=40;X.beginPath();X.arc(0,0,120,0,TAU);X.fill();X.shadowColor='transparent';tx('VS',0,8,130,'#d0122a',{st:0});X.restore()}
-  const kq=clamp((t-1.5)/.4)*(t<C.cevap?1:clamp(1-(t-C.cevap)/.25));if(kq>0){X.save();X.globalAlpha=kq;chip('HANGİSİ DAHA ZENGİN?',W/2,960+250,1,['#fff','#ffe9a8'],{size:74,h:140});X.restore()}
+  const kq=clamp((t-1.5)/.4)*(t<C.cevap?1:clamp(1-(t-C.cevap)/.25));if(kq>0){X.save();X.globalAlpha=kq;chip('HANGİSİ DAHA ZENGİN?',W/2,270,1,['#fff','#ffe9a8'],{size:74,h:140});X.restore()}
   const ka=pop(t,C.cevap,.4);if(t>C.cevap){X.fillStyle=`rgba(8,4,12,${.9*clamp((t-C.cevap)/.3)})`;X.fillRect(0,0,W,H);X.save();X.translate(W/2+Math.sin(t*40)*6*clamp(1-(t-C.cevap)/.6),880);X.scale(ka,ka);tx('CEVAP',0,-110,190,'#fff',{st:26});tx('SANDIĞINIZ GİBİ',0,70,130,[K.c1,K.c2],{st:22});tx('DEĞİL!',0,260,230,'#ff3a4a',{st:30});X.restore()}}
 function sTurk(t){bg(T_.bg,t,7);header('TÜRKÇE',[T_.c1,'#e8fbff'],eout((t-C.once)/.5));
   if(t<C.ama+.2){const a=clamp((t-C.tdk)/.4)*clamp((C.ama+.2-t)/.3);X.save();X.globalAlpha=a; // dictionary + counter
