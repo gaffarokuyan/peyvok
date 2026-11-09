@@ -1,5 +1,10 @@
 # BOXÇE — Süre planı ve karakter kılavuzu
 
+> **Güncelleme:** Tarz 3D'den **2D düz çizime** geçti (beyaz yuvarlak kafa, nokta göz, kalın kontur, sıcak bej tonlar).
+> Karakterler kodla çiziliyor: `2d/karakter.py` → tasarım sayfası `2d/karakterler.png`.
+> Kıyafetler kullanıcının gönderdiği referanslara göre: Gulê'de **kofî + uzun beyaz tül, kırmızı kiras (sarkan kollar, altın sırma), geniş altın kemer, para kolye**;
+> Rêzan'ın finalinde **açık mavi şal û şapik, kırmızı desenli pişt, başta kırmızı puşî**. Aşağıdaki VRoid/Blender notları artık geçerli değil.
+
 ## Süre planı: 3:00
 
 | Zaman | Sahne | Süre | Ses |
