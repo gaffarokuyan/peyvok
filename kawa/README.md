@@ -17,7 +17,7 @@ npx eas-cli@latest build -p android --profile production   # AAB (Play Console)
 
 ## Play Store
 - Mağaza görselleri: `store/` (512 ikon, 1024×500 tanıtım görseli, TR/EN telefon ekran görüntüleri).
-- Gizlilik politikası: `https://peyvok.netlify.app/kawa-privacy.html` (`../site/kawa-privacy.html`, Netlify'a yüklenmeli).
+- Gizlilik politikası: `https://newroz-legends.netlify.app/privacy.html` (`../site/kawa-privacy.html`; Netlify sitesi `newroz-legends` (peyvokkurdi@gmail.com hesabı)).
 - Veri güvenliği formu: veri toplanmıyor, paylaşılmıyor. Reklam yok. Hedef yaş: 13+.
 - Kategori: Oyun › Aksiyon. İçerik derecelendirmesi anketinde: fantastik şiddet (insan olmayan yaratıklar), kan yok.
 
