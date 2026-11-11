@@ -141,7 +141,7 @@ box("vinc_kule", (0.5, 0.5, 22.4), (-9, 30, 11.2), VINC)
 box("vinc_kol", (16, 0.4, 0.4), (-4, 30, 22.6), VINC)
 box("vinc_karsi", (2, 0.8, 0.8), (-13.5, 30, 22.4), VINC)
 cyl("vinc_halat", 0.02, 9, (3, 30, 18), VINC, v=4)
-# baret (Rêzan'ın), soluk sarı
+# baret (Ronî'ın), soluk sarı
 ball("baret", 0.15, (-0.48, 0.08, 0.45), BARET, scale=(1, 1.15, 0.75))
 cyl("baret_siper", 0.17, 0.015, (-0.48, 0.06, 0.455), BARET, v=20)
 

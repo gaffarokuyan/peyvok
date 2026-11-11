@@ -1,6 +1,6 @@
 """Karakter tasarım sayfası: python3 karakter_sayfasi.py <cikti.png>"""
 import sys, subprocess, os
-from karakter import gule, hevi, rezan, svg_doc, place, INK
+from karakter import gule, hevi, roni, svg_doc, place, INK
 
 W, H = 1920, 1080
 body = []
@@ -9,10 +9,10 @@ body.append(f'<rect x="0" y="880" width="{W}" height="200" fill="#e6d3ad"/>')
 body.append(f'<line x1="0" y1="880" x2="{W}" y2="880" stroke="{INK}" stroke-width="5"/>')
 body.append(place(gule(mouth="smile"), 330, 900, 1.25))
 body.append(place(hevi(mouth="smile", arm="point", phone=True), 700, 900, 1.25))
-body.append(place(rezan(mouth="flat", outfit="is"), 1110, 900, 1.25))
-body.append(place(rezan(mouth="smile", outfit="sal"), 1560, 900, 1.25))
-labels = [(330, "GULÊ", "62 · nene"), (700, "HÊVÎ", "10 · torun"),
-          (1110, "RÊZAN", "34 · İstanbul, iş kıyafeti"), (1560, "RÊZAN", "final · şal û şapik")]
+body.append(place(roni(mouth="flat", outfit="is"), 1110, 900, 1.25))
+body.append(place(roni(mouth="smile", outfit="sal"), 1560, 900, 1.25))
+labels = [(330, "GULÊ", "genç kız · başı açık"), (700, "HÊVÎ", "10 · torun"),
+          (1110, "RONÎ", "İstanbul · iş kıyafeti"), (1560, "RONÎ", "final · şal û şapik")]
 for x, n, d in labels:
     body.append(f'<text x="{x}" y="960" text-anchor="middle" font-family="Cinzel" font-weight="900" '
                 f'font-size="46" fill="{INK}">{n}</text>')

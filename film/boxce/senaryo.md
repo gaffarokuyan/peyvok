@@ -5,7 +5,7 @@ Kurmancî, TR altyazılı. İlham: Japon annelerinin *obentō* kutusu ve içine 
 ## Karakterler
 - **Gulê** (62) — okuma yazma bilmeyen nene
 - **Hêvî** (10) — torunu
-- **Rêzan** (34) — oğlu, İstanbul'da inşaat işçisi
+- **Ronî** (34) — oğlu, İstanbul'da inşaat işçisi
 
 ## Senaryo
 
@@ -19,12 +19,12 @@ Kurmancî, TR altyazılı. İlham: Japon annelerinin *obentō* kutusu ve içine 
 **3. Köy yolu, şafak.** Gulê kırmızı bohçayı minibüse veriyor.
 - GULÊ: Bi xêr here, bi xêr were. *(Sağ salim git, sağ salim gel.)*
 
-**4. İstanbul inşaatı, öğle.** Gri beton; Rêzan yalnız. Bohçayı açınca kırmızı bir renk patlıyor. İçinde eğri harflerle bir not:
+**4. İstanbul inşaatı, öğle.** Gri beton; Ronî yalnız. Bohçayı açınca kırmızı bir renk patlıyor. İçinde eğri harflerle bir not:
 *"KURÊ MIN. BIRÇÎ NEMÎNE. DAYIKA TE"* (Oğlum. Aç kalma. Annen)
 - GULÊ (dış ses): Kurê min… birçî nemîne. *(Oğlum… aç kalma.)*
 
 **5. Telefon.**
-- RÊZAN: Dayê… kê ev nivîsî? *(Anne… bunu kim yazdı?)*
+- RONÎ: Dayê… kê ev nivîsî? *(Anne… bunu kim yazdı?)*
 - GULÊ: Min bi xwe nivîsî. *(Kendim yazdım.)*
 
 **6. Köy, gün batımı.** Boş bohça geri gelmiş. Gulê notu kendisi, hece hece okuyor:
@@ -36,6 +36,6 @@ Uzakta yolda biri görünüyor. Kararma.
 - **Görsel:** VRoid Studio (karakterler) → Mixamo (hareket) → Blender toon shader (render); dudak senkronu Rhubarb Lip Sync.
 - **Ses:** ElevenLabs eleven_v4. Kurmancî metin hazır seslerle okunuyor (Voice Design Kürtçeyi kabul etmiyor).
   - Gulê: Dilara (`D2dHiTSPRx6l2bhKGmyJ`) — deneme: `ses/gule_test.mp3`
-  - Rêzan: Agit Taşdemir (`qLctY6uJSzrtjp23kPzO`)
+  - Ronî: Agit Taşdemir (`qLctY6uJSzrtjp23kPzO`)
   - Hêvî: Mithi (`MIl0Flub6Sc9KSkX2A42`)
 - **Replikler:** `ses/01…08_*.mp3` (sahne sırasıyla). Her biri ElevenLabs Scribe ile Kürtçe transkribe edilip kontrol edildi; metin Mazdek ile yazım/dilbilgisi kontrolünden geçti.

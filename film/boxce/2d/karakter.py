@@ -147,70 +147,70 @@ def _kember(y, w):
 
 
 def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False):
-    """Nene, ~470 px. Kofî + uzun beyaz tül, kırmızı kiras (sarkan kollar, altın sırma),
-    altın kemer, para kolye, deq."""
+    """Genç, uzun boylu kız, ~575 px. Başı açık: bele kadar uzun siyah saç.
+    Kırmızı kiras (sarkan kollar, altın sırma), geniş altın kemer, para kolye."""
+    TALL = 1.22                      # vücut dikey uzatma
+    hy = -392 * TALL - 8             # kafa merkezi
+    hr = 70
     g = []
-    hy = -392
-    hr = 74
-    # beyaz tül: başın üstünden dizlere kadar arkaya düşer
-    g.append(path(f"M-62 {hy - 66} Q-150 {hy + 40} -150 -120 Q-140 -100 -112 -110 L112 -110 "
-                  f"Q140 -100 150 -120 Q150 {hy + 40} 62 {hy - 66} Q0 {hy - 96} -62 {hy - 66} Z", "#f1eee6"))
+    # arka saç: bele kadar
+    g.append(path(f"M{-hr + 2} {hy - 10} Q{-hr - 34} {hy + 120} {-hr - 18} {hy + 250} "
+                  f"Q0 {hy + 280} {hr + 18} {hy + 250} Q{hr + 34} {hy + 120} {hr - 2} {hy - 10} Z", "#1d1a1c"))
+    b = []
     # ayaklar
-    g.append(ellipse(-34, -10, 30, 14, "#3a2a22", sw=5))
-    g.append(ellipse(34, -10, 30, 14, "#3a2a22", sw=5))
+    b.append(ellipse(-34, -10, 30, 14, "#3a2a22", sw=5))
+    b.append(ellipse(34, -10, 30, 14, "#3a2a22", sw=5))
     # kiras (yere kadar)
-    g.append(path(f"M-74 -296 Q-118 -150 -130 -22 L130 -22 Q118 -150 74 -296 Z", KIRAS))
-    g.append(path("M0 -200 L0 -26", "none", stroke="#6e1520", sw=3))
+    b.append(path(f"M-74 -296 Q-118 -150 -130 -22 L130 -22 Q118 -150 74 -296 Z", KIRAS))
+    b.append(path("M0 -200 L0 -26", "none", stroke="#6e1520", sw=3))
     # göğüs sırma işlemesi (altın kıvrımlar)
     for sgn in (-1, 1):
-        g.append(path(f"M{sgn * 8} -292 Q{sgn * 40} -270 {sgn * 26} -246 Q{sgn * 10} -228 {sgn * 34} -212",
+        b.append(path(f"M{sgn * 8} -292 Q{sgn * 40} -270 {sgn * 26} -246 Q{sgn * 10} -228 {sgn * 34} -212",
                       "none", stroke=GOLD, sw=4))
-        g.append(path(f"M{sgn * 50} -284 Q{sgn * 66} -250 {sgn * 52} -218", "none", stroke=GOLD, sw=3))
+        b.append(path(f"M{sgn * 50} -284 Q{sgn * 66} -250 {sgn * 52} -218", "none", stroke=GOLD, sw=3))
     # para kolye
     for i in range(7):
         t = (i - 3) / 3
-        g.append(circle(t * 34, -284 + (1 - t * t) * 22, 6.5, GOLD, sw=2.5))
-    g.append(_kember(-196, 92))
+        b.append(circle(t * 34, -284 + (1 - t * t) * 22, 6.5, GOLD, sw=2.5))
+    b.append(_kember(-196, 92))
     # kollar: geniş, sarkan kiras kolları
     if arm == "down":
         for s in (-1, 1):
-            g.append(path(f"M{s * 72} -292 Q{s * 128} -230 {s * 132} -120 Q{s * 112} -96 {s * 86} -118 "
+            b.append(path(f"M{s * 72} -292 Q{s * 128} -230 {s * 132} -120 Q{s * 112} -96 {s * 86} -118 "
                           f"Q{s * 84} -190 {s * 58} -262 Z", KIRAS))
-            g.append(path(f"M{s * 130} -126 Q{s * 112} -100 {s * 88} -120", "none", stroke=GOLD, sw=4))
-            g.append(hand(s * 98, -132))
-            g.append(path(f"M{s * 86} -144 L{s * 110} -144", "none", stroke=GOLD, sw=5))  # bilezik
+            b.append(path(f"M{s * 130} -126 Q{s * 112} -100 {s * 88} -120", "none", stroke=GOLD, sw=4))
+            b.append(hand(s * 98, -132))
+            b.append(path(f"M{s * 86} -144 L{s * 110} -144", "none", stroke=GOLD, sw=5))  # bilezik
     elif arm == "front":
         for s in (-1, 1):
-            g.append(path(f"M{s * 72} -292 Q{s * 130} -230 {s * 110} -150 Q{s * 80} -140 {s * 40} -188 "
+            b.append(path(f"M{s * 72} -292 Q{s * 130} -230 {s * 110} -150 Q{s * 80} -140 {s * 40} -188 "
                           f"Q{s * 60} -230 {s * 56} -262 Z", KIRAS))
-            g.append(path(f"M{s * 108} -156 Q{s * 76} -144 {s * 44} -186", "none", stroke=GOLD, sw=4))
-            g.append(hand(s * 42, -196))
+            b.append(path(f"M{s * 108} -156 Q{s * 76} -144 {s * 44} -186", "none", stroke=GOLD, sw=4))
+            b.append(hand(s * 42, -196))
         if writing:
-            g.append(line(52, -210, 78, -246, stroke="#c79a3a", sw=7))
-            g.append(line(52, -210, 48, -202, stroke=INK, sw=4))
+            b.append(line(52, -210, 78, -246, stroke="#c79a3a", sw=7))
+            b.append(line(52, -210, 48, -202, stroke=INK, sw=4))
     elif arm == "phone":
-        g.append(path("M-72 -292 Q-128 -230 -132 -120 Q-112 -96 -86 -118 Q-84 -190 -58 -262 Z", KIRAS))
-        g.append(hand(-98, -132))
-        g.append(path("M72 -292 Q126 -310 104 -362 L70 -352 Q82 -316 56 -276 Z", KIRAS))
-        g.append(f'<rect x="66" y="-420" width="26" height="52" rx="6" fill="#30343a" stroke="{INK}" stroke-width="5"/>')
-        g.append(hand(84, -372))
+        b.append(path("M-72 -292 Q-128 -230 -132 -120 Q-112 -96 -86 -118 Q-84 -190 -58 -262 Z", KIRAS))
+        b.append(hand(-98, -132))
+        b.append(path("M72 -292 Q126 -310 104 -362 L70 -352 Q82 -316 56 -276 Z", KIRAS))
+        b.append(f'<rect x="66" y="-420" width="26" height="52" rx="6" fill="#30343a" stroke="{INK}" stroke-width="5"/>')
+        b.append(hand(84, -372))
+    # boyun (arka saçın önünde, elbisenin arkasında)
+    g.append(path(f"M-20 {hy + hr - 14} L-22 {-296 * TALL + 14} L22 {-296 * TALL + 14} L20 {hy + hr - 14} Z", SKIN, sw=5))
+    g.append(f'<g transform="scale(1,{TALL})">' + "\n".join(b) + "</g>")
     # kafa
     g.append(circle(0, hy, hr, SKIN))
-    # kofî (altın başlık) + tülün ön kenarı
-    g.append(path(f"M-58 {hy - 44} L-50 {hy - 92} Q0 {hy - 104} 50 {hy - 92} L58 {hy - 44} Q0 {hy - 56} -58 {hy - 44} Z", GOLD, sw=5))
-    for k in range(5):
-        y = hy - 52 - k * 9
-        g.append(path(f"M{-56 + k * 1.6} {y} Q0 {y - 10} {56 - k * 1.6} {y}", "none", stroke=GOLD_D, sw=2))
-    for x in range(-48, 50, 12):
-        g.append(circle(x, hy - 40, 4.2, GOLD, sw=2))   # alına düşen paralar
-    g.append(path(f"M-60 {hy - 92} Q-96 {hy - 20} -86 {hy + 40}", "none", stroke=INK, sw=4))
-    g.append(path(f"M60 {hy - 92} Q96 {hy - 20} 86 {hy + 40}", "none", stroke=INK, sw=4))
-    g.append(face(0, hy + 8, hr, mouth, blink, look, age=1))
-    # deq (çene dövmesi)
-    for dy in (0, 9, 18):
-        g.append(f'<circle cx="0" cy="{hy + hr * 0.64 + dy}" r="2.6" fill="#4f6b8f"/>')
-    g.append(f'<circle cx="-8" cy="{hy + hr * 0.64 + 9}" r="2.2" fill="#4f6b8f"/>')
-    g.append(f'<circle cx="8" cy="{hy + hr * 0.64 + 9}" r="2.2" fill="#4f6b8f"/>')
+    # ön saç: ortadan ayrık, omuzlara düşen iki tutam
+    g.append(path(f"M{-hr - 2} {hy + 6} Q{-hr} {hy - hr - 12} 0 {hy - hr - 8} Q{hr} {hy - hr - 12} {hr + 2} {hy + 6} "
+                  f"Q{hr - 12} {hy - 34} 4 {hy - hr + 6} Q{-hr + 12} {hy - 34} {-hr - 2} {hy + 6} Z", "#1d1a1c"))
+    for sgn in (-1, 1):
+        g.append(path(f"M{sgn * (hr - 4)} {hy - 6} Q{sgn * (hr + 16)} {hy + 70} {sgn * (hr - 6)} {hy + 150}",
+                      "none", stroke=INK, sw=26))
+        g.append(path(f"M{sgn * (hr - 4)} {hy - 6} Q{sgn * (hr + 16)} {hy + 70} {sgn * (hr - 6)} {hy + 150}",
+                      "none", stroke="#1d1a1c", sw=15))
+        g.append(circle(sgn * (hr - 2), hy + 22, 6, GOLD, sw=2.5))   # altın küpe
+    g.append(face(0, hy + 8, hr, mouth, blink, look, age=0))
     return "<g>" + "\n".join(g) + "</g>"
 
 
@@ -262,8 +262,8 @@ def hevi(mouth="smile", blink=False, look=0.0, arm="down", phone=False):
     return "<g>" + "\n".join(g) + "</g>"
 
 
-# ---------------------------------------------------------------- RÊZAN
-def rezan(mouth="flat", blink=False, look=0.0, outfit="is", arm="down"):
+# ---------------------------------------------------------------- RONÎ
+def roni(mouth="flat", blink=False, look=0.0, outfit="is", arm="down"):
     """Oğul, ~510 px. outfit: 'is' (iş tulumu + puşî) | 'sal' (şal û şapik + pişt + puşî)."""
     g = []
     hy, hr = -428, 72

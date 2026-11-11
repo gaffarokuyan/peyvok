@@ -4,7 +4,7 @@ Her sahne fonksiyonu `(t, ctx) -> svg_body` döndürür. t: sahne içi saniye.
 ctx: {"mouth": {karakter: ağız}, "blink": {karakter: bool}} — film.py doldurur.
 """
 import math, random
-from karakter import (gule, hevi, rezan, place, path, circle, ellipse, line, limb,
+from karakter import (gule, hevi, roni, place, path, circle, ellipse, line, limb,
                       INK, SW, SKIN, GOLD, GOLD_D, KIRAS)
 
 W, H = 1920, 1080

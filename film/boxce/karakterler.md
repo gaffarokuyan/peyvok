@@ -3,7 +3,7 @@
 > **Güncelleme:** Tarz 3D'den **2D düz çizime** geçti (beyaz yuvarlak kafa, nokta göz, kalın kontur, sıcak bej tonlar).
 > Karakterler kodla çiziliyor: `2d/karakter.py` → tasarım sayfası `2d/karakterler.png`.
 > Kıyafetler kullanıcının gönderdiği referanslara göre: Gulê'de **kofî + uzun beyaz tül, kırmızı kiras (sarkan kollar, altın sırma), geniş altın kemer, para kolye**;
-> Rêzan'ın finalinde **açık mavi şal û şapik, kırmızı desenli pişt, başta kırmızı puşî**. Aşağıdaki VRoid/Blender notları artık geçerli değil.
+> Ronî'ın finalinde **açık mavi şal û şapik, kırmızı desenli pişt, başta kırmızı puşî**. Aşağıdaki VRoid/Blender notları artık geçerli değil.
 
 ## Süre planı: 3:00
 
@@ -15,7 +15,7 @@
 | 1:05–1:25 | 3. Köy yolu, şafak: bohça yola çıkıyor | 20 sn | 04 |
 | 1:25–1:55 | 4. İstanbul inşaatı: bohça açılıyor, not | 30 sn | 05 |
 | 1:55–2:15 | 5. Telefon | 20 sn | 06, 07 |
-| 2:15–2:50 | 6. Gün batımı: Gulê notu okuyor, yolda Rêzan | 35 sn | 08 |
+| 2:15–2:50 | 6. Gün batımı: Gulê notu okuyor, yolda Ronî | 35 sn | 08 |
 | 2:50–3:00 | Jenerik | 10 sn | müzik |
 
 Diyalog toplamı yaklaşık 33 sn. Geri kalan süre sessiz plan, el yakın planı ve müzik. Ozu tarzı ritim buna dayanıyor.
@@ -58,7 +58,7 @@ Diyalog toplamı yaklaşık 33 sn. Geri kalan süre sessiz plan, el yakın plan�
 
 ---
 
-## RÊZAN (34) — oğul
+## RONÎ (34) — oğul
 **Yüz:** İnce ve yorgun bir yüz, hafif sakal. Annesinin gözlerini almış.
 **Saç:** Kısa, siyah. İnşaatta üstüne toz konmuş.
 

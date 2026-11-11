@@ -11,7 +11,7 @@ from multiprocessing import Pool
 import numpy as np
 
 import karakter as K
-from karakter import gule, hevi, rezan, place, DEFS
+from karakter import gule, hevi, roni, place, DEFS
 from sahneler import (W, H, EXTRA_DEFS, koy_dis, ev_ici, insaat, tandir, lamba, dolmus, bohca_kapali,
                       telefon_yakin, defter_yakin, not_yakin, jenerik, camera, ease, lerp, rect, text,
                       ellipse, circle, line, path, simit)
@@ -28,7 +28,7 @@ LINES = [  # (başlangıç sn, karakter, dosya, Kurmancî, Türkçe)
     (37.0, "hevi", "03_hevi_alfabe.mp3", "A… av. Bê… bav. Dê… dayik.", "A – su. B – baba. D – anne."),
     (70.0, "gule", "04_gule_bixer.mp3", "Bi xêr here… bi xêr were.", "Sağ salim git, sağ salim gel."),
     (101.0, "gule_ds", "05_gule_not.mp3", "Kurê min… birçî nemîne.", "Oğlum… aç kalma."),
-    (117.5, "rezan", "06_rezan_ke.mp3", "Dayê… kê ev nivîsî?", "Anne… bunu kim yazdı?"),
+    (117.5, "roni", "06_roni_ke.mp3", "Dayê… kê ev nivîsî?", "Anne… bunu kim yazdı?"),
     (124.0, "gule", "07_gule_min.mp3", "Min bi xwe nivîsî.", "Kendim yazdım."),
     (141.5, "gule_ds", "08_gule_okuma.mp3", "Da… yê. Ez… têr… bûm. Ez… têm… malê.", "Anne. Doydum. Eve geliyorum."),
 ]
@@ -93,8 +93,8 @@ def ch_hevi(T, x, y, s=1.0, flip=False, rest="smile", **kw):
     return place(hevi(mouth=mouth("hevi", T, rest), blink=blink(T, 1.3), **kw), x, y + bob(T, 1, 2.5), s, flip)
 
 
-def ch_rezan(T, x, y, s=1.0, flip=False, rest="flat", **kw):
-    return place(rezan(mouth=mouth("rezan", T, rest), blink=blink(T, 2.2), **kw), x, y + bob(T, 2), s, flip)
+def ch_roni(T, x, y, s=1.0, flip=False, rest="flat", **kw):
+    return place(roni(mouth=mouth("roni", T, rest), blink=blink(T, 2.2), **kw), x, y + bob(T, 2), s, flip)
 
 
 def s0_acilis(t, T):
@@ -185,7 +185,7 @@ def s3_yol(t, T):
 def s4_insaat(t, T, holding=False, z=1.0, cx=960, cy=560):
     b = [insaat(T)]
     arm = "front" if holding else "down"
-    b.append(place(rezan(mouth=mouth("rezan", T, "sad" if holding else "flat"), blink=blink(T, 2.2), arm=arm,
+    b.append(place(roni(mouth=mouth("roni", T, "sad" if holding else "flat"), blink=blink(T, 2.2), arm=arm,
                          look=(0.9 if not holding else 0)), 900, 1010 + bob(T, 2), 1.15))
     if holding:
         b.append(f'<g transform="rotate(-6 900 760)">' + rect(840, 720, 120, 86, "#efebe2", 3, sw=4)
@@ -200,7 +200,7 @@ def s4_insaat(t, T, holding=False, z=1.0, cx=960, cy=560):
 
 
 NOT_GULE = ["KURÊ MIN.", "BIRÇÎ", "NEMÎNE.", "  DAYIKA TE"]
-NOT_REZAN = ["DAYÊ,", "EZ TÊR BÛM.", "EZ TÊM MALÊ."]
+NOT_RONI = ["DAYÊ,", "EZ TÊR BÛM.", "EZ TÊM MALÊ."]
 
 
 def s4a(t, T):
@@ -223,7 +223,7 @@ def s5_telefon(t, T):
     left = (f'<clipPath id="solK"><rect x="0" y="0" width="956" height="{H}"/></clipPath>'
             f'<clipPath id="sagK"><rect x="964" y="0" width="956" height="{H}"/></clipPath>')
     lb = (f'<g clip-path="url(#solK)"><g transform="translate(-260,0)">{insaat(T)}</g>'
-          + place(rezan(mouth=mouth("rezan", T, "smile" if t > 13 else "flat"), blink=blink(T, 2.2), arm="phone",
+          + place(roni(mouth=mouth("roni", T, "smile" if t > 13 else "flat"), blink=blink(T, 2.2), arm="phone",
                         look=0.3), 480, 1060 + bob(T, 2), 1.25) + "</g>")
     gl_rest = "smile"
     rb = (f'<g clip-path="url(#sagK)"><g transform="translate(560,0)">{ev_ici(False, t)}</g>'
@@ -242,7 +242,7 @@ def koy_aksam(t, T, walker=None, z=1.0, cx=960, cy=560, paper=True):
     b.append(path("M590 860 Q610 830 670 834 Q730 830 750 860 Z", "#B3262E", sw=5))   # katlanmış boş bohça
     if walker is not None:
         wx, wy, ws, wt = walker
-        b.append(place(rezan(mouth="smile", blink=False, outfit="sal"), wx, wy + abs(math.sin(wt * 5)) * -6 * ws, ws))
+        b.append(place(roni(mouth="smile", blink=False, outfit="sal"), wx, wy + abs(math.sin(wt * 5)) * -6 * ws, ws))
     look = 1.0 if walker is not None else 0.2
     b.append(place(gule(mouth=mouth("gule", T, "smile"), blink=blink(T, 0), arm="front" if paper else "down",
                         look=look), 400, 1010 + bob(T, 0), 1.15, walker is None))
@@ -258,7 +258,7 @@ def s6a(t, T):
 
 
 def s6b(t, T):
-    return camera(not_yakin(NOT_REZAN, 34, color="#2c4a7a", cloth=False), lerp(1.0, 1.08, t / 10.5))
+    return camera(not_yakin(NOT_RONI, 34, color="#2c4a7a", cloth=False), lerp(1.0, 1.08, t / 10.5))
 
 
 def s6c(t, T):
