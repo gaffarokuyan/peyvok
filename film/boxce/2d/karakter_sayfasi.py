@@ -11,7 +11,7 @@ body.append(place(gule(mouth="smile"), 330, 900, 1.25))
 body.append(place(hevi(mouth="smile", arm="point", phone=True), 700, 900, 1.25))
 body.append(place(roni(mouth="flat", outfit="is"), 1110, 900, 1.25))
 body.append(place(roni(mouth="smile", outfit="sal"), 1560, 900, 1.25))
-labels = [(330, "GULÊ", "genç kız · başı açık"), (700, "HÊVÎ", "10 · torun"),
+labels = [(330, "GULÊ", "genç kız · başı açık"), (700, "HÊVÎ", "10 · küçük kız kardeşi"),
           (1110, "RONÎ", "İstanbul · iş kıyafeti"), (1560, "RONÎ", "final · şal û şapik")]
 for x, n, d in labels:
     body.append(f'<text x="{x}" y="960" text-anchor="middle" font-family="Cinzel" font-weight="900" '

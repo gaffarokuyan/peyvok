@@ -1,41 +1,37 @@
-# BOXÇE (Bohça) — 3 dk 3D anime kısa film
+# BOXÇE (Bohça) — 3 dk 2D kısa film
 
-Kurmancî, TR altyazılı. İlham: Japon annelerinin *obentō* kutusu ve içine koydukları notlar.
+Kurmancî, TR altyazılı. İlham: Japon *obentō* kutusu ve içine konan küçük notlar.
 
 ## Karakterler
-- **Gulê** (62) — okuma yazma bilmeyen nene
-- **Hêvî** (10) — torunu
-- **Ronî** (34) — oğlu, İstanbul'da inşaat işçisi
+- **Gulê** — uzun boylu, başı açık genç bir kız; okuma yazma bilmiyor
+- **Hêvî** (10) — Gulê'nin küçük kız kardeşi
+- **Ronî** — Gulê'nin gönlünün olduğu delikanlı; İstanbul'da inşaatta çalışıyor
 
 ## Senaryo
 
-**1. Köy evi, sabah.** Hêvî telefonda Japon annelerinin yemek kutusuna not koyduğu videoyu gösteriyor.
-- HÊVÎ: Dapîrê, binêre! Dayikên Japonî name dinivîsin. *(Babaanne, bak! Japon anneler not yazıyor.)*
+**1. Köy evi, sabah.** Hêvî telefonda Japon kızlarının yemek kutusuna not koyduğu videoyu gösteriyor.
+- HÊVÎ: Gulê, binêre! Keçên Japonî name dinivîsin. *(Gulê, bak! Japon kızları not yazıyor.)*
 - GULÊ: Ez nikarim binivîsim… *(Ben yazamam…)*
 
-**2. Gece, lamba ışığı (montaj).** Hêvî alfabeyi öğretiyor; Gulê'nin titrek eli harf yazıyor.
-- HÊVÎ: A – av. B – bav. D – dayik.
+**2. Gece, lamba ışığı (montaj).** Hêvî ablasına alfabeyi öğretiyor; Gulê'nin titrek eli harf yazıyor.
+- HÊVÎ: A… av. Bê… bav. Dê… dayik.
 
-**3. Köy yolu, şafak.** Gulê kırmızı bohçayı minibüse veriyor.
-- GULÊ: Bi xêr here, bi xêr were. *(Sağ salim git, sağ salim gel.)*
+**3. Köy yolu, şafak.** Gulê kırmızı bohçayı İstanbul'a giden minibüse veriyor.
+- GULÊ: Bi xêr here… bi xêr were. *(Sağ salim git, sağ salim gel.)*
 
 **4. İstanbul inşaatı, öğle.** Gri beton; Ronî yalnız. Bohçayı açınca kırmızı bir renk patlıyor. İçinde eğri harflerle bir not:
-*"KURÊ MIN. BIRÇÎ NEMÎNE. DAYIKA TE"* (Oğlum. Aç kalma. Annen)
-- GULÊ (dış ses): Kurê min… birçî nemîne. *(Oğlum… aç kalma.)*
+*"RONÎ, BIRÇÎ NEMÎNE. EZ LI BENDA TE ME. GULÊ"* (Ronî, aç kalma. Seni bekliyorum. Gulê)
+- GULÊ (dış ses): Ronî… birçî nemîne. Ez li benda te me.
 
 **5. Telefon.**
-- RONÎ: Dayê… kê ev nivîsî? *(Anne… bunu kim yazdı?)*
-- GULÊ: Min bi xwe nivîsî. *(Kendim yazdım.)*
+- RONÎ: Gulê? Kê ev nivîsî? *(Gulê? Bunu kim yazdı?)*
+- GULÊ: Min bi xwe nivîsî, Ronî. *(Kendim yazdım, Ronî.)*
 
-**6. Köy, gün batımı.** Boş bohça geri gelmiş. Gulê notu kendisi, hece hece okuyor:
-- GULÊ: "Dayê… ez têr bûm. Ez têm malê." *(Anne, doydum. Eve geliyorum.)*
+**6. Köy, gün batımı.** Bohça geri gelmiş, içinde Ronî'nin notu. Gulê kendisi, hece hece okuyor:
+- GULÊ: "Gu… lê. Ez… têr… bûm. Ez… têm… te… bixwazim." *(Gulê. Doydum. Seni istemeye geliyorum.)*
 
-Uzakta yolda biri görünüyor. Kararma.
+Uzakta yolda şal û şapikli Ronî görünüyor. Kararma.
 
 ## Üretim
-- **Görsel:** VRoid Studio (karakterler) → Mixamo (hareket) → Blender toon shader (render); dudak senkronu Rhubarb Lip Sync.
-- **Ses:** ElevenLabs eleven_v4. Kurmancî metin hazır seslerle okunuyor (Voice Design Kürtçeyi kabul etmiyor).
-  - Gulê: Dilara (`D2dHiTSPRx6l2bhKGmyJ`) — deneme: `ses/gule_test.mp3`
-  - Ronî: Agit Taşdemir (`qLctY6uJSzrtjp23kPzO`)
-  - Hêvî: Mithi (`MIl0Flub6Sc9KSkX2A42`)
-- **Replikler:** `ses/01…08_*.mp3` (sahne sırasıyla). Her biri ElevenLabs Scribe ile Kürtçe transkribe edilip kontrol edildi; metin Mazdek ile yazım/dilbilgisi kontrolünden geçti.
+- **Görsel:** 2D düz çizim, kodla (`2d/`). Karakterler `2d/karakter.py`, sahneler `2d/sahneler.py`, film `2d/film.py`.
+- **Ses:** ElevenLabs eleven_v4. Gulê: Cansu · Ronî: Agit Taşdemir · Hêvî: Mithi. Metinler Mazdek ile yazım/dilbilgisi kontrolünden geçti.

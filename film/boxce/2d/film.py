@@ -23,14 +23,14 @@ DUR = 180.0
 
 # ------------------------------------------------------------ diyaloglar
 LINES = [  # (başlangıç sn, karakter, dosya, Kurmancî, Türkçe)
-    (12.0, "hevi", "01_hevi_binere.mp3", "Dapîrê, binêre! Dayikên Japonî name dinivîsin.", "Babaanne, bak! Japon anneler not yazıyor."),
+    (12.0, "hevi", "01_hevi_binere.mp3", "Gulê, binêre! Keçên Japonî name dinivîsin.", "Gulê, bak! Japon kızları not yazıyor."),
     (25.0, "gule", "02_gule_nikarim.mp3", "Ez nikarim binivîsim…", "Ben yazamam…"),
     (37.0, "hevi", "03_hevi_alfabe.mp3", "A… av. Bê… bav. Dê… dayik.", "A – su. B – baba. D – anne."),
     (70.0, "gule", "04_gule_bixer.mp3", "Bi xêr here… bi xêr were.", "Sağ salim git, sağ salim gel."),
-    (101.0, "gule_ds", "05_gule_not.mp3", "Kurê min… birçî nemîne.", "Oğlum… aç kalma."),
-    (117.5, "roni", "06_roni_ke.mp3", "Dayê… kê ev nivîsî?", "Anne… bunu kim yazdı?"),
-    (124.0, "gule", "07_gule_min.mp3", "Min bi xwe nivîsî.", "Kendim yazdım."),
-    (141.5, "gule_ds", "08_gule_okuma.mp3", "Da… yê. Ez… têr… bûm. Ez… têm… malê.", "Anne. Doydum. Eve geliyorum."),
+    (101.0, "gule_ds", "05_gule_not.mp3", "Ronî… birçî nemîne. Ez li benda te me.", "Ronî… aç kalma. Seni bekliyorum."),
+    (117.5, "roni", "06_roni_ke.mp3", "Gulê? Kê ev nivîsî?", "Gulê? Bunu kim yazdı?"),
+    (124.0, "gule", "07_gule_min.mp3", "Min bi xwe nivîsî, Ronî.", "Kendim yazdım, Ronî."),
+    (141.5, "gule_ds", "08_gule_okuma.mp3", "Gu… lê. Ez… têr… bûm. Ez… têm… te… bixwazim.", "Gulê. Doydum. Seni istemeye geliyorum."),
 ]
 
 
@@ -199,8 +199,8 @@ def s4_insaat(t, T, holding=False, z=1.0, cx=960, cy=560):
     return camera("\n".join(b), z, cx, cy)
 
 
-NOT_GULE = ["KURÊ MIN.", "BIRÇÎ", "NEMÎNE.", "  DAYIKA TE"]
-NOT_RONI = ["DAYÊ,", "EZ TÊR BÛM.", "EZ TÊM MALÊ."]
+NOT_GULE = ["RONÎ,", "BIRÇÎ", "NEMÎNE.", "EZ LI BENDA", "TE ME.", "    GULÊ"]
+NOT_RONI = ["GULÊ,", "EZ TÊR BÛM.", "EZ TÊM TE", "BIXWAZIM."]
 
 
 def s4a(t, T):

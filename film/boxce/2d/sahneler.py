@@ -410,8 +410,8 @@ def not_yakin(lines, seed, color="#3b3a3f", cloth=True, t=0.0, open_t=None):
         for i in range(14):
             g.append(circle(640 + (i % 5) * 30, 700 + (i // 5) * 30, 13, "#c79a5b", sw=3))
         g.append("</g>")
-        g.append(f'<g opacity="{fo}" transform="rotate(-6 960 640)">' + rect(760, 500, 400, 300, "#efebe2", 4)
-                 + wobble(800, 572, lines, 52, seed, color) + "</g>")
+        g.append(f'<g opacity="{fo}" transform="rotate(-6 960 640)">' + rect(730, 460, 460, 380, "#efebe2", 4)
+                 + wobble(770, 520, lines, 44, seed, color, spacing=1.2) + "</g>")
     else:
         g.append(f'<g transform="rotate(-4 960 540)">' + rect(560, 260, 800, 560, "url(#defter)", 6)
                  + wobble(640, 400, lines, 86, seed, color, jitter=9) + "</g>")
