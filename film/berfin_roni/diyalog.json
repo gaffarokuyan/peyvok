@@ -1,0 +1,310 @@
+[
+[
+"A1",
+"roni",
+"[warmly] ",
+"Silav! Tu çawa yî?",
+"Selam! Nasılsın?"
+],
+[
+"A1",
+"berfin",
+"[warmly] ",
+"Silav! Ez baş im, spas. Tu çawa yî?",
+"Selam! İyiyim, teşekkürler. Sen nasılsın?"
+],
+[
+"A1",
+"roni",
+"",
+"Ez jî baş im. Navê te çi ye?",
+"Ben de iyiyim. Adın ne?"
+],
+[
+"A1",
+"berfin",
+"",
+"Navê min Berfîn e. Û navê te?",
+"Adım Berfîn. Ya senin adın?"
+],
+[
+"A1",
+"roni",
+"",
+"Navê min Ronî ye. Tu ji ku derê yî?",
+"Adım Ronî. Nerelisin?"
+],
+[
+"A1",
+"berfin",
+"[softly] ",
+"Ez ji Wanê me. Tu ji ku derê yî?",
+"Vanlıyım. Sen nerelisin?"
+],
+[
+"A1",
+"roni",
+"",
+"Ez ji Amedê me. Tu çend salî yî?",
+"Diyarbakırlıyım. Kaç yaşındasın?"
+],
+[
+"A1",
+"berfin",
+"",
+"Ez bîst û du salî me. Û tu?",
+"Yirmi iki yaşındayım. Ya sen?"
+],
+[
+"A1",
+"roni",
+"[playfully] ",
+"Ez bîst û çar salî me. Navê te pir xweş e, Berfîn.",
+"Yirmi dört yaşındayım. Adın çok güzel, Berfîn."
+],
+[
+"A1",
+"berfin",
+"[laughs softly] ",
+"Spas… tu pir zû pesnê didî!",
+"Teşekkürler… çabuk iltifat ediyorsun!"
+],
+[
+"A1",
+"roni",
+"[curious] ",
+"Tu xwendekar î?",
+"Öğrenci misin?"
+],
+[
+"A1",
+"berfin",
+"",
+"Erê, ez xwendekar im. Ez li zanîngehê dixwînim.",
+"Evet, öğrenciyim. Üniversitede okuyorum."
+],
+[
+"A1",
+"roni",
+"[curious] ",
+"Malbata te mezin e?",
+"Ailen kalabalık mı?"
+],
+[
+"A1",
+"berfin",
+"",
+"Erê. Du xwişkên min û birayekî min hene. Tu?",
+"Evet. İki kız kardeşim ve bir erkek kardeşim var. Ya sen?"
+],
+[
+"A1",
+"roni",
+"",
+"Tenê birayekî min heye. Ew ji min mezintir e.",
+"Sadece bir erkek kardeşim var. O benden büyük."
+],
+[
+"A2",
+"roni",
+"",
+"Tu çay vedixwî an qehwe?",
+"Çay mı içersin, kahve mi?"
+],
+[
+"A2",
+"berfin",
+"",
+"Ez çay vedixwim. Bê şekir, ji kerema xwe.",
+"Çay içerim. Şekersiz, lütfen."
+],
+[
+"A2",
+"roni",
+"[loudly] ",
+"Du çay, ji kerema xwe!",
+"İki çay, lütfen!"
+],
+[
+"A2",
+"roni",
+"[curious] ",
+"Tu her roj… çi dikî?",
+"Her gün ne yaparsın?"
+],
+[
+"A2",
+"berfin",
+"",
+"Sibê zû radibim û taştê dixwim. Paşê diçim zanîngehê.",
+"Sabah erken kalkıp kahvaltı ederim. Sonra üniversiteye giderim."
+],
+[
+"A2",
+"berfin",
+"",
+"Êvarê pirtûkan dixwînim. Tu çi dikî?",
+"Akşamları kitap okurum. Sen ne yaparsın?"
+],
+[
+"A2",
+"roni",
+"",
+"Ez endezyar im. Her roj heta saet pêncan dixebitim.",
+"Mühendisim. Her gün saat beşe kadar çalışırım."
+],
+[
+"A2",
+"berfin",
+"",
+"Tu ji çi hez dikî?",
+"Neleri seversin?"
+],
+[
+"A2",
+"roni",
+"[playfully] ",
+"Ez ji futbolê û ji muzîkê hez dikim… û ji çaya bi te re.",
+"Futbolu ve müziği severim… bir de seninle çay içmeyi."
+],
+[
+"A2",
+"berfin",
+"[laughs] ",
+"Tu pir dipeyivî, Ronî!",
+"Çok konuşuyorsun, Ronî!"
+],
+[
+"A2",
+"roni",
+"",
+"Duh te çi kir?",
+"Dün ne yaptın?"
+],
+[
+"A2",
+"berfin",
+"",
+"Duh ez çûm bazarê. Min sêv û nan kirîn.",
+"Dün pazara gittim. Elma ve ekmek aldım."
+],
+[
+"A2",
+"berfin",
+"",
+"Paşê min fîlmekî kurdî temaşe kir. Pir xweş bû.",
+"Sonra Kürtçe bir film izledim. Çok güzeldi."
+],
+[
+"A2",
+"roni",
+"",
+"Bi rastî? Ez jî dixwazim wî fîlmî bibînim.",
+"Gerçekten mi? Ben de o filmi görmek istiyorum."
+],
+[
+"A2",
+"berfin",
+"",
+"Îro hewa sar e, ne?",
+"Bugün hava soğuk, değil mi?"
+],
+[
+"A2",
+"roni",
+"[warmly] ",
+"Erê, lê çaya germ û tu… her tişt germ e.",
+"Evet, ama sıcak çay ve sen… her şey sıcacık."
+],
+[
+"A2",
+"berfin",
+"[laughs] ",
+"Çaya xwe vexwe, Ronî!",
+"Çayını iç, Ronî!"
+],
+[
+"B1",
+"roni",
+"[softly] ",
+"Berfîn… sibê tu yê çi bikî?",
+"Berfîn, yarın ne yapacaksın?"
+],
+[
+"B1",
+"berfin",
+"[curious] ",
+"Sibê ez ê biçim pirtûkxaneyê. Çima dipirsî?",
+"Yarın kütüphaneye gideceğim. Neden soruyorsun?"
+],
+[
+"B1",
+"roni",
+"",
+"Ger tu bixwazî, em dikarin bi hev re biçin.",
+"İstersen birlikte gidebiliriz."
+],
+[
+"B1",
+"berfin",
+"[playfully] ",
+"Li gorî min, pirtûkxane cihekî bêdeng e. Tu yê nikaribî biaxivî!",
+"Bence kütüphane sessiz bir yer. Orada konuşamayacaksın!"
+],
+[
+"B1",
+"roni",
+"",
+"Baş e, ez ê bêdeng bim. Soz didim.",
+"Tamam, sessiz olacağım. Söz veriyorum."
+],
+[
+"B1",
+"berfin",
+"",
+"Ez bawer dikim ku tu ji min bêtir diaxivî.",
+"Bence sen benden daha çok konuşuyorsun."
+],
+[
+"B1",
+"roni",
+"[warmly] ",
+"Dibe. Lê dema ku ez bi te re me… ez kêfxweş im.",
+"Olabilir. Ama seninleyken mutluyum."
+],
+[
+"B1",
+"berfin",
+"[shy] ",
+"Berê min ji axaftinê hez nedikir… lê niha, bi te re, hez dikim.",
+"Eskiden konuşmayı sevmezdim… ama şimdi, seninle, seviyorum."
+],
+[
+"B1",
+"roni",
+"",
+"Wê demê, sibê di saet dehan de?",
+"O zaman yarın saat onda?"
+],
+[
+"B1",
+"berfin",
+"[playfully] ",
+"Baş e. Lê heke tu dereng bimînî, ez ê bê te biçim!",
+"Tamam. Ama geç kalırsan sensiz giderim!"
+],
+[
+"B1",
+"roni",
+"",
+"Ez qet dereng namînim. Heta sibê, Berfîn!",
+"Asla geç kalmam. Yarına kadar, Berfîn!"
+],
+[
+"B1",
+"berfin",
+"[warmly] ",
+"Bi xatirê te, Ronî.",
+"Hoşça kal, Ronî."
+]
+]

@@ -146,9 +146,10 @@ def _kember(y, w):
     return "".join(g)
 
 
-def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False):
+def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=None):
     """Genç, uzun boylu kız, ~575 px. Başı açık: bele kadar uzun siyah saç.
     Kırmızı kiras (sarkan kollar, altın sırma), geniş altın kemer, para kolye."""
+    dress = dress or KIRAS
     TALL = 1.22                      # vücut dikey uzatma
     hy = -392 * TALL - 8             # kafa merkezi
     hr = 70
@@ -161,7 +162,7 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False):
     b.append(ellipse(-34, -10, 30, 14, "#3a2a22", sw=5))
     b.append(ellipse(34, -10, 30, 14, "#3a2a22", sw=5))
     # kiras (yere kadar)
-    b.append(path(f"M-74 -296 Q-118 -150 -130 -22 L130 -22 Q118 -150 74 -296 Z", KIRAS))
+    b.append(path(f"M-74 -296 Q-118 -150 -130 -22 L130 -22 Q118 -150 74 -296 Z", dress))
     b.append(path("M0 -200 L0 -26", "none", stroke="#6e1520", sw=3))
     # göğüs sırma işlemesi (altın kıvrımlar)
     for sgn in (-1, 1):
@@ -177,25 +178,35 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False):
     if arm == "down":
         for s in (-1, 1):
             b.append(path(f"M{s * 72} -292 Q{s * 128} -230 {s * 132} -120 Q{s * 112} -96 {s * 86} -118 "
-                          f"Q{s * 84} -190 {s * 58} -262 Z", KIRAS))
+                          f"Q{s * 84} -190 {s * 58} -262 Z", dress))
             b.append(path(f"M{s * 130} -126 Q{s * 112} -100 {s * 88} -120", "none", stroke=GOLD, sw=4))
             b.append(hand(s * 98, -132))
             b.append(path(f"M{s * 86} -144 L{s * 110} -144", "none", stroke=GOLD, sw=5))  # bilezik
     elif arm == "front":
         for s in (-1, 1):
             b.append(path(f"M{s * 72} -292 Q{s * 130} -230 {s * 110} -150 Q{s * 80} -140 {s * 40} -188 "
-                          f"Q{s * 60} -230 {s * 56} -262 Z", KIRAS))
+                          f"Q{s * 60} -230 {s * 56} -262 Z", dress))
             b.append(path(f"M{s * 108} -156 Q{s * 76} -144 {s * 44} -186", "none", stroke=GOLD, sw=4))
             b.append(hand(s * 42, -196))
         if writing:
             b.append(line(52, -210, 78, -246, stroke="#c79a3a", sw=7))
             b.append(line(52, -210, 48, -202, stroke=INK, sw=4))
     elif arm == "phone":
-        b.append(path("M-72 -292 Q-128 -230 -132 -120 Q-112 -96 -86 -118 Q-84 -190 -58 -262 Z", KIRAS))
+        b.append(path("M-72 -292 Q-128 -230 -132 -120 Q-112 -96 -86 -118 Q-84 -190 -58 -262 Z", dress))
         b.append(hand(-98, -132))
-        b.append(path("M72 -292 Q126 -310 104 -362 L70 -352 Q82 -316 56 -276 Z", KIRAS))
+        b.append(path("M72 -292 Q126 -310 104 -362 L70 -352 Q82 -316 56 -276 Z", dress))
         b.append(f'<rect x="66" y="-420" width="26" height="52" rx="6" fill="#30343a" stroke="{INK}" stroke-width="5"/>')
         b.append(hand(84, -372))
+    elif arm in ("wave", "gesture"):
+        # sol kol aşağıda
+        b.append(path("M-72 -292 Q-128 -230 -132 -120 Q-112 -96 -86 -118 Q-84 -190 -58 -262 Z", dress))
+        b.append(hand(-98, -132))
+        if arm == "wave":       # sağ el havada
+            b.append(path("M72 -292 Q140 -300 136 -360 L104 -362 Q100 -318 58 -270 Z", dress))
+            b.append(hand(122, -372))
+        else:                   # sağ el önde, konuşurken
+            b.append(path("M72 -292 Q128 -250 112 -206 L84 -210 Q92 -240 58 -266 Z", dress))
+            b.append(hand(100, -206))
     # boyun (arka saçın önünde, elbisenin arkasında)
     g.append(path(f"M-20 {hy + hr - 14} L-22 {-296 * TALL + 14} L22 {-296 * TALL + 14} L20 {hy + hr - 14} Z", SKIN, sw=5))
     g.append(f'<g transform="scale(1,{TALL})">' + "\n".join(b) + "</g>")
@@ -211,6 +222,59 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False):
                       "none", stroke="#1d1a1c", sw=15))
         g.append(circle(sgn * (hr - 2), hy + 22, 6, GOLD, sw=2.5))   # altın küpe
     g.append(face(0, hy + 8, hr, mouth, blink, look, age=0))
+    return "<g>" + "\n".join(g) + "</g>"
+
+
+# ---------------------------------------------------------------- CİWAN (genç, uzun boylu erkek)
+def ciwan(mouth="smile", blink=False, look=0.0, arm="down"):
+    """Genç delikanlı, ~585 px. Kısa siyah saç, sakalsız. Beyaz gömlek, işlemeli siyah şapik,
+    siyah şal (bol pantolon), geniş siyah pişt."""
+    TALL = 1.2
+    hy = -428 * TALL + 6
+    hr = 68
+    JACKET, PANT = "#2a2a2e", "#26262a"
+    g, b = [], []
+    # bacaklar (bol şal, bileğe doğru daralır) + ayakkabı
+    b.append(path("M-60 -220 Q-78 -110 -50 -24 L-12 -24 Q-14 -110 0 -196 Q14 -110 12 -24 L50 -24 "
+                  "Q78 -110 60 -220 Z", PANT))
+    b.append(ellipse(-34, -14, 30, 14, "#3a2a22", sw=5))
+    b.append(ellipse(34, -14, 30, 14, "#3a2a22", sw=5))
+    # gövde: şapik (ceket)
+    b.append(path("M-70 -350 Q-80 -280 -62 -214 L62 -214 Q80 -280 70 -350 Q0 -366 -70 -350 Z", JACKET))
+    b.append(path("M-26 -358 L0 -290 L26 -358 Z", "#f4f1ea", sw=4))           # beyaz gömlek
+    # yakadaki renkli çiçek işlemesi
+    for sgn in (-1, 1):
+        b.append(path(f"M{sgn * 28} -356 Q{sgn * 52} -300 {sgn * 44} -236", "none", stroke="#b3262e", sw=9))
+        for k, c in enumerate(("#d9a93a", "#4f7a4a", "#e07a5f", "#d9a93a")):
+            b.append(circle(sgn * (34 + k * 3), -340 + k * 28, 6, c, sw=2.5))
+    # pişt (geniş siyah kuşak)
+    b.append(path("M-66 -250 Q0 -238 66 -250 L64 -212 Q0 -200 -64 -212 Z", "#151517", sw=5))
+    b.append(path("M-62 -236 Q0 -226 62 -236", "none", stroke="#3a3a40", sw=3))
+    sl = JACKET
+    if arm == "down":
+        b.append(limb(-70, -340, -88, -228, sl, 26)); b.append(limb(70, -340, 88, -228, sl, 26))
+        b.append(hand(-90, -214, 20)); b.append(hand(90, -214, 20))
+    elif arm == "front":
+        b.append(limb(-70, -340, -40, -250, sl, 26)); b.append(limb(70, -340, 40, -250, sl, 26))
+        b.append(hand(-34, -238, 20)); b.append(hand(34, -238, 20))
+    elif arm == "wave":
+        b.append(limb(-70, -340, -88, -228, sl, 26)); b.append(hand(-90, -214, 20))
+        b.append(limb(70, -340, 118, -420, sl, 26)); b.append(hand(122, -436, 20))
+    elif arm == "gesture":
+        b.append(limb(-70, -340, -88, -228, sl, 26)); b.append(hand(-90, -214, 20))
+        b.append(limb(70, -340, 112, -270, sl, 26)); b.append(hand(118, -258, 20))
+    elif arm == "heart":       # el göğüste
+        b.append(limb(-70, -340, -88, -228, sl, 26)); b.append(hand(-90, -214, 20))
+        b.append(limb(70, -340, 30, -300, sl, 26)); b.append(hand(22, -302, 20))
+    # boyun
+    g.append(path(f"M-18 {hy + hr - 12} L-20 {-350 * TALL + 12} L20 {-350 * TALL + 12} L18 {hy + hr - 12} Z", SKIN, sw=5))
+    g.append(f'<g transform="scale(1,{TALL})">' + "\n".join(b) + "</g>")
+    # kafa + saç (kısa, yana taranmış)
+    g.append(circle(0, hy, hr, SKIN))
+    g.append(path(f"M{-hr + 2} {hy - 6} Q{-hr - 2} {hy - hr - 16} 0 {hy - hr - 14} Q{hr + 6} {hy - hr - 14} {hr - 2} {hy - 6} "
+                  f"Q{hr - 10} {hy - 30} {hr - 26} {hy - 40} Q10 {hy - 54} {-26} {hy - 36} Q{-hr + 14} {hy - 26} {-hr + 2} {hy - 6} Z",
+                  "#1d1a1c"))
+    g.append(face(0, hy + 6, hr, mouth, blink, look))
     return "<g>" + "\n".join(g) + "</g>"
 
 
