@@ -75,11 +75,14 @@ function cairo(t){sky('#2a1a4a','#e8703a','#ffd08a');const sx=W*.72,sy=640;const
   dome(260,1190,90);dome(470,1150,130);dome(720,1200,80);mina(120,1250,380);mina(380,1250,460);mina(600,1250,420);mina(880,1250,360);X.fillRect(0,1200,W,60);
   X.fillStyle='rgba(80,140,200,.55)';X.fillRect(0,1480,W,120);X.restore()}
 function banner(x,y,col,k,t,label){X.save();X.translate(x,y);X.strokeStyle='#3a2414';X.lineWidth=10;X.beginPath();X.moveTo(0,0);X.lineTo(0,-560);X.stroke();X.fillStyle=col;X.globalAlpha=clamp(k);X.beginPath();X.moveTo(6,-550);for(let i=0;i<=10;i++)X.lineTo(6+i*30,-550+14*Math.sin(t*3+i*.7));for(let i=10;i>=0;i--)X.lineTo(6+i*30,-330+14*Math.sin(t*3+i*.7));X.fill();if(label)tx(label,160,-440,46,'#fff',{st:6,f:'InterB',w:800,maxW:280});X.restore()}
-function masyaf(t,siege){sky('#203a6a','#f0a060','#ffe0b0');ridge(t,'#7a6a8a',.4,1,1150,260);ridge(t,'#5a4a5a',.7,2,1300,200);
-  X.save();X.translate(W/2,1080);X.scale(.9,.9);X.fillStyle='#4a3020';X.beginPath();X.moveTo(-420,420);X.lineTo(-260,120);X.lineTo(-120,40);X.lineTo(140,40);X.lineTo(280,140);X.lineTo(420,420);X.fill();
-  const wc='#d8b088';X.fillStyle=wc;X.fillRect(-220,-110,440,150);X.fillRect(-260,-190,90,230);X.fillRect(170,-180,90,220);X.fillRect(-50,-240,100,280);X.fillStyle='#a8784a';for(let k=-220;k<220;k+=26)X.fillRect(k,-128,15,18);X.restore();
-  if(siege>0){X.save();X.globalAlpha=siege;for(let i=0;i<9;i++){const x=60+i*120,y=1480+(i%2)*60;X.fillStyle=i%2?'#f2e2b8':'#e8d09a';X.beginPath();X.moveTo(x-70,y);X.lineTo(x,y-110);X.lineTo(x+70,y);X.fill();X.fillStyle='#ffcf3a';X.beginPath();X.moveTo(x,y-110);X.lineTo(x,y-170);X.lineTo(x+40,y-155);X.lineTo(x,y-140);X.fill()}X.restore()}
-  X.fillStyle='#2a1a14';X.fillRect(0,1560,W,400)}
+function masyaf(t,siege){sky('#203a6a','#f0a060','#ffe0b0');const sg=X.createRadialGradient(W*.25,700,0,W*.25,700,600);sg.addColorStop(0,'rgba(255,230,170,.6)');sg.addColorStop(1,'rgba(255,200,120,0)');X.fillStyle=sg;X.fillRect(0,0,W,H);
+  ridge(t,'#8a7a9a',.3,1,1050,200);ridge(t,'#6a5a6a',.5,2,1220,160);
+  const z=1+.012*t;X.save();X.translate(W/2,1150);X.scale(z,z);fortress(0,0,.95,.7,t);X.restore();
+  const gg=X.createLinearGradient(0,1380,0,H);gg.addColorStop(0,'#8a6a40');gg.addColorStop(1,'#3a2614');X.fillStyle=gg;X.beginPath();X.moveTo(0,1420);X.quadraticCurveTo(W/2,1370,W,1420);X.lineTo(W,H);X.lineTo(0,H);X.fill();
+  if(siege>0){X.save();X.globalAlpha=siege;for(let i=0;i<11;i++){const x=40+i*100+(i%2)*30,y=1530+(i%3)*70,s=.8+(i%3)*.25;X.save();X.translate(x,y);X.scale(s,s);
+    const tg=X.createLinearGradient(-80,0,80,0);tg.addColorStop(0,'#c8a870');tg.addColorStop(.5,'#f6e6c0');tg.addColorStop(1,'#a88850');X.fillStyle=tg;X.beginPath();X.moveTo(-80,0);X.quadraticCurveTo(-40,-60,0,-120);X.quadraticCurveTo(40,-60,80,0);X.fill();X.fillStyle='rgba(60,30,10,.5)';X.beginPath();X.moveTo(-14,0);X.lineTo(0,-50);X.lineTo(14,0);X.fill();
+    X.strokeStyle='#3a2414';X.lineWidth=3;X.beginPath();X.moveTo(0,-120);X.lineTo(0,-185);X.stroke();X.fillStyle='#ffcf3a';X.beginPath();X.moveTo(0,-185);for(let q=0;q<=6;q++)X.lineTo(q*8,-185+5*Math.sin(t*4+q+i));X.lineTo(48,-160);X.lineTo(0,-160);X.fill();X.restore()}
+    for(let i=0;i<4;i++){const x=150+i*260,y=1800,f=1+.2*Math.sin(t*11+i);const rg=X.createRadialGradient(x,y,0,x,y,90*f);rg.addColorStop(0,'rgba(255,170,60,.7)');rg.addColorStop(1,'rgba(255,120,30,0)');X.fillStyle=rg;X.fillRect(x-100,y-100,200,200)}X.restore()}}
 // ---------- cues ----------
 const C={alamut:cue('alamut'),bin1:cue('bin doksanda'),hasan:cue('hasan'),siz:cue('sızarak'),ama:cue('ama bu'),kurt:cue('kürt tarihine'),alamuta:cue('alamuta'),sel:cue('selahaddin'),bin2:cue('bin yüz yetmiş beşte'),halep:cue('halep'),azaz1:cue('azazda'),azaz2:cue('azazda',2),darbe:cue('darbeyi'),zirh:cue('zırh'),bunu:cue('bunu'),cizre:cue('cizre'),ibn:cue('ibnül'),riv:cue('rivayete'),hanc:cue('hançer'),not:cue('not'),
  isma:cue('selahaddin ismaililere'),vez:cue('veziriydi'),amca:cue('amcası'),bin3:cue('bin yüz yetmiş birde'),hutbe:cue('hutbeyi'),sona:cue('sona'),fat:cue('aşkın'),mas:cue('bin yüz yetmiş altıda selahaddin'),masy:cue('masyafı'),dayi:cue('dayısı'),kald:cue('kaldırdı'),iki:cue('iki taraf'),
@@ -123,12 +126,12 @@ function sNote(t){sky('#05040a','#120c18','#1a1010');const cx=760,cy=1040,f=1+.0
   chip('RİVAYET',W/2,330,pop(t,C.riv,.4),'dark',{size:70,h:120,f:'CinzelH',w:900});tx('Masyaf kuşatması sırasında',W/2,460,46,'#ffe9c0',{f:'InterB',w:800,st:8,a:clamp((t-C.riv-.4)/.4)})}
 function sCairo(t){cairo(t-C.isma);const sw=clamp((t-C.hutbe)/.6);banner(140,1230,'#1f8a4a',1-sw,t,sw<.5?'FATIMİ':'');banner(140,1230,'#111',sw,t,sw>=.5?'ABBASİ':'');
   tx('KAHİRE',W/2,330,140,'gold',{f:'CinzelH',w:900,st:18,ls:8,a:clamp((t-C.isma)/.5)*(1-clamp((t-C.bin3+.2)/.25))});
-  const kv=pop(t,C.vez,.4);if(kv>0&&t<C.bin3)chip('FATIMİ HALİFESİNİN VEZİRİ',W/2,520,kv,'dark',{size:56,h:104});
+  medal('saladin',W*.62,1010,190,t,pop(t,C.isma+.2,.45)*(1-clamp((t-C.bin3+.3)/.3)));const kv=pop(t,C.vez,.4);if(kv>0&&t<C.bin3)chip('FATIMİ HALİFESİNİN VEZİRİ',W/2,520,kv,'dark',{size:56,h:104});
   const ka=pop(t,C.amca,.4);if(ka>0&&t<C.bin3)chip('AMCASI ESEDÜDDİN ŞİRKUH’TAN',W/2,660,ka,['#fff3b0','#ffb01a'],{size:50,h:96});
   if(t>C.bin3){badge('1171',pop(t,C.bin3,.4));const ks=pop(t,C.fat,.5);if(ks>0){X.save();X.translate(W/2,620);X.scale(ks,ks);tx('FATIMİ HALİFELİĞİ',0,-60,96,'#fff',{st:16});tx('SONA ERDİ',0,70,130,'#ff5a4a',{st:20});X.restore();tx('909 – 1171',W/2,800,56,'#ffe9c0',{f:'CinzelH',w:900,st:10,ls:6,a:clamp(ks)})}}}
 function sMasyaf(t){const sg=clamp((t-C.masy)/.6)*(1-clamp((t-C.kald)/.8));masyaf(t-C.mas,sg);badge('1176 · MASYAF',pop(t,C.mas,.4));
   tx('FEDAİLERİN KALESİ',W/2,400,64,'#fff',{st:12,a:clamp((t-C.masy)/.4)});
-  const kd=pop(t,C.dayi,.4);if(kd>0&&t<C.iki)chip('DAYISI ŞİHABEDDİN EL-HARİMİ',W/2,560,kd,'dark',{size:50,h:100});
+  medal('saladin',W/2,690,150,t,pop(t,C.mas+.3,.45)*(1-clamp((t-C.dayi+.2)/.3)));const kd=pop(t,C.dayi,.4);if(kd>0&&t<C.iki)chip('DAYISI ŞİHABEDDİN EL-HARİMİ',W/2,560,kd,'dark',{size:50,h:100});
   const kk=pop(t,C.kald,.4);if(kk>0&&t<C.iki)chip('KUŞATMA KALKTI',W/2,700,kk,['#fff3b0','#ffb01a'],{size:62,h:112});
   const ki=pop(t,C.iki,.45);if(ki>0){X.save();X.translate(W/2,640);X.scale(ki,ki);tx('🤝',0,-30,150,'#fff',{st:0,f:'InterB'});X.restore();chip('BİR DAHA DOKUNMADILAR',W/2,800,ki,['#fff3b0','#ffb01a'],{size:60,h:112})}}
 function sName(t){const k=eio((t-C.zaza+.5)/1.8),lo=lerp(49.2,45.25,k),la=lerp(37,37.25,k),s=lerp(1.1,.69,k);drawMap(lo,la,s,.2);
