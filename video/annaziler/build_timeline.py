@@ -1,14 +1,23 @@
 import json, subprocess
-CH=[('ch00','',''),('ch01','HULVAN KAPISI','Şazencan aşireti · ~990'),('ch02','SARAY VE YÖNETİM','Aşiret düzeni'),('ch03','İKİ KÜRT HANEDANI','Annaziler ve Hasanveyhiler'),
- ('ch04','EBUŞŞEVK DÖNEMİ','Hüsameddevle · 1011–1046'),('ch05','AİLE İÇİ ÇATIŞMA','Amca ve yeğenler'),('ch06','SELÇUKLU FIRTINASI','Hulvan · 1046'),('ch07','DAĞLARDA SÜREN EMİRLİK','1046 – ~1117'),('ch08','','')]
-FIX={'Mezopotamyaya':'Mezopotamya’ya','Bağdattan':'Bağdat’tan','Horasana':'Horasan’a','Annazdan':'Annaz’dan','Bağdatı':'Bağdat’ı','Hemedana':'Hemedan’a','Zagrosun':'Zagros’un','Şehrizoru':'Şehrizor’u',
- 'Annazilere':'Annazîler’e','Annaziler':'Annazîler','Annazilerin':'Annazîlerin','Annazilerdi.':'Annazîlerdi.','Annazi':'Annazî','Hulvandan':'Hulvan’dan','Kirmanşaha,':'Kirmanşah’a,','Dineverden':'Dinever’den','Şehrizora':'Şehrizor’a','Dakuka':'Dakuk’a',
- 'Ebuşşevkin':'Ebuşşevk’in','Mühelhile':'Mühelhil’e','Hulvana':'Hulvan’a','Zagrosta':'Zagros’ta','Dirokta.':'Dîrok’ta.','Dirok':'Dîrok','Hasanveyhiler.':'Hasanveyhîler.','Hasanveyhilerin':'Hasanveyhîlerin','Hasanveyhilerle':'Hasanveyhîlerle','Mervaniler,':'Mervânîler,','Şeddadiler':'Şeddâdîler'}
+CH=[('ch00','',''),('ch01','MEZOPOTAMYA’NIN DOĞU KAPISI','Hulvan · Serpol-i Zehab'),('ch02','HANEDANIN DOĞUŞU','Şazencan aşireti · ~990'),('ch03','KERVAN YOLU VE EKONOMİ','Bağdat – Horasan'),
+ ('ch04','SARAY VE YÖNETİM','Aşiret düzeni'),('ch05','ORDU VE KALELER','Süvariler ve dağ kaleleri'),('ch06','İKİ KÜRT HANEDANI','Annazîler ve Hasanveyhîler'),('ch07','EBUŞŞEVK DÖNEMİ','Hüsameddevle · 1011–1046'),
+ ('ch08','DIŞ İLİŞKİLER','Komşular arasında denge'),('ch09','AİLE İÇİ ÇATIŞMA','Kardeşler ve yeğenler'),('ch10','SELÇUKLU FIRTINASI','Hulvan · 1046'),('ch11','DAĞLARDA SÜREN EMİRLİK','1046 – ~1117'),('ch12','MİRAS','Orta Çağ Kürt hanedanları'),('ch13','','')]
+import re
+PRE=[('Annazi','Annazî'),('Hasanveyhi','Hasanveyhî'),('Mervani','Mervânî'),('Şeddadi','Şeddâdî'),('Kakuyi','Kâkûyî'),('Ukayli','Ukaylî'),('Mezyedi','Mezyedî'),('Dirok','Dîrok')]
+STEMS=['Mezopotamya','Bağdat','Horasan','Hemedan','Zagros','Şehrizor','Hulvan','Kirmanşah','Dinever','Dakuk','Bendenicin','Mühelhil','Ebuşşevk','Dicle','Musul','Hille','İsfahan','Dîrok','Diyala','Babil']
+def fixw(w):
+  m=re.match(r'^(.*?)([.,;:!?]*)$',w);core,p=m.group(1),m.group(2)
+  if core=='Annazdan': return 'Annaz’dan'+p
+  for a,b in PRE:
+    if core.startswith(a): core=b+core[len(a):];break
+  for st in STEMS:
+    if core.startswith(st) and len(core)>len(st) and core[len(st)].islower(): core=st+'’'+core[len(st):];break
+  return core+p
 def dur(f): return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f]).decode())
 T=1.0;chs=[];num=0
 for i,(cid,title,sub) in enumerate(CH):
   d=dur(f'audio/{cid}.wav');ws=json.load(open(f'audio/{cid}.words.json'))
-  out=[[FIX.get(w,w),s,e] for w,s,e in ws]
+  out=[[fixw(w),s,e] for w,s,e in ws]
   if i==1: chs.append({'id':'TITLE','card':T,'cardDur':7.0}); T+=7.0
   card=None
   if title: num+=1; card=T; T+=4.2

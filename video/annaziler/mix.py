@@ -5,8 +5,8 @@ for typ,a,b in d['shots']:
   if typ in('cavalry','clash','siege'):sfx.append(['army',a])
   if typ=='clash':sfx.append(['clash',a+(b-a)*0.45])
 VOL={'whoosh':.2,'boom':.28,'clash':.4,'army':.08,'shimmer':.22}
-# ezgi 240 s -> iki kopya çapraz geçişle T'ye uzat
-inp=['-i','audio/narration_master.wav','-i','audio/ezgi.mp3','-i','audio/ezgi.mp3'];f=[]
+# ezgi (240 s) + ezgi2 (300 s) çapraz geçişle T'ye uzat
+inp=['-i','audio/narration_master.wav','-i','audio/ezgi.mp3','-i','audio/ezgi2.mp3'];f=[]
 f.append(f"[1][2]acrossfade=d=8:c1=tri:c2=tri,atrim=0:{T},asetpts=PTS-STARTPTS,afade=t=in:d=1.5,afade=t=out:st={T-4}:d=4,volume=0.32[music]")
 f.append("[0]highpass=f=70,equalizer=f=3000:t=q:w=1.2:g=2.5,acompressor=threshold=0.12:ratio=2.5:attack=8:release=180:makeup=1.6,asplit=2[nar][key]")
 # konuşurken çok kısık: güçlü sidechain

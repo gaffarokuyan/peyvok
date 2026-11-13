@@ -5,7 +5,7 @@ const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1920, height: 1080 } }); p.on('pageerror', e => console.log('ERR', e.message));
 await p.goto('file://' + path.resolve('annazi.html')); await p.evaluate(() => window.ready);
 const d = await p.evaluate(() => {
-  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(192.3); labelBoxB = lb;
+  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(362.95); labelBoxB = lb;
   const src = document.createElement('canvas'); src.width = W; src.height = H; src.getContext('2d').drawImage(cv, 0, 0);
   const c = X; c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#100604'; c.fillRect(0, 0, W, H);
   c.filter = 'saturate(1.35) brightness(1.08) contrast(1.1)'; c.drawImage(src, 0, 0, 1880, 1060, -150, -60, W * 1.16, H * 1.16); c.filter = 'none';
@@ -24,8 +24,8 @@ const d = await p.evaluate(() => {
   T('UNUTULAN', 60, 230, 130, '#fff', { lw: 16 });
   T('KÜRT EMİRLİĞİ', 60, 400, 150, 'gold', { lw: 18, glow: 'rgba(255,170,40,.8)', blur: 55, maxW: 1150 });
   T('ANNAZÎLER', 60, 640, 220, '#fff', { lw: 28, stroke: '#7a0f0a', glow: 'rgba(230,40,20,.95)', blur: 70, maxW: 1200 });
-  T('130 YIL ZAGROS KAPISI', 66, 810, 92, 'gold', { lw: 12, maxW: 1150 });
-  pill('990 – 1117 · HULVAN · DİNEVER', 66, 975);
+  T('MEZOPOTAMYA’NIN DOĞU KAPISI', 66, 810, 92, 'gold', { lw: 12, maxW: 1150 });
+  pill('990 – 1117 · HULVAN · ŞEHRİZOR', 66, 975);
   c.save(); c.font = '900 64px CinzelD'; c.textAlign = 'right'; c.letterSpacing = '8px'; c.lineWidth = 8; c.strokeStyle = '#1a0703'; c.strokeText('DÎROK', W - 50, 100); c.fillStyle = gold(50, 100); c.fillText('DÎROK', W - 50, 100); c.restore();
   return cv.toDataURL('image/jpeg', .95);
 });
