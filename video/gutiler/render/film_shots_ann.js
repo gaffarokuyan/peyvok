@@ -11,7 +11,7 @@ const SHOTS = {
   { at: 'süvari@-0.2', type: 'cavalry', p: { title: 'ŞAZENCAN SÜVARİLERİ', sub: 'Kürt aşiret ordusu' } },
   { at: 'komşu@-0.2', type: 'clash', p: { left: ANN.ann, right: ANN.hsn, vs: true } },
   { at: 'onların@-0.2', type: 'portrait', p: { who: 'emir', name: 'ANNAZÎLER', sub: 'Mezopotamya’nın doğu kapısındaki Kürt emirleri', nsize: 110 } },
-  { at: 'dîrok@-0.2', type: 'scenic', p: { warm: .2, lines: [['dîrok', 'DÎROK', 170, .38]] } }],
+  { at: 'dîrok@-0.2', type: 'scenic', p: { warm: .2, lines: [['dîrok', 'DÎROK', 170, .36], ['kaçırmamak', 'ABONE OL', 110, .56], ['unutulmuş', 'Kürt tarihinin unutulmuş sayfaları için', 56, .68, 'corm']] } }],
  ch01: [
   { at: 0, type: 'map', p: { cam: [[0, 45.2, 33.6, 14], ['işte', 45.6, 34.1, 9]], rivers: 'dicle', cities: [['Bağdat', ...BAG, 0, true], ['Hulvan', ...HUL, 'hulvan', true]],
       text: [['mezopotamya', 'MEZOPOTAMYA', null, 110]], labels: [['dağlarla', 47.0, 34.9, 'ZAGROS', 'Dağların eşiği', '']] } },

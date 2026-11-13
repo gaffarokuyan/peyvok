@@ -5,7 +5,7 @@ const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1920, height: 1080 } }); p.on('pageerror', e => console.log('ERR', e.message));
 await p.goto('file://' + path.resolve('annazi.html')); await p.evaluate(() => window.ready);
 const d = await p.evaluate(() => {
-  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(362.95); labelBoxB = lb;
+  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(366.87); labelBoxB = lb;
   const src = document.createElement('canvas'); src.width = W; src.height = H; src.getContext('2d').drawImage(cv, 0, 0);
   const c = X; c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#100604'; c.fillRect(0, 0, W, H);
   c.filter = 'saturate(1.35) brightness(1.08) contrast(1.1)'; c.drawImage(src, 0, 0, 1880, 1060, -150, -60, W * 1.16, H * 1.16); c.filter = 'none';
