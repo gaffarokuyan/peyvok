@@ -86,9 +86,10 @@ DEFS = f"""
 """
 
 
-def face(cx, cy, r, mouth="smile", blink=False, look=0.0, age=0, sx=1.0):
-    """Göz + ağız (+ yaşlı için kırışık). sx: kafa yönü (-1 sola bakar)."""
-    ex = r * 0.31
+def face(cx, cy, r, mouth="smile", blink=False, look=0.0, age=0, sx=1.0, turn=0.0):
+    """Göz + ağız (+ yaşlı için kırışık). turn: -1..1 kafa yönü (+ sağa döner, 3/4 görünüm)."""
+    cx = cx + turn * r * 0.34
+    ex = r * 0.31 * (1 - 0.3 * abs(turn))
     ey = cy - r * 0.05
     dx = look * r * 0.06
     g = []
@@ -118,9 +119,14 @@ def face(cx, cy, r, mouth="smile", blink=False, look=0.0, age=0, sx=1.0):
     if age:
         g.append(path(f"M{cx - r * 0.35} {cy - r * 0.42} Q{cx} {cy - r * 0.5} {cx + r * 0.35} {cy - r * 0.42}",
                       "none", sw=3, op=0.6))
+    if abs(turn) > 0.2:   # burun (yana dönükken)
+        nx = cx + turn * r * 0.08
+        g.append(path(f"M{nx} {ey + r * 0.08} Q{nx + turn * r * 0.16} {ey + r * 0.22} {nx} {ey + r * 0.26}", "none", sw=4))
     # yanak
     for s in (-1, 1):
-        g.append(f'<ellipse cx="{cx + s * r * 0.5}" cy="{my - r * 0.12}" rx="{r * 0.13}" ry="{r * 0.07}" fill="#f2b8a8" opacity="0.55"/>')
+        if s * turn < -0.5:
+            continue
+        g.append(f'<ellipse cx="{cx + s * r * 0.5 * (1 - 0.3 * abs(turn))}" cy="{my - r * 0.12}" rx="{r * 0.13}" ry="{r * 0.07}" fill="#f2b8a8" opacity="0.55"/>')
     return "\n".join(g)
 
 
@@ -146,7 +152,7 @@ def _kember(y, w):
     return "".join(g)
 
 
-def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=None):
+def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=None, turn=0.0, step=None):
     """Genç, uzun boylu kız, ~575 px. Başı açık: bele kadar uzun siyah saç.
     Kırmızı kiras (sarkan kollar, altın sırma), geniş altın kemer, para kolye."""
     dress = dress or KIRAS
@@ -159,10 +165,17 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=
                   f"Q0 {hy + 280} {hr + 18} {hy + 250} Q{hr + 34} {hy + 120} {hr - 2} {hy - 10} Z", "#1d1a1c"))
     b = []
     # ayaklar
-    b.append(ellipse(-34, -10, 30, 14, "#3a2a22", sw=5))
-    b.append(ellipse(34, -10, 30, 14, "#3a2a22", sw=5))
+    if step is None:
+        b.append(ellipse(-34, -10, 30, 14, "#3a2a22", sw=5))
+        b.append(ellipse(34, -10, 30, 14, "#3a2a22", sw=5))
+    else:   # adım: ayaklar sırayla öne/arkaya, kalkan ayak yükselir
+        ph = math.sin(step)
+        for sg in (-1, 1):
+            k = ph * sg
+            b.append(ellipse(sg * 30 + 26 * k, -10 - 12 * max(0.0, k), 30, 14, "#3a2a22", sw=5))
     # kiras (yere kadar)
-    b.append(path(f"M-74 -296 Q-118 -150 -130 -22 L130 -22 Q118 -150 74 -296 Z", dress))
+    sway = 0 if step is None else 10 * math.sin(step)
+    b.append(path(f"M-74 -296 Q-118 -150 {-130 + sway} -22 L{130 + sway} -22 Q118 -150 74 -296 Z", dress))
     b.append(path("M0 -200 L0 -26", "none", stroke="#6e1520", sw=3))
     # göğüs sırma işlemesi (altın kıvrımlar)
     for sgn in (-1, 1):
@@ -177,11 +190,14 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=
     # kollar: geniş, sarkan kiras kolları
     if arm == "down":
         for s in (-1, 1):
+            rot = 0 if step is None else -s * 9 * math.sin(step)
+            b.append(f'<g transform="rotate({rot:.2f} {s * 72} -292)">')
             b.append(path(f"M{s * 72} -292 Q{s * 128} -230 {s * 132} -120 Q{s * 112} -96 {s * 86} -118 "
                           f"Q{s * 84} -190 {s * 58} -262 Z", dress))
             b.append(path(f"M{s * 130} -126 Q{s * 112} -100 {s * 88} -120", "none", stroke=GOLD, sw=4))
             b.append(hand(s * 98, -132))
             b.append(path(f"M{s * 86} -144 L{s * 110} -144", "none", stroke=GOLD, sw=5))  # bilezik
+            b.append("</g>")
     elif arm == "front":
         for s in (-1, 1):
             b.append(path(f"M{s * 72} -292 Q{s * 130} -230 {s * 110} -150 Q{s * 80} -140 {s * 40} -188 "
@@ -214,19 +230,19 @@ def gule(mouth="smile", blink=False, look=0.0, arm="down", writing=False, dress=
     g.append(circle(0, hy, hr, SKIN))
     # ön saç: ortadan ayrık, omuzlara düşen iki tutam
     g.append(path(f"M{-hr - 2} {hy + 6} Q{-hr} {hy - hr - 12} 0 {hy - hr - 8} Q{hr} {hy - hr - 12} {hr + 2} {hy + 6} "
-                  f"Q{hr - 12} {hy - 34} 4 {hy - hr + 6} Q{-hr + 12} {hy - 34} {-hr - 2} {hy + 6} Z", "#1d1a1c"))
+                  f"Q{hr - 12} {hy - 34} {4 + turn * 26} {hy - hr + 6} Q{-hr + 12} {hy - 34} {-hr - 2} {hy + 6} Z", "#1d1a1c"))
     for sgn in (-1, 1):
         g.append(path(f"M{sgn * (hr - 4)} {hy - 6} Q{sgn * (hr + 16)} {hy + 70} {sgn * (hr - 6)} {hy + 150}",
                       "none", stroke=INK, sw=26))
         g.append(path(f"M{sgn * (hr - 4)} {hy - 6} Q{sgn * (hr + 16)} {hy + 70} {sgn * (hr - 6)} {hy + 150}",
                       "none", stroke="#1d1a1c", sw=15))
         g.append(circle(sgn * (hr - 2), hy + 22, 6, GOLD, sw=2.5))   # altın küpe
-    g.append(face(0, hy + 8, hr, mouth, blink, look, age=0))
+    g.append(face(0, hy + 8, hr, mouth, blink, look, age=0, turn=turn))
     return "<g>" + "\n".join(g) + "</g>"
 
 
 # ---------------------------------------------------------------- CİWAN (genç, uzun boylu erkek)
-def ciwan(mouth="smile", blink=False, look=0.0, arm="down"):
+def ciwan(mouth="smile", blink=False, look=0.0, arm="down", turn=0.0, step=None):
     """Genç delikanlı, ~585 px. Kısa siyah saç, sakalsız. Beyaz gömlek, işlemeli siyah şapik,
     siyah şal (bol pantolon), geniş siyah pişt."""
     TALL = 1.2
@@ -235,10 +251,20 @@ def ciwan(mouth="smile", blink=False, look=0.0, arm="down"):
     JACKET, PANT = "#2a2a2e", "#26262a"
     g, b = [], []
     # bacaklar (bol şal, bileğe doğru daralır) + ayakkabı
-    b.append(path("M-60 -220 Q-78 -110 -50 -24 L-12 -24 Q-14 -110 0 -196 Q14 -110 12 -24 L50 -24 "
-                  "Q78 -110 60 -220 Z", PANT))
-    b.append(ellipse(-34, -14, 30, 14, "#3a2a22", sw=5))
-    b.append(ellipse(34, -14, 30, 14, "#3a2a22", sw=5))
+    if step is None:
+        b.append(path("M-60 -220 Q-78 -110 -50 -24 L-12 -24 Q-14 -110 0 -196 Q14 -110 12 -24 L50 -24 "
+                      "Q78 -110 60 -220 Z", PANT))
+        b.append(ellipse(-34, -14, 30, 14, "#3a2a22", sw=5))
+        b.append(ellipse(34, -14, 30, 14, "#3a2a22", sw=5))
+    else:   # yürüyüş: bacaklar kalçadan zıt yönde salınır
+        ang = 22 * math.sin(step)
+        for sg in (1, -1):        # arkadaki bacak önce çizilir
+            a_ = ang * sg
+            b.append(f'<g transform="rotate({a_:.2f} 0 -214)">')
+            b.append(path(f"M{sg * 10 - 34} -222 Q{sg * 10 - 40} -110 {sg * 10 - 22} -24 L{sg * 10 + 22} -24 "
+                          f"Q{sg * 10 + 34} -110 {sg * 10 + 34} -222 Z", PANT))
+            b.append(ellipse(sg * 10 + 8, -14, 32, 14, "#3a2a22", sw=5))
+            b.append("</g>")
     # gövde: şapik (ceket)
     b.append(path("M-70 -350 Q-80 -280 -62 -214 L62 -214 Q80 -280 70 -350 Q0 -366 -70 -350 Z", JACKET))
     b.append(path("M-26 -358 L0 -290 L26 -358 Z", "#f4f1ea", sw=4))           # beyaz gömlek
@@ -252,8 +278,11 @@ def ciwan(mouth="smile", blink=False, look=0.0, arm="down"):
     b.append(path("M-62 -236 Q0 -226 62 -236", "none", stroke="#3a3a40", sw=3))
     sl = JACKET
     if arm == "down":
-        b.append(limb(-70, -340, -88, -228, sl, 26)); b.append(limb(70, -340, 88, -228, sl, 26))
-        b.append(hand(-90, -214, 20)); b.append(hand(90, -214, 20))
+        for sg in (-1, 1):
+            rot = 0 if step is None else sg * 14 * math.sin(step)
+            b.append(f'<g transform="rotate({rot:.2f} {sg * 70} -340)">')
+            b.append(limb(sg * 70, -340, sg * 88, -228, sl, 26)); b.append(hand(sg * 90, -214, 20))
+            b.append("</g>")
     elif arm == "front":
         b.append(limb(-70, -340, -40, -250, sl, 26)); b.append(limb(70, -340, 40, -250, sl, 26))
         b.append(hand(-34, -238, 20)); b.append(hand(34, -238, 20))
@@ -274,7 +303,7 @@ def ciwan(mouth="smile", blink=False, look=0.0, arm="down"):
     g.append(path(f"M{-hr + 2} {hy - 6} Q{-hr - 2} {hy - hr - 16} 0 {hy - hr - 14} Q{hr + 6} {hy - hr - 14} {hr - 2} {hy - 6} "
                   f"Q{hr - 10} {hy - 30} {hr - 26} {hy - 40} Q10 {hy - 54} {-26} {hy - 36} Q{-hr + 14} {hy - 26} {-hr + 2} {hy - 6} Z",
                   "#1d1a1c"))
-    g.append(face(0, hy + 6, hr, mouth, blink, look))
+    g.append(face(0, hy + 6, hr, mouth, blink, look, turn=turn))
     return "<g>" + "\n".join(g) + "</g>"
 
 

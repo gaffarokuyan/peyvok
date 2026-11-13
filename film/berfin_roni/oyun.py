@@ -118,17 +118,24 @@ def talking_arm(who, T, default):
     return default
 
 
-def berfin(T, x, y, s=1.0, look=0.9, arm=None, flip=False, walk=0.0, rest="smile", seat=0.0):
-    a = arm or talking_arm("berfin", T, "down")
-    by = abs(math.sin(walk * 6)) * -8 if walk else math.sin(T * 2.0) * 3
-    return place(gule(mouth=mouth("berfin", T, rest), blink=blink(T, 0.0), look=look, arm=a, dress=DRESS),
+STEP = 7.0          # yürüyüş: rad/sn (~1.1 adım/sn)
+
+
+def berfin(T, x, y, s=1.0, look=0.9, arm=None, flip=False, walk=0.0, rest="smile", seat=0.0, turn=0.75):
+    """turn: yüzün dönüklüğü (+ = yerel sağ; flip ile aynalanır). walk: yürüyorsa T, değilse 0."""
+    a = arm or ("down" if walk else talking_arm("berfin", T, "down"))
+    step = walk * STEP if walk else None
+    by = -abs(math.sin(step)) * 6 if walk else math.sin(T * 2.0) * 3
+    return place(gule(mouth=mouth("berfin", T, rest), blink=blink(T, 0.0), look=look * 0.4, arm=a, dress=DRESS,
+                      turn=turn, step=step),
                  x, y + by + seat * 100 * s, s, flip)
 
 
-def roni(T, x, y, s=1.0, look=0.9, arm=None, flip=True, walk=0.0, rest="smile", seat=0.0):
-    a = arm or talking_arm("roni", T, "down")
-    by = abs(math.sin(walk * 6)) * -8 if walk else math.sin(T * 2.0 + 2) * 3
-    return place(ciwan(mouth=mouth("roni", T, rest), blink=blink(T, 1.7), look=look, arm=a),
+def roni(T, x, y, s=1.0, look=0.9, arm=None, flip=True, walk=0.0, rest="smile", seat=0.0, turn=0.75):
+    a = arm or ("down" if walk else talking_arm("roni", T, "down"))
+    step = walk * STEP + 1.5 if walk else None
+    by = -abs(math.sin(step)) * 6 if walk else math.sin(T * 2.0 + 2) * 3
+    return place(ciwan(mouth=mouth("roni", T, rest), blink=blink(T, 1.7), look=look * 0.4, arm=a, turn=turn, step=step),
                  x, y + by + seat * 115 * s, s, flip)
 
 
@@ -303,9 +310,11 @@ def sc_park(T, t):
     xb_now = xb - b_walk * 260
     b_arm = "front" if b_seat > 0.5 and T < at(1) else None
     out = [park_bg(T), bench_back(x0, x1, seat_y)]
-    out.append(berfin(T, xb_now, 1000, look=0.9 if b_walk == 0 else 0.0, arm=b_arm, flip=b_walk > 0,
-                      walk=T if b_walk > 0 else 0, seat=b_seat))
-    out.append(roni(T, xr, 1000, walk=T if walk_in < 1 else 0, seat=r_seat,
+    b_turn = 1.0 if b_walk > 0 else (0.15 if T < at(0) + 0.3 else 0.75)
+    out.append(berfin(T, xb_now, 1000, look=0.9 if b_walk == 0 else 1.0, arm=b_arm, flip=b_walk > 0,
+                      walk=T if b_walk > 0 else 0, seat=b_seat, turn=b_turn))
+    r_turn = 1.0 if (walk_in < 1 or b_walk > 0) else 0.75
+    out.append(roni(T, xr, 1000, walk=T if walk_in < 1 else 0, seat=r_seat, turn=r_turn,
                     look=0.9, rest="sad" if b_walk > 2 else "smile"))
     if b_seat > 0.5 and T < at(1):
         out.append(book(xb + 4, 846, 0.9))
@@ -326,8 +335,8 @@ def sc_cafe(T, t):
     xb = lerp(-150, xb_final, enter)
     b_seat = ease((T - end(12)) / 0.6)
     out = [bg, win]
-    out.append(roni(T, xr, 1000, seat=1.0, arm=None, look=0.9 if t > 3 else 0.2))
-    out.append(berfin(T, xb, 1000, walk=T if enter < 1 else 0, seat=b_seat))
+    out.append(roni(T, xr, 1000, seat=1.0, arm=None, look=0.9 if t > 3 else 0.0, turn=0.75 if t > 3 else -0.3))
+    out.append(berfin(T, xb, 1000, walk=T if enter < 1 else 0, seat=b_seat, turn=1.0 if enter < 1 else 0.75))
     tbl = rect(470, 880, 980, 46, "#8a5a34", 10) + rect(500, 926, 40, 200, "#6b4428", 4) + rect(1380, 926, 40, 200, "#6b4428", 4)
     out.append(tbl)
     tea_on = T > end(13) + 0.8
@@ -404,9 +413,9 @@ def sc_deri(T, t):
     enter = ease(t / 4.5)
     xb = lerp(-150, 760, enter)
     out = [library_front(T)]
-    out.append(roni(T, xr, 1010, arm="front", look=0.9 if t > 2 else 0.0))
+    out.append(roni(T, xr, 1010, arm="front", look=0.9 if t > 2 else 0.0, turn=0.75 if t > 2 else 0.0))
     out.append(cup(xr - 40, 708, T) + cup(xr + 40, 708, T))
-    out.append(berfin(T, xb, 1010, walk=T if enter < 1 else 0, rest="smile"))
+    out.append(berfin(T, xb, 1010, walk=T if enter < 1 else 0, rest="smile", turn=1.0 if enter < 1 else 0.75))
     z, cx, cy = shot(T, 760, xr)
     if t < 4.5:
         z, cx, cy = lerp(1.25, 1.0, ease(t / 2.0)), lerp(960, 960, 0), lerp(380, 560, ease(t / 2.0))
@@ -417,8 +426,11 @@ def sc_hundir(T, t):
     out = [library_in(T)]
     xb, xr = 760, 1160
     glance = (t % 5) > 3.2
-    out.append(berfin(T, xb, 1000, arm="front", look=0.0 if not (t % 7 > 5) else 0.9, rest="smile", seat=1.0))
-    out.append(roni(T, xr, 1000, arm="front", look=0.9 if glance else 0.0, rest="smile", seat=1.0))
+    b_glance = (t % 7) > 5
+    out.append(berfin(T, xb, 1000, arm="front", look=0.9 if b_glance else 0.0, rest="smile", seat=1.0,
+                      turn=0.75 if b_glance else 0.0))
+    out.append(roni(T, xr, 1000, arm="front", look=0.9 if glance else 0.0, rest="smile", seat=1.0,
+                    turn=0.75 if glance else 0.0))
     out.append(rect(420, 880, 1080, 44, "#8a5a34", 8) + rect(450, 924, 40, 200, "#6b4428", 4) + rect(1430, 924, 40, 200, "#6b4428", 4))
     out.append(book(760, 866, 1.1) + book(1160, 866, 1.1))
     if glance:      # küçük kalp
@@ -437,8 +449,9 @@ def sc_cem(T, t):
     s = 1.0 - min(0.5, walk_out * 0.07)
     yb = 1010 - min(200, walk_out * 30)
     arm_r = "heart" if LBY[27]["st"] <= T < end(27) else None
-    out.append(berfin(T, xb, yb, s, walk=walking, look=0.9))
-    out.append(roni(T, xr, yb, s, walk=walking, arm=arm_r, look=0.9))
+    out.append(berfin(T, xb, yb, s, walk=walking, look=0.9, turn=1.0 if walking else 0.75))
+    # yürürken ikisi de sağa bakar (Ronî aynalanmaz); dururken birbirlerine dönerler
+    out.append(roni(T, xr, yb, s, walk=walking, arm=arm_r, look=0.9, flip=not walking, turn=1.0 if walking else 0.75))
     z, cx, cy = shot(T, 760, 1100)
     if t < 5 or walk_out > 0:
         z, cx, cy = 1.0, 960, 560
