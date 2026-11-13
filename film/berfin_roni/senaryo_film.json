@@ -1,0 +1,226 @@
+[
+[
+"park",
+"roni",
+"[warmly] ",
+"Silav. Ev kursî vala ye?",
+"Merhaba. Bu bank boş mu?"
+],
+[
+"park",
+"berfin",
+"",
+"Erê, vala ye.",
+"Evet, boş."
+],
+[
+"park",
+"roni",
+"",
+"Spas. Navê min Ronî ye. Navê te çi ye?",
+"Teşekkürler. Adım Ronî. Senin adın ne?"
+],
+[
+"park",
+"berfin",
+"[softly] ",
+"Navê min Berfîn e.",
+"Adım Berfîn."
+],
+[
+"park",
+"roni",
+"[curious] ",
+"Tu çi dixwînî?",
+"Ne okuyorsun?"
+],
+[
+"park",
+"berfin",
+"",
+"Pirtûkeke çîrokan. Ez ji pirtûkan pir hez dikim.",
+"Bir hikâye kitabı. Kitapları çok severim."
+],
+[
+"park",
+"roni",
+"[excited] ",
+"Ez jî! Tu xwendekar î?",
+"Ben de! Öğrenci misin?"
+],
+[
+"park",
+"berfin",
+"",
+"Erê. Ez li zanîngehê zimanê kurdî dixwînim. Tu?",
+"Evet. Üniversitede Kürtçe okuyorum. Ya sen?"
+],
+[
+"park",
+"roni",
+"",
+"Ez endezyar im.",
+"Ben mühendisim."
+],
+[
+"park",
+"berfin",
+"[softly] ",
+"Divê ez biçim. Bi xatirê te.",
+"Gitmem lazım. Hoşça kal."
+],
+[
+"park",
+"roni",
+"[warmly] ",
+"Bi xêr herî… Berfîn.",
+"Güle güle, Berfîn."
+],
+[
+"cafe",
+"roni",
+"[surprised] ",
+"Berfîn? Tu li vir çi dikî?",
+"Berfîn! Burada ne yapıyorsun?"
+],
+[
+"cafe",
+"berfin",
+"",
+"Ez her roj… têm vir. Çaya wan pir xweş e.",
+"Her gün buraya gelirim. Çayları çok güzel."
+],
+[
+"cafe",
+"roni",
+"[loudly] ",
+"Du çay, ji kerema xwe!",
+"İki çay, lütfen!"
+],
+[
+"cafe",
+"berfin",
+"[laughs] ",
+"Sê kevçî? Tu ji şekir pir hez dikî!",
+"Üç kaşık mı? Şekeri çok seviyorsun!"
+],
+[
+"cafe",
+"roni",
+"",
+"Erê. Ez her roj saet heftan radibim, û heta saet pêncan dixebitim. Şekir ji bo enerjiyê ye!",
+"Evet. Her gün saat yedide kalkıp beşe kadar çalışıyorum. Şeker enerji için!"
+],
+[
+"cafe",
+"berfin",
+"",
+"Duh ez çûm bazarê û min sêv kirîn. Paşê min fîlmekî kurdî temaşe kir.",
+"Dün pazara gittim, elma aldım. Sonra Kürtçe bir film izledim."
+],
+[
+"cafe",
+"roni",
+"[curious] ",
+"Kîjan fîlm? Navê wî çi ye?",
+"Hangi film? Adı ne?"
+],
+[
+"cafe",
+"berfin",
+"",
+"Navê wî Boxçe ye. Li ser keçekê ye ku ji bo evîna xwe nivîsandinê hîn dibe.",
+"Adı Boxçe. Aşkı için yazmayı öğrenen bir kızı anlatıyor."
+],
+[
+"cafe",
+"roni",
+"[softly] ",
+"Ez dixwazim wî fîlmî bibînim.",
+"O filmi görmek istiyorum."
+],
+[
+"mesaj",
+"roni",
+"",
+"Sibê… tu yê çi bikî?",
+"Yarın ne yapacaksın?"
+],
+[
+"mesaj",
+"berfin",
+"",
+"Sibê ez ê biçim pirtûkxaneyê. Azmûna min nêzîk e.",
+"Yarın kütüphaneye gideceğim. Sınavım yaklaşıyor."
+],
+[
+"mesaj",
+"roni",
+"",
+"Ger tu bixwazî, ez dikarim bi te re werim. Ez ê alîkariya te bikim.",
+"İstersen seninle gelebilirim. Sana yardım ederim."
+],
+[
+"mesaj",
+"berfin",
+"[playfully] ",
+"Baş e. Saet di dehan de. Heke tu dereng bimînî, ez ê bê te dest pê bikim!",
+"Tamam. Saat onda. Geç kalırsan sensiz başlarım!"
+],
+[
+"derî",
+"roni",
+"[playfully] ",
+"Te got ez ê dereng bimînim… Lê ez ji te zûtir hatim!",
+"Geç kalacağımı söylemiştin… Ama senden önce geldim!"
+],
+[
+"derî",
+"berfin",
+"[laughs] ",
+"Baş e, baş e. Lê li hundir, bêdeng!",
+"Tamam, tamam. Ama içeride sessiz ol!"
+],
+[
+"derî",
+"roni",
+"[whispers] ",
+"Soz.",
+"Söz."
+],
+[
+"cem",
+"roni",
+"[softly] ",
+"Berfîn, dema ku ez bi te re me, ez kêfxweş im.",
+"Berfîn, seninleyken mutluyum."
+],
+[
+"cem",
+"roni",
+"[softly] ",
+"Ger tu jî bixwazî, em dikarin her hefte hev bibînin.",
+"Sen de istersen, her hafta görüşebiliriz."
+],
+[
+"cem",
+"berfin",
+"[softly] ",
+"Berê min ji axaftinê hez nedikir. Lê niha, bi te re, ez dixwazim her roj biaxivim.",
+"Eskiden konuşmayı sevmezdim. Ama şimdi, seninle, her gün konuşmak istiyorum."
+],
+[
+"cem",
+"roni",
+"[warmly] ",
+"Wê demê… heta sibê?",
+"O zaman… yarına kadar?"
+],
+[
+"cem",
+"berfin",
+"[warmly] ",
+"Heta sibê… Ronî.",
+"Yarına kadar, Ronî."
+]
+]
