@@ -67,6 +67,11 @@ function drawPortrait(who, cx, cy, S, t, o = {}) {
   // mustache
   for (const s of [-1, 1]) { c.fillStyle = s > 0 ? P.beard[0] : P.beard[1]; c.beginPath(); c.moveTo(0, 58); c.bezierCurveTo(s * 20, 54, s * 44, 66, s * 58, 96); c.bezierCurveTo(s * 40, 84, s * 20, 76, 0, 72); c.fill() }
   c.strokeStyle = 'rgba(40,15,10,.7)'; c.lineWidth = 3; c.beginPath(); c.moveTo(-16, 82); c.quadraticCurveTo(0, 86, 16, 82); c.stroke();
+  // hat (Seljuk fur-brimmed börk) instead of turban
+  if (P.hat === 'bork') { c.save(); c.fillStyle = lg(-120, 0, 120, 0, [[0, '#0e1430'], [.6, '#1e2a5a'], [1, '#3a4a8a']]); c.beginPath(); c.moveTo(-104, -96); c.bezierCurveTo(-90, -230, -30, -330, 10, -340); c.bezierCurveTo(50, -330, 100, -230, 104, -96); c.closePath(); c.fill();
+    c.strokeStyle = 'rgba(216,176,76,.8)'; c.lineWidth = 6; c.beginPath(); c.moveTo(0, -330); c.lineTo(0, -110); c.stroke();
+    c.fillStyle = lg(0, -140, 0, -80, [[0, '#8a6a44'], [1, '#4a3420']]); c.beginPath(); c.ellipse(0, -100, 132, 34, 0, 0, Math.PI * 2); c.fill(); c.strokeStyle = 'rgba(30,18,8,.5)'; c.lineWidth = 3; for (let i = 0; i < 40; i++) { const a = i / 40 * Math.PI * 2; c.beginPath(); c.moveTo(Math.cos(a) * 120, -100 + Math.sin(a) * 28); c.lineTo(Math.cos(a) * 132, -100 + Math.sin(a) * 36); c.stroke() } c.restore() }
+  else {
   // turban
   const TH = P.turbanH; c.save();
   const tb = new Path2D(); tb.moveTo(-112, -82); tb.bezierCurveTo(-150, -120, -160, -TH * .75, -110, -TH * .95); tb.bezierCurveTo(-60, -TH * 1.1, 60, -TH * 1.1, 110, -TH * .95); tb.bezierCurveTo(160, -TH * .75, 150, -120, 112, -82); tb.bezierCurveTo(60, -104, -60, -104, -112, -82);
@@ -75,6 +80,7 @@ function drawPortrait(who, cx, cy, S, t, o = {}) {
   if (P.cap) { c.fillStyle = lg(-40, 0, 40, 0, [[0, '#7a1a14'], [1, P.cap]]); c.beginPath(); c.ellipse(0, -TH * .98, 50, 34, 0, Math.PI, 0); c.fill(); c.fillStyle = '#d8b04c'; c.fillRect(-150, -112, 300, 10) }
   c.restore();
   if (P.cap) { c.fillStyle = '#ffd86a'; c.beginPath(); c.arc(0, -110, 10, 0, Math.PI * 2); c.fill() }
+  }
   c.restore(); // head
   c.restore(); // root
   function mix(a, b, k) { const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * k).toString(16).padStart(2, '0')).join('') }
