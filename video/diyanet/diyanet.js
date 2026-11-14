@@ -2,7 +2,7 @@
 const W = 1080, H = 1920, TAU = Math.PI * 2, cv = document.getElementById('c'), X = cv.getContext('2d');
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), lerp = (a, b, t) => a + (b - a) * t, eout = t => 1 - Math.pow(1 - clamp(t), 3), eio = t => { t = clamp(t); return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2 }, eback = t => { t = clamp(t); const c = 2.2; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2) };
 const hash = n => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s) };
-const OFF = .6, NAR = WORDS[WORDS.length - 1][2], END = OFF + NAR + .4, ASIDE0 = END + 2.6, ASW = [["Vergiyi", 0.16, 0.6], ["veren", 0.64, 0.96], ["Sofi", 1.04, 1.36], ["Ömer...", 1.44, 2.32], ["Dilinde", 2.373, 2.72], ["hutbe", 2.76, 3.04], ["basılan,", 3.12, 3.76], ["Nataşa", 3.84, 4.16], ["kardeşimiz", 4.24, 4.8], ["de...", 4.88, 5.2]], ASEND = ASIDE0 + ASW[ASW.length - 1][2], MICOFF = ASEND + .5, TOTAL = MICOFF + 1.1; window.TOTAL = TOTAL; window.ASIDE0 = ASIDE0; window.MICOFF = MICOFF;
+const OFF = .6, NAR = WORDS[WORDS.length - 1][2], END = OFF + NAR + .4, ASIDE0 = END + 2.6, ASW = [["Vergiyi", 0.16, 0.6], ["veren", 0.64, 0.96], ["Sofi", 1.04, 1.36], ["Ömer...", 1.44, 2.32], ["Dilinde", 2.36, 2.72], ["hutbe", 2.8, 3.04], ["basılan,", 3.12, 3.84], ["Nataşa", 3.88, 4.24], ["kardeşimiz...", 4.32, 5.52], ["Hımmm...", 6.28, 7.2]], ASEND = ASIDE0 + ASW[ASW.length - 1][2], MICOFF = ASEND + .5, TOTAL = MICOFF + 1.1; window.TOTAL = TOTAL; window.ASIDE0 = ASIDE0; window.MICOFF = MICOFF;
 const norm = w => w.toLocaleLowerCase('tr').replace(/i̇/g, 'i').replace(/[^a-zçğıöşüêîûâ0-9]/g, '');
 const MISS = []; function cue(q, n = 1, o = 0) { const ps = q.split(' ').map(norm); for (let i = 0; i < WORDS.length; i++) { if (ps.every((p, j) => WORDS[i + j] && norm(WORDS[i + j][0]).startsWith(p))) { if (--n === 0) return OFF + WORDS[i][1] + o } } MISS.push(q); return 0 }
 const LOGO = new Image(); LOGO.src = 'logo.png';
@@ -268,8 +268,8 @@ function renderFrame(t) { X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X
     // sound waves while whispering
     if (t > ASIDE0 && t < ASEND) { X.save(); X.strokeStyle = 'rgba(255,255,255,.5)'; X.lineWidth = 8; for (let i = 0; i < 3; i++) { const r = 180 + ((t * 120 + i * 60) % 180); X.globalAlpha = 1 - (r - 180) / 180; X.beginPath(); X.arc(W / 2, 700, r, -.6, .6); X.stroke(); X.beginPath(); X.arc(W / 2, 700, r, Math.PI - .6, Math.PI + .6); X.stroke() } X.restore() }
     // whisper captions
-    const w = ASW.filter(x => t >= ASIDE0 + x[1] - .05); if (w.length && t < MICOFF) { const nm = x => x[0].replace('Nataşa', 'Natasha'); [w.slice(0, 4), w.slice(4, 7), w.slice(7)].forEach((g, i) => { if (g.length) tx(g.map(nm).join(' '), W / 2, 1150 + i * 100, 66, '#f0eef8', { f: 'Corm', it: 1, w: 600, st: 8, maxW: 980 }) }) }
-    tx('(mikrofon açık kalmış…)', W / 2, 1520, 44, 'rgba(255,255,255,.55)', { f: 'InterB', w: 800, st: 0, a: k * (t < MICOFF ? 1 : 0) });
+    const w = ASW.filter(x => t >= ASIDE0 + x[1] - .05); if (w.length && t < MICOFF) { const nm = x => x[0].replace('Nataşa', 'Natasha'); [w.slice(0, 4), w.slice(4, 7), w.slice(7, 9), w.slice(9)].forEach((g, i) => { if (g.length) tx(g.map(nm).join(' '), W / 2, 1120 + i * 100 + (i === 3 ? 20 : 0), i === 3 ? 92 : 66, i === 3 ? '#fff36a' : '#f0eef8', { f: 'Corm', it: 1, w: 600, st: 8, maxW: 980 }) }) }
+    tx('(mikrofon açık kalmış…)', W / 2, 1590, 44, 'rgba(255,255,255,.55)', { f: 'InterB', w: 800, st: 0, a: k * (t < MICOFF ? 1 : 0) });
     if (t > MICOFF) { const g = t - MICOFF; X.fillStyle = '#000'; X.fillRect(0, 0, W, H); if (g < .12) { X.fillStyle = '#fff'; X.fillRect(0, H / 2 - 4, W * (1 - g / .12), 8) } } }
   if (t < .25) { X.fillStyle = `rgba(0,0,0,${1 - t / .25})`; X.fillRect(0, 0, W, H) } if (t > TOTAL - .5) { X.fillStyle = `rgba(0,0,0,${clamp((t - TOTAL + .5) / .5)})`; X.fillRect(0, 0, W, H) } }
 window.renderFrame = renderFrame; window.MISS = MISS;
