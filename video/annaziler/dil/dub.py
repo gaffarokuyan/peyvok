@@ -5,7 +5,7 @@ S=json.load(open('sents.json'));tl=json.loads(open('../timeline.js').read()[len(
 LANGS=['en','de','fr','ar','kmr','ckb']
 L={l:open(f'{l}.txt').read().strip('\n').split('\n') for l in LANGS}
 for l in L: assert len(L[l])==len(S),(l,len(L[l]))
-VOICE={'en':'NNl6r8mD7vthiJatiJt1','de':'kkJxCnlRCckmfFvzDW5Q','fr':'aQROLel5sQbj1vuIVi6B','ar':'DPd861uv5p6zeVV94qOT','kmr':'9UoAU5im7Rl44J2IvBHU','ckb':'aB3kjBYXGX3jTKxg1bsE'}
+VOICE={'en':'NNl6r8mD7vthiJatiJt1','de':'kkJxCnlRCckmfFvzDW5Q','fr':'aQROLel5sQbj1vuIVi6B','ar':'aB3kjBYXGX3jTKxg1bsE','kmr':'9UoAU5im7Rl44J2IvBHU','ckb':'aB3kjBYXGX3jTKxg1bsE'}
 NUM={'kmr':[('sala 990î','sala neh sed û nodî'),('sala 1014an','sala hezar û çardehan'),('sala 1046an','sala hezar û çil û şeşan'),('sala 1117an','sala hezar û sed û hevdehan')],
      'ckb':[('ساڵی ٩٩٠دا','ساڵی نۆسەد و نەوەددا'),('ساڵی ١٠١٤دا','ساڵی هەزار و چواردەدا'),('ساڵی ١٠٤٦دا','ساڵی هەزار و چل و شەشدا'),('ساڵی ١١١٧دا','ساڵی هەزار و سەد و حەڤدەدا')]}
 def ttstext(lang,i):
