@@ -239,7 +239,7 @@ function sEnd(t) { const lt = t - C.abone; bgGrad('#0d3a2a', '#1a5a3a', '#f2b23a
       [[-.32, -16], [.32, 16]].forEach(([r, ox]) => { X.save(); X.translate(ox * .6, -20); X.rotate(r); X.beginPath(); X.roundRect(-11, -88, 22, 92, 11); X.fill(); X.stroke(); X.restore() });
       // palm + folded fingers + thumb
       X.beginPath(); X.roundRect(-34, -30, 68, 74, 22); X.fill(); X.stroke(); X.strokeStyle = 'rgba(120,60,30,.5)'; X.lineWidth = 3; for (let i = 0; i < 2; i++) { X.beginPath(); X.moveTo(-6 + i * 18, -22); X.quadraticCurveTo(4 + i * 18, -8, -4 + i * 18, 6); X.stroke() }
-      X.fillStyle = '#e9b48a'; X.strokeStyle = '#a8704a'; X.lineWidth = 4; X.save(); X.translate(-30, 6); X.rotate(-.9); X.beginPath(); X.roundRect(-10, -40, 20, 46, 10); X.fill(); X.stroke(); X.restore();
+      X.fillStyle = '#e9b48a'; X.strokeStyle = '#a8704a'; X.lineWidth = 4; X.save(); X.translate(-8, 14); X.rotate(-.12); X.beginPath(); X.roundRect(-30, -11, 52, 22, 11); X.fill(); X.stroke(); X.strokeStyle = 'rgba(120,60,30,.45)'; X.lineWidth = 3; X.beginPath(); X.moveTo(8, -8); X.lineTo(8, 8); X.stroke(); X.restore();
       X.fillStyle = '#5a6a8a'; X.fillRect(-36, 40, 72, 30); X.restore() }
   if (t > C.kalin - .05) { const k3 = pop(t, C.kalin, .4); X.save(); X.translate(W / 2, 1180); X.rotate(-.04); X.scale(k3, k3); tx('KÜRT KALIN!', 0, 0, 170, GOLD, { st: 24 }); X.restore() }
   if (t > C.arac - .1) { tx('Allah ile aracısız,', W / 2, 1360, 70, '#fff', { f: 'Corm', it: 1, w: 600, st: 10, a: A(t, C.arac - .1, .4) }); tx('Diyanetsiz iletişimde kalın!', W / 2, 1450, 70, '#fff36a', { f: 'Corm', it: 1, w: 600, st: 10, a: A(t, C.diysiz - .1, .4) }) } }
