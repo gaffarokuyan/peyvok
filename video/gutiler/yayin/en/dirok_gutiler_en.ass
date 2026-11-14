@@ -1,0 +1,166 @@
+﻿[Script Info]
+Title: Dîrok - Gutiler
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Dirok,Arial Black,52,&H00FFFFFF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokKaraoke,Arial Black,52,&H005AD6FF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokAlinti,Arial Black,56,&H005AD6FF,&H005AD6FF,&H40040814,&H64000000,-1,-1,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.14,0:00:05.06,Dirok,,0,0,0,,Four thousand two hundred\Nyears ago, a people from east\Nof Mesopotamia stepped onto the
+Dialogue: 0,0:00:05.10,0:00:06.28,Dirok,,0,0,0,,stage of history:
+Dialogue: 0,0:00:06.48,0:00:07.42,Dirok,,0,0,0,,the Gutians.
+Dialogue: 0,0:00:07.46,0:00:11.70,Dirok,,0,0,0,,They brought Akkad, the world's first\Nempire, to its knees and ruled Mesopotamia,
+Dialogue: 0,0:00:11.74,0:00:14.36,Dirok,,0,0,0,,the cradle of civilization,\Nfor a full century.
+Dialogue: 0,0:00:14.44,0:00:17.32,Dirok,,0,0,0,,Sumerian scribes gave\Nthem a name in fear: the
+Dialogue: 0,0:00:17.42,0:00:18.98,Dirok,,0,0,0,,Dragon of the Mountains.
+Dialogue: 0,0:00:19.08,0:00:20.84,Dirok,,0,0,0,,So who were these Gutians?
+Dialogue: 0,0:00:20.88,0:00:24.84,Dirok,,0,0,0,,How did they rule Mesopotamia, and\Nwhy do so many historians count
+Dialogue: 0,0:00:24.88,0:00:27.50,Dirok,,0,0,0,,them among the oldest\Nancestors of the Kurds?
+Dialogue: 0,0:00:27.54,0:00:29.08,Dirok,,0,0,0,,Welcome to Dîrok.
+Dialogue: 0,0:00:41.20,0:00:44.92,Dirok,,0,0,0,,The land between the Tigris and the\NEuphrates witnessed the greatest
+Dialogue: 0,0:00:44.96,0:00:46.54,Dirok,,0,0,0,,inventions in human history.
+Dialogue: 0,0:00:46.58,0:00:50.82,Dirok,,0,0,0,,The first cities, writing, the wheel\Nand written law were all born here.
+Dialogue: 0,0:00:50.86,0:00:55.62,Dirok,,0,0,0,,Sumerian cities such as Uruk, Ur,\NLagash and Nippur were the world's first
+Dialogue: 0,0:00:55.66,0:00:56.72,Dirok,,0,0,0,,centers of civilization.
+Dialogue: 0,0:00:56.80,0:01:01.02,Dirok,,0,0,0,,In the twenty-third century BC, Sargon\Nof Akkad conquered these cities one
+Dialogue: 0,0:01:01.06,0:01:04.58,Dirok,,0,0,0,,by one and founded the first\Nknown empire in history.
+Dialogue: 0,0:01:04.62,0:01:08.62,Dirok,,0,0,0,,The Akkadian Empire stretched from\Nthe Persian Gulf to the Mediterranean.
+Dialogue: 0,0:01:08.66,0:01:12.66,Dirok,,0,0,0,,Sargon's grandson Naram-Sin called\Nhimself king of the four corners of the
+Dialogue: 0,0:01:12.70,0:01:13.70,Dirok,,0,0,0,,world.
+Dialogue: 0,0:01:13.98,0:01:17.80,Dirok,,0,0,0,,But the end of this great\Nempire would come from the east.
+Dialogue: 0,0:01:23.22,0:01:27.56,Dirok,,0,0,0,,Mesopotamian sources call the land\Neast of the Tigris, between the Lesser
+Dialogue: 0,0:01:27.60,0:01:30.02,Dirok,,0,0,0,,Zab and the Diyala rivers, Gutium.
+Dialogue: 0,0:01:30.06,0:01:34.10,Dirok,,0,0,0,,This was the homeland of the\NGutians, and the roads descending\Nto the Mesopotamian plain were
+Dialogue: 0,0:01:34.14,0:01:35.16,Dirok,,0,0,0,,under their control.
+Dialogue: 0,0:01:35.20,0:01:39.36,Dirok,,0,0,0,,Under Naram-Sin's son Shar-kali-sharri,\Nthe struggle between Akkad and the
+Dialogue: 0,0:01:39.40,0:01:40.66,Dirok,,0,0,0,,Gutians intensified.
+Dialogue: 0,0:01:40.70,0:01:44.18,Dirok,,0,0,0,,On Akkadian tablets, years were named\Nafter the important events that took
+Dialogue: 0,0:01:44.22,0:01:45.22,Dirok,,0,0,0,,place in them.
+Dialogue: 0,0:01:45.26,0:01:47.66,Dirok,,0,0,0,,One of these year names reads:
+Dialogue: 0,0:01:47.70,0:01:51.60,DirokAlinti,,0,0,0,,"The year Shar-kali-sharri\Ncaptured Sharlag, king of Gutium."
+Dialogue: 0,0:01:51.74,0:01:54.08,Dirok,,0,0,0,,But Akkad's victories did not last.
+Dialogue: 0,0:01:54.12,0:01:58.16,Dirok,,0,0,0,,The empire was shaken by revolts,\Nstruggles for the throne and
+Dialogue: 0,0:01:58.20,0:01:59.50,Dirok,,0,0,0,,a great drought.
+Dialogue: 0,0:01:59.54,0:02:03.76,Dirok,,0,0,0,,After Shar-kali-sharri's death, Akkad\Nfell into such chaos that the Sumerian
+Dialogue: 0,0:02:03.80,0:02:07.10,Dirok,,0,0,0,,King List describes the period\Nwith a mocking question.
+Dialogue: 0,0:02:07.14,0:02:09.34,DirokAlinti,,0,0,0,,"Who was king, who was not king?"
+Dialogue: 0,0:02:09.38,0:02:13.46,DirokAlinti,,0,0,0,,The famous Sumerian text "The Curse of\NAgade" blames Akkad's fall on the wrath
+Dialogue: 0,0:02:13.50,0:02:17.94,Dirok,,0,0,0,,of the gods, and the people sent\Nto carry out that wrath are named.
+Dialogue: 0,0:02:17.98,0:02:18.66,Dirok,,0,0,0,,The Gutians.
+Dialogue: 0,0:02:18.70,0:02:22.10,Dirok,,0,0,0,,The text describes them as a\Npeople who could not be controlled.
+Dialogue: 0,0:02:22.14,0:02:26.66,Dirok,,0,0,0,,Around 2150 BC the Akkadian Empire\Ncollapsed, and the royal cities
+Dialogue: 0,0:02:26.70,0:02:30.12,Dirok,,0,0,0,,of Mesopotamia passed into\Nthe hands of the Gutians.
+Dialogue: 0,0:02:35.54,0:02:38.44,Dirok,,0,0,0,,The Sumerian King List\Ncontains a plain record.
+Dialogue: 0,0:02:38.48,0:02:40.80,DirokAlinti,,0,0,0,,"Kingship passed to the army of Gutium."
+Dialogue: 0,0:02:41.30,0:02:44.64,Dirok,,0,0,0,,The list describes the first period of\Nthe Gutians with a curious sentence.
+Dialogue: 0,0:02:44.68,0:02:47.98,DirokAlinti,,0,0,0,,"In the army of Gutium\Nthere was at first no
+Dialogue: 0,0:02:48.02,0:02:49.86,Dirok,,0,0,0,,known king; they were their own kings."
+Dialogue: 0,0:02:50.08,0:02:54.26,Dirok,,0,0,0,,Many scholars read this sentence as\Na sign that the Gutians were governed
+Dialogue: 0,0:02:54.30,0:02:58.10,Dirok,,0,0,0,,not by a single absolute ruler\Nbut by a shared council or
+Dialogue: 0,0:02:58.14,0:02:59.14,Dirok,,0,0,0,,by tribal leaders.
+Dialogue: 0,0:02:59.18,0:03:03.50,Dirok,,0,0,0,,According to the list, twenty-one Gutian\Nkings reigned for about a hundred years.
+Dialogue: 0,0:03:03.54,0:03:06.48,Dirok,,0,0,0,,Most of their kings stayed on\Nthe throne for only a few years.
+Dialogue: 0,0:03:06.52,0:03:09.04,Dirok,,0,0,0,,This suggests that\Nleadership did not pass from
+Dialogue: 0,0:03:09.08,0:03:11.86,Dirok,,0,0,0,,father to son but changed\Nhands among the tribes.
+Dialogue: 0,0:03:12.04,0:03:15.72,Dirok,,0,0,0,,The Gutians governed the Sumerian\Ncities through local governors.
+Dialogue: 0,0:03:15.76,0:03:20.30,Dirok,,0,0,0,,Lugal-annatum, governor of the city of\NUmma, dated his own inscription "in the
+Dialogue: 0,0:03:20.34,0:03:22.22,Dirok,,0,0,0,,time of Si'um, king of Gutium."
+Dialogue: 0,0:03:22.26,0:03:26.40,Dirok,,0,0,0,,In other words, the cities kept\Ntheir own administrations but\Nrecognized the sovereignty of the
+Dialogue: 0,0:03:26.44,0:03:26.98,Dirok,,0,0,0,,Gutian king.
+Dialogue: 0,0:03:27.02,0:03:30.48,Dirok,,0,0,0,,The Gutians also took over Akkad's\Nlanguage of government and its traditions.
+Dialogue: 0,0:03:30.52,0:03:35.04,Dirok,,0,0,0,,A mace head belonging to King La'erabum\Nreads, in Akkadian, "the mighty king
+Dialogue: 0,0:03:35.08,0:03:36.22,Dirok,,0,0,0,,of Gutium."
+Dialogue: 0,0:03:36.26,0:03:39.34,Dirok,,0,0,0,,The most remarkable of\Nthese kings is Erridupizir.
+Dialogue: 0,0:03:39.38,0:03:43.40,Dirok,,0,0,0,,In his inscriptions in Nippur,\Nthe holiest city of Mesopotamia,\Nhe introduces himself like this:
+Dialogue: 0,0:03:43.44,0:03:44.10,Dirok,,0,0,0,,"King
+Dialogue: 0,0:03:44.14,0:03:47.36,DirokAlinti,,0,0,0,,of Gutium, king of the\Nfour corners of the world."
+Dialogue: 0,0:03:47.40,0:03:51.02,Dirok,,0,0,0,,This is the very title used\Nby the Akkadian emperors.
+Dialogue: 0,0:03:51.06,0:03:54.66,Dirok,,0,0,0,,His inscriptions describe his campaigns\Nagainst rebellious regions and how
+Dialogue: 0,0:03:54.70,0:03:58.44,Dirok,,0,0,0,,he dedicated the spoils to\Nthe temple of the god Enlil.
+Dialogue: 0,0:03:58.50,0:04:01.78,Dirok,,0,0,0,,Under the Gutians, the Sumerian\Ncities also enjoyed a brilliant era.
+Dialogue: 0,0:04:01.82,0:04:06.20,Dirok,,0,0,0,,Lagash, under Prince Gudea, built\Ntemples and lived through a golden age
+Dialogue: 0,0:04:06.24,0:04:07.12,Dirok,,0,0,0,,of art.
+Dialogue: 0,0:04:07.16,0:04:10.46,Dirok,,0,0,0,,So the Gutians were not raiders\Nwho plundered and withdrew.
+Dialogue: 0,0:04:10.50,0:04:14.18,Dirok,,0,0,0,,They were rulers who inherited the\Nimperial legacy of Mesopotamia.
+Dialogue: 0,0:04:14.22,0:04:18.62,Dirok,,0,0,0,,Leaders chosen by council, a confederation\Nof tribes and local autonomy...
+Dialogue: 0,0:04:18.82,0:04:22.92,Dirok,,0,0,0,,This is exactly the picture we will\Nmeet thousands of years later in the
+Dialogue: 0,0:04:22.96,0:04:24.80,Dirok,,0,0,0,,social structure of the Kurds.
+Dialogue: 0,0:04:30.22,0:04:33.10,Dirok,,0,0,0,,About a hundred years\Nlater, Utu-hengal, king of
+Dialogue: 0,0:04:33.14,0:04:35.64,Dirok,,0,0,0,,Uruk, launched a great\Nrevolt against the Gutians.
+Dialogue: 0,0:04:35.68,0:04:38.06,Dirok,,0,0,0,,In his victory inscription\Nhe speaks of the Gutians like
+Dialogue: 0,0:04:38.10,0:04:41.48,DirokAlinti,,0,0,0,,this: "Gutium, the fanged\Nserpent of the mountains,
+Dialogue: 0,0:04:41.52,0:04:43.16,Dirok,,0,0,0,,the dragon of the mountains."
+Dialogue: 0,0:04:43.38,0:04:46.36,Dirok,,0,0,0,,At that time the last Gutian\Nking, Tirigan, was on the throne.
+Dialogue: 0,0:04:46.40,0:04:50.46,Dirok,,0,0,0,,According to the Sumerian King List,\NTirigan reigned for only forty days.
+Dialogue: 0,0:04:50.58,0:04:52.86,Dirok,,0,0,0,,Utu-hengal marched north with his army.
+Dialogue: 0,0:04:52.90,0:04:56.18,Dirok,,0,0,0,,He defeated and captured the two\Ncommanders Tirigan sent against him.
+Dialogue: 0,0:04:56.22,0:05:00.34,Dirok,,0,0,0,,At the end of the war, Tirigan abandoned\Nhis army and fled to a city called Dubrum.
+Dialogue: 0,0:05:00.38,0:05:04.22,Dirok,,0,0,0,,But the people of Dubrum seized him\Nand handed him over to Utu-hengal.
+Dialogue: 0,0:05:04.28,0:05:08.94,Dirok,,0,0,0,,Soon after, Ur-Nammu founded a new dynasty\Nin the city of Ur, but the struggle did
+Dialogue: 0,0:05:08.98,0:05:09.60,Dirok,,0,0,0,,not end.
+Dialogue: 0,0:05:09.64,0:05:13.58,Dirok,,0,0,0,,According to some later Sumerian\Ntexts, even Ur-Nammu lost his life
+Dialogue: 0,0:05:13.62,0:05:15.82,Dirok,,0,0,0,,in a battle against the Gutians.
+Dialogue: 0,0:05:15.86,0:05:19.44,Dirok,,0,0,0,,The political rule of the Gutians\Nin Mesopotamia had come to an end.
+Dialogue: 0,0:05:19.48,0:05:21.04,Dirok,,0,0,0,,But the Gutians did not disappear.
+Dialogue: 0,0:05:26.46,0:05:30.58,Dirok,,0,0,0,,For the next fifteen hundred years,\Nthe name Gutium never vanished
+Dialogue: 0,0:05:30.62,0:05:31.74,Dirok,,0,0,0,,from Mesopotamian sources.
+Dialogue: 0,0:05:31.78,0:05:35.48,Dirok,,0,0,0,,Hammurabi, king of Babylon, recorded\Nhis victories over the army of
+Dialogue: 0,0:05:35.52,0:05:36.28,Dirok,,0,0,0,,Gutium.
+Dialogue: 0,0:05:36.32,0:05:39.46,Dirok,,0,0,0,,Assyrian kings led campaigns\Ninto the land of Qutu.
+Dialogue: 0,0:05:39.50,0:05:43.98,Dirok,,0,0,0,,When the Persian king Cyrus\Nthe Great took Babylon in 539
+Dialogue: 0,0:05:44.02,0:05:47.76,Dirok,,0,0,0,,BC, he listed Gutium among the\Nlands under his rule on the
+Dialogue: 0,0:05:47.80,0:05:48.48,Dirok,,0,0,0,,Cyrus Cylinder.
+Dialogue: 0,0:05:48.52,0:05:52.20,Dirok,,0,0,0,,And the first commander to enter\NBabylon was Ugbaru, governor of Gutium.
+Dialogue: 0,0:05:52.24,0:05:56.24,Dirok,,0,0,0,,So for seventeen hundred years\Nthe name Gutium went on describing
+Dialogue: 0,0:05:56.28,0:05:58.14,Dirok,,0,0,0,,the people east of Mesopotamia.
+Dialogue: 0,0:06:03.56,0:06:06.74,Dirok,,0,0,0,,The Gutians were not the only\Nancient people living in these lands.
+Dialogue: 0,0:06:06.78,0:06:11.26,Dirok,,0,0,0,,The Lullubi, the Hurrians, the Kassites\Nand the Medes also lived to the north
+Dialogue: 0,0:06:11.30,0:06:12.50,Dirok,,0,0,0,,and east of Mesopotamia.
+Dialogue: 0,0:06:12.54,0:06:16.54,Dirok,,0,0,0,,According to many historians,\Nthese peoples, together with\Nthe Gutians, are the layers that
+Dialogue: 0,0:06:16.58,0:06:17.54,Dirok,,0,0,0,,formed the Kurds.
+Dialogue: 0,0:06:17.58,0:06:21.34,Dirok,,0,0,0,,Foremost among those who voiced\Nthis link most strongly are foreign
+Dialogue: 0,0:06:21.38,0:06:21.88,Dirok,,0,0,0,,historians.
+Dialogue: 0,0:06:21.92,0:06:25.06,Dirok,,0,0,0,,The orientalist Arshak Safrastian,\Nworking in England, sees the Gutians
+Dialogue: 0,0:06:25.10,0:06:29.94,Dirok,,0,0,0,,directly as the ancestors of the Kurds\Nin his book published in 1948, and
+Dialogue: 0,0:06:29.98,0:06:33.80,Dirok,,0,0,0,,links the name Guti to\Nthe root of the name Kurd.
+Dialogue: 0,0:06:33.84,0:06:36.28,Dirok,,0,0,0,,The chain of names is truly striking.
+Dialogue: 0,0:06:36.32,0:06:40.56,Dirok,,0,0,0,,Assyrian records mention names such as\NQurti and Kurti for the peoples of this
+Dialogue: 0,0:06:40.60,0:06:41.14,Dirok,,0,0,0,,region.
+Dialogue: 0,0:06:41.18,0:06:45.00,Dirok,,0,0,0,,The Greek commander Xenophon writes\Nof the warlike Kardouchoi living
+Dialogue: 0,0:06:45.04,0:06:46.48,Dirok,,0,0,0,,north of the Tigris.
+Dialogue: 0,0:06:46.52,0:06:49.84,Dirok,,0,0,0,,In Roman times the same\Nregion was known as Corduene.
+Dialogue: 0,0:06:50.42,0:06:52.26,Dirok,,0,0,0,,G. R. Driver of Oxford
+Dialogue: 0,0:06:52.30,0:06:56.04,Dirok,,0,0,0,,University studied how the name\NKurd relates to these ancient names.
+Dialogue: 0,0:06:56.12,0:07:00.32,Dirok,,0,0,0,,Vladimir Minorsky emphasized the role of\Nthe Medes in the formation of the Kurds.
+Dialogue: 0,0:07:00.42,0:07:04.64,Dirok,,0,0,0,,Ephraim Speiser described the Gutians\Nas the native people of the lands east
+Dialogue: 0,0:07:04.68,0:07:05.52,Dirok,,0,0,0,,of Mesopotamia.
+Dialogue: 0,0:07:05.56,0:07:09.54,Dirok,,0,0,0,,Mehrdad Izady argues that the Gutians\Nand the other ancient peoples form
+Dialogue: 0,0:07:09.58,0:07:11.30,Dirok,,0,0,0,,the foundation of the Kurdish people.
+Dialogue: 0,0:07:11.34,0:07:14.72,Dirok,,0,0,0,,The Kurdish historian Muhammad\NAmin Zaki Beg holds the same view.
+Dialogue: 0,0:07:15.12,0:07:17.14,Dirok,,0,0,0,,Of course, there are\Nopposing views as well.
+Dialogue: 0,0:07:17.18,0:07:21.38,Dirok,,0,0,0,,The main reason is that very few documents\Nin the Gutian language have survived.
+Dialogue: 0,0:07:21.42,0:07:23.98,Dirok,,0,0,0,,All we have are a few names of kings.
+Dialogue: 0,0:07:24.12,0:07:28.82,Dirok,,0,0,0,,Yet geography, social structure and the\Ncontinuity of names over thousands of years
+Dialogue: 0,0:07:28.86,0:07:30.30,Dirok,,0,0,0,,make this thesis strong.
+Dialogue: 0,0:07:31.52,0:07:34.96,Dirok,,0,0,0,,The plains of Mesopotamia\Nwere rich but defenseless.
+Dialogue: 0,0:07:35.00,0:07:37.80,Dirok,,0,0,0,,Empires came, cities were burned.
+Dialogue: 0,0:07:37.86,0:07:42.00,Dirok,,0,0,0,,In the thirteenth century the\NMongols razed Baghdad and all of
+Dialogue: 0,0:07:42.04,0:07:42.54,Dirok,,0,0,0,,Mesopotamia.
+Dialogue: 0,0:07:42.58,0:07:46.72,Dirok,,0,0,0,,But thanks to the strategic\Nadvantage of the mountains, the Kurds\Nwere not hit by this destruction
+Dialogue: 0,0:07:46.76,0:07:48.82,Dirok,,0,0,0,,as hard as the peoples of the plains.
+Dialogue: 0,0:07:48.90,0:07:50.86,Dirok,,0,0,0,,The Kurds have an ancient saying:
+Dialogue: 0,0:07:51.16,0:07:54.80,DirokAlinti,,0,0,0,,Ji çiyan pê ve, hevalên me tune.
+Dialogue: 0,0:07:55.00,0:07:56.96,Dirok,,0,0,0,,We have no friends but the mountains.
+Dialogue: 0,0:07:57.20,0:08:01.40,Dirok,,0,0,0,,The Gutians were the people who brought\Ndown Mesopotamia's first empire and
+Dialogue: 0,0:08:01.44,0:08:02.52,Dirok,,0,0,0,,inherited its legacy.
+Dialogue: 0,0:08:02.56,0:08:06.68,Dirok,,0,0,0,,One of the first pages of Kurdish history\Nwas written right here, in these lands.
+Dialogue: 0,0:08:06.98,0:08:10.76,Dirok,,0,0,0,,If you enjoyed this video, don't\Nforget to subscribe and share your
+Dialogue: 0,0:08:10.80,0:08:12.18,Dirok,,0,0,0,,thoughts in the comments.

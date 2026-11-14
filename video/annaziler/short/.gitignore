@@ -1,0 +1,5 @@
+seg/
+audio/*.wav
+audio/*.mp3
+out/*.mp4
+audio/*.log

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:Marker;src:url(fonts/permanent-marker-latin-400-normal.woff2)}
+@font-face{font-family:InterB;font-weight:800;src:url(fonts/inter-latin-800-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/inter-latin-600-normal.woff2)}
+html,body{margin:0;background:#000}canvas{display:block}
+</style>
+<script src="../../gutiler/render/node_modules/three/build/three.min.js"></script>
+<script src="fl_land.js"></script>
+<script src="../timeline.js"></script>
+</head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="xcore.js"></script>
+<script src="xscenes.js"></script>
+<script src="xscenes2.js"></script>
+<script src="xscenes3.js"></script>
+<script src="xshots.js"></script>
+<script src="xfilm.js"></script>
+<script>
+window.ready=(async()=>{await Promise.all(['400 40px Anton','40px Marker','800 40px InterB','600 40px Inter'].map(f=>document.fonts.load(f)));if(window.PREBUILD)PREBUILD();return true})();
+</script>
+</body></html>

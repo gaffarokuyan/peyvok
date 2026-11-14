@@ -1,0 +1,2 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas><script>const X=document.getElementById('c').getContext('2d');</script><script src="portraits.js"></script><script>
+window.snap=(who,t)=>{const g=X.createRadialGradient(700,1000,0,700,1000,1100);g.addColorStop(0,'#5a3418');g.addColorStop(1,'#080404');X.fillStyle=g;X.fillRect(0,0,1080,1920);drawPortrait(who,540,820,1.7,t);return document.getElementById('c').toDataURL('image/jpeg',.9)}</script></body></html>

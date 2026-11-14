@@ -1,0 +1,23 @@
+import { createRequire } from 'module'; const { chromium } = createRequire('/home/user/peyvok/video/gutiler/render/x.js')('playwright'); import path from 'path'; import fs from 'fs';
+const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
+const p = await b.newPage({ viewport: { width: 1920, height: 1080 } }); p.on('pageerror', e => console.log('ERR', e.message));
+await p.goto('file://' + path.resolve('xxx.html')); await p.evaluate(() => window.ready);
+const d = await p.evaluate(() => {
+  SH = { t0: 0, t1: 9, T: 2, R: () => 0 };
+  X.fillStyle = '#000'; X.fillRect(0, 0, W, H); SH = { t0: 0, t1: 9, T: 0, R: () => 0 };
+  get3('concert').sc.traverse(o => { if (o.geometry && o.geometry.type === 'ConeGeometry') o.visible = false });
+  draw3('concert', 0, { led: 'XXX', hue: 285, energy: 1.4, exp: 1.7, cam: [[0, [1.25, 3.95, .55], [-1.05, 3.62, -2.5]]] });
+  X.save(); X.globalCompositeOperation = 'screen'; const rg = X.createRadialGradient(1380, 380, 0, 1380, 380, 700); rg.addColorStop(0, 'rgba(255,60,120,.28)'); rg.addColorStop(1, 'rgba(0,0,0,0)'); X.fillStyle = rg; X.fillRect(0, 0, W, H); X.restore();
+  X.save(); X.globalCompositeOperation = 'screen'; for (const [x0, c] of [[1500, 'rgba(160,80,255,.18)'], [1750, 'rgba(255,60,140,.14)']]) { const bg = X.createLinearGradient(x0, 0, x0 - 300, H); bg.addColorStop(0, c); bg.addColorStop(1, 'rgba(0,0,0,0)'); X.fillStyle = bg; X.beginPath(); X.moveTo(x0 - 40, 0); X.lineTo(x0 + 40, 0); X.lineTo(x0 - 200, H); X.lineTo(x0 - 520, H); X.fill() } X.restore();
+  X.save(); X.globalCompositeOperation = 'soft-light'; const fg = X.createRadialGradient(1300, 470, 0, 1300, 470, 260); fg.addColorStop(0, 'rgba(255,220,180,.9)'); fg.addColorStop(1, 'rgba(255,220,180,0)'); X.fillStyle = fg; X.fillRect(0, 0, W, H); X.restore();
+  const g = X.createLinearGradient(0, 0, W, 0); g.addColorStop(0, 'rgba(6,3,10,.95)'); g.addColorStop(.38, 'rgba(6,3,10,.78)'); g.addColorStop(.55, 'rgba(6,3,10,0)'); X.fillStyle = g; X.fillRect(0, 0, W, H);
+  const v = X.createLinearGradient(0, H * .7, 0, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.6)'); X.fillStyle = v; X.fillRect(0, 0, W, H);
+  txt('THE LIFE & DEATH OF', 92, 238, '800 60px InterB', '#fff', { ls: 7 });
+  X.save(); X.font = '235px Anton'; X.letterSpacing = '3px'; X.shadowColor = 'rgba(0,0,0,.9)'; X.shadowBlur = 40;
+  X.globalCompositeOperation = 'lighter'; X.fillStyle = 'rgba(255,40,90,.7)'; X.fillText('XXX', 84, 492); X.fillStyle = 'rgba(40,150,255,.7)'; X.fillText('XXX', 98, 492); X.globalCompositeOperation = 'source-over';
+  X.fillStyle = '#fff'; X.fillText('XXX', 91, 492); X.font = '172px Anton'; const gg = X.createLinearGradient(0, 520, 0, 680); gg.addColorStop(0, '#fff3a0'); gg.addColorStop(1, '#f2b81a'); X.fillStyle = gg; X.fillText('TENTACION', 91, 682); X.restore();
+  X.save(); X.translate(92, 740); X.rotate(-.025); X.fillStyle = '#e8202a'; X.shadowColor = 'rgba(232,32,42,.6)'; X.shadowBlur = 40; X.beginPath(); X.roundRect(0, 0, 640, 128, 14); X.fill(); X.restore(); txt('ONLY 20 YEARS OLD', 124, 830, '70px Anton', '#fff', { sh: false, ls: 2 });
+  txt('1998  —  2018', 98, 968, '800 44px InterB', 'rgba(255,255,255,.88)', { ls: 12 });
+  X.save(); X.globalCompositeOperation = 'overlay'; X.globalAlpha = .6; X.drawImage(GRAIN, 0, 0, W, H); X.restore();
+  return cv.toDataURL('image/jpeg', .95) });
+fs.writeFileSync('../out/kapak_1920.jpg', Buffer.from(d.split(',')[1], 'base64')); await b.close();

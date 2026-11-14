@@ -1,0 +1,49 @@
+﻿[Script Info]
+Title: Dirok - Gutiler Short
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Dirok,Arial,64,&H00FFFFFF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,16,3,2,90,90,360,1
+Style: DirokVurgu,Arial,68,&H003AD2FF,&H003AD2FF,&H40040814,&H64000000,-1,0,0,0,100,100,0,0,3,16,3,2,90,90,360,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.40,0:00:02.05,Dirok,,0,0,0,,قبل أربعة آلاف ومئتي
+Dialogue: 0,0:00:02.08,0:00:03.97,Dirok,,0,0,0,,عام، أسقط شعبٌ نزل من
+Dialogue: 0,0:00:04.00,0:00:05.61,Dirok,,0,0,0,,جبال زاغروس أول\Nإمبراطورية في
+Dialogue: 0,0:00:05.64,0:00:06.25,Dirok,,0,0,0,,العالم.
+Dialogue: 0,0:00:06.28,0:00:08.45,DirokVurgu,,0,0,0,,سمّاهم السومريون بخوف تنين
+Dialogue: 0,0:00:08.48,0:00:09.77,Dirok,,0,0,0,,الجبال.
+Dialogue: 0,0:00:09.80,0:00:11.33,Dirok,,0,0,0,,إنهم الغوتيون.
+Dialogue: 0,0:00:11.36,0:00:12.61,Dirok,,0,0,0,,أخضعوا الإمبراطورية\Nالأكدية
+Dialogue: 0,0:00:12.64,0:00:14.85,Dirok,,0,0,0,,وحكموا بلاد الرافدين مئة
+Dialogue: 0,0:00:14.88,0:00:16.29,Dirok,,0,0,0,,عام كاملة.
+Dialogue: 0,0:00:16.32,0:00:18.13,Dirok,,0,0,0,,تصفهم قائمة\Nالملوك السومرية
+Dialogue: 0,0:00:18.16,0:00:19.81,Dirok,,0,0,0,,هكذا: كانوا ملوك
+Dialogue: 0,0:00:19.84,0:00:20.82,Dirok,,0,0,0,,أنفسهم.
+Dialogue: 0,0:00:20.85,0:00:21.89,Dirok,,0,0,0,,واحد وعشرون
+Dialogue: 0,0:00:21.92,0:00:24.33,Dirok,,0,0,0,,ملكًا، ومجلس عشائري،\Nواستقلال محلي.
+Dialogue: 0,0:00:24.36,0:00:26.29,Dirok,,0,0,0,,وبعد آلاف السنين استمر هذا
+Dialogue: 0,0:00:26.32,0:00:28.10,DirokVurgu,,0,0,0,,النظام في المجتمع الكردي.
+Dialogue: 0,0:00:28.13,0:00:30.25,Dirok,,0,0,0,,ولم يختفِ اسم\Nغوتيوم أبدًا.
+Dialogue: 0,0:00:30.28,0:00:32.01,Dirok,,0,0,0,,قورتي في السجلات الآشورية،
+Dialogue: 0,0:00:32.04,0:00:33.65,Dirok,,0,0,0,,وكاردوخ عند زينوفون،
+Dialogue: 0,0:00:33.68,0:00:36.04,Dirok,,0,0,0,,وكوردوين في العهد\Nالروماني، واليوم
+Dialogue: 0,0:00:36.08,0:00:36.77,DirokVurgu,,0,0,0,,الكرد.
+Dialogue: 0,0:00:36.80,0:00:38.17,Dirok,,0,0,0,,بحسب باحثين
+Dialogue: 0,0:00:38.20,0:00:39.13,Dirok,,0,0,0,,مثل أرشاك
+Dialogue: 0,0:00:39.16,0:00:41.30,Dirok,,0,0,0,,سافراستيان وغودفري\Nدرايفر وإفرايم سبايزر
+Dialogue: 0,0:00:41.33,0:00:43.21,Dirok,,0,0,0,,ومهرداد إزادي،\Nفإن الغوتيين
+Dialogue: 0,0:00:43.24,0:00:44.57,DirokVurgu,,0,0,0,,هم أجداد الكرد.
+Dialogue: 0,0:00:44.60,0:00:46.21,Dirok,,0,0,0,,الحوريون والميتانيون\Nواللولوبيون
+Dialogue: 0,0:00:46.24,0:00:48.01,Dirok,,0,0,0,,والكاشيون\Nوالميديون وكوردوين:
+Dialogue: 0,0:00:48.04,0:00:49.45,Dirok,,0,0,0,,كلهم جذور
+Dialogue: 0,0:00:49.48,0:00:51.13,DirokVurgu,,0,0,0,,الشعب الكردي الممتدة أربعة
+Dialogue: 0,0:00:51.16,0:00:52.45,Dirok,,0,0,0,,آلاف عام.
+Dialogue: 0,0:00:52.48,0:00:54.00,Dirok,,0,0,0,,اشتركوا في قناة ديروك
+Dialogue: 0,0:00:54.03,0:00:55.80,Dirok,,0,0,0,,ولا تفوّتوا بقية القصة.
