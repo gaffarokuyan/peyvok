@@ -1079,7 +1079,7 @@ PAL.mak = { skin: '#d49a6a', tunic: '#c8201a', kilt: '#7a1010', helmet: '#e0b84a
 const _sTitle = sTitle;
 sTitle = function (T, p) { if (!p || !p.title) return _sTitle(T, p); const lt = T - SH.t0; landscape(lt, lt * 30, .25); sparkles(lt, 80);
   X.save(); X.globalAlpha = ss(.2, .8, lt); const k = eback(clamp((lt - .2) / .7)); X.translate(W / 2, H * .42); X.scale(lerp(.5, 1, k), lerp(.5, 1, k)); goldHeadB(p.title, 0, 0, 210); X.restore();
-  X.save(); X.globalAlpha = ss(.9, 1.5, lt); X.textAlign = 'center'; X.font = '900 64px CinzelH'; X.letterSpacing = '6px'; X.lineJoin = 'round'; X.lineWidth = 10; X.strokeStyle = '#2a1206'; X.strokeText(p.sub, W / 2, H * .42 + 110); X.fillStyle = '#fff'; X.fillText(p.sub, W / 2, H * .42 + 110);
+  X.save(); X.globalAlpha = ss(.9, 1.5, lt); X.textAlign = 'center'; X.letterSpacing = '6px'; { let fs = 64; X.font = `900 ${fs}px CinzelH`; while (X.measureText(p.sub).width > 1640 && fs > 30) { fs -= 2; X.font = `900 ${fs}px CinzelH` } } X.lineJoin = 'round'; X.lineWidth = 10; X.strokeStyle = '#2a1206'; X.strokeText(p.sub, W / 2, H * .42 + 110); X.fillStyle = '#fff'; X.fillText(p.sub, W / 2, H * .42 + 110);
   X.font = 'italic 600 50px Corm'; X.letterSpacing = '2px'; X.lineWidth = 6; X.strokeText(p.tag, W / 2, H * .42 + 185); X.fillStyle = '#ffe9a8'; X.fillText(p.tag, W / 2, H * .42 + 185); X.restore();
   if (LOGO.complete) { X.save(); X.globalAlpha = ss(1.2, 1.8, lt); X.beginPath(); X.arc(W / 2, H * .83, 85, 0, TAU); X.clip(); X.drawImage(LOGO, W / 2 - 90, H * .83 - 90, 180, 180); X.restore() } };
 // ---- Amarna with parameters (left/right emblems + labels)
