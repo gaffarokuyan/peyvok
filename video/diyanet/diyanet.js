@@ -2,7 +2,7 @@
 const W = 1080, H = 1920, TAU = Math.PI * 2, cv = document.getElementById('c'), X = cv.getContext('2d');
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), lerp = (a, b, t) => a + (b - a) * t, eout = t => 1 - Math.pow(1 - clamp(t), 3), eio = t => { t = clamp(t); return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2 }, eback = t => { t = clamp(t); const c = 2.2; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2) };
 const hash = n => { const s = Math.sin(n * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s) };
-const OFF = .6, NAR = WORDS[WORDS.length - 1][2], END = OFF + NAR + .4, TOTAL = END + 3.4; window.TOTAL = TOTAL;
+const OFF = .6, NAR = WORDS[WORDS.length - 1][2], END = OFF + NAR + .4, ASIDE0 = END + 2.6, ASW = [["Vergiyi", 0.16, 0.6], ["veren", 0.64, 0.96], ["Sofi", 1.04, 1.36], ["Ömer...", 1.44, 2.32], ["Dilinde", 2.373, 2.72], ["hutbe", 2.76, 3.04], ["basılan,", 3.12, 3.76], ["Nataşa", 3.84, 4.16], ["kardeşimiz", 4.24, 4.8], ["de...", 4.88, 5.2]], ASEND = ASIDE0 + ASW[ASW.length - 1][2], MICOFF = ASEND + .5, TOTAL = MICOFF + 1.1; window.TOTAL = TOTAL; window.ASIDE0 = ASIDE0; window.MICOFF = MICOFF;
 const norm = w => w.toLocaleLowerCase('tr').replace(/i̇/g, 'i').replace(/[^a-zçğıöşüêîûâ0-9]/g, '');
 const MISS = []; function cue(q, n = 1, o = 0) { const ps = q.split(' ').map(norm); for (let i = 0; i < WORDS.length; i++) { if (ps.every((p, j) => WORDS[i + j] && norm(WORDS[i + j][0]).startsWith(p))) { if (--n === 0) return OFF + WORDS[i][1] + o } } MISS.push(q); return 0 }
 const LOGO = new Image(); LOGO.src = 'logo.png';
@@ -258,12 +258,25 @@ function renderFrame(t) { X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X
       const words = c[2].split(' '); const lines = []; let cur = ''; words.forEach(w => { const tst = cur ? cur + ' ' + w : w; if (X.measureText(tst).width > 960 && cur) { lines.push(cur); cur = w } else cur = tst }); lines.push(cur);
       const lh = sz * 1.5, y0 = 1790 - (lines.length - 1) * lh; const mw = Math.max(...lines.map(l => X.measureText(l).width)); X.fillStyle = 'rgba(12,6,4,.72)'; X.beginPath(); X.roundRect(W / 2 - mw / 2 - 36, y0 - lh * .62, mw + 72, lh * lines.length + lh * .2, 24); X.fill();
       lines.forEach((l, i) => { X.lineJoin = 'round'; X.lineWidth = 10; X.strokeStyle = '#120804'; X.strokeText(l, W / 2, y0 + i * lh); X.fillStyle = '#fff'; X.fillText(l, W / 2, y0 + i * lh) }); X.restore() } } else if (t < END) captions(t); if (t < C.abone - .2) tx('DÎROK', W / 2, 90, 44, GOLD, { f: 'CinzelD', w: 900, st: 8, ls: 8, a: .9 });
+  if (t > ASIDE0 - .6) { const k = clamp((t - ASIDE0 + .6) / .6); X.fillStyle = `rgba(4,2,8,${.93 * k})`; X.fillRect(0, 0, W, H);
+    // REC light
+    if (t < MICOFF && Math.sin(t * 7) > -.3) { X.save(); X.globalAlpha = k; X.fillStyle = '#ff2a2a'; X.shadowColor = '#ff2a2a'; X.shadowBlur = 30; X.beginPath(); X.arc(150, 250, 26, 0, TAU); X.fill(); X.restore() }
+    tx('MİKROFON AÇIK', 200, 252, 60, '#ff6a6a', { al: 'left', st: 8, a: k * (t < MICOFF ? 1 : 0) });
+    // mic icon
+    X.save(); X.globalAlpha = k * (t < MICOFF ? 1 : .3); X.translate(W / 2, 760); X.fillStyle = '#d8d8e0'; X.beginPath(); X.roundRect(-70, -170, 140, 240, 70); X.fill(); X.strokeStyle = '#d8d8e0'; X.lineWidth = 16; X.beginPath(); X.arc(0, 10, 115, 0, Math.PI); X.stroke(); X.fillRect(-8, 125, 16, 90); X.fillRect(-80, 210, 160, 16);
+    X.strokeStyle = '#4a4a5a'; X.lineWidth = 6; for (let i = -130; i < 60; i += 34) { X.beginPath(); X.moveTo(-60, i); X.lineTo(60, i); X.stroke() } X.restore();
+    // sound waves while whispering
+    if (t > ASIDE0 && t < ASEND) { X.save(); X.strokeStyle = 'rgba(255,255,255,.5)'; X.lineWidth = 8; for (let i = 0; i < 3; i++) { const r = 180 + ((t * 120 + i * 60) % 180); X.globalAlpha = 1 - (r - 180) / 180; X.beginPath(); X.arc(W / 2, 700, r, -.6, .6); X.stroke(); X.beginPath(); X.arc(W / 2, 700, r, Math.PI - .6, Math.PI + .6); X.stroke() } X.restore() }
+    // whisper captions
+    const w = ASW.filter(x => t >= ASIDE0 + x[1] - .05); if (w.length && t < MICOFF) { const nm = x => x[0].replace('Nataşa', 'Natasha'); [w.slice(0, 4), w.slice(4, 7), w.slice(7)].forEach((g, i) => { if (g.length) tx(g.map(nm).join(' '), W / 2, 1150 + i * 100, 66, '#f0eef8', { f: 'Corm', it: 1, w: 600, st: 8, maxW: 980 }) }) }
+    tx('(mikrofon açık kalmış…)', W / 2, 1520, 44, 'rgba(255,255,255,.55)', { f: 'InterB', w: 800, st: 0, a: k * (t < MICOFF ? 1 : 0) });
+    if (t > MICOFF) { const g = t - MICOFF; X.fillStyle = '#000'; X.fillRect(0, 0, W, H); if (g < .12) { X.fillStyle = '#fff'; X.fillRect(0, H / 2 - 4, W * (1 - g / .12), 8) } } }
   if (t < .25) { X.fillStyle = `rgba(0,0,0,${1 - t / .25})`; X.fillRect(0, 0, W, H) } if (t > TOTAL - .5) { X.fillStyle = `rgba(0,0,0,${clamp((t - TOTAL + .5) / .5)})`; X.fillRect(0, 0, W, H) } }
 window.renderFrame = renderFrame; window.MISS = MISS;
 window.SFX = [['boom', .2], ['ding', C.muj], ['boom', C.dil8], ['applause', C.alk], ...['tr', 'ar', 'en', 'de', 'fr', 'es', 'it', 'ru'].map(k => ['pop', C[k]]), ['buzz', C.it + .2], ['scratch', C.rumi - .1], ['whoosh', C.nat - .2], ['ding', C.nata + .1], ['stamp', C.hatir], ['trombone', C.hatir + .3],
   ['whoosh', C.mad - .2], ['ding', C.car + .25], ['ding', C.gio + .25], ['ding', C.pie + .25], ['whoosh', C.mele - .2], ['rimshot', C.amin + .35], ['whoosh', C.soru - .2], ['stamp', C.devam + .3], ['drip', C.havuz + .4], ['drip', C.havuz + 2], ['stamp', C.gir],
   ['whoosh', C.hani - .2], ['pop', C.kardz], ['scratch', C.kabil + .2], ['tape', C.dili], ['stamp', C.yasa], ['whoosh', C.oysa - .2], ['tape', C.bogaz], ['cough', C.bogaz + .15], ['whoosh', C.veda - .2], ['scratch', C.dver - .1], ['rimshot', C.amak + 1.0],
-  ['whoosh', C.guc - .2], ['pop', C.adalet], ['pop', C.mazlum], ['pop', C.ummet], ['boom', C.gucl], ['stamp', C.zulum], ['tape', C.kardm], ['whoosh', C.irk - .2], ['buzz', C.sessiz], ['whoosh', C.hangi - .2], ['buzz', C.kesin], ['boom', C.kurt], ['whoosh', C.neyse - .2], ['shimmer', C.dua], ['shimmer', C.allah - .2], ['ding', C.anl], ['buzz', C.terc + .25], ['buzz', C.havz + .25], ['buzz', C.diyz + .25], ['rimshot', C.diyz + .9], ['boom', C.abone], ['ding', C.abone + .3], ['pop', C.selam], ['boom', C.kalin], ['applause', C.kalin + .4]];
+  ['whoosh', C.guc - .2], ['pop', C.adalet], ['pop', C.mazlum], ['pop', C.ummet], ['boom', C.gucl], ['stamp', C.zulum], ['tape', C.kardm], ['whoosh', C.irk - .2], ['buzz', C.sessiz], ['whoosh', C.hangi - .2], ['buzz', C.kesin], ['boom', C.kurt], ['whoosh', C.neyse - .2], ['shimmer', C.dua], ['shimmer', C.allah - .2], ['ding', C.anl], ['buzz', C.terc + .25], ['buzz', C.havz + .25], ['buzz', C.diyz + .25], ['rimshot', C.diyz + .9], ['boom', C.abone], ['ding', C.abone + .3], ['pop', C.selam], ['boom', C.kalin], ['applause', C.kalin + .4], ['micoff', MICOFF]];
 // cover
 window.drawCover = function () { X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; bgGrad('#0a2a4a', '#1a5a8a', '#3ad0c0', 3, 2, '#fff');
   tx('DİYANET', W / 2, 250, 170, ['#fff', '#d0f0ff'], { st: 26 }); tx('8 DİLDE HUTBE', W / 2, 430, 130, GOLD, { st: 22 });

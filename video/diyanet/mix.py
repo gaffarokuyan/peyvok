@@ -1,13 +1,15 @@
 import json,subprocess,sys
 NAR=sys.argv[1] if len(sys.argv)>1 else 'audio/nar.wav';NOFF=float(sys.argv[2]) if len(sys.argv)>2 else 0.6;OUT=sys.argv[3] if len(sys.argv)>3 else 'audio/mix.wav'
 d=json.load(open('sfx.json'));T=d['total'];OFF=0.6
-VOL={'whoosh':.18,'boom':.3,'shimmer':.25,'applause':.45,'rimshot':.6,'cough':.75,'drip':.55,'scratch':.5,'ding':.4,'buzz':.4,'stamp':.6,'pop':.35,'tape':.6,'trombone':.5,'tick':.4}
+VOL={'whoosh':.18,'boom':.3,'shimmer':.25,'applause':.45,'rimshot':.6,'cough':.75,'drip':.55,'scratch':.5,'ding':.4,'buzz':.4,'stamp':.6,'pop':.35,'tape':.6,'trombone':.5,'tick':.4,'micoff':.8}
 LOC={k:f'audio/sfx_{k}.mp3' for k in VOL};LOC.update({k:f'../gutiler/audio/sfx_{k}.mp3' for k in ['whoosh','boom','shimmer']})
 inp=['-i',NAR,'-i','audio/music.mp3'];f=[]
 f.append(f"[0]adelay={int(NOFF*1000)},highpass=f=70,equalizer=f=3000:t=q:w=1.2:g=2.5,acompressor=threshold=0.12:ratio=2.5:attack=8:release=180:makeup=1.7,asplit=2[nar][key]")
-f.append(f"[1]atrim=0:{T},asetpts=PTS-STARTPTS,afade=t=out:st={T-2}:d=2,volume=0.38[mus]")
+W=json.loads(open('words.js').read()[len('window.WORDS='):-1]);ASIDE0=0.6+W[-1][2]+.4+2.6
+f.append(f"[1]atrim=0:{T},asetpts=PTS-STARTPTS,afade=t=out:st={ASIDE0-1.4}:d=1.2,volume=0.38[mus]")
 f.append("[mus][key]sidechaincompress=threshold=0.006:ratio=8:attack=30:release=500:makeup=1[musd]")
-fx=[];k=2
+inp+=['-i','audio/aside.mp3'];f.append(f"[2]atrim=start=0.12,asetpts=PTS-STARTPTS,highpass=f=280,lowpass=f=3400,acompressor=threshold=0.1:ratio=3:makeup=2,aecho=0.8:0.5:60|110:0.25|0.15,volume=1.3,adelay={int(ASIDE0*1000)}|{int(ASIDE0*1000)}[asd]")
+fx=['[asd]'];k=3
 for typ,t in d['sfx']:
   if t<0 or t>T: continue
   inp+=['-i',LOC[typ]];ms=int(t*1000)
