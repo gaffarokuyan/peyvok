@@ -13,7 +13,7 @@ const d = await p.evaluate(() => {
   const T = (s, y, size, f) => { c.save(); c.font = `${size}px Anton`; let sz = size; while (c.measureText(s).width > 1000) { sz -= 4; c.font = `${sz}px Anton` } c.textAlign = 'center'; c.lineJoin = 'round'; c.shadowColor = 'rgba(0,0,0,.8)'; c.shadowBlur = 40; c.lineWidth = sz * .14; c.strokeStyle = '#1a0703'; c.strokeText(s, W / 2, y); c.shadowBlur = 0; c.fillStyle = f(y - sz * .8, y); c.fillText(s, W / 2, y); c.restore() };
   T('BAĞDAT’IN', 230, 190, gold); T('ANAHTARI', 420, 190, gold);
   T('KÜRTLERDEYDİ', 1500, 175, red); T('ANNAZÎLER', 1690, 150, gold);
-  c.save(); c.font = '50px Anton'; c.textAlign = 'center'; c.fillStyle = '#fff'; c.lineWidth = 9; c.strokeStyle = '#120804'; c.lineJoin = 'round'; c.strokeText('UNUTULAN KÜRT EMİRLİĞİ · 990 – 1117', W / 2, 1800); c.fillText('UNUTULAN KÜRT EMİRLİĞİ · 990 – 1117', W / 2, 1800); c.restore();
+  c.save(); c.font = '50px Anton'; c.textAlign = 'center'; c.fillStyle = '#fff'; c.lineWidth = 9; c.strokeStyle = '#120804'; c.lineJoin = 'round'; c.strokeText('UNUTTURULMAYA ÇALIŞILMIŞ KÜRT EMİRLİĞİ', W / 2, 1800); c.fillText('UNUTTURULMAYA ÇALIŞILMIŞ KÜRT EMİRLİĞİ', W / 2, 1800); c.restore();
   c.save(); c.font = '900 44px CinzelD'; c.textAlign = 'center'; c.fillStyle = gold(1840, 1880); c.fillText('DÎROK', W / 2, 1880); c.restore();
   return V.toDataURL('image/jpeg', .95) });
 fs.writeFileSync(out + 'out/kapak_short.jpg', Buffer.from(d.split(',')[1], 'base64')); await b.close();
