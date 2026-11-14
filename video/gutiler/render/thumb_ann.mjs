@@ -5,7 +5,7 @@ const b = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1920, height: 1080 } }); p.on('pageerror', e => console.log('ERR', e.message));
 await p.goto('file://' + path.resolve('annazi.html')); await p.evaluate(() => window.ready);
 const d = await p.evaluate(() => {
-  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(366.87); labelBoxB = lb;
+  const lb = labelBoxB; labelBoxB = () => { }; renderFrame(367.59); labelBoxB = lb;
   const src = document.createElement('canvas'); src.width = W; src.height = H; src.getContext('2d').drawImage(cv, 0, 0);
   const c = X; c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#100604'; c.fillRect(0, 0, W, H);
   c.filter = 'saturate(1.35) brightness(1.08) contrast(1.1)'; c.drawImage(src, 0, 0, 1880, 1060, -150, -60, W * 1.16, H * 1.16); c.filter = 'none';
@@ -21,7 +21,7 @@ const d = await p.evaluate(() => {
     c.shadowColor = o.glow || 'rgba(0,0,0,.85)'; c.shadowBlur = o.blur ?? 40; c.lineWidth = (o.lw || size * .13) * sz / size; c.strokeStyle = o.stroke || '#1a0703'; c.strokeText(txt, x, y); c.shadowBlur = 0;
     c.fillStyle = fill === 'gold' ? gold(y - sz * .8, y) : fill; c.fillText(txt, x, y); c.restore() };
   const pill = (txt, x, y, size = 46) => { c.save(); c.font = `800 ${size}px InterB`; c.letterSpacing = '2px'; const w = c.measureText(txt).width + 64; c.shadowColor = 'rgba(0,0,0,.6)'; c.shadowBlur = 20; c.fillStyle = '#c4161c'; c.beginPath(); c.roundRect(x, y - size * .85, w, size * 1.7, 18); c.fill(); c.shadowBlur = 0; c.fillStyle = '#fff'; c.textBaseline = 'middle'; c.fillText(txt, x + 32, y + 2); c.restore() };
-  T('UNUTULAN', 60, 230, 130, '#fff', { lw: 16 });
+  T('UNUTTURULMAYA ÇALIŞILMIŞ', 60, 230, 130, '#fff', { lw: 16, maxW: 1150 });
   T('KÜRT EMİRLİĞİ', 60, 400, 150, 'gold', { lw: 18, glow: 'rgba(255,170,40,.8)', blur: 55, maxW: 1150 });
   T('ANNAZÎLER', 60, 640, 220, '#fff', { lw: 28, stroke: '#7a0f0a', glow: 'rgba(230,40,20,.95)', blur: 70, maxW: 1200 });
   T('MEZOPOTAMYA’NIN DOĞU KAPISI', 66, 810, 92, 'gold', { lw: 12, maxW: 1150 });
