@@ -1,0 +1,49 @@
+﻿[Script Info]
+Title: Dirok - Gutiler Short
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Dirok,Arial Black,64,&H00FFFFFF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,16,3,2,90,90,360,1
+Style: DirokVurgu,Arial Black,68,&H003AD2FF,&H003AD2FF,&H40040814,&H64000000,-1,0,0,0,100,100,0,0,3,16,3,2,90,90,360,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.40,0:00:02.05,Dirok,,0,0,0,,Four thousand\Ntwo hundred years
+Dialogue: 0,0:00:02.08,0:00:03.97,Dirok,,0,0,0,,ago, a people\Ndescending from the
+Dialogue: 0,0:00:04.00,0:00:05.61,Dirok,,0,0,0,,Zagros mountains toppled\Nthe world's first
+Dialogue: 0,0:00:05.64,0:00:06.25,Dirok,,0,0,0,,empire.
+Dialogue: 0,0:00:06.28,0:00:08.45,DirokVurgu,,0,0,0,,The Sumerians fearfully\Ncalled them the Dragon
+Dialogue: 0,0:00:08.48,0:00:09.77,Dirok,,0,0,0,,of the Mountains.
+Dialogue: 0,0:00:09.80,0:00:11.33,Dirok,,0,0,0,,They were the Gutians.
+Dialogue: 0,0:00:11.36,0:00:12.61,Dirok,,0,0,0,,They brought the\NAkkadian Empire
+Dialogue: 0,0:00:12.64,0:00:14.85,Dirok,,0,0,0,,to its knees and\Nruled Mesopotamia for
+Dialogue: 0,0:00:14.88,0:00:16.29,Dirok,,0,0,0,,a full hundred years.
+Dialogue: 0,0:00:16.32,0:00:18.13,Dirok,,0,0,0,,The Sumerian King\NList describes them
+Dialogue: 0,0:00:18.16,0:00:19.81,Dirok,,0,0,0,,like this: They were their
+Dialogue: 0,0:00:19.84,0:00:20.82,Dirok,,0,0,0,,own kings.
+Dialogue: 0,0:00:20.85,0:00:21.89,Dirok,,0,0,0,,Twenty-one kings, a
+Dialogue: 0,0:00:21.92,0:00:24.33,Dirok,,0,0,0,,tribal council and\Nlocal autonomy.
+Dialogue: 0,0:00:24.36,0:00:26.29,Dirok,,0,0,0,,Thousands of years\Nlater, this order
+Dialogue: 0,0:00:26.32,0:00:28.10,DirokVurgu,,0,0,0,,lived on in\NKurdish society.
+Dialogue: 0,0:00:28.13,0:00:30.25,Dirok,,0,0,0,,The name Gutium\Nnever disappeared.
+Dialogue: 0,0:00:30.28,0:00:32.01,Dirok,,0,0,0,,Kurti in Assyrian records,
+Dialogue: 0,0:00:32.04,0:00:33.65,Dirok,,0,0,0,,Kardouchoi in\NXenophon, Corduene
+Dialogue: 0,0:00:33.68,0:00:36.04,DirokVurgu,,0,0,0,,in Roman times, and Kurd
+Dialogue: 0,0:00:36.08,0:00:36.77,Dirok,,0,0,0,,today.
+Dialogue: 0,0:00:36.80,0:00:38.17,Dirok,,0,0,0,,According to scholars
+Dialogue: 0,0:00:38.20,0:00:39.13,Dirok,,0,0,0,,such as Arshak
+Dialogue: 0,0:00:39.16,0:00:41.30,Dirok,,0,0,0,,Safrastian, Godfrey\NDriver, Ephraim Speiser and
+Dialogue: 0,0:00:41.33,0:00:43.21,Dirok,,0,0,0,,Mehrdad Izady, the\NGutians are the
+Dialogue: 0,0:00:43.24,0:00:44.57,DirokVurgu,,0,0,0,,ancestors of the Kurds.
+Dialogue: 0,0:00:44.60,0:00:46.21,Dirok,,0,0,0,,Hurrians,\NMitanni, Lullubi,
+Dialogue: 0,0:00:46.24,0:00:48.01,Dirok,,0,0,0,,Kassites, Medes and
+Dialogue: 0,0:00:48.04,0:00:49.45,Dirok,,0,0,0,,Corduene: all are
+Dialogue: 0,0:00:49.48,0:00:51.13,Dirok,,0,0,0,,the four-thousand-year-old\Nroots of
+Dialogue: 0,0:00:51.16,0:00:52.45,DirokVurgu,,0,0,0,,the Kurdish people.
+Dialogue: 0,0:00:52.48,0:00:54.00,Dirok,,0,0,0,,Subscribe to\NDîrok and don't
+Dialogue: 0,0:00:54.03,0:00:55.80,Dirok,,0,0,0,,miss the rest\Nof the story.

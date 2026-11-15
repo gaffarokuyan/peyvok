@@ -1,0 +1,8 @@
+file 'seg0p/p0.mp4'
+file 'seg0p/p1.mp4'
+file 'seg0p/p2.mp4'
+file 'seg/seg1.mp4'
+file 'seg/seg2.mp4'
+file 'seg3p/p0.mp4'
+file 'seg3p/p1.mp4'
+file 'seg3p/p2.mp4'

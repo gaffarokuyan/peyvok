@@ -1,0 +1,11 @@
+seg/
+seg_nc/
+stills/
+out/
+audio/*.wav
+audio/*.mp3
+dil/dub_*/
+dil/out/*.wav
+dil/out/*.mp3
+audio/v1/*.mp3
+audio/v1/*.wav

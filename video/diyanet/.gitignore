@@ -1,0 +1,7 @@
+seg/
+audio/*.wav
+audio/*.mp3
+out/*.mp4
+dil/dub_*/
+dil/*.wav
+seg_ar/

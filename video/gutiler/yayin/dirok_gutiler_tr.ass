@@ -1,0 +1,166 @@
+﻿[Script Info]
+Title: Dîrok - Gutiler
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Dirok,Arial Black,52,&H00FFFFFF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokKaraoke,Arial Black,52,&H005AD6FF,&H00FFFFFF,&H48040814,&H64000000,-1,0,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+Style: DirokAlinti,Arial Black,56,&H005AD6FF,&H005AD6FF,&H40040814,&H64000000,-1,-1,0,0,100,100,0,0,3,14,3,2,120,120,52,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.14,0:00:05.06,DirokKaraoke,,0,0,0,,{\kf20}Dört {\kf18}bin {\kf26}iki {\kf20}yüz {\kf14}yıl {\kf44}önce\N{\kf102}Mezopotamya'nın {\kf60}doğusundan {\kf16}bir {\kf28}halk {\kf40}tarih
+Dialogue: 0,0:00:05.10,0:00:06.28,DirokKaraoke,,0,0,0,,{\kf52}sahnesine {\kf36}çıktı:
+Dialogue: 0,0:00:06.48,0:00:07.42,DirokKaraoke,,0,0,0,,{\kf52}Gutiler.
+Dialogue: 0,0:00:07.46,0:00:11.70,DirokKaraoke,,0,0,0,,{\kf50}Dünyanın {\kf20}ilk {\kf78}imparatorluğu {\kf46}Akad'ı\N{\kf26}diz {\kf76}çöktürdüler {\kf24}ve {\kf64}medeniyetin {\kf38}beşiği
+Dialogue: 0,0:00:11.74,0:00:14.36,DirokKaraoke,,0,0,0,,{\kf80}Mezopotamya'ya {\kf36}tam {\kf20}bir {\kf28}asır {\kf68}hükmettiler.
+Dialogue: 0,0:00:14.44,0:00:17.32,DirokKaraoke,,0,0,0,,{\kf26}Sümer {\kf66}yazıcıları {\kf40}onlara\N{\kf52}korkuyla {\kf16}bir {\kf20}ad {\kf38}verdi:
+Dialogue: 0,0:00:17.42,0:00:18.98,DirokKaraoke,,0,0,0,,{\kf44}Dağların {\kf82}Ejderhası.
+Dialogue: 0,0:00:19.08,0:00:20.84,DirokKaraoke,,0,0,0,,{\kf34}Peki {\kf56}kimdi {\kf8}bu {\kf50}Gutiler?
+Dialogue: 0,0:00:20.88,0:00:24.84,DirokKaraoke,,0,0,0,,{\kf76}Mezopotamya'yı {\kf30}nasıl {\kf60}yönettiler\N{\kf36}ve {\kf48}neden {\kf20}pek {\kf20}çok {\kf68}tarihçi {\kf38}onları
+Dialogue: 0,0:00:24.88,0:00:27.50,DirokKaraoke,,0,0,0,,{\kf44}Kürtlerin {\kf28}en {\kf26}eski\N{\kf42}ataları {\kf48}arasında {\kf46}sayıyor?
+Dialogue: 0,0:00:27.54,0:00:29.08,DirokKaraoke,,0,0,0,,{\kf50}Dîrok’a {\kf20}hoş {\kf54}geldiniz.
+Dialogue: 0,0:00:41.20,0:00:44.92,DirokKaraoke,,0,0,0,,{\kf30}Dicle {\kf16}ile {\kf32}Fırat {\kf52}arasındaki {\kf62}topraklar,\N{\kf58}insanlık {\kf70}tarihinin {\kf22}en {\kf28}büyük
+Dialogue: 0,0:00:44.96,0:00:46.54,DirokKaraoke,,0,0,0,,{\kf64}icatlarına {\kf34}sahne {\kf30}oldu.
+Dialogue: 0,0:00:46.58,0:00:50.82,DirokKaraoke,,0,0,0,,{\kf14}İlk {\kf60}şehirler, {\kf58}yazı, {\kf76}tekerlek {\kf20}ve\N{\kf42}yazılı {\kf54}kanunlar {\kf34}burada {\kf36}doğdu.
+Dialogue: 0,0:00:50.86,0:00:55.62,DirokKaraoke,,0,0,0,,{\kf28}Uruk, {\kf56}Ur, {\kf64}Lagaş {\kf18}ve {\kf44}Nippur {\kf24}gibi {\kf34}Sümer\N{\kf58}şehirleri {\kf76}dünyanın {\kf20}ilk {\kf52}medeniyet
+Dialogue: 0,0:00:55.66,0:00:56.72,DirokKaraoke,,0,0,0,,{\kf76}merkezleriydi.
+Dialogue: 0,0:00:56.80,0:01:01.02,DirokKaraoke,,0,0,0,,{\kf42}Milattan {\kf30}önce {\kf26}yirmi {\kf40}üçüncü {\kf60}yüzyılda\N{\kf42}Akadlı {\kf52}Sargon {\kf26}bu {\kf52}şehirleri {\kf26}tek {\kf22}tek
+Dialogue: 0,0:01:01.06,0:01:04.58,DirokKaraoke,,0,0,0,,{\kf50}fethetti {\kf26}ve {\kf52}tarihin {\kf56}bilinen\N{\kf22}ilk {\kf86}imparatorluğunu {\kf34}kurdu.
+Dialogue: 0,0:01:04.62,0:01:08.62,DirokKaraoke,,0,0,0,,{\kf20}Akad {\kf80}İmparatorluğu {\kf48}Basra {\kf74}Körfezi'nden\N{\kf58}Akdeniz'e {\kf28}kadar {\kf64}uzanıyordu.
+Dialogue: 0,0:01:08.66,0:01:12.66,DirokKaraoke,,0,0,0,,{\kf42}Sargon'un {\kf46}torunu {\kf30}Naram-Sin {\kf52}ise\N{\kf58}kendine {\kf52}dünyanın {\kf30}dört {\kf50}bucağının {\kf38}kralı
+Dialogue: 0,0:01:12.70,0:01:13.70,DirokKaraoke,,0,0,0,,{\kf42}diyordu.
+Dialogue: 0,0:01:13.98,0:01:17.80,DirokKaraoke,,0,0,0,,{\kf26}Ama {\kf30}bu {\kf40}büyük {\kf74}imparatorluğun\N{\kf38}sonu {\kf82}doğudan {\kf62}gelecekti.
+Dialogue: 0,0:01:23.22,0:01:27.56,DirokKaraoke,,0,0,0,,{\kf68}Mezopotamya {\kf62}kaynakları, {\kf54}Dicle {\kf44}Nehri'nin\N{\kf80}doğusunda {\kf30}Küçük {\kf34}Zap {\kf22}ile {\kf40}Diyala
+Dialogue: 0,0:01:27.60,0:01:30.02,DirokKaraoke,,0,0,0,,{\kf42}nehirleri {\kf58}arasındaki {\kf46}ülkeye {\kf50}Gutium {\kf28}der.
+Dialogue: 0,0:01:30.06,0:01:34.10,DirokKaraoke,,0,0,0,,{\kf38}Burası {\kf56}Gutilerin {\kf62}yurduydu {\kf14}ve\N{\kf76}Mezopotamya {\kf42}ovasına {\kf28}inen {\kf42}yollar {\kf42}onların
+Dialogue: 0,0:01:34.14,0:01:35.16,DirokKaraoke,,0,0,0,,{\kf80}kontrolündeydi.
+Dialogue: 0,0:01:35.20,0:01:39.36,DirokKaraoke,,0,0,0,,{\kf64}Naram-Sin'in {\kf38}oğlu {\kf82}Şar-kali-şarri\N{\kf76}döneminde {\kf34}Akad {\kf20}ile {\kf42}Gutiler {\kf58}arasındaki
+Dialogue: 0,0:01:39.40,0:01:40.66,DirokKaraoke,,0,0,0,,{\kf48}mücadele {\kf56}kızıştı.
+Dialogue: 0,0:01:40.70,0:01:44.18,DirokKaraoke,,0,0,0,,{\kf26}Akad {\kf76}tabletlerinde {\kf44}yıllar {\kf26}o {\kf18}yıl\N{\kf52}yaşanan {\kf36}önemli {\kf46}olaylara {\kf24}göre
+Dialogue: 0,0:01:44.22,0:01:45.22,DirokKaraoke,,0,0,0,,{\kf76}adlandırılırdı.
+Dialogue: 0,0:01:45.26,0:01:47.66,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf20}yıl {\kf58}adlarından\N{\kf48}birinde {\kf10}şu {\kf30}kayıt {\kf40}geçer:
+Dialogue: 0,0:01:47.70,0:01:51.60,DirokAlinti,,0,0,0,,"Şar-kali-şarri’nin Gutium\NKralı Şarlag’ı esir aldığı yıl."
+Dialogue: 0,0:01:51.74,0:01:54.08,DirokKaraoke,,0,0,0,,{\kf30}Ama {\kf40}Akad'ın {\kf56}zaferleri {\kf42}kalıcı {\kf44}olmadı.
+Dialogue: 0,0:01:54.12,0:01:58.16,DirokKaraoke,,0,0,0,,{\kf72}İmparatorluk {\kf92}isyanlarla, {\kf42}taht\N{\kf82}kavgalarıyla {\kf14}ve {\kf40}büyük {\kf14}bir {\kf46}kuraklık
+Dialogue: 0,0:01:58.20,0:01:59.50,DirokKaraoke,,0,0,0,,{\kf48}dönemiyle {\kf54}sarsıldı.
+Dialogue: 0,0:01:59.54,0:02:03.76,DirokKaraoke,,0,0,0,,{\kf92}Şar-kali-şarri’nin {\kf50}ölümünden {\kf56}sonra\N{\kf34}Akad {\kf36}öyle {\kf14}bir {\kf40}kaosa {\kf56}sürüklendi {\kf22}ki
+Dialogue: 0,0:02:03.80,0:02:07.10,DirokKaraoke,,0,0,0,,{\kf26}Sümer {\kf30}Kral {\kf50}Listesi {\kf14}bu {\kf44}dönemi\N{\kf38}alaycı {\kf14}bir {\kf46}soruyla {\kf40}anlatır.
+Dialogue: 0,0:02:07.14,0:02:09.34,DirokAlinti,,0,0,0,,"Kim kraldı, kim kral değildi?"
+Dialogue: 0,0:02:09.38,0:02:13.46,DirokAlinti,,0,0,0,,"Agade'nin Laneti" adlı ünlü Sümer\Nmetni Akad'ın çöküşünü tanrıların
+Dialogue: 0,0:02:13.50,0:02:17.94,DirokKaraoke,,0,0,0,,{\kf50}gazabına {\kf40}bağlar {\kf34}ve {\kf18}bu {\kf50}gazabı {\kf50}uygulamak\N{\kf24}için {\kf62}gönderilen {\kf26}halk {\kf18}da {\kf48}bellidir.
+Dialogue: 0,0:02:17.98,0:02:18.66,DirokKaraoke,,0,0,0,,{\kf46}Gutiler.
+Dialogue: 0,0:02:18.70,0:02:22.10,DirokKaraoke,,0,0,0,,{\kf40}Metin {\kf38}onları {\kf44}kontrol {\kf56}edilemeyen\N{\kf14}bir {\kf30}halk {\kf32}olarak {\kf36}tarif {\kf30}eder.
+Dialogue: 0,0:02:22.14,0:02:26.66,DirokKaraoke,,0,0,0,,{\kf42}Milattan {\kf28}önce {\kf56}yaklaşık {\kf82}2150\N{\kf62}yılında {\kf28}Akad {\kf76}İmparatorluğu {\kf38}çöktü {\kf36}ve
+Dialogue: 0,0:02:26.70,0:02:30.12,DirokKaraoke,,0,0,0,,{\kf88}Mezopotamya'nın {\kf26}taht {\kf56}şehirleri\N{\kf70}Gutilerin {\kf30}eline {\kf42}geçti.
+Dialogue: 0,0:02:35.54,0:02:38.44,DirokKaraoke,,0,0,0,,{\kf24}Sümer {\kf32}Kral {\kf74}Listesi'nde\N{\kf44}apaçık {\kf14}bir {\kf34}kayıt {\kf40}vardır.
+Dialogue: 0,0:02:38.48,0:02:40.80,DirokAlinti,,0,0,0,,"Krallık Gutium ordusuna geçti."
+Dialogue: 0,0:02:41.30,0:02:44.64,DirokKaraoke,,0,0,0,,{\kf36}Liste, {\kf80}Gutilerin {\kf22}ilk {\kf58}dönemini\N{\kf34}ilginç {\kf16}bir {\kf46}cümleyle {\kf46}anlatır.
+Dialogue: 0,0:02:44.68,0:02:47.98,DirokAlinti,,0,0,0,,"Gutium ordusunda başta\Nbilinen bir kral yoktu,
+Dialogue: 0,0:02:48.02,0:02:49.86,DirokKaraoke,,0,0,0,,{\kf22}kendi {\kf64}kendilerinin {\kf68}kralıydılar."
+Dialogue: 0,0:02:50.08,0:02:54.26,DirokKaraoke,,0,0,0,,{\kf12}Pek {\kf20}çok {\kf78}araştırmacı {\kf8}bu {\kf48}cümleyi\N{\kf72}Gutilerin {\kf20}tek {\kf16}bir {\kf42}mutlak {\kf48}hükümdar {\kf52}yerine
+Dialogue: 0,0:02:54.30,0:02:58.10,DirokKaraoke,,0,0,0,,{\kf34}ortak {\kf12}bir {\kf78}meclisle {\kf10}ya {\kf22}da {\kf42}aşiret\N{\kf68}liderleriyle {\kf68}yönetildiğinin {\kf46}işareti
+Dialogue: 0,0:02:58.14,0:02:59.14,DirokKaraoke,,0,0,0,,{\kf30}olarak {\kf48}yorumlar.
+Dialogue: 0,0:02:59.18,0:03:03.50,DirokKaraoke,,0,0,0,,{\kf38}Listeye {\kf38}göre {\kf30}yirmi {\kf18}bir {\kf28}Guti {\kf50}kralı\N{\kf52}yaklaşık {\kf30}yüz {\kf16}yıl {\kf42}boyunca {\kf28}hüküm {\kf38}sürdü.
+Dialogue: 0,0:03:03.54,0:03:06.48,DirokKaraoke,,0,0,0,,{\kf58}Krallarının {\kf36}çoğu {\kf50}yalnızca\N{\kf42}birkaç {\kf14}yıl {\kf36}tahtta {\kf38}kaldı.
+Dialogue: 0,0:03:06.52,0:03:09.04,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf24}da {\kf58}liderliğin {\kf44}babadan\N{\kf24}oğula {\kf72}geçmediğini,
+Dialogue: 0,0:03:09.08,0:03:11.86,DirokKaraoke,,0,0,0,,{\kf48}aşiretler {\kf54}arasında {\kf18}el\N{\kf68}değiştirdiğini {\kf60}düşündürür.
+Dialogue: 0,0:03:12.04,0:03:15.72,DirokKaraoke,,0,0,0,,{\kf44}Gutiler, {\kf46}Sümer {\kf66}şehirlerini {\kf36}yerel\N{\kf46}valiler {\kf60}aracılığıyla {\kf46}yönetti.
+Dialogue: 0,0:03:15.76,0:03:20.30,DirokKaraoke,,0,0,0,,{\kf20}Umma {\kf54}şehrinin {\kf50}valisi {\kf90}Lugal-Annatum,\N{\kf52}kendi {\kf68}yazıtını {\kf36}"Gutium {\kf38}Kralı {\kf42}Sium
+Dialogue: 0,0:03:20.34,0:03:22.22,DirokKaraoke,,0,0,0,,{\kf58}zamanında" {\kf24}diye {\kf82}tarihlendirir.
+Dialogue: 0,0:03:22.26,0:03:26.40,DirokKaraoke,,0,0,0,,{\kf36}Yani {\kf48}şehirler {\kf34}kendi {\kf64}yönetimlerini\N{\kf40}korudu {\kf42}ama {\kf28}Guti {\kf54}kralının {\kf68}egemenliğini
+Dialogue: 0,0:03:26.44,0:03:26.98,DirokKaraoke,,0,0,0,,{\kf32}tanıdı.
+Dialogue: 0,0:03:27.02,0:03:30.48,DirokKaraoke,,0,0,0,,{\kf42}Gutiler, {\kf58}Akad'ın {\kf38}yönetim {\kf40}dilini\N{\kf12}ve {\kf68}geleneklerini {\kf12}de {\kf56}devraldı.
+Dialogue: 0,0:03:30.52,0:03:35.04,DirokKaraoke,,0,0,0,,{\kf26}Kral {\kf66}La’erabum’a {\kf30}ait {\kf16}bir {\kf36}topuz\N{\kf84}başlığında {\kf46}Akadca {\kf40}olarak {\kf68}"Gutium'un {\kf38}güçlü
+Dialogue: 0,0:03:35.08,0:03:36.22,DirokKaraoke,,0,0,0,,{\kf30}kralı" {\kf54}yazar.
+Dialogue: 0,0:03:36.26,0:03:39.34,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf62}kralların {\kf16}en {\kf36}dikkat\N{\kf60}çekicisi {\kf102}Erridupizir'dir.
+Dialogue: 0,0:03:39.38,0:03:43.40,DirokKaraoke,,0,0,0,,{\kf88}Mezopotamya'nın {\kf16}en {\kf46}kutsal {\kf32}şehri\N{\kf62}Nippur'daki {\kf76}yazıtlarında {\kf52}kendisini {\kf28}şöyle
+Dialogue: 0,0:03:43.44,0:03:44.10,DirokKaraoke,,0,0,0,,{\kf38}tanıtır:
+Dialogue: 0,0:03:44.14,0:03:47.36,DirokAlinti,,0,0,0,,"Gutium'un kralı, dünyanın\Ndört bucağının kralı."
+Dialogue: 0,0:03:47.40,0:03:51.02,DirokKaraoke,,0,0,0,,{\kf14}Bu, {\kf44}Akad {\kf82}imparatorlarının\N{\kf62}kullandığı {\kf58}unvanın {\kf14}ta {\kf64}kendisidir.
+Dialogue: 0,0:03:51.06,0:03:54.66,DirokKaraoke,,0,0,0,,{\kf52}Yazıtları, {\kf52}isyan {\kf26}eden {\kf48}bölgelere\N{\kf36}karşı {\kf62}düzenlediği {\kf64}seferleri {\kf14}ve
+Dialogue: 0,0:03:54.70,0:03:58.44,DirokKaraoke,,0,0,0,,{\kf70}ganimetleri {\kf44}Tanrı {\kf48}Enlil'in\N{\kf62}tapınağına {\kf32}nasıl {\kf44}adadığını {\kf44}anlatır.
+Dialogue: 0,0:03:58.50,0:04:01.78,DirokKaraoke,,0,0,0,,{\kf18}Guti {\kf68}döneminde {\kf30}Sümer {\kf50}şehirleri\N{\kf18}de {\kf36}parlak {\kf16}bir {\kf30}dönem {\kf38}yaşadı.
+Dialogue: 0,0:04:01.82,0:04:06.20,DirokKaraoke,,0,0,0,,{\kf38}Lagaş, {\kf44}Prens {\kf40}Gudea {\kf72}yönetiminde\N{\kf54}tapınaklar {\kf38}inşa {\kf44}etti {\kf12}ve {\kf60}sanatta {\kf32}altın
+Dialogue: 0,0:04:06.24,0:04:07.12,DirokKaraoke,,0,0,0,,{\kf28}çağını {\kf38}yaşadı.
+Dialogue: 0,0:04:07.16,0:04:10.46,DirokKaraoke,,0,0,0,,{\kf28}Yani {\kf56}Gutiler {\kf68}yağmalayıp {\kf22}geri\N{\kf36}çekilen {\kf54}akıncılar {\kf46}değildi.
+Dialogue: 0,0:04:10.50,0:04:14.18,DirokKaraoke,,0,0,0,,{\kf84}Mezopotamya'nın {\kf70}imparatorluk\N{\kf60}mirasını {\kf48}devralan {\kf80}hükümdarlardı.
+Dialogue: 0,0:04:14.22,0:04:18.62,DirokKaraoke,,0,0,0,,{\kf44}Meclisle {\kf44}seçilen {\kf60}liderler, {\kf60}aşiret\N{\kf90}konfederasyonu {\kf14}ve {\kf38}yerel {\kf60}özerklik...
+Dialogue: 0,0:04:18.82,0:04:22.92,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf48}tablo {\kf70}binlerce {\kf18}yıl {\kf44}sonra {\kf24}Kürt\N{\kf56}toplumsal {\kf52}yapısında {\kf54}karşımıza {\kf38}çıkacak
+Dialogue: 0,0:04:22.96,0:04:24.80,DirokKaraoke,,0,0,0,,{\kf18}olan {\kf58}tablonun {\kf12}ta {\kf66}kendisidir.
+Dialogue: 0,0:04:30.22,0:04:33.10,DirokKaraoke,,0,0,0,,{\kf48}Yaklaşık {\kf24}yüz {\kf14}yıl {\kf48}sonra\N{\kf42}Uruk {\kf34}Kralı {\kf68}Utu-hengal,
+Dialogue: 0,0:04:33.14,0:04:35.64,DirokKaraoke,,0,0,0,,{\kf40}Gutilere {\kf40}karşı {\kf36}büyük {\kf12}bir {\kf38}isyan {\kf54}başlattı.
+Dialogue: 0,0:04:35.68,0:04:38.06,DirokKaraoke,,0,0,0,,{\kf28}Zafer {\kf68}yazıtında\N{\kf58}Gutilerden {\kf32}şöyle {\kf54}bahseder:
+Dialogue: 0,0:04:38.10,0:04:41.48,DirokAlinti,,0,0,0,,"Gutium, dağların zehirli dişli yılanı,
+Dialogue: 0,0:04:41.52,0:04:43.16,DirokKaraoke,,0,0,0,,{\kf54}dağların {\kf80}ejderhası."
+Dialogue: 0,0:04:43.38,0:04:46.36,DirokKaraoke,,0,0,0,,{\kf4}O {\kf48}sırada {\kf38}tahtta {\kf32}son {\kf28}Guti\N{\kf34}kralı {\kf50}Tirigan {\kf36}vardı.
+Dialogue: 0,0:04:46.40,0:04:50.46,DirokKaraoke,,0,0,0,,{\kf22}Sümer {\kf30}Kral {\kf52}Listesi'ne {\kf36}göre {\kf46}Tirigan\N{\kf64}yalnızca {\kf26}kırk {\kf16}gün {\kf28}hüküm {\kf56}sürebildi.
+Dialogue: 0,0:04:50.58,0:04:52.86,DirokKaraoke,,0,0,0,,{\kf60}Utu-hengal {\kf70}ordusuyla {\kf40}kuzeye {\kf36}yürüdü.
+Dialogue: 0,0:04:52.90,0:04:56.18,DirokKaraoke,,0,0,0,,{\kf42}Tirigan'ın {\kf66}gönderdiği {\kf18}iki\N{\kf52}komutanı {\kf50}yendi {\kf12}ve {\kf34}esir {\kf30}aldı.
+Dialogue: 0,0:04:56.22,0:05:00.34,DirokKaraoke,,0,0,0,,{\kf34}Savaşın {\kf54}sonunda {\kf46}Tirigan {\kf56}ordusunu\N{\kf42}bırakıp {\kf44}Dubrum {\kf26}adlı {\kf14}bir {\kf32}şehre {\kf40}kaçtı.
+Dialogue: 0,0:05:00.38,0:05:04.22,DirokKaraoke,,0,0,0,,{\kf26}Ancak {\kf40}Dubrum {\kf42}halkı {\kf20}onu {\kf66}yakaladı\N{\kf12}ve {\kf74}Utu-hengal’e {\kf44}teslim {\kf30}etti.
+Dialogue: 0,0:05:04.28,0:05:08.94,DirokKaraoke,,0,0,0,,{\kf20}Kısa {\kf24}süre {\kf56}sonra {\kf16}Ur {\kf78}şehrinde {\kf62}Ur-Nammu\N{\kf22}yeni {\kf14}bir {\kf46}hanedan {\kf36}kurdu {\kf42}ama {\kf52}mücadele
+Dialogue: 0,0:05:08.98,0:05:09.60,DirokKaraoke,,0,0,0,,{\kf42}bitmedi.
+Dialogue: 0,0:05:09.64,0:05:13.58,DirokKaraoke,,0,0,0,,{\kf26}Bazı {\kf26}geç {\kf32}dönem {\kf32}Sümer {\kf60}metinlerine\N{\kf48}göre {\kf52}Ur-Nammu {\kf32}bile {\kf50}Gutilere {\kf36}karşı
+Dialogue: 0,0:05:13.62,0:05:15.82,DirokKaraoke,,0,0,0,,{\kf36}yapılan {\kf12}bir {\kf48}savaşta {\kf50}hayatını {\kf54}kaybetti.
+Dialogue: 0,0:05:15.86,0:05:19.44,DirokKaraoke,,0,0,0,,{\kf52}Gutilerin {\kf90}Mezopotamya'daki\N{\kf54}siyasi {\kf60}hakimiyeti {\kf30}sona {\kf48}ermişti.
+Dialogue: 0,0:05:19.48,0:05:21.04,DirokKaraoke,,0,0,0,,{\kf14}Ama {\kf48}Gutiler {\kf24}yok {\kf40}olmadı.
+Dialogue: 0,0:05:26.46,0:05:30.58,DirokKaraoke,,0,0,0,,{\kf38}Sonraki {\kf24}bin {\kf22}beş {\kf22}yüz {\kf14}yıl {\kf54}boyunca\N{\kf50}Gutium {\kf32}adı {\kf72}Mezopotamya {\kf84}kaynaklarından
+Dialogue: 0,0:05:30.62,0:05:31.74,DirokKaraoke,,0,0,0,,{\kf14}hiç {\kf34}eksik {\kf42}olmadı.
+Dialogue: 0,0:05:31.78,0:05:35.48,DirokKaraoke,,0,0,0,,{\kf28}Babil {\kf34}Kralı {\kf60}Hammurabi, {\kf60}Gutium\N{\kf50}ordusuna {\kf32}karşı {\kf50}kazandığı {\kf52}zaferleri
+Dialogue: 0,0:05:35.52,0:05:36.28,DirokKaraoke,,0,0,0,,{\kf52}kaydetti.
+Dialogue: 0,0:05:36.32,0:05:39.46,DirokKaraoke,,0,0,0,,{\kf28}Asur {\kf72}kralları {\kf28}Qutu {\kf54}ülkesine\N{\kf50}seferler {\kf56}düzenledi.
+Dialogue: 0,0:05:39.50,0:05:43.98,DirokKaraoke,,0,0,0,,{\kf42}Milattan {\kf28}önce {\kf120}539'da {\kf26}Pers {\kf36}Kralı\N{\kf36}Büyük {\kf34}Kiros {\kf50}Babil'i {\kf56}aldığında,
+Dialogue: 0,0:05:44.02,0:05:47.76,DirokKaraoke,,0,0,0,,{\kf26}Kiros {\kf72}Silindiri'nde {\kf56}egemenliği {\kf38}altına\N{\kf38}aldığı {\kf42}ülkeler {\kf60}arasında {\kf40}Gutium'u
+Dialogue: 0,0:05:47.80,0:05:48.48,DirokKaraoke,,0,0,0,,{\kf6}da {\kf42}saydı.
+Dialogue: 0,0:05:48.52,0:05:52.20,DirokKaraoke,,0,0,0,,{\kf44}Babil'e {\kf20}ilk {\kf26}giren {\kf46}komutan\N{\kf40}ise {\kf38}Gutium {\kf54}valisi {\kf74}Ugbaru’ydu.
+Dialogue: 0,0:05:52.24,0:05:56.24,DirokKaraoke,,0,0,0,,{\kf26}Yani {\kf46}Gutium {\kf46}adı {\kf18}bin {\kf26}yedi {\kf18}yüz {\kf16}yıl\N{\kf56}boyunca {\kf82}Mezopotamya'nın {\kf66}doğusundaki
+Dialogue: 0,0:05:56.28,0:05:58.14,DirokKaraoke,,0,0,0,,{\kf26}halkı {\kf62}tanımlamaya {\kf36}devam {\kf32}etti.
+Dialogue: 0,0:06:03.56,0:06:06.74,DirokKaraoke,,0,0,0,,{\kf40}Gutiler {\kf14}bu {\kf70}topraklarda {\kf50}yaşayan\N{\kf22}tek {\kf30}kadim {\kf24}halk {\kf46}değildi.
+Dialogue: 0,0:06:06.78,0:06:11.26,DirokKaraoke,,0,0,0,,{\kf64}Lullubiler, {\kf70}Hurriler, {\kf80}Kassitler {\kf16}ve\N{\kf48}Medler {\kf26}de {\kf88}Mezopotamya'nın {\kf58}kuzeyinde
+Dialogue: 0,0:06:11.30,0:06:12.50,DirokKaraoke,,0,0,0,,{\kf8}ve {\kf56}doğusunda {\kf38}yaşadı.
+Dialogue: 0,0:06:12.54,0:06:16.54,DirokKaraoke,,0,0,0,,{\kf14}Pek {\kf18}çok {\kf58}tarihçiye {\kf30}göre {\kf16}bu {\kf50}halklar\N{\kf64}Gutilerle {\kf54}birlikte {\kf44}Kürtleri {\kf48}oluşturan
+Dialogue: 0,0:06:16.58,0:06:17.54,DirokKaraoke,,0,0,0,,{\kf74}katmanlardır.
+Dialogue: 0,0:06:17.58,0:06:21.34,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf36}bağı {\kf18}en {\kf30}güçlü {\kf42}şekilde {\kf22}dile\N{\kf62}getirenlerin {\kf54}başında {\kf40}yabancı {\kf64}tarihçiler
+Dialogue: 0,0:06:21.38,0:06:21.88,DirokKaraoke,,0,0,0,,{\kf26}gelir.
+Dialogue: 0,0:06:21.92,0:06:25.06,DirokKaraoke,,0,0,0,,{\kf54}İngiltere'de {\kf48}çalışan\N{\kf70}Şarkiyatçı {\kf48}Arşak {\kf78}Safrastian,
+Dialogue: 0,0:06:25.10,0:06:29.94,DirokKaraoke,,0,0,0,,{\kf118}1948'de {\kf52}yayımlanan {\kf66}kitabında {\kf56}Gutileri\N{\kf58}doğrudan {\kf56}Kürtlerin {\kf42}ataları {\kf38}olarak
+Dialogue: 0,0:06:29.98,0:06:33.80,DirokKaraoke,,0,0,0,,{\kf28}görür {\kf28}ve {\kf40}Guti {\kf24}adı {\kf26}ile {\kf38}Kürt\N{\kf40}adının {\kf26}kökü {\kf54}arasında {\kf16}bağ {\kf38}kurar.
+Dialogue: 0,0:06:33.84,0:06:36.28,DirokKaraoke,,0,0,0,,{\kf22}İsim {\kf42}zinciri {\kf66}gerçekten {\kf36}dikkat {\kf52}çekicidir.
+Dialogue: 0,0:06:36.32,0:06:40.56,DirokKaraoke,,0,0,0,,{\kf26}Asur {\kf82}kayıtlarında {\kf8}bu {\kf50}bölgenin {\kf42}halkları\N{\kf32}için {\kf66}Qurti {\kf14}ve {\kf42}Kurti {\kf26}gibi {\kf34}adlar
+Dialogue: 0,0:06:40.60,0:06:41.14,DirokKaraoke,,0,0,0,,{\kf36}geçer.
+Dialogue: 0,0:06:41.18,0:06:45.00,DirokKaraoke,,0,0,0,,{\kf24}Yunan {\kf46}komutan {\kf64}Ksenofon, {\kf50}Dicle\N{\kf44}Nehri'nin {\kf52}kuzeyinde {\kf40}yaşayan {\kf60}savaşçı
+Dialogue: 0,0:06:45.04,0:06:46.48,DirokKaraoke,,0,0,0,,{\kf72}Kardukhlardan {\kf54}bahseder.
+Dialogue: 0,0:06:46.52,0:06:49.84,DirokKaraoke,,0,0,0,,{\kf20}Roma {\kf60}döneminde {\kf28}aynı {\kf56}bölge\N{\kf62}Korduene {\kf36}adıyla {\kf40}anılır.
+Dialogue: 0,0:06:50.42,0:06:52.26,DirokKaraoke,,0,0,0,,{\kf38}Oxford {\kf94}Üniversitesi'nden {\kf46}G.R.
+Dialogue: 0,0:06:52.30,0:06:56.04,DirokKaraoke,,0,0,0,,{\kf48}Driver, {\kf44}Kürt {\kf36}adının {\kf16}bu {\kf40}kadim\N{\kf54}isimlerle {\kf54}ilişkisini {\kf52}inceledi.
+Dialogue: 0,0:06:56.12,0:07:00.32,DirokKaraoke,,0,0,0,,{\kf40}Vladimir {\kf62}Minorsky, {\kf72}Medlerin {\kf58}Kürtlerin\N{\kf68}oluşumundaki {\kf38}rolünü {\kf52}vurguladı.
+Dialogue: 0,0:07:00.42,0:07:04.64,DirokKaraoke,,0,0,0,,{\kf38}Ephraim {\kf66}Speiser, {\kf72}Gutileri {\kf90}Mezopotamya'nın\N{\kf58}doğusunun {\kf32}yerli {\kf32}halkı {\kf32}olarak
+Dialogue: 0,0:07:04.68,0:07:05.52,DirokKaraoke,,0,0,0,,{\kf46}tanımladı.
+Dialogue: 0,0:07:05.56,0:07:09.54,DirokKaraoke,,0,0,0,,{\kf38}Mehrdad {\kf42}İzady {\kf32}ise {\kf68}Gutilerin {\kf16}ve\N{\kf34}diğer {\kf34}kadim {\kf48}halkların {\kf38}Kürt {\kf46}halkının
+Dialogue: 0,0:07:09.58,0:07:11.30,DirokKaraoke,,0,0,0,,{\kf38}temelini {\kf64}oluşturduğunu {\kf48}savunur.
+Dialogue: 0,0:07:11.34,0:07:14.72,DirokKaraoke,,0,0,0,,{\kf18}Kürt {\kf50}tarihçi {\kf46}Muhammed {\kf26}Emin\N{\kf32}Zeki {\kf26}Beg {\kf22}de {\kf26}aynı {\kf62}görüştedir.
+Dialogue: 0,0:07:15.12,0:07:17.14,DirokKaraoke,,0,0,0,,{\kf42}Elbette {\kf38}karşıt {\kf44}görüşler {\kf14}de {\kf38}vardır.
+Dialogue: 0,0:07:17.18,0:07:21.38,DirokKaraoke,,0,0,0,,{\kf24}Bunun {\kf32}temel {\kf40}nedeni {\kf64}Gutilerin {\kf46}dilinden\N{\kf56}günümüze {\kf22}çok {\kf18}az {\kf36}belge {\kf58}kalmasıdır.
+Dialogue: 0,0:07:21.42,0:07:23.98,DirokKaraoke,,0,0,0,,{\kf40}Elimizde {\kf60}yalnızca\N{\kf36}birkaç {\kf30}kral {\kf20}adı {\kf40}vardır.
+Dialogue: 0,0:07:24.12,0:07:28.82,DirokKaraoke,,0,0,0,,{\kf30}Ancak {\kf84}coğrafya, {\kf78}toplumsal {\kf36}yapı {\kf14}ve\N{\kf72}isimlerin {\kf52}binlerce {\kf30}yıllık {\kf62}sürekliliği
+Dialogue: 0,0:07:28.86,0:07:30.30,DirokKaraoke,,0,0,0,,{\kf4}bu {\kf32}tezi {\kf32}güçlü {\kf46}kılıyor.
+Dialogue: 0,0:07:31.52,0:07:34.96,DirokKaraoke,,0,0,0,,{\kf82}Mezopotamya'nın {\kf42}ovaları\N{\kf80}zengindi {\kf30}ama {\kf80}savunmasızdı.
+Dialogue: 0,0:07:35.00,0:07:37.80,DirokKaraoke,,0,0,0,,{\kf78}İmparatorluklar {\kf46}geldi, {\kf78}şehirler {\kf48}yakıldı.
+Dialogue: 0,0:07:37.86,0:07:42.00,DirokKaraoke,,0,0,0,,{\kf8}On {\kf36}üçüncü {\kf62}yüzyılda {\kf52}Moğollar {\kf68}Bağdat'ı\N{\kf12}ve {\kf40}bütün {\kf86}Mezopotamya'yı {\kf32}yerle {\kf16}bir
+Dialogue: 0,0:07:42.04,0:07:42.54,DirokKaraoke,,0,0,0,,{\kf26}etti.
+Dialogue: 0,0:07:42.58,0:07:46.72,DirokKaraoke,,0,0,0,,{\kf18}Ama {\kf42}dağların {\kf52}sağladığı {\kf56}stratejik\N{\kf44}avantaj {\kf68}sayesinde {\kf46}Kürtler {\kf24}bu {\kf62}yıkımdan
+Dialogue: 0,0:07:46.76,0:07:48.82,DirokKaraoke,,0,0,0,,{\kf40}ovadaki {\kf38}halklar {\kf30}kadar {\kf68}etkilenmedi.
+Dialogue: 0,0:07:48.90,0:07:50.86,DirokKaraoke,,0,0,0,,{\kf50}Kürtlerin {\kf30}kadim {\kf18}bir {\kf26}sözü {\kf42}vardır:
+Dialogue: 0,0:07:51.16,0:07:54.80,DirokAlinti,,0,0,0,,Ji çiyan pê ve, hevalên me tune.
+Dialogue: 0,0:07:55.00,0:07:56.96,DirokKaraoke,,0,0,0,,{\kf54}Dağlardan {\kf30}başka {\kf54}dostumuz {\kf28}yok.
+Dialogue: 0,0:07:57.20,0:08:01.40,DirokKaraoke,,0,0,0,,{\kf46}Gutiler, {\kf112}Mezopotamya'nın {\kf20}ilk\N{\kf84}imparatorluğunu {\kf38}yıkan {\kf22}ve {\kf38}onun {\kf60}mirasını
+Dialogue: 0,0:08:01.44,0:08:02.52,DirokKaraoke,,0,0,0,,{\kf46}devralan {\kf40}halktı.
+Dialogue: 0,0:08:02.56,0:08:06.68,DirokKaraoke,,0,0,0,,{\kf20}Kürt {\kf62}tarihinin {\kf22}ilk {\kf74}sayfalarından\N{\kf50}biri {\kf34}işte {\kf8}bu {\kf70}topraklarda {\kf42}yazıldı.
+Dialogue: 0,0:08:06.98,0:08:10.76,DirokKaraoke,,0,0,0,,{\kf6}Bu {\kf42}videoyu {\kf94}beğendiyseniz {\kf36}abone\N{\kf50}olmayı {\kf12}ve {\kf82}görüşlerinizi {\kf56}yorumlarda
+Dialogue: 0,0:08:10.80,0:08:12.18,DirokKaraoke,,0,0,0,,{\kf58}paylaşmayı {\kf50}unutmayın.

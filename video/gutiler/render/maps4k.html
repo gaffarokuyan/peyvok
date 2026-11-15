@@ -1,0 +1,61 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Cinzel;font-weight:700;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:Cinzel;font-weight:700;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-ext-700-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}
+@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-900-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:CinzelH;font-weight:900;src:url(node_modules/@fontsource/cinzel/files/cinzel-latin-ext-900-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}
+@font-face{font-family:Corm;font-style:italic;font-weight:600;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-italic.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:Corm;font-style:italic;font-weight:600;src:url(node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-600-italic.woff2);unicode-range:U+0100-0130,U+0132-024F}
+@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+@font-face{font-family:InterB;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-800-normal.woff2);unicode-range:U+0100-0130,U+0132-024F}
+html,body{margin:0;background:#000}</style></head><body><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');const X=C.getContext('2d');const TAU=Math.PI*2;const N=Math.pow(2,8)*256;
+let V,S;function P(lon,lat){const gx=(lon+180)/360*N,gy=(1-Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))/Math.PI)/2*N;return[(gx-V.x0)*V.scale*S,(gy-V.y0)*V.scale*S]}
+const OLDGULF=[[48.4,29.9],[47.9,29.95],[47.2,30.2],[46.6,30.5],[46.3,30.9],[46.7,31.15],[47.4,31.2],[48.1,30.8],[48.7,30.4],[49.2,30.1]];
+const POL={akad:['AKAD İMPARATORLUĞU','#f2b134',[41.6,33.55],[[36.8,36.6],[38.5,36.9],[40.0,37.0],[41.0,36.6],[42.4,36.6],[43.4,36.2],[44.2,35.6],[44.4,35.0],[45.4,34.0],[46.6,33.4],[47.3,32.4],[47.6,31.3],[47.0,31.1],[46.3,30.9],[45.0,30.9],[44.0,31.5],[43.0,32.4],[41.6,33.6],[40.4,34.3],[39.0,35.0],[37.6,35.6]]],
+ gut:['GUTİUM','#e3322b',[46.9,34.55],[[44.4,35.9],[45.6,36.0],[46.1,36.4],[47.2,35.7],[48.2,34.7],[47.9,33.7],[46.6,33.5],[45.4,34.0],[44.4,35.0]]],
+ lul:['LULLUBİ','#ff8a2a',[45.6,37.45],[[44.6,36.9],[45.5,37.1],[46.1,36.6],[45.6,36.0],[44.8,36.0],[44.4,36.4]]],
+ hur:['HURRİLER','#3f84e5',[41.3,37.65],[[38.0,37.0],[40.0,37.6],[41.8,37.9],[43.2,37.5],[43.4,36.6],[42.4,36.6],[41.0,36.6],[40.0,37.0],[38.5,36.9]]],
+ elam:['ELAM','#18b8a6',[50.7,31.0],[[47.3,32.4],[48.6,33.6],[49.6,33.2],[50.8,32.4],[52.2,31.4],[53.6,30.4],[54.0,29.4],[53.0,28.6],[51.5,28.9],[50.4,29.8],[49.5,30.2],[48.6,30.3],[48.0,30.9],[47.6,31.3]]],
+ hat:['HATTİLER','#d4519f',[34.5,39.95],[[31.5,40.6],[34.0,41.4],[36.5,41.0],[37.5,40.0],[36.8,38.8],[35.0,38.4],[33.2,38.8],[31.8,39.6]]],
+ mar:['MARHAŞİ','#9a5ce0',[56.9,30.6],[[55.0,31.5],[57.5,31.8],[59.5,30.5],[59.0,28.5],[56.5,28.0],[54.6,29.0]]]};
+const CITIES=[['Uruk',45.64,31.32],['Ur',46.1,30.96],['Lagaş',46.4,31.41],['Nippur',45.23,32.13],['Kiş',44.6,32.54],['Akad',44.1,33.1],['Babil',44.42,32.54],['Eridu',46.0,30.8],['Ninova',43.15,36.36],['Aşur',43.26,35.46],['Mari',40.88,34.55],['Ebla',36.8,35.8],['Urkeş',41.0,37.05],['Susa',48.25,32.19],['Umma',45.88,31.67],['Ekbatana',48.51,34.8],['Kaneş',35.64,38.85],['Biblos',35.65,34.12]];
+function halo(txt,x,y,font,fill,lw=10,stroke='rgba(25,12,4,.85)',ls='0px',align='center'){X.save();X.font=font;X.letterSpacing=ls;X.textAlign=align;X.textBaseline='middle';X.lineJoin='round';X.lineWidth=lw;X.strokeStyle=stroke;X.strokeText(txt,x,y);X.fillStyle=fill;X.fillText(txt,x,y);X.restore()}
+function curved(txt,pts,font,fill,ls,lw){ // text along polyline (lon/lat list)
+  const p=pts.map(q=>P(q[0],q[1]));X.save();X.font=font;X.letterSpacing='0px';const chars=[...txt];const widths=chars.map(c=>X.measureText(c).width+ls);const total=widths.reduce((a,b)=>a+b,0);
+  const seg=[];let L=0;for(let i=1;i<p.length;i++){const d=Math.hypot(p[i][0]-p[i-1][0],p[i][1]-p[i-1][1]);seg.push(d);L+=d}let pos=(L-total)/2;
+  chars.forEach((c,i)=>{let d=pos+widths[i]/2,k=0;while(k<seg.length-1&&d>seg[k]){d-=seg[k];k++}const a=p[k],b=p[k+1];const t=d/seg[k];const x=a[0]+(b[0]-a[0])*t,y=a[1]+(b[1]-a[1])*t;const ang=Math.atan2(b[1]-a[1],b[0]-a[0]);
+    X.save();X.translate(x,y);X.rotate(ang);X.textAlign='center';X.textBaseline='middle';X.lineJoin='round';X.lineWidth=lw;X.strokeStyle='rgba(20,30,60,.75)';X.strokeText(c,0,0);X.fillStyle=fill;X.fillText(c,0,0);X.restore();pos+=widths[i]});X.restore()}
+function ring(r){X.beginPath();r.forEach(([a,b],i)=>{const[x,y]=P(a,b);i?X.lineTo(x,y):X.moveTo(x,y)});X.closePath()}
+function vignette(){const g=X.createRadialGradient(C.width/2,C.height/2,C.height*.55,C.width/2,C.height/2,C.height*1.15);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.22)');X.fillStyle=g;X.fillRect(0,0,C.width,C.height)}
+function titleBox(t1,t2){const W=C.width;S2=S;X.save();X.font=`900 ${96*S}px CinzelH`;X.letterSpacing=`${6*S}px`;const w=Math.max(X.measureText(t1).width,700*S)+140*S;const h=(t2?210:150)*S;const x=80*S,y=70*S;
+  X.fillStyle='rgba(38,18,8,.86)';X.shadowColor='rgba(0,0,0,.45)';X.shadowBlur=30*S;X.beginPath();X.roundRect(x,y,w,h,22*S);X.fill();X.shadowBlur=0;
+  const g=X.createLinearGradient(0,y,0,y+h);g.addColorStop(0,'#ffe9a8');g.addColorStop(.5,'#e9a21e');g.addColorStop(1,'#a8560c');X.strokeStyle=g;X.lineWidth=5*S;X.stroke();
+  X.textBaseline='middle';X.textAlign='left';const tg=X.createLinearGradient(0,y+20*S,0,y+130*S);tg.addColorStop(0,'#fff6c8');tg.addColorStop(.5,'#ffcf4a');tg.addColorStop(1,'#d07a10');X.fillStyle=tg;X.fillText(t1,x+70*S,y+78*S);
+  if(t2){X.font=`800 ${44*S}px InterB`;X.letterSpacing='2px';X.fillStyle='#fff';X.fillText(t2,x+72*S,y+160*S)}X.restore()}
+function mark(){X.save();X.font=`900 ${46*S}px CinzelH`;X.letterSpacing=`${6*S}px`;X.textAlign='right';X.textBaseline='alphabetic';X.lineWidth=8*S;X.lineJoin='round';X.strokeStyle='rgba(30,12,4,.7)';X.strokeText('DÎROK',C.width-60*S,C.height-55*S);
+  const g=X.createLinearGradient(0,C.height-100*S,0,C.height-50*S);g.addColorStop(0,'#fff0b0');g.addColorStop(1,'#d08a20');X.fillStyle=g;X.fillText('DÎROK',C.width-60*S,C.height-55*S);X.restore()}
+function seas(sz){const it=`italic 600 ${sz*S}px Corm`;[['KARADENİZ',35.3,43.3],['AKDENİZ',29.8,33.9],['HAZAR DENİZİ',50.9,41.8],['BASRA KÖRFEZİ',50.6,28.5]].forEach(([n,lo,la])=>{const[x,y]=P(lo,la);if(x<0||y<0||x>C.width||y>C.height)return;halo(n,x,y,it,'#e9f8ff',sz*.14*S,'rgba(10,40,90,.6)',`${sz*.22*S}px`)})}
+function mountains(sz,zg){[['TOROSLAR',[[31.2,37.4],[34.2,37.4],[37.0,38.0],[39.5,38.6]]],['ZAGROS',zg||[[45.4,36.8],[47.0,35.2],[48.6,33.6],[50.4,31.7]]],['KAFKASLAR',[[40.5,43.5],[43.0,42.9],[45.6,42.2],[47.4,41.4]]]].forEach(([n,line])=>curved(n,line,`700 ${sz*S}px Cinzel`,'#fff2d6',sz*.6*S,sz*.18*S))}
+function rivers(sz,fr){[['DİCLE',[[43.55,35.1],[43.75,34.45],[44.05,33.85]]],['FIRAT',fr||[[39.3,35.85],[40.2,35.25],[40.95,34.55]]]].forEach(([n,line])=>curved(n,line,`700 ${sz*S}px Cinzel`,'#bfeaff',sz*.35*S,sz*.2*S))}
+function cities(list,sz){list.forEach(nm=>{const c=CITIES.find(q=>q[0]===nm);const[x,y]=P(c[1],c[2]);if(x<0||y<0||x>C.width||y>C.height)return;X.save();X.beginPath();X.arc(x,y,sz*.32*S,0,TAU);X.fillStyle='#2a1206';X.fill();X.beginPath();X.arc(x,y,sz*.22*S,0,TAU);X.fillStyle='#fff8e6';X.fill();X.restore();
+  halo(nm.toLocaleUpperCase('tr'),x+sz*.5*S,y,`700 ${sz*S}px Cinzel`,'#fff8e6',sz*.22*S,'rgba(25,12,4,.85)',`${sz*.1*S}px`,'left')})}
+function oldGulf(){ring(OLDGULF);X.fillStyle='rgba(110,205,232,.92)';X.fill()}
+function polities(keys,sz){keys.forEach(k=>{const p=POL[k];ring(p[3]);X.save();X.globalAlpha=.33;X.fillStyle=p[1];X.fill();X.globalAlpha=1;X.setLineDash([22*S,13*S]);X.lineWidth=7*S;X.strokeStyle='rgba(255,255,255,.85)';X.stroke();X.lineWidth=4*S;X.strokeStyle=p[1];X.lineDashOffset=4*S;X.stroke();X.restore()});
+  keys.forEach(k=>{const p=POL[k];const[x,y]=P(...p[2]);if(x<0||y<0||x>C.width||y>C.height)return;halo(p[0],x,y,`900 ${sz*S}px CinzelH`,'#fff6e0',sz*.2*S,'rgba(25,10,4,.9)',`${sz*.15*S}px`)})}
+const MAPS={
+ genis_fiziki:{v:'genis',draw(){vignette();mark()}},
+ genis_etiketli:{v:'genis',draw(){oldGulf();seas(64);mountains(46);rivers(40,[[0,0],[0.1,0.1],[0.2,0.2]]);halo('FIRAT',...P(37.45,36.7),`700 ${40*S}px Cinzel`,'#bfeaff',8*S,'rgba(20,30,60,.75)',`${14*S}px`);halo('MEZOPOTAMYA',...P(41.6,35.85),`900 ${78*S}px CinzelH`,'#ffe7a8',20*S,'rgba(40,16,4,.85)',`${30*S}px`);
+   halo('ANADOLU',...P(33.3,38.9),`700 ${50*S}px Cinzel`,'#fff1d6',10*S,'rgba(40,16,4,.75)',`${18*S}px`);halo('İRAN YAYLASI',...P(54.2,33.8),`700 ${50*S}px Cinzel`,'#fff1d6',10*S,'rgba(40,16,4,.75)',`${18*S}px`);
+   cities(['Uruk','Ur','Nippur','Babil','Ninova','Mari','Urkeş','Susa'],34);vignette();titleBox('MEZOPOTAMYA','İKİ NEHİR ARASINDAKİ ÜLKE');mark()}},
+ genis_MO2200:{v:'genis',draw(){oldGulf();polities(['akad','gut','lul','hur','elam','hat','mar'],50);seas(60);cities(['Akad','Ur','Nippur','Mari','Urkeş','Susa','Ebla'],30);vignette();titleBox('MÖ 2200','AKAD, GUTİUM VE KOMŞULARI');mark()}},
+ mezopotamya_fiziki:{v:'mezopotamya',draw(){vignette();mark()}},
+ mezopotamya_etiketli:{v:'mezopotamya',draw(){oldGulf();rivers(46);halo('SÜMER',...P(44.25,31.6),`900 ${76*S}px CinzelH`,'#ffe7a8',14*S,'rgba(40,16,4,.85)',`${16*S}px`);halo('AKAD',...P(43.6,33.8),`900 ${76*S}px CinzelH`,'#ffe7a8',14*S,'rgba(40,16,4,.85)',`${16*S}px`);
+   halo('GUTİUM',...P(46.35,34.95),`900 ${76*S}px CinzelH`,'#ffb8a0',14*S,'rgba(40,16,4,.85)',`${16*S}px`);halo('SUBARTU',...P(41.4,36.8),`900 ${64*S}px CinzelH`,'#cfe6ff',12*S,'rgba(40,16,4,.85)',`${16*S}px`);halo('ELAM',...P(49.3,31.45),`900 ${64*S}px CinzelH`,'#b8fff0',12*S,'rgba(40,16,4,.85)',`${16*S}px`);
+   mountains(50,[[49.5,34.7],[50.5,33.7],[51.5,32.9]]);cities(['Uruk','Ur','Lagaş','Umma','Nippur','Akad','Babil','Eridu','Ninova','Aşur','Mari','Urkeş','Susa','Ekbatana'],36);vignette();titleBox('MEZOPOTAMYA','DİCLE VE FIRAT ARASINDA');mark()}},
+ dikey_etiketli:{v:'dikey',draw(){oldGulf();seas(64);mountains(48);rivers(44);halo('MEZOPOTAMYA',...P(43.0,34.0),`900 ${96*S}px CinzelH`,'#ffe7a8',16*S,'rgba(40,16,4,.85)',`${14*S}px`);cities(['Uruk','Ur','Nippur','Babil','Akad','Ninova','Aşur','Mari','Urkeş','Susa'],38);vignette();mark()}}
+};
+window.render=async(name,scale)=>{const m=MAPS[name];V=window.VIEWS[m.v];S=scale||1;const img=new Image();img.src='../maps4k/base_'+m.v+'.png';await img.decode();C.width=V.W*S;C.height=V.H*S;X.drawImage(img,0,0,C.width,C.height);
+  for(const f of ['700 40px Cinzel','900 40px CinzelH','italic 600 40px Corm','800 40px InterB'])await document.fonts.load(f,'AaĞİŞÎ');m.draw();return C.toDataURL('image/png')};
+</script></body></html>
